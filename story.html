@@ -6,11 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Story</title>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./05.css/story.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script defer src="./04.js/header.js"></script>
     <script defer src="./04.js/story.js"></script>
 </head>
 
 <body>
+    <!-- header -->
     <div id="main">
         <div class="main-wrapper">
             <div class="main-container1">
@@ -34,28 +39,70 @@
                     <div class="container2-intro-text">
                         <div class="intro-text-wrapper">
                             <p class="intro-text1">이클립스</p>
-                            <p class="intro-text2">1999년부터 시작된</p>
+                            <p class="intro-text2">1999년부터 이어진</p>
                             <p class="intro-text3">작지만 놀라운 상쾌함</p>
-                            <p class="intro-text4">민트의 숨겨진 이야기들</p>
-                            <p class="intro-text5">Proudly Australian made.</p>
+                            <p class="intro-text4">민트속 숨겨진 이야기들</p>
+                            <p class="intro-text5">This is our story.</p>
                         </div>
                     </div>
-                    <figure>
-                        <img src="./01.img/mints_peppermint.png" alt="">
-                        <img src="./01.img/mints_grape.png" alt="">
-                        <img src="./01.img/mints_intense.png" alt="">
-                        <img src="./01.img/mints_orange.png" alt="">
-                        <img src="./01.img/mints_spearmint.png" alt="">
-                        <img src="./01.img/mints_strawberry.png" alt="">
-                        <img src="./01.img/plus_comfort.png" alt="">
-                        <img src="./01.img/plus_release.png" alt="">
-                    </figure>
-                    <div class="container2-item02"></div>
-                    <div class="container2-item03"></div>
+                    <div class="intro-image-wrapper">
+                        <button class="intro-btn">
+                        </button>
+                        <button class="intro-skip-btn">SKIP INTRO&nbsp;▶︎
+                        </button>
+                    </div>
+                    <canvas class="canvas"></canvas>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="container-general">
+                                    <div class="gallery-wrap wrap-effect-1">
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="container-general">
+                                    <div class="gallery-wrap wrap-effect-2">
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="container-general">
+                                        <div class="gallery-wrap wrap-effect-3">
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="container-general wrap-effect-4">
+                                        <div class="gallery-wrap">
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>

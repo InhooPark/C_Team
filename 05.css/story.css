@@ -1,13 +1,15 @@
 @import url(./reset.css);
+@import url(./header.css);
 body {
   position: fixed;
+  transition: 2s;
 }
 body::-webkit-scrollbar {
+  -ms-overflow-style: none;
   display: none;
 }
 
 #main {
-  -ms-overflow-style: none;
   transition: 2s;
 }
 #main.active {
@@ -57,27 +59,177 @@ body::-webkit-scrollbar {
   text-transform: uppercase;
   opacity: 0;
 }
-#main .main-wrapper .main-container2 .main-item-wrapper figure {
-  opacity: 0;
-  transition: 1s;
-  display: none;
-}
-#main .main-wrapper .main-container2 .main-item-wrapper figure.active {
+#main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper {
+  opacity: 1;
+  transition: 0.7s;
   display: block;
 }
-#main .main-wrapper .main-container2 .main-item-wrapper figure img {
-  cursor: pointer;
+#main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper.active {
+  display: block;
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper .intro-btn {
   position: absolute;
   top: 50%;
   left: 50%;
+  height: 50px;
+  width: 50px;
   translate: -50% -50%;
-  scale: 0.3;
-  -webkit-animation: tinScaleAni 1s 0s ease-in-out infinite alternate;
-          animation: tinScaleAni 1s 0s ease-in-out infinite alternate;
+  background: rgba(0, 171, 105, 0.7);
+  border-radius: 50%;
+  border: 1px solid rgb(0, 171, 105);
+  -webkit-animation: spinner 800ms linear infinite;
+          animation: spinner 800ms linear infinite;
+  transition: 0.7s;
+  cursor: pointer;
   display: none;
 }
-#main .main-wrapper .main-container2 .main-item-wrapper figure img.active {
+#main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper .intro-btn.active {
   display: block;
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper .intro-skip-btn {
+  cursor: pointer;
+  display: block;
+  position: fixed;
+  top: 90%;
+  left: 80%;
+  border: none;
+  font-size: 20px;
+  background: transparent;
+  font-style: italic;
+  width: 200px;
+  height: 45px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper .intro-skip-btn:hover {
+  background-color: #b7ebd6;
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .canvas.active {
+  opacity: 0;
+  transition: 2s;
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 50vh;
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide {
+  text-align: center;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general {
+  padding: 75px 0;
+  margin: 0 auto;
+  width: 800px;
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .gallery-wrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70vh;
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .gallery-wrap .item {
+  flex: 1;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  transition: all 0.8s ease;
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .gallery-wrap .item:hover {
+  flex: 7;
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-1 .item:first-of-type {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4185141/galshir-cactus-coffee.png");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-1 .item:nth-of-type(2) {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/6146136/galshir-tea-biscuit_2x.png");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-1 .item:nth-of-type(3) {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4473482/galshir-dog-walker.gif");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-1 .item:nth-of-type(4) {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5743606/gal-shir-scooter_2x.png");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-1 .item:last-of-type {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4738104/galshir-storytime.png");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-2 .item:hover {
+  transform: translate3d(0, 0, 100px);
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  filter: saturate(2) contrast(120%);
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-2 .item:first-of-type {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4854597/galshir-umbrella.jpg");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-2 .item:nth-of-type(2) {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4776189/galshir-genesis.png");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-2 .item:nth-of-type(3) {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5329211/galshir-walking.gif");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-2 .item:nth-of-type(4) {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4611698/galshir-paper-boat.png");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-2 .item:last-of-type {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4544774/galshir-window.png");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-3 .item:hover {
+  -webkit-animation: rotate 0.7s ease-in-out both;
+          animation: rotate 0.7s ease-in-out both;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-3 .item:first-of-type {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5947483/galshir-wind_2x.png");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-3 .item:nth-of-type(2) {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5754705/galshir-rain_2x.png");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-3 .item:nth-of-type(3) {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5355160/galshir-attack.gif");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-3 .item:nth-of-type(4) {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4742049/galshir-samurai.png");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-3 .item:last-of-type {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5594777/galshir-winter-cycling_2x.jpg");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-4 .item:hover {
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  filter: saturate(2) contrast(120%);
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-4 .item:first-of-type {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4226693/galshir-iphone-x-lemonade.gif");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-4 .item:nth-of-type(2) {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4475663/galshir-musical-instruments.gif");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-4 .item:nth-of-type(3) {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5431797/galshir-lemonade-ring.gif");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-4 .item:nth-of-type(4) {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4419736/galshir-lemonade-bike.gif");
+}
+#main .main-wrapper .main-container2 .main-item-wrapper .swiper-container .swiper-slide .container-general .wrap-effect-4 .item:last-of-type {
+  background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4281500/galshir-lemonade-camera.gif");
 }
 
 @-webkit-keyframes opacityBlurAni {
@@ -121,39 +273,65 @@ body::-webkit-scrollbar {
     filter: blur(10px);
   }
 }
-@-webkit-keyframes fadeInAni {
-  from {
-    opacity: 0;
-    translate: 0 20px;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-@keyframes fadeInAni {
-  from {
-    opacity: 0;
-    translate: 0 20px;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
 @-webkit-keyframes tinScaleAni {
   0% {
-    scale: 0.3;
+    transform: scale(0.3);
   }
   100% {
-    scale: 0.33;
+    transform: scale(0.33);
   }
 }
 @keyframes tinScaleAni {
   0% {
-    scale: 0.3;
+    transform: scale(0.3);
   }
   100% {
-    scale: 0.33;
+    transform: scale(0.33);
+  }
+}
+@-webkit-keyframes spinner {
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@keyframes spinner {
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(10deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-10deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(5deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(10deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-10deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(5deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
   }
 }/*# sourceMappingURL=story.css.map */
