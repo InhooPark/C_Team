@@ -1,0 +1,84 @@
+header {
+    position: relative;
+    .menu-container {
+      position: fixed;
+  
+      width: 100%;
+      height: 80px;
+      display: flex;
+      justify-content: space-between;
+      top: 0;
+      z-index: 100;
+      .logo {
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          .logo-img{
+            width: 60%;
+            overflow: hidden;
+            img {
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+      .burger {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        .burger-open{
+          height: 100%;
+          display: none;
+          position: absolute;
+          right: 80px;
+          .menu{
+            width: 100px;
+            a{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-decoration: none;
+              width: 100%;
+              height: 100%;
+              font-size: 1.5rem;
+              font-weight: black;
+              color: #003082;
+            }
+          }
+          &.open{
+            display: flex;
+          }
+        }
+        .burger-wrap {
+          width: 40px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          position: relative;
+          cursor: pointer;
+          span {
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: black;
+            &:nth-child(1) {
+              top: 20%;
+            }
+            &:nth-child(2) {
+              top: 50%;
+            }
+            &:nth-child(3) {
+              top: 80%;
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,32 +1,177 @@
-body{
-    width: 100%;
-    margin: 0;
+@import url(./header.css);
+
+body {
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
 }
-.first-title{
-    width: 100%;
-    height: 10000px;
-    background-color: #e0e0e0
-}
-.second-explosion{
-    width: 100%;
-    height: 10000px;
-    background-color: #a0a0a0
-}
-.third-video{
-    width: 100%;
-    height: 10000px;
-    background-color: #e0e0e0;
-    position: relative;
-    .video-wrap{
-        width: 100%;
-        height: 100vh;
-        background-color: black;
-        position: sticky;
-        top: 0;
-    }
-}
-.more{
+.first-title {
+  width: 100%;
+  height: 5500px;
+  position: relative;
+  .first-sticky {
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 100vh;
-    background-color: gray;
+    display: flex;
+    justify-content: center;
+    .img-wrapper-first {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform: translateX(-200%);
+      width: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      img {
+        width: 100%;
+        object-fit: cover;
+        transition: 600ms;
+      }
+      &.invisible img {
+        opacity: 0;
+      }
+    }
+    .img-wrapper-second {
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      img {
+        opacity: 0;
+        width: 100%;
+        object-fit: cover;
+        transition: 600ms;
+      }
+      &.visible img {
+        opacity: 1;
+      }
+    }
+  }
 }
+.term {
+  width: 100%;
+  height: 500px;
+  &.last {
+    background-color: #b7ebd6;
+  }
+}
+
+.second-explosion {
+  width: 100%;
+  height: 2300px;
+  .candy-wrap {
+    width: 100%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    .candy01,
+    .candy02,
+    .candy03,
+    .candy04,
+    .candy05,
+    .candy06,
+    .candy07,
+    .candy08 {
+      position: absolute;
+      width: 20%;
+      overflow: hidden;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .candy01 {
+      left: 40%;
+      bottom: -40%;
+      transform: translateX(-50%);
+      transform: rotate(30deg);
+    }
+    .candy02 {
+      left: 40%;
+      bottom: -40%;
+      transform: translateX(-50%);
+      transform: rotate(50deg);
+    }
+    .candy03 {
+      left: 40%;
+      bottom: -40%;
+      transform: translateX(-50%);
+      transform: rotate(70deg);
+    }
+    .candy04 {
+      left: 40%;
+      bottom: -40%;
+      transform: translateX(-50%);
+      transform: rotate(80deg);
+    }
+    .candy05 {
+      left: 40%;
+      bottom: -40%;
+      transform: translateX(-50%);
+      transform: rotate(100deg);
+    }
+    .candy06 {
+      left: 40%;
+      bottom: -40%;
+      transform: translateX(-50%);
+      transform: rotate(110deg);
+    }
+    .candy07 {
+      left: 40%;
+      bottom: -40%;
+      transform: translateX(-50%);
+      transform: rotate(130deg);
+    }
+    .candy08 {
+      left: 40%;
+      bottom: -40%;
+      transform: translateX(-50%);
+      transform: rotate(150deg);
+    }
+  }
+}
+
+.third-video {
+  width: 100%;
+  height: 500vh;
+  position: relative;
+  .video-wrap {
+    width: 100%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    video {
+      width: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: 1000ms;
+    }
+    &.visible video {
+      opacity: 1;
+    }
+  }
+  .gradation {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, transparent 40%, #b7ebd6 100%);
+
+    position: absolute;
+    top: 0;
+    z-index: 10;
+  }
+}
+.more {
+  width: 100%;
+  height: 100vh;
+  background: #b7ebd6;
+}
+
+
