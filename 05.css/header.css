@@ -1,5 +1,6 @@
 header {
   position: relative;
+  z-index: 100;
 }
 header .menu-container {
   position: fixed;
@@ -8,7 +9,6 @@ header .menu-container {
   display: flex;
   justify-content: space-between;
   top: 0;
-  z-index: 100;
 }
 header .menu-container .logo a {
   display: flex;
