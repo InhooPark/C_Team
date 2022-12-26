@@ -1,1 +1,97 @@
-/*# sourceMappingURL=product.css.map */
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+.header {
+  height: 9.999%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: seagreen;
+  position: relative;
+  z-index: 999;
+}
+.header .logo {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+.header .content-list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-top: 15px;
+}
+.header .content-list .content {
+  margin: 0 auto;
+}
+.header .content-list .content img {
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+}
+.main .main-item {
+  width: 65%;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+}
+.main .main-item h2 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 130px;
+  margin-left: 150px;
+  margin-top: 150px;
+  margin-bottom: 45px;
+}
+.main .main-item .item-img {
+  position: -webkit-sticky;
+  position: sticky;
+  height: 530px;
+  width: 580px;
+  top: 195px;
+  background-color: gray;
+  margin: 0 auto;
+}
+.main .main-item .item-img img {
+  width: 50%;
+  margin: 120px 145px;
+}
+.main .main-content {
+  width: 35%;
+  background-color: burlywood;
+}
+.main .main-content .candy {
+  margin-top: 250px;
+}
+.main .main-content .cont {
+  width: 100%;
+  background-color: darkgray;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 250px;
+}
+.main .main-content .cont div {
+  margin-top: 25px;
+  text-align: center;
+  width: 40%;
+  background-color: cadetblue;
+}
+.main .main-content .cont div img {
+  width: 40%;
+}
+.main .main-content .text {
+  margin-top: 120px;
+}
+.main .main-content .text h2 {
+  font-size: 40px;
+  margin-bottom: 25px;
+}
+.main .main-content .text p {
+  font-size: 20px;
+}/*# sourceMappingURL=product.css.map */
