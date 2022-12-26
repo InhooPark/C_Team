@@ -6,11 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Story</title>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./05.css/story.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script defer src="./04.js/header.js"></script>
     <script defer src="./04.js/story.js"></script>
 </head>
 
 <body>
+    <!-- header -->
     <div id="main">
         <div class="main-wrapper">
             <div class="main-container1">
@@ -41,38 +46,63 @@
                         </div>
                     </div>
                     <div class="intro-image-wrapper">
-                        <figure>
-                            <!-- <img class="intro-btn" src="./01.img/mints_peppermint.png" alt="eclipse_peppermint"> -->
-                            <div class="intro-btn"></div>
-                        </figure>
-                        <!-- <figure>
-                            <img src="./01.img/mints_grape.png" alt="eclipse_grape">
-                        </figure>
-                        <figure>
-                            <img src="./01.img/mints_intense.png" alt="eclipse_intense">
-                        </figure>
-                        <figure>
-                            <img src="./01.img/mints_orange.png" alt="eclipse_orange">
-                        </figure>
-                        <figure>
-                            <img src="./01.img/mints_spearmint.png" alt="eclipse_spearmint">
-                        </figure>
-                        <figure>
-                            <img src="./01.img/mints_strawberry.png" alt="eclipse_strawberry">
-                        </figure>
-                        <figure>
-                            <img src="./01.img/plus_comfort.png" alt="eclipse_comfort">
-                        </figure>
-                        <figure>
-                            <img src="./01.img/plus_release.png" alt="eclipse_release">
-                        </figure> -->
+                        <button class="intro-btn">
+                        </button>
+                        <button class="intro-skip-btn">SKIP INTRO&nbsp;▶︎
+                        </button>
                     </div>
                     <canvas class="canvas"></canvas>
-                    <div class="container2-item02"></div>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="container-general">
+                                    <div class="gallery-wrap wrap-effect-1">
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="container-general">
+                                    <div class="gallery-wrap wrap-effect-2">
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                        <div class="item"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="container-general">
+                                        <div class="gallery-wrap wrap-effect-3">
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="container-general wrap-effect-4">
+                                        <div class="gallery-wrap">
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                            <div class="item"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>
