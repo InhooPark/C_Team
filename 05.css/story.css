@@ -11,7 +11,7 @@ body::-webkit-scrollbar {
   transition: 2s;
 }
 #main.active {
-  background: #b7ebd6;
+  background: url(../01.img/mint_background_1500.jpg) no-repeat center/cover;
 }
 #main .main-wrapper {
   width: 100vw;
@@ -57,27 +57,37 @@ body::-webkit-scrollbar {
   text-transform: uppercase;
   opacity: 0;
 }
-#main .main-wrapper .main-container2 .main-item-wrapper figure {
+#main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper {
   opacity: 0;
-  transition: 1s;
+  transition: 0.7s;
   display: none;
 }
-#main .main-wrapper .main-container2 .main-item-wrapper figure.active {
+#main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper.active {
   display: block;
 }
-#main .main-wrapper .main-container2 .main-item-wrapper figure img {
+#main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper figure img {
   cursor: pointer;
   position: absolute;
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-  scale: 0.3;
+  transform: scale(0.3);
   -webkit-animation: tinScaleAni 1s 0s ease-in-out infinite alternate;
           animation: tinScaleAni 1s 0s ease-in-out infinite alternate;
+  transition: 0.7s;
   display: none;
 }
-#main .main-wrapper .main-container2 .main-item-wrapper figure img.active {
+#main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper figure img.active {
   display: block;
+}
+#main .main-wrapper .main-container2 .canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
 }
 
 @-webkit-keyframes opacityBlurAni {
@@ -121,39 +131,19 @@ body::-webkit-scrollbar {
     filter: blur(10px);
   }
 }
-@-webkit-keyframes fadeInAni {
-  from {
-    opacity: 0;
-    translate: 0 20px;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-@keyframes fadeInAni {
-  from {
-    opacity: 0;
-    translate: 0 20px;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
 @-webkit-keyframes tinScaleAni {
   0% {
-    scale: 0.3;
+    transform: scale(0.3);
   }
   100% {
-    scale: 0.33;
+    transform: scale(0.33);
   }
 }
 @keyframes tinScaleAni {
   0% {
-    scale: 0.3;
+    transform: scale(0.3);
   }
   100% {
-    scale: 0.33;
+    transform: scale(0.33);
   }
 }/*# sourceMappingURL=story.css.map */
