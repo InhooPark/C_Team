@@ -2,8 +2,10 @@ const INTROTEXT = document.querySelector(".intro-text-wrapper");
 const INTROPTAG = document.querySelectorAll(".intro-text-wrapper p");
 const INTROIMGWRAP = document.querySelector(".intro-image-wrapper");
 const INTROBTN = document.querySelector(".intro-btn");
+const INTROSKIP = document.querySelector(".intro-skip-btn");
+
 // 인트로에 사용할 DOM 선언
-//인트로 텍스트와 랜덤팝업 이미지 함수 시작
+// 인트로 텍스트와 랜덤팝업 이미지 함수 시작
 function introTextFun(target, delay, repeat) {
   // 대상, 딜레이시간, 반복횟수는 매개변수로 받아서 사용
   let num = 1;
@@ -34,11 +36,12 @@ function introTextFun(target, delay, repeat) {
   let randomNumber = Math.floor(Math.random() * (INTROBTN.length + 1));
   // opacity 1로 변환 전에 클래스 active로 diplay block 만들어줌
   // 이렇게 안했을때 display block 처리하면 갑자기 튀어 나오는 현상 있음..
-  setTimeout(() => {
+  let btnActive = setTimeout(() => {
     //버튼의 이미지가 여러개일 경우
     // INTROBTN.forEach(() => {
     //   INTROBTN[randomNumber].classList.add("active");
     // });
+    INTROBTN.classList.add("active");
     INTROIMGWRAP.classList.add("active");
     console.log("버튼 엑티브");
   }, delay * INTROPTAG.length + 1200);
@@ -57,6 +60,12 @@ function introTextFun(target, delay, repeat) {
   setTimeout(() => {
     INTROIMGWRAP.click();
   }, delay * INTROPTAG.length + 12000);
+  INTROSKIP.addEventListener("click", () => {
+    INTROIMGWRAP.click();
+    clearTimeout(btnActive);
+    clearTimeout(imgPop);
+    clearInterval(introInter);
+  });
 }
 // 위 함수 실행
 introTextFun(INTROTEXT, 2000, INTROPTAG.length);
@@ -120,7 +129,7 @@ function renderMintPetal() {
     ELCANVAS.classList.add("active");
     setTimeout(() => {
       ctx.clearRect(0, 0, ELCANVAS.width, ELCANVAS.height);
-    }, 2000);
+    }, 10000);
   } else {
     window.requestAnimationFrame(renderMintPetal);
   }
@@ -163,3 +172,14 @@ class MintLeaf {
     this.draw();
   }
 }
+
+const swiper = new Swiper(".swiper-container", {
+  // direction: "vertical",
+  mousewheel: {},
+  effect: "slide",
+  spaceBetween: 30,
+  keyboard: {
+    enabled: true,
+    onlyInViewport: false,
+  },
+});
