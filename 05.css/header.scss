@@ -34,12 +34,18 @@ header {
       align-items: center;
       position: relative;
       .burger-open {
+        max-width: 0;
+        transition: max-width 300ms ease-out;
+        overflow: hidden;
+        padding: 0;
+
         height: 100%;
-        display: none;
+        display: flex;
         position: absolute;
         right: 80px;
         .menu {
-          width: 100px;
+          width: 100%;
+          padding: 0 20px;
           a {
             display: flex;
             justify-content: center;
@@ -51,9 +57,6 @@ header {
             font-weight: black;
             color: #003082;
           }
-        }
-        &.open {
-          display: flex;
         }
       }
       .burger-wrap {
@@ -68,6 +71,7 @@ header {
           width: 30px;
           height: 2px;
           background: black;
+          transition: 300ms;
           &:nth-child(1) {
             top: 20%;
           }
@@ -76,6 +80,28 @@ header {
           }
           &:nth-child(3) {
             top: 80%;
+          }
+        }
+      }
+      &.open {
+        .burger-open {
+          max-width: 100vw;
+          padding: 0;
+          transition: max-width 300ms ease-in;
+        }
+        .burger-wrap {
+          span {
+            &:nth-child(1) {
+              top: 50%;
+              transform: rotate(45deg);
+            }
+            &:nth-child(2) {
+              transform: scaleX(0);
+            }
+            &:nth-child(3) {
+              top: 50%;
+              transform: rotate(-45deg);
+            }
           }
         }
       }
