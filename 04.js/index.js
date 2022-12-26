@@ -12,12 +12,6 @@ window.addEventListener("load", function () {
   const CANDY08 = document.querySelector(".candy08");
 
   const VIDEO = document.querySelector(".video-wrap");
-  const BURGER = document.querySelector(".burger");
-  const BURGEROPEN = document.querySelector(".burger-open");
-
-  BURGER.addEventListener("click", function () {
-    BURGEROPEN.classList.toggle("open");
-  });
 
   window.addEventListener("scroll", function () {
     //console.log(window.pageYOffset);
