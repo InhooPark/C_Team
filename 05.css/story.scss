@@ -1,18 +1,19 @@
 @import url(./reset.css);
 body {
   position: fixed;
+  transition: 2s;
   &::-webkit-scrollbar {
+    -ms-overflow-style: none;
     display: none;
   }
 }
 #main {
-  -ms-overflow-style: none;
   transition: 2s;
   &.active {
-    // background: #b7ebd6;
+    background: #b7ebd6;
     // background: url(../01.img/mint_background_1500.jpg) no-repeat center
     //   center / cover;
-    background: url(../01.img/mint_background_1500.jpg) no-repeat center/ cover;
+    // background: url(../01.img/mint_background_1500.jpg) no-repeat center/ cover;
     // background: linear-gradient(
     //   0deg,
     //   rgba(183, 235, 214, 0) 0%,
@@ -73,19 +74,36 @@ body {
             display: block;
           }
           figure {
-            img {
-              cursor: pointer;
+            .intro-btn {
               position: absolute;
               top: 50%;
               left: 50%;
+              height: 50px;
+              width: 50px;
               translate: -50% -50%;
-              transform: scale(0.3);
-              animation: tinScaleAni 1s 0s ease-in-out infinite alternate;
+              background: rgb(0, 171, 105, 0.7);
+              border-radius: 50%;
+              border: 1px solid rgb(0, 171, 105, 1);
+              opacity: 1;
+              animation: spinner 800ms linear infinite;
               transition: 0.7s;
-              display: none;
+              cursor: pointer;
+              display: block;
               &.active {
                 display: block;
               }
+              // cursor: pointer;
+              // position: absolute;
+              // top: 50%;
+              // left: 50%;
+              // translate: -50% -50%;
+              // transform: scale(0.3);
+              // animation: tinScaleAni 1s 0s ease-in-out infinite alternate;
+              // transition: 0.7s;
+              // display: none;
+              // &.active {
+              //   display: block;
+              // }
             }
           }
         }
@@ -98,6 +116,10 @@ body {
         height: 100%;
         overflow: hidden;
         z-index: -1;
+        &.active {
+          opacity: 0;
+          transition: 2s;
+        }
       }
     }
   }
@@ -128,5 +150,11 @@ body {
   }
   100% {
     transform: scale(0.33);
+  }
+}
+@keyframes spinner {
+  to {
+    transform: scale(1.5);
+    opacity: 0;
   }
 }

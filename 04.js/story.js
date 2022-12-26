@@ -1,7 +1,7 @@
 const INTROTEXT = document.querySelector(".intro-text-wrapper");
 const INTROPTAG = document.querySelectorAll(".intro-text-wrapper p");
 const INTROIMGWRAP = document.querySelector(".intro-image-wrapper");
-const INTROFIGUREIMG = document.querySelectorAll(".intro-image-wrapper img");
+const INTROBTN = document.querySelector(".intro-btn");
 // 인트로에 사용할 DOM 선언
 //인트로 텍스트와 랜덤팝업 이미지 함수 시작
 function introTextFun(target, delay, repeat) {
@@ -31,15 +31,16 @@ function introTextFun(target, delay, repeat) {
     console.log("텍스트 효과 실행중");
   }, delay);
   // 매 새로고침마다 다른 이미지 생성을 위해 랜덤변수 생성
-  let randomNumber = Math.floor(Math.random() * (INTROFIGUREIMG.length + 1));
+  let randomNumber = Math.floor(Math.random() * (INTROBTN.length + 1));
   // opacity 1로 변환 전에 클래스 active로 diplay block 만들어줌
   // 이렇게 안했을때 display block 처리하면 갑자기 튀어 나오는 현상 있음..
   setTimeout(() => {
-    INTROFIGUREIMG.forEach(() => {
-      INTROFIGUREIMG[randomNumber].classList.add("active");
-    });
+    //버튼의 이미지가 여러개일 경우
+    // INTROBTN.forEach(() => {
+    //   INTROBTN[randomNumber].classList.add("active");
+    // });
     INTROIMGWRAP.classList.add("active");
-    console.log("통 엑티브");
+    console.log("버튼 엑티브");
   }, delay * INTROPTAG.length + 1200);
   // 팝업 이미지 opacity 효과
   let imgPop = "";
@@ -47,7 +48,7 @@ function introTextFun(target, delay, repeat) {
   if (!main.classList.contains("active")) {
     imgPop = setTimeout(() => {
       INTROIMGWRAP.style = `opacity: 1`;
-      console.log("통 팝업");
+      console.log("버튼 팝업");
     }, delay * INTROPTAG.length + 2000);
   } else {
     clearTimeout(imgPop);
@@ -67,14 +68,13 @@ INTROIMGWRAP.addEventListener("click", (e) => {
   console.log(e.target);
   main.classList.add("active");
   INTROIMGWRAP.style = `opacity: 0;`;
-  // 캔버스 랜더함수 실행
-  window.cancelAnimationFrame(render);
   //배경화면 뿌려주면서 캔버스 앞으로
   ELCANVAS.style = `z-index: 1`;
   // 이미지 사라질때 스케일 업
-  INTROFIGUREIMG.forEach((el, key) => {
-    INTROFIGUREIMG[key].style = `scale: 3`;
-  });
+  // INTROBTN.forEach((el, key) => {
+  //   INTROBTN[key].style = `scale: 3`;
+  // });
+  INTROBTN.style = `scale: 2`;
   console.log("백그라운드 효과");
   setTimeout(() => {
     INTROIMGWRAP.classList.remove("active");
@@ -95,7 +95,7 @@ window.addEventListener("resize", () => {
   ELCANVAS.height = window.innerHeight;
 });
 
-let mintCounts = 25;
+let mintCounts = 20;
 // 배열에 민트 반복문 횟수만큼 추가
 let mintArray = [];
 // 민트 이미지 선언
@@ -106,24 +106,26 @@ mintImg.onload = () => {
   for (let i = 0; i < mintCounts; i++) {
     mintArray.push(new MintLeaf());
   }
+  // 랜더실행
+  renderMintPetal();
 };
 
-function render() {
+function renderMintPetal() {
   // 프레임단위로 전에 그린 그림 지워주기
   ctx.clearRect(0, 0, ELCANVAS.width, ELCANVAS.height);
   mintArray.forEach((mint) => {
     mint.animate();
   });
-  // 리퀘스트 애니메이션 프레임 선언으로 랜더 자동실행
   if (main.classList.contains("active")) {
-    ctx.clearRect(0, 0, ELCANVAS.width, ELCANVAS.height);
-    return;
+    ELCANVAS.classList.add("active");
+    setTimeout(() => {
+      ctx.clearRect(0, 0, ELCANVAS.width, ELCANVAS.height);
+    }, 2000);
   } else {
-    window.requestAnimationFrame(render);
+    window.requestAnimationFrame(renderMintPetal);
   }
+  // 리퀘스트 애니메이션 프레임 선언으로 랜더 자동실행
 }
-render();
-// 랜더실행
 // 클래스
 class MintLeaf {
   constructor() {

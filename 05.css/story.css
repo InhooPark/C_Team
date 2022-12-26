@@ -1,17 +1,18 @@
 @import url(./reset.css);
 body {
   position: fixed;
+  transition: 2s;
 }
 body::-webkit-scrollbar {
+  -ms-overflow-style: none;
   display: none;
 }
 
 #main {
-  -ms-overflow-style: none;
   transition: 2s;
 }
 #main.active {
-  background: url(../01.img/mint_background_1500.jpg) no-repeat center/cover;
+  background: #b7ebd6;
 }
 #main .main-wrapper {
   width: 100vw;
@@ -65,19 +66,24 @@ body::-webkit-scrollbar {
 #main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper.active {
   display: block;
 }
-#main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper figure img {
-  cursor: pointer;
+#main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper figure .intro-btn {
   position: absolute;
   top: 50%;
   left: 50%;
+  height: 50px;
+  width: 50px;
   translate: -50% -50%;
-  transform: scale(0.3);
-  -webkit-animation: tinScaleAni 1s 0s ease-in-out infinite alternate;
-          animation: tinScaleAni 1s 0s ease-in-out infinite alternate;
+  background: rgba(0, 171, 105, 0.7);
+  border-radius: 50%;
+  border: 1px solid rgb(0, 171, 105);
+  opacity: 1;
+  -webkit-animation: spinner 800ms linear infinite;
+          animation: spinner 800ms linear infinite;
   transition: 0.7s;
-  display: none;
+  cursor: pointer;
+  display: block;
 }
-#main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper figure img.active {
+#main .main-wrapper .main-container2 .main-item-wrapper .intro-image-wrapper figure .intro-btn.active {
   display: block;
 }
 #main .main-wrapper .main-container2 .canvas {
@@ -88,6 +94,10 @@ body::-webkit-scrollbar {
   height: 100%;
   overflow: hidden;
   z-index: -1;
+}
+#main .main-wrapper .main-container2 .canvas.active {
+  opacity: 0;
+  transition: 2s;
 }
 
 @-webkit-keyframes opacityBlurAni {
@@ -145,5 +155,17 @@ body::-webkit-scrollbar {
   }
   100% {
     transform: scale(0.33);
+  }
+}
+@-webkit-keyframes spinner {
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@keyframes spinner {
+  to {
+    transform: scale(1.5);
+    opacity: 0;
   }
 }/*# sourceMappingURL=story.css.map */
