@@ -1,1 +1,98 @@
-/*# sourceMappingURL=product.css.map */
+@import url(./header.css);
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+}
+.main .main-item {
+  width: 65%;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+}
+.main .main-item h2 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 130px;
+  margin-left: 150px;
+  margin-top: 150px;
+  margin-bottom: 45px;
+}
+.main .main-item .item-img {
+  position: -webkit-sticky;
+  position: sticky;
+  height: 530px;
+  width: 580px;
+  top: 195px;
+  background-color: gray;
+  margin: 0 auto;
+}
+.main .main-item .item-img img {
+  width: 75%;
+  margin: 48px 73px;
+  -webkit-animation: ani 1s ease-in-out;
+          animation: ani 1s ease-in-out;
+}
+@-webkit-keyframes ani {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes ani {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.main .main-content {
+  width: 35%;
+  background-color: burlywood;
+}
+.main .main-content .candy {
+  margin-top: 250px;
+}
+.main .main-content .cont {
+  width: 100%;
+  background-color: darkgray;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 250px;
+}
+.main .main-content .cont div {
+  margin-top: 25px;
+  text-align: center;
+  width: 40%;
+  background-color: white;
+  cursor: pointer;
+}
+.main .main-content .cont div img {
+  width: 40%;
+}
+.main .main-content .cont div:hover {
+  transition: 0.5s;
+  background-color: rgb(0, 48, 130);
+}
+.main .main-content .cont div:hover img {
+  scale: 1.1;
+  transition: 0.5s;
+}
+.main .main-content .text {
+  margin-top: 120px;
+}
+.main .main-content .text h2 {
+  font-size: 40px;
+  margin-bottom: 25px;
+}
+.main .main-content .text p {
+  font-size: 20px;
+}/*# sourceMappingURL=product.css.map */
