@@ -1,24 +1,24 @@
-const FIRSTIMG = document.querySelector(".img-wrapper-first");
-const SECONDIMG = document.querySelector(".img-wrapper-second");
-
-const CANDY01 = document.querySelector(".candy01");
-const CANDY02 = document.querySelector(".candy02");
-const CANDY03 = document.querySelector(".candy03");
-const CANDY04 = document.querySelector(".candy04");
-const CANDY05 = document.querySelector(".candy05");
-const CANDY06 = document.querySelector(".candy06");
-const CANDY07 = document.querySelector(".candy07");
-const CANDY08 = document.querySelector(".candy08");
-
-const VIDEO = document.querySelector(".video-wrap");
-const BURGER = document.querySelector('.burger');
-const BURGEROPEN = document.querySelector('.burger-open');
-
-BURGER.addEventListener('click', function(){
-  BURGEROPEN.classList.toggle('open');
-})
-
 window.addEventListener("load", function () {
+  const FIRSTIMG = document.querySelector(".img-wrapper-first");
+  const SECONDIMG = document.querySelector(".img-wrapper-second");
+
+  const CANDY01 = document.querySelector(".candy01");
+  const CANDY02 = document.querySelector(".candy02");
+  const CANDY03 = document.querySelector(".candy03");
+  const CANDY04 = document.querySelector(".candy04");
+  const CANDY05 = document.querySelector(".candy05");
+  const CANDY06 = document.querySelector(".candy06");
+  const CANDY07 = document.querySelector(".candy07");
+  const CANDY08 = document.querySelector(".candy08");
+
+  const VIDEO = document.querySelector(".video-wrap");
+  const BURGER = document.querySelector(".burger");
+  const BURGEROPEN = document.querySelector(".burger-open");
+
+  BURGER.addEventListener("click", function () {
+    BURGEROPEN.classList.toggle("open");
+  });
+
   window.addEventListener("scroll", function () {
     //console.log(window.pageYOffset);
 
