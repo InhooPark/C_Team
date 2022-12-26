@@ -6,7 +6,7 @@ body {
 
 .first-title {
   width: 100%;
-  height: 5000px;
+  height: 5500px;
   position: relative;
 }
 .first-title .first-sticky {
@@ -59,6 +59,9 @@ body {
 .term {
   width: 100%;
   height: 500px;
+}
+.term.last {
+  background-color: #b7ebd6;
 }
 
 .second-explosion {
@@ -147,7 +150,7 @@ body {
 
 .third-video {
   width: 100%;
-  height: 300vh;
+  height: 500vh;
   position: relative;
 }
 .third-video .video-wrap {
@@ -164,9 +167,106 @@ body {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  opacity: 0;
+  transition: 1000ms;
+}
+.third-video .video-wrap.visible video {
+  opacity: 1;
+}
+.third-video .gradation {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, transparent 40%, #b7ebd6 100%);
+  position: absolute;
+  top: 0;
+  z-index: 10;
 }
 
 .more {
   width: 100%;
   height: 100vh;
+  background: #b7ebd6;
+}
+
+header {
+  position: relative;
+}
+header .menu-container {
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  z-index: 100;
+}
+header .menu-container .logo a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+header .menu-container .logo a .logo-img {
+  width: 60%;
+  overflow: hidden;
+}
+header .menu-container .logo a .logo-img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+header .menu-container .burger {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+header .menu-container .burger .burger-open {
+  height: 100%;
+  display: none;
+  position: absolute;
+  right: 80px;
+}
+header .menu-container .burger .burger-open .menu {
+  width: 100px;
+}
+header .menu-container .burger .burger-open .menu a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+  font-weight: black;
+  color: #003082;
+}
+header .menu-container .burger .burger-open.open {
+  display: flex;
+}
+header .menu-container .burger .burger-wrap {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+header .menu-container .burger .burger-wrap span {
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: black;
+}
+header .menu-container .burger .burger-wrap span:nth-child(1) {
+  top: 20%;
+}
+header .menu-container .burger .burger-wrap span:nth-child(2) {
+  top: 50%;
+}
+header .menu-container .burger .burger-wrap span:nth-child(3) {
+  top: 80%;
 }/*# sourceMappingURL=index.css.map */
