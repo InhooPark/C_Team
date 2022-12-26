@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
   const FIRSTIMG = document.querySelector(".img-wrapper-first");
   const SECONDIMG = document.querySelector(".img-wrapper-second");
-  const SCROLLGIF = this.document.querySelector('.scroll-img');
+  const SCROLLGIF = document.querySelector(".scroll-img");
 
   const CANDY01 = document.querySelector(".candy01");
   const CANDY02 = document.querySelector(".candy02");
@@ -14,14 +14,20 @@ window.addEventListener("load", function () {
 
   const VIDEO = document.querySelector(".video-wrap");
 
+  let CANVAS = '';
+  setTimeout(() => {
+    CANVAS = document.querySelector("canvas");
+  }, 1);
+
   window.addEventListener("scroll", function () {
     // 첫번째, 텍스트 이동 + 로고 생성 + 스크롤 아이콘
+
     if (window.pageYOffset < 1000) {
       FIRSTIMG.style.transform = `translateX(${window.pageYOffset * 0.2 - 200}%)`;
-      SCROLLGIF.classList.remove('invisible');
+      SCROLLGIF.classList.remove("invisible");
     } else if (this.window.pageYOffset > 1000) {
       FIRSTIMG.style.transform = `translateX(0%)`;
-      SCROLLGIF.classList.add('invisible');
+      SCROLLGIF.classList.add("invisible");
     }
     if (window.pageYOffset > 2000) {
       FIRSTIMG.classList.add("invisible");
@@ -53,6 +59,15 @@ window.addEventListener("load", function () {
       CANDY06.style.left = `${(window.pageYOffset - 6000) * 0.03 + 40}%`;
       CANDY07.style.left = `${(window.pageYOffset - 6000) * 0.04 + 40}%`;
       CANDY08.style.left = `${(window.pageYOffset - 6000) * 0.05 + 40}%`;
+
+      CANDY01.style.transform = `rotate(-${(window.pageYOffset - 6000) * 0.2}deg)`;
+      CANDY02.style.transform = `rotate(-${(window.pageYOffset - 6000) * 0.3}deg)`;
+      CANDY03.style.transform = `rotate(-${(window.pageYOffset - 6000) * 0.4}deg)`;
+      CANDY04.style.transform = `rotate(-${(window.pageYOffset - 6000) * 0.5}deg)`;
+      CANDY05.style.transform = `rotate(${(window.pageYOffset - 6000) * 0.5}deg)`;
+      CANDY06.style.transform = `rotate(${(window.pageYOffset - 6000) * 0.4}deg)`;
+      CANDY07.style.transform = `rotate(${(window.pageYOffset - 6000) * 0.3}deg)`;
+      CANDY08.style.transform = `rotate(${(window.pageYOffset - 6000) * 0.2}deg)`;
     }
 
     // 세번째, 비디오 opacity
