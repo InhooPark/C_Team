@@ -1,0 +1,198 @@
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    background-color: transparent;
+    z-index: 999;
+}
+
+header .cont {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.hd__logo img {
+    width: 236px;
+}
+
+.hd__btn {
+    z-index: 999;
+    position: relative;
+    width: 40px;
+    height: 20px;
+}
+
+.hd__btn div {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    height: 4px;
+    right: 0;
+
+}
+
+.hd__btn div.active {
+    background-color: #000;
+}
+
+.hd__btn div:first-child {
+    top: 0;
+}
+
+.hd__btn div:last-child {
+    bottom: 0;
+}
+
+.hd__menu {
+    display: none;
+}
+
+section {
+    overflow: hidden;
+    min-width: 100%;
+}
+
+.cont {
+    width: 90%;
+    max-width: 1730px;
+    margin: 0 auto;
+}
+
+.right {
+    position: absolute;
+    color: #aaaaaa;
+    bottom: 50px;
+    left: 5%;
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.hd__btn:hover {
+    cursor: pointer;
+    /* background-color: aqua; */
+}
+
+.hd__btn:hover div:last-child {
+    /* background-color: red; */
+    width: 60%;
+    transition: 0.5s
+}
+
+.menu {
+    position: absolute;
+    right: -1000px;
+    top: 0px;
+    background-color: #fff;
+    height: 100vh;
+    width: 0%;
+    transition: 1.5s;
+
+
+}
+
+.menu.active {
+    right: 0;
+    top: 0;
+    width: 30%;
+    min-width: 590px;
+
+}
+
+@media screen and (max-width : 1023px) {
+    .menu.active {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .menu.active {
+        padding: 60px 20px 60px 20px;
+    }
+}
+
+.inner__menu {
+    background-color: #fff;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.menu .inner__menu ul li {
+    padding: 25px 0;
+}
+
+.menu .inner__menu ul li a::after {
+    display: block;
+    content: '';
+    border-bottom: solid 6px #000;
+    width: 0;
+    transition: all 300ms ease-in-out;
+    opacity: 0;
+}
+
+.menu .inner__menu ul li a:hover::after {
+    opacity: 1;
+    width: 100%;
+}
+
+
+
+
+
+
+.menu .inner__menu ul li a {
+    color: #000;
+    font-weight: bold;
+    position: relative;
+    font-size: 80px;
+    line-height: 1.5;
+}
+
+.menu .inner__menu ul li a.aaa {
+    display: block;
+    content: '';
+    width: 100%;
+    border-bottom: solid 6px #000;
+}
+
+.menu p {
+    font-size: 16px;
+    font-weight: 100;
+    color: #aaaaaa;
+    margin-top: auto;
+
+}
+
+
+
+/*==============================================================================*/
+/*==============================================================================*/
+/*==============================================================================*/
+/*==============================================================================*/
+/*==============================================================================*/
+/*==============================================================================*/
+/*==============================================================================*/
+/*==============================================================================*/
+/*==============================================================================*/
+/*==============================================================================*/
+/*==============================================================================*/
+
+
+/* @media screen and (max-width :1023px) {
+
+
+    .right {
+        display: none;
+    }
+} */
