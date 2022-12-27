@@ -7,31 +7,25 @@ window.addEventListener("load", function () {
       let count = 0;
       let boxInter = setInterval(() => {
         count++;
-        let Box = Matter.Bodies.circle(mouseX, mouseY, 20, 20);
+        let Box;
+        Box = Matter.Bodies.rectangle(mouseX, mouseY, 41, 24, {
+          chamfer: {
+            radius: [10, 10, 10, 10],
+          },
+          render: {
+            strokeStyle: "transparent",
+            sprite: {
+              texture: `./01.img/index/candy_mini0${count%4}.png`,
+            },
+          },
+        });
+
         Matter.Composite.add(engine.world, Box);
         if (count > 200) clearInterval(boxInter);
       }, 30);
       boxBool = false;
-      // body.render.sprite 참조
-      // Restitution
     }
   });
-
-  /*  let BB = "";
-  setTimeout(() => {
-    BB = document.querySelector(".fourth-canvas canvas");
-    // print();
-  }, 300);
-  function print() {
-    BB = document.querySelector(".fourth-canvas canvas");
-    $('canvas').on('mousewheel mouseenter mouseover focusin',function(e){
-      console.log(11);
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        e.stopPropagation();
-        return true;
-    })
-  } */
 
   const engine = Matter.Engine.create();
   const world = engine.world;
