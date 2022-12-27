@@ -53,6 +53,16 @@ body {
     opacity: 1;
   }
 }
+.main .zoomLens {
+  position: absolute;
+  display: none;
+}
+.main .zoomWindow {
+  position: absolute;
+  display: none;
+  background-color: gray;
+  top: 0%;
+}
 .main .main-content {
   width: 35%;
   background-color: burlywood;

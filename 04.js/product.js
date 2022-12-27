@@ -14,20 +14,60 @@ const MAINITEM = document.querySelector(".main-item");
 
 IMG.forEach(function (v, key) {
   v.addEventListener("click", function () {
-    MAINITEM.innerHTML = `
-    <h2>${data[key].title}</h2>
+    MAINITEM.innerHTML = `<h2>${data[key].title}</h2>
     <div class="item-img">
         <img src="${data[key].url}" alt="">
+    </div>
+    <div class="zoomLens"></div>
+    <div class="zoomWindow">
+        <img src="${data[key].url}" alt="">
     </div>`;
+
+    const zoomFrame = document.querySelector(".item-img");
+    const zoomLens = document.querySelector(".zoomLens");
+    const zoomWindow = document.querySelector(".zoomWindow");
+
+    zoomFrame.addEventListener("mousemove", function () {
+      zoomLens.style.display = "block";
+      zoomWindow.style.display = "block";
+      console.log("aaa");
+    });
+
+    zoomFrame.addEventListener("mouseleave", function () {
+      zoomLens.style.display = "none";
+      zoomWindow.style.display = "none";
+      console.log("bbb");
+    });
   });
 });
 
-const CONTAINER = document.querySelector(".item-img");
-const ZOOMIMG = document.querySelector(".item-img img");
+function hover() {
+const zoomFrame = document.querySelector(".item-img");
+const zoomLens = document.querySelector(".zoomLens");
+const zoomWindow = document.querySelector(".zoomWindow");
 
-ZOOMIMG.addEventListener("mousemove", function () {
-  
+zoomFrame.addEventListener("mousemove", function () {
+  zoomLens.style.display = "block";
+  zoomWindow.style.display = "block";
+  console.log("aaa");
 });
+
+zoomFrame.addEventListener("mouseleave", function () {
+  zoomLens.style.display = "none";
+  zoomWindow.style.display = "none";
+  console.log("bbb");
+});
+}
+//함수선언 해주기
+
+
+
+
+// const CONTAINER = document.querySelector(".item-img");
+// const ZOOMIMG = document.querySelector(".item-img img");
+
+// ZOOMIMG.addEventListener("mousemove", function () {
+// });
 
 // CONTAINER.addEventListener("mousemove", function (e) {
 //   const x = e.clientX - e.target.offsetLeft;
@@ -41,5 +81,3 @@ ZOOMIMG.addEventListener("mousemove", function () {
 //   ZOOMIMG.style.transformOrigin = "center center";
 //   ZOOMIMG.style.transform = "scale(1)";
 // });
-
-
