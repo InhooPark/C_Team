@@ -9,9 +9,9 @@ body {
   display: flex;
 }
 .main .main-item {
+  border: 1px solid black;
   width: 65%;
   background-color: beige;
-  display: flex;
   flex-direction: column;
 }
 .main .main-item h2 {
@@ -19,7 +19,6 @@ body {
   position: sticky;
   top: 130px;
   margin-left: 150px;
-  margin-top: 150px;
   margin-bottom: 45px;
 }
 .main .main-item .item-img {
@@ -30,10 +29,12 @@ body {
   top: 195px;
   background-color: gray;
   margin: 0 auto;
+  overflow: hidden;
 }
 .main .main-item .item-img img {
-  width: 75%;
-  margin: 48px 73px;
+  position: relative;
+  width: 100%;
+  height: 100%;
   -webkit-animation: ani 1s ease-in-out;
           animation: ani 1s ease-in-out;
 }
@@ -58,17 +59,28 @@ body {
   display: none;
 }
 .main .zoomWindow {
-  position: absolute;
+  border: 5px solid black;
+  position: relative;
   display: none;
   background-color: gray;
-  top: 0%;
+  top: -397px;
+  left: 75%;
+  overflow: hidden;
+  /*     position: sticky; */
+  height: 400px;
+  width: 400px;
+  /*     top: 195px; */
+}
+.main .zoomWindow img {
+  width: 100%;
+  height: 100%;
 }
 .main .main-content {
   width: 35%;
-  background-color: burlywood;
+  background-color: pink;
 }
 .main .main-content .candy {
-  margin-top: 250px;
+  margin-top: 130px;
 }
 .main .main-content .cont {
   width: 100%;
@@ -80,6 +92,7 @@ body {
 }
 .main .main-content .cont div {
   margin-top: 25px;
+  margin-bottom: 25px;
   text-align: center;
   width: 40%;
   background-color: white;
