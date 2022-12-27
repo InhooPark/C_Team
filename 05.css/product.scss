@@ -11,16 +11,16 @@ body {
   // height: 2000px;
 
   .main-item {
+    border: 1px solid black;
     width: 65%;
     background-color: beige;
-    display: flex;
+    //display: flex;
     flex-direction: column;
 
     h2 {
       position: sticky;
       top: 130px;
       margin-left: 150px;
-      margin-top: 150px;
       margin-bottom: 45px;
     }
 
@@ -31,10 +31,13 @@ body {
       top: 195px;
       background-color: gray;
       margin: 0 auto;
+      overflow: hidden;
 
       img {
-        width: 75%;
-        margin: 48px 73px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        //scale: (0.7);
         animation: ani 1s ease-in-out;
       }
       @keyframes ani {
@@ -53,18 +56,30 @@ body {
     display: none;
   }
   .zoomWindow {
-    position: absolute;
+    border: 5px solid black;
+    position: relative;
     display: none;
     background-color: gray;
-  top: 0%;
+    top: -397px;
+    left: 75%;
+    overflow: hidden;
+/*     position: sticky; */ 
+    height: 400px;
+    width: 400px;
+/*     top: 195px; */
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .main-content {
     width: 35%;
-    background-color: burlywood;
+    background-color: pink;
 
     .candy {
-      margin-top: 250px;
+      margin-top: 130px;
     }
     .cont {
       width: 100%;
@@ -76,6 +91,7 @@ body {
 
       div {
         margin-top: 25px;
+        margin-bottom: 25px;
         text-align: center;
         width: 40%;
         background-color: white;
