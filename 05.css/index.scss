@@ -1,10 +1,31 @@
 @import url(./header.css);
+@import url(./reset.css);
 
 body {
   width: 100%;
   margin: 0;
   overflow-x: hidden;
 }
+
+.loading{
+  background-color: #b7ebd6;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img{
+    object-fit: cover;
+  }
+  &.hide{
+    display: none;
+  }
+}
+
+
 .first-title {
   width: 100%;
   height: 5500px;
@@ -19,7 +40,7 @@ body {
     justify-content: center;
     .scroll-img{
       position: absolute;
-      width: 5%;
+      width: 8%;
       left: 50%;
       bottom : 5%;
       transform: translateX(-50%);
@@ -73,7 +94,9 @@ body {
   width: 100%;
   height: 500px;
   background-color: #b7ebd6;
-
+  &.last{
+    height: 100vh;
+  }
 }
 
 .second-explosion {
@@ -181,4 +204,8 @@ body {
 .fourth-canvas{
   margin:0;
   padding:0;
+  pointer-events: none;
+  canvas{
+    pointer-events: fill;
+  }
 }

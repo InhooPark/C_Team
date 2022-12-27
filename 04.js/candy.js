@@ -1,6 +1,6 @@
 window.addEventListener("load", function () {
   boxBool = true;
-  window.addEventListener("scroll", function () {
+  window.addEventListener("scroll", function (e) {
     const AA = document.querySelector(".fourth-canvas");
 
     if (window.pageYOffset > AA.offsetTop - 500 && boxBool) {
@@ -12,11 +12,30 @@ window.addEventListener("load", function () {
         if (count > 200) clearInterval(boxInter);
       }, 30);
       boxBool = false;
+      // body.render.sprite 참조
+      // Restitution
     }
   });
 
+  /*  let BB = "";
+  setTimeout(() => {
+    BB = document.querySelector(".fourth-canvas canvas");
+    // print();
+  }, 300);
+  function print() {
+    BB = document.querySelector(".fourth-canvas canvas");
+    $('canvas').on('mousewheel mouseenter mouseover focusin',function(e){
+      console.log(11);
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        e.stopPropagation();
+        return true;
+    })
+  } */
+
   const engine = Matter.Engine.create();
   const world = engine.world;
+  engine.world.gravity.y = 1;
   const render = Matter.Render.create({
     element: document.querySelector(".fourth-canvas"),
     engine: engine,
@@ -46,7 +65,7 @@ window.addEventListener("load", function () {
     })
     .then(function (root) {
       const paths = Array.prototype.slice.call(root.querySelectorAll("path"));
-      console.log(paths);
+
       const vertices = paths.map((path) => {
         return Matter.Svg.pathToVertices(path, 5);
       });
@@ -74,8 +93,8 @@ window.addEventListener("load", function () {
 
       var bodyOptions = {
         frictionAir: 0.1,
-        friction: 0.5,
-        restitution: 0.1,
+        friction: 0.2,
+        restitution: 0.5,
       };
     });
 

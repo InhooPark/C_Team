@@ -1,4 +1,9 @@
 window.addEventListener("load", function () {
+  const LOAD = document.querySelector('.loading');
+  setTimeout(() => {
+    LOAD.classList.add('hide');
+  }, 200);
+
   const FIRSTIMG = document.querySelector(".img-wrapper-first");
   const SECONDIMG = document.querySelector(".img-wrapper-second");
   const SCROLLGIF = document.querySelector(".scroll-img");
@@ -14,7 +19,7 @@ window.addEventListener("load", function () {
 
   const VIDEO = document.querySelector(".video-wrap");
 
-  let CANVAS = '';
+  let CANVAS = "";
   setTimeout(() => {
     CANVAS = document.querySelector("canvas");
   }, 1);
@@ -75,6 +80,13 @@ window.addEventListener("load", function () {
       VIDEO.classList.add("visible");
     } else {
       VIDEO.classList.remove("visible");
+    }
+
+    const LAST = document.querySelector(".last");
+    let canvasOffsetTop = LAST.offsetTop + LAST.offsetHeight;
+
+    if (window.pageYOffset > LAST.offsetTop && window.pageYOffset < canvasOffsetTop) {
+      scrollTo(0, canvasOffsetTop);
     }
   });
 });
