@@ -9,37 +9,49 @@ let data = [
   { url: "../01.img/plus_release.png", title: "MINTS RELEASE" },
 ];
 
+hover();
+
 const IMG = document.querySelectorAll(".cont div");
 const MAINITEM = document.querySelector(".main-item");
 
 IMG.forEach(function (v, key) {
   v.addEventListener("click", function () {
-    MAINITEM.innerHTML = `
-    <h2>${data[key].title}</h2>
+    MAINITEM.innerHTML = `<h2>${data[key].title}</h2>
     <div class="item-img">
         <img src="${data[key].url}" alt="">
+    </div>
+    <div class="zoomLens"></div>
+    <div class="zoomWindow">
+        <img src="${data[key].url}" alt="">
     </div>`;
+    hover();
   });
 });
 
-const CONTAINER = document.querySelector(".item-img");
-const ZOOMIMG = document.querySelector(".item-img img");
+function hover() {
+  const AA = document.querySelector('.main-item');
+  const container = document.querySelector(".item-img");
+  const img = document.querySelector(".zoomWindow img");
+  const ZOONWINDOW = document.querySelector(".zoomWindow");
 
-ZOOMIMG.addEventListener("mousemove", function () {
-  
-});
-
-// CONTAINER.addEventListener("mousemove", function (e) {
-//   const x = e.clientX - e.target.offsetLeft;
-//   const y = e.clientY - e.target.offsetTop;
-
-//   ZOOMIMG.style.transformOrigin = `${x}px ${y}px`;
-//   ZOOMIMG.style.transform = "scale(2)";
-// });
-
-// CONTAINER.addEventListener("mouseleave", function () {
-//   ZOOMIMG.style.transformOrigin = "center center";
-//   ZOOMIMG.style.transform = "scale(1)";
-// });
+  container.addEventListener("mousemove", onZoom);
+  container.addEventListener("mouseover", onZoom);
+  container.addEventListener("mouseleave", offZoom);
 
 
+  function onZoom(e) {
+    console.log(e);
+    let x = AA.clientX - container.offsetLeft;
+    let y = AA.clientY - container.offsetTop;
+
+    ZOONWINDOW.style.display = "block";
+    img.style.transformOrigin = `${x}px ${y}px`;
+    img.style.transform = "scale(1.5)";
+  }
+
+  function offZoom(e) {
+    img.style.transformOrigin = `center center`;
+    img.style.transform = "scale(1)";
+    ZOONWINDOW.style.display = "none";
+  }
+}
