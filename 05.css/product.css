@@ -22,24 +22,19 @@ body {
   margin-bottom: 45px;
 }
 .main .main-item .item-img {
-  border: 1px solid red;
   position: -webkit-sticky;
   position: sticky;
-  width: 600px;
-  height: 600px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 530px;
+  width: 580px;
+  top: 195px;
   background-color: gray;
+  margin: 0 auto;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .main .main-item .item-img img {
-  border: 1px solid blue;
   position: relative;
-  width: 50%;
+  width: 100%;
+  height: 100%;
   -webkit-animation: ani 1s ease-in-out;
           animation: ani 1s ease-in-out;
 }

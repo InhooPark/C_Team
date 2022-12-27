@@ -28,30 +28,73 @@ IMG.forEach(function (v, key) {
   });
 });
 
+// function hover() {
+//   const zoomFrame = document.querySelector(".item-img");
+//   const zoomLens = document.querySelector(".zoomLens");
+//   const zoomWindow = document.querySelector(".zoomWindow");
+
+//   zoomFrame.addEventListener("mousemove", function () {
+//     zoomLens.style.display = "block";
+//     zoomWindow.style.display = "block";
+//     console.log("aaa");
+//   });
+
+//   zoomFrame.addEventListener("mouseleave", function () {
+//     zoomLens.style.display = "none";
+//     zoomWindow.style.display = "none";
+//     console.log("bbb");
+//   });
+// }
+
+// const CONTAINER = document.querySelector(".item-img");
+// const ZOOMIMG = document.querySelector(".item-img img");
+// const zoomLens = document.querySelector(".zoomLens");
+// const zoomWindow = document.querySelector(".zoomWindow");
+
+// ZOOMIMG.addEventListener("mousemove", function () {
+//   console.log('aaa')
+// });
+
+// CONTAINER.addEventListener("mousemove", function (e) {
+//   const x = e.clientX - e.target.offsetLeft;
+//   const y = e.clientY - e.target.offsetTop;
+
+//   zoomWindow.style.display = "block";
+//   zoomWindow.style.transformOrigin = `${x}px ${y}px`;
+//   zoomWindow.style.transform = "scale(2)";
+// });
+
+// CONTAINER.addEventListener("mouseleave", function () {
+//   ZOOMIMG.style.transformOrigin = "center center";
+//   ZOOMIMG.style.transform = "scale(1)";
+//   zoomWindow.style.display = "none";
+// });
+
 function hover() {
-  const AA = document.querySelector('.main-item');
-  const container = document.querySelector(".item-img");
-  const img = document.querySelector(".zoomWindow img");
-  const ZOONWINDOW = document.querySelector(".zoomWindow");
+const container = document.querySelector(".item-img");
+const img = document.querySelector(".zoomWindow img");
+const ZOONWINDOW = document.querySelector('.zoomWindow');
 
-  container.addEventListener("mousemove", onZoom);
-  container.addEventListener("mouseover", onZoom);
-  container.addEventListener("mouseleave", offZoom);
+container.addEventListener("mousemove", onZoom);
+container.addEventListener("mouseover", onZoom);
+container.addEventListener("mouseleave", offZoom);
 
+function onZoom(e) {
+  console.log(e.target);
+  /* const x = e.clientX - e.target.offsetLeft;
+  const y = e.clientY - e.target.offsetTop; */
+  const x = e.clientX - container.offsetLeft;
+  const y = e.clientY - container.offsetTop;
 
-  function onZoom(e) {
-    console.log(e);
-    let x = AA.clientX - container.offsetLeft;
-    let y = AA.clientY - container.offsetTop;
-
-    ZOONWINDOW.style.display = "block";
-    img.style.transformOrigin = `${x}px ${y}px`;
-    img.style.transform = "scale(1.5)";
-  }
-
-  function offZoom(e) {
-    img.style.transformOrigin = `center center`;
-    img.style.transform = "scale(1)";
-    ZOONWINDOW.style.display = "none";
-  }
+  ZOONWINDOW.style.display = "block";
+  img.style.transformOrigin = `${x}px ${y}px`;
+  img.style.transform = "scale(1.5)";
 }
+
+function offZoom(e) {
+  img.style.transformOrigin = `center center`;
+  img.style.transform = "scale(1)";
+  ZOONWINDOW.style.display = "none";
+}
+}
+
