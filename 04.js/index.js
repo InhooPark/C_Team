@@ -1,9 +1,4 @@
 window.addEventListener("load", function () {
-  const LOAD = document.querySelector('.loading');
-  setTimeout(() => {
-    LOAD.classList.add('hide');
-  }, 200);
-
   const FIRSTIMG = document.querySelector(".img-wrapper-first");
   const SECONDIMG = document.querySelector(".img-wrapper-second");
   const SCROLLGIF = document.querySelector(".scroll-img");
