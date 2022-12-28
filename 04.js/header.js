@@ -20,7 +20,7 @@ function headerCallback() {
   setInterval(() => {
     count++;
     SPHERE.style = `transform: rotate(${count * 5}deg);`;
-    SPHERECON.style = `transform: rotate(${count * 2.5}deg);`;
+    SPHERECON.style = `transform: rotate(${count}deg);`;
   }, 100);
   const BURGER = document.querySelector(".burger");
   const BURGEROPEN = document.querySelector(".burger-open");

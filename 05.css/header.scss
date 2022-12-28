@@ -133,13 +133,13 @@ header {
           top: 100%;
           opacity: 0;
           z-index: 20;
-          transition: 300ms;
+          transition: linear 300ms;
           .sphere-top {
             width: 200px;
             transform: translate(-50%, -50%);
             position: absolute;
             z-index: 10;
-            transition: 300ms;
+            transition: linear 300ms;
             img {
               width: 100%;
             }
@@ -149,7 +149,7 @@ header {
             transform: translate(-50%, -50%);
             position: absolute;
             z-index: 5;
-            transition: 300ms;
+            transition: linear 300ms;
             img {
               width: 100%;
             }
@@ -160,7 +160,7 @@ header {
             transform: translate(-50%, -50%) scale(0);
             position: absolute;
             z-index: 0;
-            transition: 300ms;
+            transition: linear 300ms;
             .sphere-content-wrap {
               width: 100%;
               overflow: hidden;
