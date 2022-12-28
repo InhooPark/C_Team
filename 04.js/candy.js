@@ -6,22 +6,24 @@ window.addEventListener("load", function () {
     if (window.pageYOffset > AA.offsetTop - 500 && boxBool) {
       let count = 0;
       let boxInter = setInterval(() => {
+        let randomCount = ('00' + Math.floor(Math.random()*4)).slice(-2)
         count++;
         let Box;
-        Box = Matter.Bodies.rectangle(mouseX, mouseY, 41, 24, {
+        let Box2;
+        Box = Matter.Bodies.rectangle(mouseX-5, mouseY, 41, 24, {
           chamfer: {
             radius: [10, 10, 10, 10],
           },
           render: {
             strokeStyle: "transparent",
             sprite: {
-              texture: `./01.img/index/candy_mini0${count%4}.png`,
+              texture: `./01.img/index/candy_mini${randomCount}.png`,
             },
           },
         });
 
-        Matter.Composite.add(engine.world, Box);
-        if (count > 200) clearInterval(boxInter);
+        Matter.Composite.add(engine.world, [Box]);
+        if (count > 300) clearInterval(boxInter);
       }, 30);
       boxBool = false;
     }
@@ -37,7 +39,7 @@ window.addEventListener("load", function () {
       width: window.innerWidth,
       height: window.innerHeight,
       wireframes: false,
-      background: "#B7EBD6",
+      background: "#eefdf7",
     },
   });
   Matter.Render.run(render);

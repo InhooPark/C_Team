@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap');
+
 * {
   box-sizing: border-box;
+  font-family: 'Signika', sans-serif;
 }
 html,
 body,
