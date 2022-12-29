@@ -1,23 +1,27 @@
 $("body").prepend("<header>");
 $("header").load("./header.html header>div", headerCallback);
-const LOAD = document.getElementById("load");
-setTimeout(() => {
-  LOAD.classList.add("display-off");
-}, 1500);
 
 function headerCallback() {
   const SPHERE = document.querySelector(".sphere");
   const SPHERECON = document.querySelector(".sphere-content-wrap");
   const SPHEREBIN = document.querySelector(".sphere-content");
-  const LOGO = document.querySelector(".logo");
-  const LOGOIMG = document.querySelector(".logo-img");
+  const LOGO = document.querySelector('.logo');
+  const LOGOIMG = document.querySelector('.logo-img');
 
-  LOGO.addEventListener("mouseover", () => {
-    LOGOIMG.classList.add("scale-up");
+  LOGO.addEventListener('mouseover', () => {
+    console.log('up');
+    LOGOIMG.classList.add('scale-up');
   });
-  LOGO.addEventListener("mouseleave", () => {
-    LOGOIMG.classList.remove("scale-up");
+  LOGO.addEventListener('mouseleave', () => {
+    console.log('down');
+    LOGOIMG.classList.remove('scale-up');
   });
+
+
+
+
+
+
 
   SPHERE.addEventListener("mouseover", () => {
     SPHEREBIN.style = "z-index: 7;";

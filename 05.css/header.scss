@@ -1,10 +1,10 @@
 @import url("./reset.css");
+
 body {
   &.stop-scroll {
     overflow: hidden !important;
   }
 }
-
 header {
   position: relative;
   z-index: 100;
@@ -155,7 +155,7 @@ header {
             transform: translate(-50%, -50%);
             position: absolute;
             z-index: 10;
-            transition: linear 200ms;
+            transition: linear 300ms;
             img {
               width: 100%;
             }
@@ -165,7 +165,7 @@ header {
             transform: translate(-50%, -50%);
             position: absolute;
             z-index: 5;
-            transition: linear 200ms;
+            transition: linear 300ms;
             img {
               width: 100%;
             }
@@ -176,7 +176,7 @@ header {
             transform: translate(-50%, -50%) scale(0);
             position: absolute;
             z-index: 0;
-            transition: linear 200ms;
+            transition: linear 300ms;
             .sphere-content-wrap {
               width: 100%;
               overflow: hidden;
@@ -295,5 +295,3 @@ header {
     }
   }
 }
-
-
