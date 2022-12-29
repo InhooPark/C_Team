@@ -10,11 +10,9 @@ body {
   }
 }
 #main {
-  transition: background 1s;
+  transition: 2s;
   &.active {
-    // background: #b7ebd6;
-    // background: #ecfff7;
-    background: #eefdf7;
+    background: #b7ebd6;
     // background: url(../01.img/mint_background_1500.jpg) no-repeat center
     //   center / cover;
     // background: url(../01.img/mint_background_1500.jpg) no-repeat center/ cover;
@@ -28,16 +26,17 @@ body {
   .main-wrapper {
     width: 100vw;
     height: 100vh;
-    .main-container1 {
+    .maincontainer1 {
+    }
+    .main-container2 {
+      width: 100%;
+      height: 100%;
+      position: relative;
       // background-color: #b7ebd6;
-      transition: opacity 0.5s (cubic-bezier(0.5, 1, 0.89, 1));
-      &.active {
-        display: none;
-      }
-      .container1-item-wrapper {
-        max-width: 1600px;
+      .main-item-wrapper {
+        max-width: 85%;
         margin: 0 auto;
-        .container1-intro-text {
+        .container2-intro-text {
           padding-top: 45.5vh;
           // transition: 2s;
           .intro-text-wrapper {
@@ -69,27 +68,59 @@ body {
             }
           }
         }
-        .intro-skip-wrapper {
-          // display: block;
-          .intro-skip-btn {
-            position: absolute;
-            top: -100px;
-            left: -75px;
+        .intro-image-wrapper {
+          opacity: 1;
+          transition: 0.7s;
+          display: block;
+          &.active {
             display: block;
-            // padding: 18px;
+          }
+          .intro-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 50px;
+            width: 50px;
+            translate: -50% -50%;
+            background: rgb(0, 171, 105, 0.7);
             border-radius: 50%;
-            z-index: 10;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transform: translate(-50%, -50%);
-            transition: transform 150ms cubic-bezier(0.215, 0.61, 0.355, 1),
-              opacity 200ms linear;
-            width: 150px;
-            height: 150px;
+            border: 1px solid rgb(0, 171, 105, 1);
+            animation: spinner 800ms linear infinite;
+            transition: 0.7s;
+            cursor: pointer;
+            display: none;
+            &.active {
+              display: block;
+            }
+            // cursor: pointer;
+            // position: absolute;
+            // top: 50%;
+            // left: 50%;
+            // translate: -50% -50%;
+            // transform: scale(0.3);
+            // animation: tinScaleAni 1s 0s ease-in-out infinite alternate;
+            // transition: 0.7s;
+            // display: none;
+            // &.active {
+            //   display: block;
+            // }
+          }
+          .intro-skip-btn {
+            cursor: pointer;
+            display: block;
+            position: fixed;
+            top: 90%;
+            left: 80%;
             border: none;
-            border-radius: 50%;
+            font-size: 20px;
+            background: transparent;
+            font-style: italic;
+            width: 200px;
+            height: 45px;
+            border: 1px solid rgba(0, 0, 0, 0.3);
             z-index: 1;
             &:hover {
-              background-color: rgba(183, 235, 214, 0.5);
+              background-color: #b7ebd6;
             }
           }
         }
@@ -101,239 +132,151 @@ body {
           height: 100%;
           overflow: hidden;
           z-index: -1;
-          // &.active {
-          //   opacity: 0;
-          //   transition: 2s;
-          // }
-        }
-      }
-    }
-    .main-container2 {
-      text-align: center;
-      .container2-item01 {
-        width: 5vw;
-        position: absolute;
-        top: 50%;
-        translate: -200% -50%;
-        z-index: 3;
-        transition: translate 0.4s cubic-bezier(0.93, 0.01, 0.1, 0.98),
-          opacity 1s (cubic-bezier(0.5, 1, 0.89, 1));
-        &.active {
-          translate: -100% -50%;
-          opacity: 1;
-        }
-        nav {
-          position: relative;
-          height: 80vh;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-evenly;
-          border: 1px solid #000;
-          border-radius: 0px 20px 20px 0px;
-          &::after {
-            content: "";
-            position: absolute;
-            left: 100%;
-            width: 50px;
-            height: 100px;
-            // background: #003082;
-            border-radius: 0 100px 100px 0;
-            border: 1px solid #000;
+          &.active {
+            opacity: 0;
+            transition: 2s;
           }
-          div {
-            height: 100%;
-            flex-basis: 7%;
-            .year-btn {
-              border: none;
-              background-color: transparent;
-              height: 100%;
-              cursor: pointer;
+        }
+        .swiper-container {
+          display: none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 50vw;
+          height: 50vh;
+          .swiper-slide {
+            text-align: center;
+            background: #fff;
+            /* Center slide text vertically */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // Image Accordions General
+            .container-general {
+              padding: 75px 0;
+              margin: 0 auto;
+              width: 800px;
+              .gallery-wrap {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                height: 70vh;
+                .item {
+                  flex: 1;
+                  height: 100%;
+                  background-position: center;
+                  background-size: cover;
+                  background-repeat: none;
+                  transition: all 0.8s ease;
+                  &:hover {
+                    flex: 7;
+                  }
+                }
+              }
+              // Image Accordions Effect 1
+              .wrap-effect-1 {
+                .item {
+                  &:first-of-type {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4185141/galshir-cactus-coffee.png");
+                  }
+                  &:nth-of-type(2) {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/6146136/galshir-tea-biscuit_2x.png");
+                  }
+                  &:nth-of-type(3) {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4473482/galshir-dog-walker.gif");
+                  }
+                  &:nth-of-type(4) {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5743606/gal-shir-scooter_2x.png");
+                  }
+                  &:last-of-type {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4738104/galshir-storytime.png");
+                  }
+                }
+              }
+              // Image Accordions Effect 2
+              .wrap-effect-2 {
+                .item {
+                  &:hover {
+                    transform: translate3d(0, 0, 100px);
+                    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+                    filter: saturate(2) contrast(120%);
+                  }
+                  &:first-of-type {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4854597/galshir-umbrella.jpg");
+                  }
+                  &:nth-of-type(2) {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4776189/galshir-genesis.png");
+                  }
+                  &:nth-of-type(3) {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5329211/galshir-walking.gif");
+                  }
+                  &:nth-of-type(4) {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4611698/galshir-paper-boat.png");
+                  }
+                  &:last-of-type {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4544774/galshir-window.png");
+                  }
+                }
+              }
+
+              // Image Accordions Effect 3
+              .wrap-effect-3 {
+                .item {
+                  &:hover {
+                    animation: rotate 0.7s ease-in-out both;
+                    border-radius: 10px;
+                    border: 1px solid gray;
+                  }
+                  &:first-of-type {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5947483/galshir-wind_2x.png");
+                  }
+                  &:nth-of-type(2) {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5754705/galshir-rain_2x.png");
+                  }
+                  &:nth-of-type(3) {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5355160/galshir-attack.gif");
+                  }
+                  &:nth-of-type(4) {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4742049/galshir-samurai.png");
+                  }
+                  &:last-of-type {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5594777/galshir-winter-cycling_2x.jpg");
+                  }
+                }
+              }
+
+              // Image Accordions Effect 4
+              .wrap-effect-4 {
+                .item {
+                  &:hover {
+                    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+                    filter: saturate(2) contrast(120%);
+                  }
+                  &:first-of-type {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4226693/galshir-iphone-x-lemonade.gif");
+                  }
+                  &:nth-of-type(2) {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4475663/galshir-musical-instruments.gif");
+                  }
+                  &:nth-of-type(3) {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5431797/galshir-lemonade-ring.gif");
+                  }
+                  &:nth-of-type(4) {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4419736/galshir-lemonade-bike.gif");
+                  }
+                  &:last-of-type {
+                    background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4281500/galshir-lemonade-camera.gif");
+                  }
+                }
+              }
             }
           }
         }
       }
     }
-    .main-container3 {
-      // max-width: 1600px;
-      height: 100%;
-      margin: auto;
-      display: none;
-      opacity: 0;
-      &.active {
-        display: block;
-        opacity: 1;
-      }
-      .container3-text-box {
-        width: 100%;
-        position: relative;
-        top: 15vh;
-        right: 10vw;
-        text-align: right;
-        z-index: 2;
-        letter-spacing: 0.875rem;
-        transition: background 1s;
-        .main-text {
-          text-transform: uppercase;
-          font-size: 6vw;
-          span {
-            // background: url(../01.img/story8.jpg) center /
-            //   cover;
-            // background-clip: text;
-            // -webkit-text-fill-color: transparent;
-            user-select: none;
-            display: inline-block;
-            opacity: 0;
-          }
-        }
-        .sub-text {
-          // text-align: left;
-          font-size: 1.2vw;
-          letter-spacing: 0.2rem;
-          opacity: 0;
-        }
-        .text01 {
-          margin-top: 20px;
-        }
-      }
-      .container3-text-box2 {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        h2 {
-          position: absolute;
-          top: 30vh;
-          left: 50vw;
-          font-size: 6vw;
-          font-style: italic;opacity: 0;
-        }
-        .container3-sub-text-wrapper {
-          p {
-            position: absolute;
-            top: 45vh;
-            left: 53vw;
-            font-size: 3vw;
-            opacity: 0;
-            // &.active {
-            //   opacity: 1;
-            // }
-          }
-        }
-      }
-      .container3-card-wrapper {
-        .container3-card {
-          position: absolute;
-          top: 45%;
-          // left: 2.5vw;
-          left: 17vh;
-          // translate: 0 -35%;
-          letter-spacing: 0.5rem;
-          width: 600px;
-          height: 400px;
-          display: block;
-          background-color: #b7ebd6;
-          border-radius: 25px;
-          p {
-            position: absolute;
-            top: 0;
-            left: 0;
-            // opacity: 0.4;
-          }
-          // img {
-          //   width: 500px;
-          //   position: absolute;
-          //   top: 50%;
-          //   left: 5vw;
-          //   translate: 0 -50%;
-          //   // rotate: 270deg;
-          //   filter: drop-shadow(30px 20px 10px rgba(0, 0, 0, 1)) brightness(70%)
-          //     contrast(150%) saturate(0%) brightness(150%);
-          // }
-        }
-      }
-    }
-    .swiper {
-      position: absolute;
-      top: 15%;
-      // left: 14vw;
-      left: 20vh;
-      translate: 0 70%;
-      width: 550px;
-      height: 100%;
-      &.active {
-        transition-property: transition 0.25s;
-        translate: 0 0;
-      }
-      .swiper-wrapper {
-        width: 100%;
-        .swiper-slide {
-          text-align: center;
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-        }
-        .swiper-slide img {
-          display: block;
-          width: 550px;
-          height: 350px;
-          object-fit: cover;
-          border-radius: 25px;
-          // filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 1));
-        }
-        .swiper-slide {
-          // scale: 0.8;
-          // filter: blur(2px);
-          // scale: 0.7;
-          // &.active {
-          //   filter: blur(0);
-          //   scale: 1;
-          // }
-        }
-      }
-      .swiper-pagination {
-        position: absolute;
-        top: -100%;
-        left: 0;
-        transform: translate(0);
-      }
-      // .swiper-button-next {
-      //   // translate: -300px ;
-      //   rotate: 90deg;
-      //   background-color: red;
-      //   &::after {
-      //     display: none;
-      //   }
-      // }
-      // .swiper-button-prev {
-      //   // translate: 310px;
-      //   rotate: 90deg;
-      //   background-color: red;
-
-      // }
-      .swiper-button-prev {
-        left: 50%;
-        top: 21%;
-        transform: rotate(90deg);
-        transform-origin: left center;
-        z-index: 10;
-        background-color: red;
-        &::after {
-          display: none;
-        }
-      }
-      .swiper-button-next {
-        left: 50%;
-        top: 75%;
-        transform: rotate(90deg);
-        transform-origin: left center;
-        background-color: blue;
-        &::after {
-          display: none;
-        }
-      }
-    }
   }
 }
-
 @keyframes opacityBlurAni {
   0% {
     opacity: 0;
@@ -383,30 +326,5 @@ body {
   }
   100% {
     transform: rotate(0deg) translate3d(0, 0, 0);
-  }
-}
-@keyframes fadeInUp {
-  0% {
-    transform: translate3d(0, 100px, 0);
-  }
-
-  50% {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
-  95% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes revealOpacity {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
   }
 }

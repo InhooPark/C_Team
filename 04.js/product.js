@@ -4,42 +4,42 @@ let data = [
   {
     url: "../01.img/mints_grape.png",
     title: "MINTS GRAPE",
-    ditailTitle: "ECLIPSE GRAP E Flavoured Sugarfree Mints 40 g",
+    ditailTitle: "ECLIPSE GRAPE<br> Flavoured Sugarfree Mints 40 g",
     ditail:
       "Refreshing things happen when you carry a tin of ECLIPSE GRAPE flavoured sugarfree mints. Thesedelicious little breath mints are perfect after a cup of coffee and give you the freshness toconnect and be at your best at home, work or play. So, flip open your tin, share and LET THERE BEFRESH!",
   },
   {
     url: "../01.img/mints_intense.png",
     title: "MINTS INTENSE",
-    ditailTitle: "ECLIPSE INTENSE MINT Sugarfree Mints Tin 40 g",
+    ditailTitle: "ECLIPSE INTENSE MINT<br> Sugarfree Mints Tin 40 g",
     ditail:
       "Refreshing things happen when you carry a tin of ECLIPSE INTENSE MINT sugarfree mints. These delicious little breath mints are perfect after a cup of coffee and give you the freshness to connect and be at your best at home, work or play. So, flip open your tin, share and LET THERE BE FRESH!",
   },
   {
     url: "../01.img/mints_orange.png",
     title: "MINTS ORANGE",
-    ditailTitle: "ECLIPSE TANGY ORANGE Flavoured Sugarfree Mints Tin 40 g",
+    ditailTitle: "ECLIPSE TANGY ORANGE<br> Flavoured Sugarfree Mints Tin 40 g",
     ditail:
       "Refreshing things happen when you carry a tin of ECLIPSE TANGY ORANGE flavoured sugarfree mints. These delicious little breath mints are perfect after a cup of coffee and give you the freshness to connect and be at your best at home, work or play. So, flip open your tin, share and LET THERE BE FRESH!",
   },
   {
     url: "../01.img/mints_peppermint.png",
     title: "MINTS PEPPERMINT",
-    ditailTitle: "ECLIPSE PEPPERMINT Sugarfree Mints Tin 40 g",
+    ditailTitle: "ECLIPSE PEPPERMINT<br> Sugarfree Mints Tin 40 g",
     ditail:
       "Refreshing things happen when you carry a tin of ECLIPSE PEPPERMINT sugarfree mints. These delicious little breath mints are perfect after a cup of coffee and give you the freshness to connect and be at your best at home, work or play. So, flip open your tin, share and LET THERE BE FRESH!",
   },
   {
     url: "../01.img/mints_spearmint.png",
     title: "MINTS SPEARMINT",
-    ditailTitle: "Eclipse Spearmint Sugar Free Mints Tin 40g",
+    ditailTitle: "Eclipse Spearmint<br> Sugar Free Mints Tin 40g",
     ditail:
       "Refreshing things happen when you carry a tin of ECLIPSE SPEARMINT sugarfree mints. These delicious little breath mints are perfect after a cup of coffee and give you the freshness to connect and be at your best at home, work or play. So, flip open your tin, share and LET THERE BE FRESH!",
   },
   {
     url: "../01.img/mints_strawberry.png",
     title: "MINTS STRAWBERRY",
-    ditailTitle: "ECLIPSE STRAWBERRY Flavoured Sugarfree Mints Tin 40 g",
+    ditailTitle: "ECLIPSE STRAWBERRY<br> Flavoured Sugarfree Mints Tin 40 g",
     ditail:
       "Refreshing things happen when you carry a tin of ECLIPSE STRAWBERRY flavoured sugarfree mints. These delicious little breath mints are perfect after a cup of coffee and give you the freshness to connect and be at your best at home, work or play. So, flip open your tin, share and LET THERE BE FRESH!",
   },
@@ -63,7 +63,7 @@ let data = [
     url: "../01.img/chewy_1.png",
     title: "ECLIPSE PINK LEMONADE",
     ditailTitle:
-      "ECLIPSE PINK LEMONADE Flavoured Chewy Mints Tin 27 g",
+      "ECLIPSE PINK LEMONADE<br> Flavoured Chewy Mints Tin 27 g",
     ditail:
       "Refreshing things happen when you carry a tin of ECLIPSE PINK LEMONADE flavoured Chewy Mints. These delicious little chewy mints are perfect after a cup of coffee and give you the freshness to connect and be at your best at home, work or play. So, flip open your tin, share and LET THERE BE FRESH!",
   },
@@ -71,7 +71,7 @@ let data = [
     url: "../01.img/chewy_2_1.png",
     title: "ECLIPSE PEPPERMINT",
     ditailTitle:
-      "ECLIPSE PEPPERMINT Flavoured Chewy Mints Tin 27 g",
+      "ECLIPSE PEPPERMINT<br> Flavoured Chewy Mints Tin 27 g",
     ditail:
       "Refreshing things happen when you carry a tin of ECLIPSE PEPPERMINT flavoured Chewy Mints. These delicious little chewy mints are perfect after a cup of coffee and give you the freshness to connect and be at your best at home, work or play. So, flip open your tin, share and LET THERE BE FRESH!",
   },
@@ -79,7 +79,7 @@ let data = [
     url: "../01.img/chewy_3.png",
     title: "ECLIPSE PEPPERMINT",
     ditailTitle:
-      "ECLIPSE PEPPERMINT Flavoured Chewy Mints Bottle 93 g",
+      "ECLIPSE PEPPERMINT<br> Flavoured Chewy Mints Bottle 93 g",
     ditail:
       "Refreshing things happen when you have a bottle of ECLIPSE PEPPERMINT flavoured Chewy Mints. These delicious chewy mints are perfect after a cup of coffee and this bulk format is perfect for freshening while at home, in the office or in the car. So flip open this bottle and LET THERE BE FRESH!",
   },
@@ -87,7 +87,7 @@ let data = [
     url: "../01.img/chewy_4_1.png",
     title: "ECLIPSE SPEARMINT",
     ditailTitle:
-      "ECLIPSE SPEARMINT Flavoured Chewy Mints Tin 27 g",
+      "ECLIPSE SPEARMINT<br> Flavoured Chewy Mints Tin 27 g",
     ditail:
       "Refreshing things happen when you carry a tin of ECLIPSE SPEARMINT flavoured Chewy Mints. These delicious little chewy mints are perfect after a cup of coffee and give you the freshness to connect and be at your best at home, work or play. So, flip open your tin, share and LET THERE BE FRESH!",
   },
@@ -95,7 +95,7 @@ let data = [
     url: "../01.img/chewy_5.png",
     title: "ECLIPSE SPEARMINT",
     ditailTitle:
-      "ECLIPSE SPEARMINT Flavoured Chewy Mints Bottle 93 g",
+      "ECLIPSE SPEARMINT<br> Flavoured Chewy Mints Bottle 93 g",
     ditail:
       "Refreshing things happen when you have a bottle of ECLIPSE SPEARMINT flavoured Chewy Mints. These delicious chewy mints are perfect after a cup of coffee and this bulk format is perfect for freshening while at home, in the office or in the car. So flip open this bottle and LET THERE BE FRESH!",
   },

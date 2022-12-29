@@ -6,31 +6,11 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
-
-.loading{
-  background-color: #b7ebd6;
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  z-index: 200;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  img{
-    object-fit: cover;
-  }
-  &.hide{
-    display: none;
-  }
-}
-
-
 .first-title {
   width: 100%;
   height: 5500px;
   position: relative;
-  background-color: #eefdf7;
+  background-color: #b7ebd6;
   .first-sticky {
     position: sticky;
     top: 0;
@@ -40,7 +20,7 @@ body {
     justify-content: center;
     .scroll-img{
       position: absolute;
-      width: 8%;
+      width: 5%;
       left: 50%;
       bottom : 5%;
       transform: translateX(-50%);
@@ -93,14 +73,12 @@ body {
 .term {
   width: 100%;
   height: 500px;
-  background-color: #eefdf7;
-  &.last{
-    height: 100vh;
-  }
+  background-color: #b7ebd6;
+
 }
 
 .second-explosion {
-  background-color: #eefdf7;
+  background-color: #b7ebd6;
   width: 100%;
   height: 2300px;
   .candy-wrap {
@@ -168,7 +146,7 @@ body {
 }
 
 .third-video {
-  background-color: #eefdf7;
+  background-color: #b7ebd6;
   width: 100%;
   height: 500vh;
   position: relative;
@@ -193,7 +171,7 @@ body {
   .gradation {
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, transparent 0%, transparent 20%, #eefdf7 100%);
+    background: linear-gradient(180deg, transparent 0%, transparent 20%, #b7ebd6 100%);
 
     position: absolute;
     top: 0;
@@ -204,8 +182,4 @@ body {
 .fourth-canvas{
   margin:0;
   padding:0;
-  pointer-events: none;
-  canvas{
-    pointer-events: fill;
-  }
 }

@@ -117,7 +117,7 @@ body {
 
     .choice {
       margin-top: 265px;
-      margin-bottom: 280px;
+      margin-bottom: 245px;
       text-align: center;
       justify-content: center;
 
@@ -181,13 +181,19 @@ body {
       }
 
       @keyframes aa {
+        0% {
+          transform: rotate(0deg);
+        }
         100% {
-          transform: rotate(365deg);
+          transform: rotate(1080deg);
         }
       }
       @keyframes aa1 {
+        0% {
+          transform: rotate(0deg);
+        }
         100% {
-          transform: rotate(-365deg);
+          transform: rotate(-730deg);
         }
       }
 
@@ -204,7 +210,7 @@ body {
     .aa {
       text-align: center;
 
-      h2{
+      h2 {
         color: white;
         font-weight: 700;
         font-size: 50px;
