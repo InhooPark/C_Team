@@ -4,13 +4,51 @@ body {
   width: 100%;
   margin: 0;
   overflow-x: hidden;
+  position: relative;
+}
+
+.scroll {
+  position: fixed;
+  width: 50px;
+  right: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 300ms;
+  text-align: center;
+}
+.scroll span {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #00ab69;
+}
+.scroll .line {
+  margin: 30px auto 0;
+  width: 2px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+}
+.scroll .line::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+  left: 0;
+  background: #00ab69;
+  -webkit-animation: scroll-ani infinite 2000ms linear;
+          animation: scroll-ani infinite 2000ms linear;
+}
+.scroll.invisible {
+  opacity: 0;
 }
 
 .first-title {
   width: 100%;
   height: 5500px;
   position: relative;
-  background-color: #b7ebd6;
+  background-color: #eefdf7;
 }
 .first-title .first-sticky {
   position: -webkit-sticky;
@@ -20,22 +58,6 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-}
-.first-title .first-sticky .scroll-img {
-  position: absolute;
-  width: 5%;
-  left: 50%;
-  bottom: 5%;
-  transform: translateX(-50%);
-  transition: 300ms;
-}
-.first-title .first-sticky .scroll-img img {
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.first-title .first-sticky .scroll-img.invisible {
-  opacity: 0;
 }
 .first-title .first-sticky .img-wrapper-first {
   width: 100%;
@@ -60,9 +82,9 @@ body {
   width: 50%;
   height: 100%;
   position: absolute;
-  display: flex;
   align-items: center;
   overflow: hidden;
+  display: flex;
 }
 .first-title .first-sticky .img-wrapper-second img {
   opacity: 0;
@@ -70,6 +92,7 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
   transition: 600ms;
+  -webkit-user-drag: none;
 }
 .first-title .first-sticky .img-wrapper-second.visible img {
   opacity: 1;
@@ -78,11 +101,14 @@ body {
 .term {
   width: 100%;
   height: 500px;
-  background-color: #b7ebd6;
+  background-color: #eefdf7;
+}
+.term.last {
+  height: 100vh;
 }
 
 .second-explosion {
-  background-color: #b7ebd6;
+  background-color: #eefdf7;
   width: 100%;
   height: 2300px;
 }
@@ -159,7 +185,7 @@ body {
 }
 
 .third-video {
-  background-color: #b7ebd6;
+  background-color: #eefdf7;
   width: 100%;
   height: 500vh;
   position: relative;
@@ -187,7 +213,7 @@ body {
 .third-video .gradation {
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, transparent 0%, transparent 20%, #b7ebd6 100%);
+  background: linear-gradient(180deg, transparent 0%, transparent 20%, #eefdf7 100%);
   position: absolute;
   top: 0;
   z-index: 10;
@@ -196,4 +222,75 @@ body {
 .fourth-canvas {
   margin: 0;
   padding: 0;
+  position: relative;
+}
+.fourth-canvas .canvas-button {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(75%, -50%);
+  transition: 300ms;
+  cursor: pointer;
+}
+.fourth-canvas .canvas-button.open {
+  transform: translate(50%, -50%);
+}
+.fourth-canvas .canvas-button .wave {
+  width: 100%;
+  height: 100%;
+  border-radius: 45%;
+  position: absolute;
+  z-index: 100;
+  opacity: 0.4;
+}
+.fourth-canvas .canvas-button .wave.one {
+  background: linear-gradient(0deg, #b7ebd6, #00ab69);
+  -webkit-animation: whirl 3000ms infinite linear;
+          animation: whirl 3000ms infinite linear;
+}
+.fourth-canvas .canvas-button .wave.two {
+  background: linear-gradient(0deg, #b7ebd6, #003082);
+  -webkit-animation: whirl 5000ms infinite linear;
+          animation: whirl 5000ms infinite linear;
+}
+.fourth-canvas .canvas-button .wave.three {
+  background: linear-gradient(0deg, #b7ebd6, yellow);
+  -webkit-animation: whirl 7000ms infinite linear;
+          animation: whirl 7000ms infinite linear;
+}
+
+@-webkit-keyframes whirl {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes whirl {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes scroll-ani {
+  from {
+    top: -110%;
+  }
+  to {
+    top: 110%;
+  }
+}
+@keyframes scroll-ani {
+  from {
+    top: -110%;
+  }
+  to {
+    top: 110%;
+  }
 }/*# sourceMappingURL=index.css.map */
