@@ -1,76 +1,109 @@
-
 window.addEventListener("load", function () {
+  boxBool = true;
+  window.addEventListener("scroll", function (e) {
+    const AA = document.querySelector(".fourth-canvas");
 
-  // matter.js 로드
-  var Engine = Matter.Engine,
-    Render = Matter.Render,
-    Runner = Matter.Runner,
-    Bodies = Matter.Bodies,
-    Composite = Matter.Composite;
-  var engine = Engine.create();
+    if (window.pageYOffset > AA.offsetTop - 500 && boxBool) {
+      let count = 0;
+      let boxInter = setInterval(() => {
+        let randomCount = ('00' + Math.floor(Math.random()*4)).slice(-2)
+        count++;
+        let Box;
+        let Box2;
+        Box = Matter.Bodies.rectangle(mouseX-5, mouseY, 41, 24, {
+          chamfer: {
+            radius: [10, 10, 10, 10],
+          },
+          render: {
+            strokeStyle: "transparent",
+            sprite: {
+              texture: `./01.img/index/candy_mini${randomCount}.png`,
+            },
+          },
+        });
 
-  // div.fourth-canvas 에 canvas를 로드한다
-  const CANVAS = document.querySelector('.fourth-canvas');
-  var render = Render.create({
-    element: CANVAS,
-    engine: engine,
+        Matter.Composite.add(engine.world, [Box]);
+        if (count > 300) clearInterval(boxInter);
+      }, 30);
+      boxBool = false;
+    }
   });
 
-  // canvas의 width, height 값을 브라우저의 width, height 값으로 설정
-  let canvasHeight = window.innerHeight;
-  let canvasWidth = document.documentElement.clientWidth;
-  render.canvas.width = canvasWidth;
-  render.canvas.height = canvasHeight;
-
-  // 브라우저내 마우스의 x, y좌표를 받아온다
-  let mouseX = canvasWidth / 2;
+  const engine = Matter.Engine.create();
+  const world = engine.world;
+  engine.world.gravity.y = 1;
+  const render = Matter.Render.create({
+    element: document.querySelector(".fourth-canvas"),
+    engine: engine,
+    options: {
+      width: window.innerWidth,
+      height: window.innerHeight,
+      wireframes: false,
+      background: "#eefdf7",
+    },
+  });
+  Matter.Render.run(render);
+  const runner = Matter.Runner.create();
+  Matter.Runner.run(runner, engine);
+  let mouseX = 0;
   let mouseY = 0;
   window.addEventListener("mousemove", function (e) {
     mouseX = e.clientX;
     mouseY = e.clientY;
   });
 
-  // 캔버스 영역으로 진입했을때 박스 생성을 시작한다
-  let boxbool = true;
-  window.addEventListener("scroll", function () {
-    if (window.pageYOffset > CANVAS.offsetTop && boxbool) {
-      boxCreate();
-      boxbool = false;
-    }
-  });
+  fetch("./01.img/svg/allproduct.svg")
+    .then((response) => {
+      return response.text();
+    })
+    .then((raw) => {
+      return new window.DOMParser().parseFromString(raw, "image/svg+xml");
+    })
+    .then(function (root) {
+      const paths = Array.prototype.slice.call(root.querySelectorAll("path"));
 
-  // 박스 생성 함수
-  function boxCreate() {
-    let count = 0;
-    let boxInter = setInterval(() => {
-      count++;
-      let Box = Bodies.rectangle(mouseX, mouseY, 40, 30);
-      Composite.add(engine.world, [Box]);
-      if (count > 200) {
-        clearInterval(boxInter);
-      }
-    }, 30);
-  }
+      const vertices = paths.map((path) => {
+        return Matter.Svg.pathToVertices(path, 5);
+      });
+      const terrain = Matter.Bodies.fromVertices(
+        window.innerWidth / 2,
+        window.innerHeight / 2,
+        vertices,
+        {
+          isStatic: true,
+          render: {
+            fillStyle: "#00AB69",
+            strokeStyle: "#00AB69",
+            lineWidth: 1,
+          },
+        },
+        true
+      );
 
-  // 박스가 밖으로 나가지 않도록 static 속성의 테두리를 만들어준다. 
-  // static이 false일시 gravity 영향을 받아 박스와 함께 canvas 영역 밖으로 떨어진다.
-  var staticBottom = Bodies.rectangle(canvasWidth / 2, canvasHeight + 50, canvasWidth, 100, { isStatic: true });
-  var staticTop = Bodies.rectangle(canvasWidth / 2, -50, canvasWidth, 100, { isStatic: true });
-  var staticLeft = Bodies.rectangle(-50, canvasHeight / 2, 100, canvasHeight, { isStatic: true });
-  var staticRight = Bodies.rectangle(canvasWidth + 50, canvasHeight / 2, 100, canvasHeight, { isStatic: true });
+      var bottomStatic = Matter.Bodies.rectangle(window.innerWidth / 2, window.innerHeight + 50, window.innerWidth, 100, { isStatic: true });
+      var topStatic = Matter.Bodies.rectangle(window.innerWidth / 2, -50, window.innerWidth, 100, { isStatic: true });
+      var leftStatic = Matter.Bodies.rectangle(-50, window.innerHeight / 2, 100, window.innerHeight, { isStatic: true });
+      var rightStatic = Matter.Bodies.rectangle(window.innerWidth + 50, window.innerHeight / 2, 100, window.innerHeight, { isStatic: true });
 
-  // 마우스 드래그 이벤트 생성
-  let mouse = Matter.Mouse.create(render.canvas);
-  let mouseConstraint = Matter.MouseConstraint.create(engine, {
-    mouse: mouse,
-    constraint: {
-      render: { visible: false },
-    },
-  });
-  render.mouse = mouse;
+      Matter.World.add(world, [terrain, bottomStatic, topStatic, leftStatic, rightStatic]);
 
-  Composite.add(engine.world, [staticBottom, staticTop, staticLeft, staticRight, mouseConstraint]);
-  Render.run(render);
-  var runner = Runner.create();
-  Runner.run(runner, engine);
+      var bodyOptions = {
+        frictionAir: 0.1,
+        friction: 0.2,
+        restitution: 0.5,
+      };
+    });
+
+  var mouse = Matter.Mouse.create(render.canvas),
+    mouseConstraint = Matter.MouseConstraint.create(engine, {
+      mouse: mouse,
+      constraint: {
+        stiffness: 0.2,
+        render: {
+          visible: false,
+        },
+      },
+    });
+
+  Matter.World.add(world, mouseConstraint);
 });

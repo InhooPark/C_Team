@@ -1,15 +1,35 @@
 @import url(./header.css);
+@import url(./reset.css);
 body {
   width: 100%;
   margin: 0;
   overflow-x: hidden;
 }
 
+.loading {
+  background-color: #b7ebd6;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.loading.hide {
+  display: none;
+}
+
 .first-title {
   width: 100%;
   height: 5500px;
   position: relative;
-  background-color: #b7ebd6;
+  background-color: #eefdf7;
 }
 .first-title .first-sticky {
   position: -webkit-sticky;
@@ -22,7 +42,7 @@ body {
 }
 .first-title .first-sticky .scroll-img {
   position: absolute;
-  width: 5%;
+  width: 8%;
   left: 50%;
   bottom: 5%;
   transform: translateX(-50%);
@@ -77,11 +97,14 @@ body {
 .term {
   width: 100%;
   height: 500px;
-  background-color: #b7ebd6;
+  background-color: #eefdf7;
+}
+.term.last {
+  height: 100vh;
 }
 
 .second-explosion {
-  background-color: #b7ebd6;
+  background-color: #eefdf7;
   width: 100%;
   height: 2300px;
 }
@@ -158,7 +181,7 @@ body {
 }
 
 .third-video {
-  background-color: #b7ebd6;
+  background-color: #eefdf7;
   width: 100%;
   height: 500vh;
   position: relative;
@@ -186,7 +209,7 @@ body {
 .third-video .gradation {
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, transparent 0%, transparent 20%, #b7ebd6 100%);
+  background: linear-gradient(180deg, transparent 0%, transparent 20%, #eefdf7 100%);
   position: absolute;
   top: 0;
   z-index: 10;
@@ -195,4 +218,8 @@ body {
 .fourth-canvas {
   margin: 0;
   padding: 0;
+  pointer-events: none;
+}
+.fourth-canvas canvas {
+  pointer-events: fill;
 }/*# sourceMappingURL=index.css.map */

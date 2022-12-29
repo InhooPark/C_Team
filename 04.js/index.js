@@ -14,7 +14,7 @@ window.addEventListener("load", function () {
 
   const VIDEO = document.querySelector(".video-wrap");
 
-  let CANVAS = '';
+  let CANVAS = "";
   setTimeout(() => {
     CANVAS = document.querySelector("canvas");
   }, 1);
@@ -75,6 +75,13 @@ window.addEventListener("load", function () {
       VIDEO.classList.add("visible");
     } else {
       VIDEO.classList.remove("visible");
+    }
+
+    const LAST = document.querySelector(".last");
+    let canvasOffsetTop = LAST.offsetTop + LAST.offsetHeight;
+
+    if (window.pageYOffset > LAST.offsetTop && window.pageYOffset < canvasOffsetTop) {
+      scrollTo(0, canvasOffsetTop);
     }
   });
 });
