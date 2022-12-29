@@ -32,6 +32,10 @@ header {
         .logo-img {
           height: 40%;
           overflow: hidden;
+          transition: 300ms;
+          &.scale-up{
+            height: 44%;
+          }
           img {
             height: 100%;
             object-fit: cover;
@@ -64,6 +68,7 @@ header {
           height: 2px;
           background: black;
           transition: 300ms;
+          transform-origin: right;
           &:nth-child(1) {
             top: 20%;
           }
@@ -75,8 +80,18 @@ header {
           }
         }
       }
+      &.burger-hover .burger-icon span{
+        &:nth-child(1){
+          transform: scaleX(0.3);  
+        }
+        &:nth-child(3){
+          transform: scaleX(0.8);  
+        }
+      }
+
       &.burger-animation .burger-icon span {
         &:nth-child(1) {
+          transform-origin: center;
           transform: rotate(45deg);
           top: 50%;
         }
@@ -84,6 +99,7 @@ header {
           transform: scale(0);
         }
         &:nth-child(3) {
+          transform-origin: center;
           transform: rotate(-45deg);
           top: 50%;
         }
@@ -107,7 +123,7 @@ header {
         background-color: #b7ebd6;
         &:nth-child(1) {
           left: 0%;
-          background-color: #01ab69;
+          background-color: #37B987;
           z-index: 2;
         }
         &:nth-child(2) {

@@ -5,7 +5,23 @@ function headerCallback() {
   const SPHERE = document.querySelector(".sphere");
   const SPHERECON = document.querySelector(".sphere-content-wrap");
   const SPHEREBIN = document.querySelector(".sphere-content");
-  console.log(Date.now());
+  const LOGO = document.querySelector('.logo');
+  const LOGOIMG = document.querySelector('.logo-img');
+
+  LOGO.addEventListener('mouseover', () => {
+    console.log('up');
+    LOGOIMG.classList.add('scale-up');
+  });
+  LOGO.addEventListener('mouseleave', () => {
+    console.log('down');
+    LOGOIMG.classList.remove('scale-up');
+  });
+
+
+
+
+
+
 
   SPHERE.addEventListener("mouseover", () => {
     SPHEREBIN.style = "z-index: 7;";
@@ -22,6 +38,7 @@ function headerCallback() {
     SPHERE.style = `transform: rotate(${count * 5}deg);`;
     SPHERECON.style = `transform: rotate(${count}deg);`;
   }, 100);
+
   const BURGER = document.querySelector(".burger");
   const BURGEROPEN = document.querySelector(".burger-open");
 
@@ -40,6 +57,15 @@ function headerCallback() {
       BURGEROPEN.classList.toggle("open");
     }, 1);
   });
+
+  if (!BURGER.classList.contains("burger-animation")) {
+    BURGER.addEventListener("mouseover", () => {
+      BURGER.classList.add("burger-hover");
+    });
+    BURGER.addEventListener("mouseleave", () => {
+      BURGER.classList.remove("burger-hover");
+    });
+  }
 
   const MENUOVER = document.querySelectorAll(".burger-menu a i");
 

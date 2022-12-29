@@ -52,7 +52,7 @@ window.addEventListener("load", function () {
     mouseY = e.clientY;
   });
 
-  fetch("./01.img/svg/allproduct.svg")
+  fetch("./01.img/svg/lol.svg")
     .then((response) => {
       return response.text();
     })

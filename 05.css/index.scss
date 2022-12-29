@@ -5,26 +5,45 @@ body {
   width: 100%;
   margin: 0;
   overflow-x: hidden;
+  position: relative;
 }
 
-.loading{
-  background-color: #b7ebd6;
-  width: 100%;
-  height: 100vh;
+.scroll {
   position: fixed;
-  top: 0;
-  z-index: 200;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  img{
-    object-fit: cover;
+  width: 50px;
+  right: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 300ms;
+  text-align: center;
+  span {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.3;
+    color: #00ab69;
   }
-  &.hide{
-    display: none;
+  .line {
+    margin: 30px auto 0;
+    width: 2px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: block;
+      left: 0;
+      background: #00ab69;
+      animation: scroll-ani infinite 2000ms linear;
+    }
+  }
+
+  &.invisible {
+    opacity: 0;
   }
 }
-
 
 .first-title {
   width: 100%;
@@ -38,21 +57,7 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-    .scroll-img{
-      position: absolute;
-      width: 8%;
-      left: 50%;
-      bottom : 5%;
-      transform: translateX(-50%);
-      transition: 300ms;
-      img{
-        width: 100%;
-        object-fit: cover;
-      }
-      &.invisible{
-        opacity: 0;
-      }
-    }
+
     .img-wrapper-first {
       width: 100%;
       height: 100%;
@@ -75,14 +80,15 @@ body {
       width: 50%;
       height: 100%;
       position: absolute;
-      display: flex;
       align-items: center;
       overflow: hidden;
+      display: flex;
       img {
         opacity: 0;
         width: 100%;
         object-fit: cover;
         transition: 600ms;
+        -webkit-user-drag: none;
       }
       &.visible img {
         opacity: 1;
@@ -94,7 +100,7 @@ body {
   width: 100%;
   height: 500px;
   background-color: #eefdf7;
-  &.last{
+  &.last {
     height: 100vh;
   }
 }
@@ -201,11 +207,59 @@ body {
   }
 }
 
-.fourth-canvas{
-  margin:0;
-  padding:0;
-  pointer-events: none;
-  canvas{
-    pointer-events: fill;
+.fourth-canvas {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  .canvas-button {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(75%, -50%);
+    transition: 300ms;
+    cursor: pointer;
+    &.open {
+      transform: translate(50%, -50%);
+    }
+
+    .wave {
+      width: 100%;
+      height: 100%;
+      border-radius: 45%;
+      position: absolute;
+      z-index: 100;
+      opacity: 0.4;
+      &.one {
+        background: linear-gradient(0deg, #b7ebd6, #00ab69);
+        animation: whirl 3000ms infinite linear;
+      }
+      &.two {
+        background: linear-gradient(0deg, #b7ebd6, #003082);
+        animation: whirl 5000ms infinite linear;
+      }
+      &.three {
+        background: linear-gradient(0deg, #b7ebd6, yellow);
+        animation: whirl 7000ms infinite linear;
+      }
+    }
+  }
+}
+
+@keyframes whirl {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes scroll-ani {
+  from {
+    top: -110%;
+  }
+  to {
+    top: 110%;
   }
 }
