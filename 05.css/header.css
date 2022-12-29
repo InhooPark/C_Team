@@ -149,7 +149,7 @@ header .menu-container .burger-open .menu-contain .sphere .sphere-top {
   transform: translate(-50%, -50%);
   position: absolute;
   z-index: 10;
-  transition: linear 300ms;
+  transition: linear 200ms;
 }
 header .menu-container .burger-open .menu-contain .sphere .sphere-top img {
   width: 100%;
@@ -159,7 +159,7 @@ header .menu-container .burger-open .menu-contain .sphere .sphere-bottom {
   transform: translate(-50%, -50%);
   position: absolute;
   z-index: 5;
-  transition: linear 300ms;
+  transition: linear 200ms;
 }
 header .menu-container .burger-open .menu-contain .sphere .sphere-bottom img {
   width: 100%;
@@ -170,7 +170,7 @@ header .menu-container .burger-open .menu-contain .sphere .sphere-content {
   transform: translate(-50%, -50%) scale(0);
   position: absolute;
   z-index: 0;
-  transition: linear 300ms;
+  transition: linear 200ms;
 }
 header .menu-container .burger-open .menu-contain .sphere .sphere-content .sphere-content-wrap {
   width: 100%;

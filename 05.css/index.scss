@@ -1,11 +1,85 @@
-@import url(./header.css);
-@import url(./reset.css);
+@import url("./header.css");
 
 body {
   width: 100%;
   margin: 0;
   overflow-x: hidden;
   position: relative;
+  background-color: #eefdf7;
+  &.first-text-ani {
+    overflow-y: hidden;
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+// 로딩 안되는 이유가
+@keyframes screenani {
+  0% {
+    top: -110%;
+    border-radius: 0 0 50% 50%;
+  }
+  20% {
+    top: 0%;
+    border-radius: 0 0 0 0;
+  }
+  80% {
+    top: 0%;
+    border-radius: 0 0 0 0;
+  }
+  100% {
+    top: 110%;
+    border-radius: 50% 50% 0 0;
+  }
+}
+#load {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top:0; left:0;
+  z-index: 1000;
+  &.display-off {
+    display: none;
+  }
+}
+#screen {
+  width: 100%;
+  height: 100%;
+  background-color: #b7ebd6;
+  position: fixed;
+  top:-110%;
+  animation: screenani 1500ms linear forwards ;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .load-text-wrap{
+    width: 30%;
+    text-align: center;
+    > span{
+      display: block;
+      font-size: 10rem;
+      font-weight: bold;
+      color: #00ab69;
+      animation: loadTextAni 1500ms ease forwards;
+    }
+  }
+}
+@keyframes loadTextAni {
+  0%{
+    transform: scaleY(0);
+  }
+  30%{
+    transform: scaleY(0);
+  }
+  70%{
+    transform: scaleY(1);
+  }
+  100%{
+    transform: scaleY(1);
+  }
 }
 
 .scroll {
@@ -16,6 +90,8 @@ body {
   transform: translate(-50%, -50%);
   transition: 300ms;
   text-align: center;
+  z-index: 50;
+  visibility: visible;
   span {
     font-weight: bold;
     font-size: 14px;
@@ -42,14 +118,21 @@ body {
 
   &.invisible {
     opacity: 0;
+    visibility: hidden;
+  }
+}
+.term {
+  width: 100%;
+  height: 500px;
+  &.last {
+    height: 100vh;
   }
 }
 
 .first-title {
   width: 100%;
-  height: 5500px;
+  height: 4000px;
   position: relative;
-  background-color: #eefdf7;
   .first-sticky {
     position: sticky;
     top: 0;
@@ -58,22 +141,38 @@ body {
     display: flex;
     justify-content: center;
 
-    .img-wrapper-first {
+    .eclipse-text {
       width: 100%;
       height: 100%;
       position: absolute;
-      transform: translateX(-200%);
-      width: 50%;
       overflow: hidden;
       display: flex;
-      align-items: center;
-      img {
-        width: 100%;
-        object-fit: cover;
-        transition: 600ms;
-      }
-      &.invisible img {
-        opacity: 0;
+      justify-content: center;
+      i {
+        height: 100%;
+        font-weight: bold;
+        font-family: "Signika", sans-serif;
+        > span {
+          display: inline-block;
+          height: 100%;
+          font-size: 0;
+          transition: 300ms;
+          &.invisible {
+            opacity: 0;
+          }
+
+          > span {
+            height: 100%;
+            font-size: 20rem;
+            display: inline-block;
+            transition: 300ms;
+            transform: translateY(100%);
+            color: #00ab69;
+            &.up {
+              transform: translateY(20%);
+            }
+          }
+        }
       }
     }
     .img-wrapper-second {
@@ -96,17 +195,8 @@ body {
     }
   }
 }
-.term {
-  width: 100%;
-  height: 500px;
-  background-color: #eefdf7;
-  &.last {
-    height: 100vh;
-  }
-}
 
 .second-explosion {
-  background-color: #eefdf7;
   width: 100%;
   height: 2300px;
   .candy-wrap {
@@ -174,7 +264,6 @@ body {
 }
 
 .third-video {
-  background-color: #eefdf7;
   width: 100%;
   height: 500vh;
   position: relative;
