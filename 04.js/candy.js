@@ -1,4 +1,22 @@
 window.addEventListener("load", function () {
+  setTimeout(() => {
+    CANVASDELAY();
+  }, 1500);
+});
+
+function CANVASDELAY() {
+  //캔버스 버튼 이벤트
+  const WAVEBTN = document.querySelector(".canvas-button");
+  WAVEBTN.addEventListener("mouseover", () => {
+    WAVEBTN.classList.add("open");
+  });
+  WAVEBTN.addEventListener("mouseleave", () => {
+    WAVEBTN.classList.remove("open");
+  });
+  WAVEBTN.addEventListener("click", () => {
+    window.location = "./product.html";
+  });
+
   boxBool = true;
   window.addEventListener("scroll", function (e) {
     const AA = document.querySelector(".fourth-canvas");
@@ -6,16 +24,14 @@ window.addEventListener("load", function () {
     if (window.pageYOffset > AA.offsetTop - 500 && boxBool) {
       let count = 0;
       let boxInter = setInterval(() => {
-        let randomCount = ('00' + Math.floor(Math.random()*4)).slice(-2)
+        let randomCount = ("00" + Math.floor(Math.random() * 4)).slice(-2);
         count++;
         let Box;
-        let Box2;
-        Box = Matter.Bodies.rectangle(mouseX-5, mouseY, 41, 24, {
+        Box = Matter.Bodies.rectangle(mouseX - 5, mouseY, 41, 24, {
           chamfer: {
             radius: [10, 10, 10, 10],
           },
           render: {
-            strokeStyle: "transparent",
             sprite: {
               texture: `./01.img/index/candy_mini${randomCount}.png`,
             },
@@ -63,7 +79,7 @@ window.addEventListener("load", function () {
       const paths = Array.prototype.slice.call(root.querySelectorAll("path"));
 
       const vertices = paths.map((path) => {
-        return Matter.Svg.pathToVertices(path, 5);
+        return Matter.Svg.pathToVertices(path, 20);
       });
       const terrain = Matter.Bodies.fromVertices(
         window.innerWidth / 2,
@@ -106,4 +122,4 @@ window.addEventListener("load", function () {
     });
 
   Matter.World.add(world, mouseConstraint);
-});
+}
