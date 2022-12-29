@@ -34,6 +34,10 @@ header .menu-container .logo a {
 header .menu-container .logo a .logo-img {
   height: 40%;
   overflow: hidden;
+  transition: 300ms;
+}
+header .menu-container .logo a .logo-img.scale-up {
+  height: 44%;
 }
 header .menu-container .logo a .logo-img img {
   height: 100%;
@@ -66,6 +70,7 @@ header .menu-container .burger .burger-icon span {
   height: 2px;
   background: black;
   transition: 300ms;
+  transform-origin: right;
 }
 header .menu-container .burger .burger-icon span:nth-child(1) {
   top: 20%;
@@ -76,7 +81,14 @@ header .menu-container .burger .burger-icon span:nth-child(2) {
 header .menu-container .burger .burger-icon span:nth-child(3) {
   top: 80%;
 }
+header .menu-container .burger.burger-hover .burger-icon span:nth-child(1) {
+  transform: scaleX(0.3);
+}
+header .menu-container .burger.burger-hover .burger-icon span:nth-child(3) {
+  transform: scaleX(0.8);
+}
 header .menu-container .burger.burger-animation .burger-icon span:nth-child(1) {
+  transform-origin: center;
   transform: rotate(45deg);
   top: 50%;
 }
@@ -84,6 +96,7 @@ header .menu-container .burger.burger-animation .burger-icon span:nth-child(2) {
   transform: scale(0);
 }
 header .menu-container .burger.burger-animation .burger-icon span:nth-child(3) {
+  transform-origin: center;
   transform: rotate(-45deg);
   top: 50%;
 }
@@ -106,7 +119,7 @@ header .menu-container .burger-open .open-section {
 }
 header .menu-container .burger-open .open-section:nth-child(1) {
   left: 0%;
-  background-color: #01ab69;
+  background-color: #37B987;
   z-index: 2;
 }
 header .menu-container .burger-open .open-section:nth-child(2) {

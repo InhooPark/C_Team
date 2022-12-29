@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
   const FIRSTIMG = document.querySelector(".img-wrapper-first");
   const SECONDIMG = document.querySelector(".img-wrapper-second");
-  const SCROLLGIF = document.querySelector(".scroll-img");
+  const SCROLLGIF = document.querySelector(".scroll");
 
   const CANDY01 = document.querySelector(".candy01");
   const CANDY02 = document.querySelector(".candy02");
@@ -14,6 +14,17 @@ window.addEventListener("load", function () {
 
   const VIDEO = document.querySelector(".video-wrap");
 
+  const WAVEBTN = document.querySelector(".canvas-button");
+  WAVEBTN.addEventListener("mouseover", () => {
+    WAVEBTN.classList.add("open");
+  });
+  WAVEBTN.addEventListener("mouseleave", () => {
+    WAVEBTN.classList.remove("open");
+  });
+  WAVEBTN.addEventListener("click", () => {
+    window.location = "./product.html";
+  });
+
   let CANVAS = "";
   setTimeout(() => {
     CANVAS = document.querySelector("canvas");
@@ -24,10 +35,8 @@ window.addEventListener("load", function () {
 
     if (window.pageYOffset < 1000) {
       FIRSTIMG.style.transform = `translateX(${window.pageYOffset * 0.2 - 200}%)`;
-      SCROLLGIF.classList.remove("invisible");
-    } else if (this.window.pageYOffset > 1000) {
+    } else if (window.pageYOffset > 1000) {
       FIRSTIMG.style.transform = `translateX(0%)`;
-      SCROLLGIF.classList.add("invisible");
     }
     if (window.pageYOffset > 2000) {
       FIRSTIMG.classList.add("invisible");
@@ -73,8 +82,10 @@ window.addEventListener("load", function () {
     // 세번째, 비디오 opacity
     if (window.pageYOffset > 7500) {
       VIDEO.classList.add("visible");
+      SCROLLGIF.classList.add("invisible");
     } else {
       VIDEO.classList.remove("visible");
+      SCROLLGIF.classList.remove("invisible");
     }
 
     const LAST = document.querySelector(".last");
