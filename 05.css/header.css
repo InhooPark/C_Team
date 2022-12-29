@@ -1,3 +1,8 @@
+@import url("./reset.css");
+body.stop-scroll {
+  overflow: hidden !important;
+}
+
 header {
   position: relative;
   z-index: 100;
@@ -5,12 +10,21 @@ header {
 header .menu-container {
   position: fixed;
   width: 100%;
-  height: 80px;
+  height: 150px;
   display: flex;
   justify-content: space-between;
   top: 0;
+  box-sizing: border-box;
+}
+header .menu-container .logo {
+  position: absolute;
+  top: 0;
+  left: 2%;
+  height: 100%;
+  z-index: 50;
 }
 header .menu-container .logo a {
+  padding: 0 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,84 +32,224 @@ header .menu-container .logo a {
   height: 100%;
 }
 header .menu-container .logo a .logo-img {
-  width: 60%;
+  height: 40%;
   overflow: hidden;
 }
 header .menu-container .logo a .logo-img img {
-  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 header .menu-container .burger {
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
   width: 80px;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-}
-header .menu-container .burger .burger-open {
-  max-width: 0;
-  transition: max-width 300ms ease-out;
-  overflow: hidden;
-  padding: 0;
-  height: 100%;
-  display: flex;
   position: absolute;
-  right: 80px;
+  cursor: pointer;
+  z-index: 50;
 }
-header .menu-container .burger .burger-open .menu {
-  width: 100%;
-  padding: 0 20px;
-}
-header .menu-container .burger .burger-open .menu a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  width: 100%;
-  height: 100%;
-  font-size: 1.5rem;
-  font-weight: black;
-  color: #003082;
-}
-header .menu-container .burger .burger-wrap {
+header .menu-container .burger .burger-icon {
   width: 40px;
   height: 40px;
   display: flex;
   justify-content: center;
   position: relative;
-  cursor: pointer;
 }
-header .menu-container .burger .burger-wrap span {
+header .menu-container .burger .burger-icon span {
   position: absolute;
   width: 30px;
   height: 2px;
   background: black;
   transition: 300ms;
 }
-header .menu-container .burger .burger-wrap span:nth-child(1) {
+header .menu-container .burger .burger-icon span:nth-child(1) {
   top: 20%;
 }
-header .menu-container .burger .burger-wrap span:nth-child(2) {
+header .menu-container .burger .burger-icon span:nth-child(2) {
   top: 50%;
 }
-header .menu-container .burger .burger-wrap span:nth-child(3) {
+header .menu-container .burger .burger-icon span:nth-child(3) {
   top: 80%;
 }
-header .menu-container .burger.open .burger-open {
-  max-width: 100vw;
-  padding: 0;
-  transition: max-width 300ms ease-in;
-}
-header .menu-container .burger.open .burger-wrap span:nth-child(1) {
-  top: 50%;
+header .menu-container .burger.burger-animation .burger-icon span:nth-child(1) {
   transform: rotate(45deg);
-}
-header .menu-container .burger.open .burger-wrap span:nth-child(2) {
-  transform: scaleX(0);
-}
-header .menu-container .burger.open .burger-wrap span:nth-child(3) {
   top: 50%;
+}
+header .menu-container .burger.burger-animation .burger-icon span:nth-child(2) {
+  transform: scale(0);
+}
+header .menu-container .burger.burger-animation .burger-icon span:nth-child(3) {
   transform: rotate(-45deg);
+  top: 50%;
+}
+header .menu-container .burger-open {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: none;
+}
+header .menu-container .burger-open.display-on {
+  display: block;
+}
+header .menu-container .burger-open .open-section {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 100%;
+  transition: 300ms;
+  background-color: #b7ebd6;
+}
+header .menu-container .burger-open .open-section:nth-child(1) {
+  left: 0%;
+  background-color: #01ab69;
+  z-index: 2;
+}
+header .menu-container .burger-open .open-section:nth-child(2) {
+  left: 30%;
+}
+header .menu-container .burger-open .open-section:nth-child(3) {
+  left: 65%;
+}
+header .menu-container .burger-open .menu-contain .introduce {
+  position: absolute;
+  width: 0;
+  height: 100%;
+  z-index: 5;
+  opacity: 0;
+  transition: 300ms;
+}
+header .menu-container .burger-open .menu-contain .sphere {
+  position: absolute;
+  left: 40%;
+  top: 100%;
+  opacity: 0;
+  z-index: 20;
+  transition: linear 300ms;
+}
+header .menu-container .burger-open .menu-contain .sphere .sphere-top {
+  width: 200px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 10;
+  transition: linear 300ms;
+}
+header .menu-container .burger-open .menu-contain .sphere .sphere-top img {
+  width: 100%;
+}
+header .menu-container .burger-open .menu-contain .sphere .sphere-bottom {
+  width: 200px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 5;
+  transition: linear 300ms;
+}
+header .menu-container .burger-open .menu-contain .sphere .sphere-bottom img {
+  width: 100%;
+}
+header .menu-container .burger-open .menu-contain .sphere .sphere-content {
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, -50%) scale(0);
+  position: absolute;
+  z-index: 0;
+  transition: linear 300ms;
+}
+header .menu-container .burger-open .menu-contain .sphere .sphere-content .sphere-content-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+header .menu-container .burger-open .menu-contain .sphere .sphere-content .sphere-content-wrap img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+header .menu-container .burger-open .menu-contain .sphere:hover .sphere-top {
+  transform: translate(-50%, -75%);
+}
+header .menu-container .burger-open .menu-contain .sphere:hover .sphere-bottom {
+  transform: translate(-50%, -25%);
+}
+header .menu-container .burger-open .menu-contain .sphere:hover .sphere-content {
+  transform: translate(-50%, -50%) scale(1);
+}
+header .menu-container .burger-open .menu-contain .menu {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  left: 40%;
+  display: flex;
+  align-items: center;
+}
+header .menu-container .burger-open .menu-contain .menu .menu-wrap {
+  width: 100%;
+  height: 60%;
+  opacity: 0;
+  transition: 300ms;
+  position: relative;
+}
+header .menu-container .burger-open .menu-contain .menu .menu-wrap .burger-menu {
+  width: 100%;
+  height: 0;
+  transition: 300ms;
+  position: absolute;
+  top: 100%;
+}
+header .menu-container .burger-open .menu-contain .menu .menu-wrap .burger-menu a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 8rem;
+  font-family: "Signika", sans-serif;
+  color: #003082;
+  display: flex;
+  align-items: center;
+}
+header .menu-container .burger-open .menu-contain .menu .menu-wrap .burger-menu a i {
+  padding-left: 20%;
+}
+header .menu-container .burger-open .menu-contain .menu .menu-wrap .burger-menu a i::after {
+  content: "";
+  display: block;
+  border-bottom: 5px solid #003082;
+  transform: scaleX(0);
+  transition: 200ms;
+}
+header .menu-container .burger-open .menu-contain .menu .menu-wrap .burger-menu a i.mouse-over::after {
+  transform: scaleX(1);
+}
+header .menu-container .burger-open .menu-contain .menu .menu-wrap .burger-menu:nth-child(2) a i {
+  padding-left: 5%;
+}
+header .menu-container .burger-open.open .open-section:nth-child(1) {
+  width: 40%;
+}
+header .menu-container .burger-open.open .open-section:nth-child(2) {
+  width: 35%;
+}
+header .menu-container .burger-open.open .open-section:nth-child(3) {
+  width: 35%;
+}
+header .menu-container .burger-open.open .menu-contain .sphere {
+  top: 80%;
+  opacity: 1;
+}
+header .menu-container .burger-open.open .menu-contain .menu .menu-wrap {
+  opacity: 1;
+}
+header .menu-container .burger-open.open .menu-contain .menu .menu-wrap .burger-menu {
+  height: 33.33%;
+}
+header .menu-container .burger-open.open .menu-contain .menu .menu-wrap .burger-menu:nth-child(1) {
+  top: 0%;
+}
+header .menu-container .burger-open.open .menu-contain .menu .menu-wrap .burger-menu:nth-child(2) {
+  top: 33.33%;
+}
+header .menu-container .burger-open.open .menu-contain .menu .menu-wrap .burger-menu:nth-child(3) {
+  top: 66.67%;
 }/*# sourceMappingURL=header.css.map */
