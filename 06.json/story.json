@@ -1,0 +1,69 @@
+{
+  "data": [
+    {
+      "id": "0",
+      "url": "./01.img/story01.jpg",
+      "color": "#B7EBD6"
+    },
+    {
+      "id": "1",
+      "url": "./01.img/story02.jpg",
+      "color": "#BD4FE0"
+    },
+    {
+      "id": "2",
+      "url": "./01.img/story03.jpg",
+      "color": "#38E09D"
+    },
+    {
+      "id": "3",
+      "url": "./01.img/story04.jpg",
+      "color": "#E0A622"
+    },
+    {
+      "id": "4",
+      "url": "./01.img/story05.jpg",
+      "color": "#94701E"
+    },
+    {
+      "id": "5",
+      "url": "./01.img/story06.jpg",
+      "color": "#C04FE0"
+    },
+    {
+      "id": "6",
+      "url": "./01.img/story07.jpg",
+      "color": "#31F7E3"
+    },
+    {
+      "id": "7",
+      "url": "./01.img/story08.jpg",
+      "color": "#E0CF2D"
+    },
+    {
+      "id": "8",
+      "url": "./01.img/story09.jpg",
+      "color": "#704FE0"
+    },
+    {
+      "id": "9",
+      "url": "./01.img/story10.jpg",
+      "color": "#E04222"
+    },
+    {
+      "id": "10",
+      "url": "./01.img/story11.jpg",
+      "color": "#1A94AD"
+    },
+    {
+      "id": "11",
+      "url": "./01.img/story12.jpeg",
+      "color": "#E47572"
+    },
+    {
+      "id": "12",
+      "url": "./01.img/story13.jpg",
+      "color": "#E0802D"
+    }
+  ]
+}
