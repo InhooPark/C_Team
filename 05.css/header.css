@@ -5,7 +5,7 @@ body.stop-scroll {
 
 header {
   position: relative;
-  z-index: 100;
+  z-index: 1000;
 }
 header .menu-container {
   position: fixed;
@@ -221,6 +221,9 @@ header .menu-container .burger-open .menu-contain .menu .menu-wrap .burger-menu 
   color: #003082;
   display: flex;
   align-items: center;
+}
+header .menu-container .burger-open .menu-contain .menu .menu-wrap .burger-menu a.this {
+  color: #000352;
 }
 header .menu-container .burger-open .menu-contain .menu .menu-wrap .burger-menu a i {
   padding-left: 20%;

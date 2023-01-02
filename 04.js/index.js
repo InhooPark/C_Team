@@ -1,9 +1,3 @@
-const LOADTEXT = document.querySelector('.load-text-wrap span');
-let aa = location.href.split('/').reverse()[0].split('.')[0];
-aa = aa.charAt(0).toUpperCase() + aa.slice(1);
-console.log(aa);
-LOADTEXT.textContent = aa;
-
 window.addEventListener("load", function () {
   setTimeout(() => {
     INDEXLOAD();

@@ -7,7 +7,7 @@ body {
 
 header {
   position: relative;
-  z-index: 100;
+  z-index: 1000;
   .menu-container {
     position: fixed;
     width: 100%;
@@ -227,6 +227,9 @@ header {
                 color: #003082;
                 display: flex;
                 align-items: center;
+                &.this{
+                  color: #000352;
+                }
                 i {
                   padding-left: 20%;
                   &::after {
