@@ -1,11 +1,10 @@
-window.addEventListener("load", function () {
+window.addEventListener("load", () => {
   setTimeout(() => {
-    CANVASDELAY();
+    CANVASLOAD();
   }, 1500);
 });
 
-function CANVASDELAY() {
-  //캔버스 버튼 이벤트
+function CANVASLOAD() {
   const WAVEBTN = document.querySelector(".canvas-button");
   WAVEBTN.addEventListener("mouseover", () => {
     WAVEBTN.classList.add("open");
@@ -18,32 +17,27 @@ function CANVASDELAY() {
   });
 
   boxBool = true;
-  window.addEventListener("scroll", function (e) {
-    const AA = document.querySelector(".fourth-canvas");
 
-    if (window.pageYOffset > AA.offsetTop - 500 && boxBool) {
-      let count = 0;
-      let boxInter = setInterval(() => {
-        let randomCount = ("00" + Math.floor(Math.random() * 4)).slice(-2);
-        count++;
-        let Box;
-        Box = Matter.Bodies.rectangle(mouseX - 5, mouseY, 41, 24, {
-          chamfer: {
-            radius: [10, 10, 10, 10],
-          },
-          render: {
-            sprite: {
-              texture: `./01.img/index/candy_mini${randomCount}.png`,
-            },
-          },
-        });
+  let count = 0;
+  let boxInter = setInterval(() => {
+    let randomCount = ("00" + Math.floor(Math.random() * 4)).slice(-2);
+    count++;
+    let Box;
+    Box = Matter.Bodies.rectangle(mouseX - 5, mouseY, 41, 24, {
+      chamfer: {
+        radius: [10, 10, 10, 10],
+      },
+      render: {
+        sprite: {
+          texture: `./01.img/index/candy_mini${randomCount}.png`,
+        },
+      },
+    });
 
-        Matter.Composite.add(engine.world, [Box]);
-        if (count > 300) clearInterval(boxInter);
-      }, 30);
-      boxBool = false;
-    }
-  });
+    Matter.Composite.add(engine.world, [Box]);
+    if (count > 300) clearInterval(boxInter);
+  }, 30);
+  boxBool = false;
 
   const engine = Matter.Engine.create();
   const world = engine.world;
@@ -61,8 +55,8 @@ function CANVASDELAY() {
   Matter.Render.run(render);
   const runner = Matter.Runner.create();
   Matter.Runner.run(runner, engine);
-  let mouseX = 0;
-  let mouseY = 0;
+  let mouseX = window.innerWidth/2;
+  let mouseY = 200;
   window.addEventListener("mousemove", function (e) {
     mouseX = e.clientX;
     mouseY = e.clientY;

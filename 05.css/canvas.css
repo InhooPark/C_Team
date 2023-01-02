@@ -1,0 +1,79 @@
+@import url("./header.css");
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  background-color: #eefdf7;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.fourth-canvas {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.fourth-canvas canvas {
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.fourth-canvas .canvas-button {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(75%, -50%);
+  transition: 300ms;
+  cursor: pointer;
+}
+.fourth-canvas .canvas-button.open {
+  transform: translate(50%, -50%);
+}
+.fourth-canvas .canvas-button .wave {
+  width: 100%;
+  height: 100%;
+  border-radius: 45%;
+  position: absolute;
+  z-index: 100;
+  opacity: 0.4;
+}
+.fourth-canvas .canvas-button .wave.one {
+  background: linear-gradient(0deg, #b7ebd6, #00ab69);
+  -webkit-animation: whirl 3000ms infinite linear;
+          animation: whirl 3000ms infinite linear;
+}
+.fourth-canvas .canvas-button .wave.two {
+  background: linear-gradient(0deg, #b7ebd6, #003082);
+  -webkit-animation: whirl 5000ms infinite linear;
+          animation: whirl 5000ms infinite linear;
+}
+.fourth-canvas .canvas-button .wave.three {
+  background: linear-gradient(0deg, #b7ebd6, yellow);
+  -webkit-animation: whirl 7000ms infinite linear;
+          animation: whirl 7000ms infinite linear;
+}
+
+@-webkit-keyframes whirl {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes whirl {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}/*# sourceMappingURL=canvas.css.map */
