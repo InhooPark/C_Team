@@ -54,6 +54,80 @@ body::-webkit-scrollbar {
   visibility: hidden;
 }
 
+.touch {
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+.touch .touch-wrap {
+  opacity: 0;
+  transition: 300ms;
+  width: 50%;
+  height: 50%;
+  position: relative;
+}
+.touch .touch-wrap img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.touch .touch-wrap .circle {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 0;
+  left: 25%;
+  border: 3px solid black;
+  border-radius: 50%;
+  box-sizing: border-box;
+  -webkit-animation: touch-ani 1000ms infinite linear;
+          animation: touch-ani 1000ms infinite linear;
+}
+.touch.visible {
+  visibility: visible;
+}
+.touch.visible .touch-wrap {
+  opacity: 1;
+}
+
+@-webkit-keyframes touch-ani {
+  0% {
+    scale: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    scale: 2;
+    opacity: 0;
+  }
+}
+
+@keyframes touch-ani {
+  0% {
+    scale: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    scale: 2;
+    opacity: 0;
+  }
+}
 .term {
   width: 100%;
   height: 500px;
@@ -118,15 +192,11 @@ body::-webkit-scrollbar {
   display: flex;
 }
 .first-title .first-sticky .img-wrapper-second img {
-  opacity: 0;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  transition: 600ms;
   -webkit-user-drag: none;
-}
-.first-title .first-sticky .img-wrapper-second.visible img {
-  opacity: 1;
+  opacity: 0;
 }
 
 .second-explosion {
