@@ -15,72 +15,6 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-// 로딩 안되는 이유가
-@keyframes screenani {
-  0% {
-    top: -110%;
-    border-radius: 0 0 50% 50%;
-  }
-  20% {
-    top: 0%;
-    border-radius: 0 0 0 0;
-  }
-  80% {
-    top: 0%;
-    border-radius: 0 0 0 0;
-  }
-  100% {
-    top: 110%;
-    border-radius: 50% 50% 0 0;
-  }
-}
-#load {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top:0; left:0;
-  z-index: 1000;
-  &.display-off {
-    display: none;
-  }
-}
-#screen {
-  width: 100%;
-  height: 100%;
-  background-color: #b7ebd6;
-  position: fixed;
-  top:-110%;
-  animation: screenani 1500ms linear forwards ;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .load-text-wrap{
-    width: 30%;
-    text-align: center;
-    > span{
-      display: block;
-      font-size: 10rem;
-      font-weight: bold;
-      color: #00ab69;
-      animation: loadTextAni 1500ms ease forwards;
-    }
-  }
-}
-@keyframes loadTextAni {
-  0%{
-    transform: scaleY(0);
-  }
-  30%{
-    transform: scaleY(0);
-  }
-  70%{
-    transform: scaleY(1);
-  }
-  100%{
-    transform: scaleY(1);
-  }
-}
 
 .scroll {
   position: fixed;
@@ -131,7 +65,7 @@ body::-webkit-scrollbar {
 
 .first-title {
   width: 100%;
-  height: 4000px;
+  height: calc(5000px + 100vh);
   position: relative;
   .first-sticky {
     position: sticky;
@@ -198,11 +132,12 @@ body::-webkit-scrollbar {
 
 .second-explosion {
   width: 100%;
-  height: 2300px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
   .candy-wrap {
     width: 100%;
     height: 100vh;
-    position: sticky;
     top: 0;
     .candy01,
     .candy02,
@@ -222,128 +157,48 @@ body::-webkit-scrollbar {
     }
     .candy01 {
       left: 40%;
-      bottom: -40%;
+      bottom: -100%;
       transform: translateX(-50%);
     }
     .candy02 {
       left: 40%;
-      bottom: -40%;
+      bottom: -100%;
       transform: translateX(-50%);
     }
     .candy03 {
       left: 40%;
-      bottom: -40%;
+      bottom: -100%;
       transform: translateX(-50%);
     }
     .candy04 {
       left: 40%;
-      bottom: -40%;
+      bottom: -100%;
       transform: translateX(-50%);
     }
     .candy05 {
       left: 40%;
-      bottom: -40%;
+      bottom: -100%;
       transform: translateX(-50%);
     }
     .candy06 {
       left: 40%;
-      bottom: -40%;
+      bottom: -100%;
       transform: translateX(-50%);
     }
     .candy07 {
       left: 40%;
-      bottom: -40%;
+      bottom: -100%;
       transform: translateX(-50%);
     }
     .candy08 {
       left: 40%;
-      bottom: -40%;
+      bottom: -100%;
       transform: translateX(-50%);
     }
   }
 }
 
-.third-video {
-  width: 100%;
-  height: 500vh;
-  position: relative;
-  .video-wrap {
-    width: 100%;
-    height: 100vh;
-    position: sticky;
-    top: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    video {
-      width: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: 2000ms;
-    }
-    &.visible video {
-      opacity: 1;
-    }
-  }
-  .gradation {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, transparent 0%, transparent 20%, #eefdf7 100%);
 
-    position: absolute;
-    top: 0;
-    z-index: 10;
-  }
-}
-
-.fourth-canvas {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  .canvas-button {
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translate(75%, -50%);
-    transition: 300ms;
-    cursor: pointer;
-    &.open {
-      transform: translate(50%, -50%);
-    }
-
-    .wave {
-      width: 100%;
-      height: 100%;
-      border-radius: 45%;
-      position: absolute;
-      z-index: 100;
-      opacity: 0.4;
-      &.one {
-        background: linear-gradient(0deg, #b7ebd6, #00ab69);
-        animation: whirl 3000ms infinite linear;
-      }
-      &.two {
-        background: linear-gradient(0deg, #b7ebd6, #003082);
-        animation: whirl 5000ms infinite linear;
-      }
-      &.three {
-        background: linear-gradient(0deg, #b7ebd6, yellow);
-        animation: whirl 7000ms infinite linear;
-      }
-    }
-  }
-}
-
-@keyframes whirl {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 @keyframes scroll-ani {
   from {
     top: -110%;

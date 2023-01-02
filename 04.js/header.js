@@ -8,8 +8,6 @@ setTimeout(() => {
 const LOADTEXT = document.querySelector('.load-text-wrap span');
 let locationURL = location.href.split('/').reverse()[0].split('.')[0];
 locationURL = locationURL.charAt(0).toUpperCase() + locationURL.slice(1);
-console.log(locationURL);
-LOADTEXT.textContent = locationURL;
 
 
 function headerCallback() {
@@ -77,15 +75,19 @@ function headerCallback() {
   const MENUOVER = document.querySelectorAll(".burger-menu a i");
 
   // 현 위치 메뉴 텍스트 컬러 변경
-  console.log(locationURL.toLowerCase());
   THISMENU.forEach((value) => {
     value.classList.remove("this");
     if (locationURL.toLowerCase() == "index") {
       THISMENU[0].classList.add("this");
+      LOADTEXT.textContent = 'Index';
     } else if (locationURL.toLowerCase() == "product") {
       THISMENU[1].classList.add("this");
+      LOADTEXT.textContent = 'Product';
     } else if (locationURL.toLowerCase() == "story") {
       THISMENU[2].classList.add("this");
+      LOADTEXT.textContent = 'History';
+    } else if (locationURL.toLowerCase() == "canvas"){
+      LOADTEXT.textContent = "Canvas";
     }
   });
 

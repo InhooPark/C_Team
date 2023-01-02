@@ -6,7 +6,6 @@ window.addEventListener("load", function () {
 
 function INDEXLOAD() {
   const SECONDIMG = document.querySelector(".img-wrapper-second");
-  const SCROLLGIF = document.querySelector(".scroll");
 
   const CANDY01 = document.querySelector(".candy01");
   const CANDY02 = document.querySelector(".candy02");
@@ -16,8 +15,6 @@ function INDEXLOAD() {
   const CANDY06 = document.querySelector(".candy06");
   const CANDY07 = document.querySelector(".candy07");
   const CANDY08 = document.querySelector(".candy08");
-
-  const VIDEO = document.querySelector(".video-wrap");
 
   
 
@@ -51,6 +48,7 @@ function INDEXLOAD() {
   const TEXTEND = document.querySelector(".span-end");
 
   window.addEventListener("scroll", function () {
+    console.log(window.pageYOffset);
     // 첫번째, 텍스트 이동
     if (window.pageYOffset > 1000) {
       TEXTFRONT.style = `transform: rotate(${(window.pageYOffset - 1000) / 45}deg)
@@ -67,6 +65,7 @@ function INDEXLOAD() {
       TEXTFRONT.classList.add("invisible");
       TEXTEND.classList.add("invisible");
       SECONDIMG.classList.add("visible");
+      //SECONDIMG.style = `transform: scale(${(window.pageYOffset-2000) * 0.001})`;
     } else {
       TEXTFRONT.classList.remove("invisible");
       TEXTEND.classList.remove("invisible");
@@ -74,50 +73,50 @@ function INDEXLOAD() {
     }
 
     // 두번째, 캔디 깡통 퍼뜨리기
-    if (window.pageYOffset > 4000) {
-      CANDY01.style.bottom = `${(window.pageYOffset - 4000) * 0.1 - 40}%`;
-      CANDY02.style.bottom = `${(window.pageYOffset - 4000) * 0.11 - 40}%`;
-      CANDY03.style.bottom = `${(window.pageYOffset - 4000) * 0.12 - 40}%`;
-      CANDY04.style.bottom = `${(window.pageYOffset - 4000) * 0.13 - 40}%`;
-      CANDY05.style.bottom = `${(window.pageYOffset - 4000) * 0.13 - 40}%`;
-      CANDY06.style.bottom = `${(window.pageYOffset - 4000) * 0.12 - 40}%`;
-      CANDY07.style.bottom = `${(window.pageYOffset - 4000) * 0.11 - 40}%`;
-      CANDY08.style.bottom = `${(window.pageYOffset - 4000) * 0.1 - 40}%`;
+    if (window.pageYOffset > 2000) {
+      CANDY01.style.bottom = `${(window.pageYOffset - 2000) * 0.05 - 40}%`;
+      CANDY02.style.bottom = `${(window.pageYOffset - 2000) * 0.06 - 40}%`;
+      CANDY03.style.bottom = `${(window.pageYOffset - 2000) * 0.07 - 40}%`;
+      CANDY04.style.bottom = `${(window.pageYOffset - 2000) * 0.08 - 40}%`;
+      CANDY05.style.bottom = `${(window.pageYOffset - 2000) * 0.08 - 40}%`;
+      CANDY06.style.bottom = `${(window.pageYOffset - 2000) * 0.07 - 40}%`;
+      CANDY07.style.bottom = `${(window.pageYOffset - 2000) * 0.06 - 40}%`;
+      CANDY08.style.bottom = `${(window.pageYOffset - 2000) * 0.05 - 40}%`;
 
-      CANDY01.style.left = `${(window.pageYOffset - 4000) * -0.05 + 40}%`;
-      CANDY02.style.left = `${(window.pageYOffset - 4000) * -0.04 + 40}%`;
-      CANDY03.style.left = `${(window.pageYOffset - 4000) * -0.03 + 40}%`;
-      CANDY04.style.left = `${(window.pageYOffset - 4000) * -0.01 + 40}%`;
-      CANDY05.style.left = `${(window.pageYOffset - 4000) * 0.01 + 40}%`;
-      CANDY06.style.left = `${(window.pageYOffset - 4000) * 0.03 + 40}%`;
-      CANDY07.style.left = `${(window.pageYOffset - 4000) * 0.04 + 40}%`;
-      CANDY08.style.left = `${(window.pageYOffset - 4000) * 0.05 + 40}%`;
+      CANDY01.style.left = `${(window.pageYOffset - 2000) * -0.025 + 40}%`;
+      CANDY02.style.left = `${(window.pageYOffset - 2000) * -0.02 + 40}%`;
+      CANDY03.style.left = `${(window.pageYOffset - 2000) * -0.015 + 40}%`;
+      CANDY04.style.left = `${(window.pageYOffset - 2000) * -0.005 + 40}%`;
+      CANDY05.style.left = `${(window.pageYOffset - 2000) * 0.005 + 40}%`;
+      CANDY06.style.left = `${(window.pageYOffset - 2000) * 0.015 + 40}%`;
+      CANDY07.style.left = `${(window.pageYOffset - 2000) * 0.02 + 40}%`;
+      CANDY08.style.left = `${(window.pageYOffset - 2000) * 0.025 + 40}%`;
 
-      CANDY01.style.transform = `rotate(-${(window.pageYOffset - 4000) * 0.2}deg)`;
-      CANDY02.style.transform = `rotate(-${(window.pageYOffset - 4000) * 0.3}deg)`;
-      CANDY03.style.transform = `rotate(-${(window.pageYOffset - 4000) * 0.4}deg)`;
-      CANDY04.style.transform = `rotate(-${(window.pageYOffset - 4000) * 0.5}deg)`;
-      CANDY05.style.transform = `rotate(${(window.pageYOffset - 4000) * 0.5}deg)`;
-      CANDY06.style.transform = `rotate(${(window.pageYOffset - 4000) * 0.4}deg)`;
-      CANDY07.style.transform = `rotate(${(window.pageYOffset - 4000) * 0.3}deg)`;
-      CANDY08.style.transform = `rotate(${(window.pageYOffset - 4000) * 0.2}deg)`;
+      CANDY01.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.2}deg)`;
+      CANDY02.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.3}deg)`;
+      CANDY03.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.4}deg)`;
+      CANDY04.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.5}deg)`;
+      CANDY05.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.5}deg)`;
+      CANDY06.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.4}deg)`;
+      CANDY07.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.3}deg)`;
+      CANDY08.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.2}deg)`;
+    }
+    else{
+      CANDY01.style.bottom = `-100%`;
+      CANDY02.style.bottom = `-100%`;
+      CANDY03.style.bottom = `-100%`;
+      CANDY04.style.bottom = `-100%`;
+      CANDY05.style.bottom = `-100%`;
+      CANDY06.style.bottom = `-100%`;
+      CANDY07.style.bottom = `-100%`;
+      CANDY08.style.bottom = `-100%`;
     }
 
-    // 세번째, 비디오 opacity
-    if (window.pageYOffset > 6000) {
-      VIDEO.classList.add("visible");
-      SCROLLGIF.classList.add("invisible");
-    } else {
-      VIDEO.classList.remove("visible");
-      SCROLLGIF.classList.remove("invisible");
-    }
-
-    const LAST = document.querySelector(".last");
-    let canvasOffsetTop = LAST.offsetTop + LAST.offsetHeight;
-
-    if (window.pageYOffset > LAST.offsetTop && window.pageYOffset < canvasOffsetTop) {
-      scrollTo(0, canvasOffsetTop);
-      document.body.classList.add("first-text-ani");
+    // 클릭이벤트로 변경해도 무방함
+    if(window.pageYOffset == 5000){
+      setTimeout(() => {
+        location.href = './canvas.html';
+      }, 1500);
     }
   });
 }

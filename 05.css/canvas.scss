@@ -1,0 +1,70 @@
+@import url("./header.css");
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  background-color: #eefdf7;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+
+.fourth-canvas {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  canvas{
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  .canvas-button {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(75%, -50%);
+    transition: 300ms;
+    cursor: pointer;
+    &.open {
+      transform: translate(50%, -50%);
+    }
+
+    .wave {
+      width: 100%;
+      height: 100%;
+      border-radius: 45%;
+      position: absolute;
+      z-index: 100;
+      opacity: 0.4;
+      &.one {
+        background: linear-gradient(0deg, #b7ebd6, #00ab69);
+        animation: whirl 3000ms infinite linear;
+      }
+      &.two {
+        background: linear-gradient(0deg, #b7ebd6, #003082);
+        animation: whirl 5000ms infinite linear;
+      }
+      &.three {
+        background: linear-gradient(0deg, #b7ebd6, yellow);
+        animation: whirl 7000ms infinite linear;
+      }
+    }
+  }
+}
+
+@keyframes whirl {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
