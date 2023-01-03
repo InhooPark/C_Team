@@ -132,6 +132,11 @@ body {
           //   border-radius: 50%;
           // }
           div {
+            display: flex;
+            align-items: center;
+            transition: translate 1s cubic-bezier(0.93, 0.01, 0.1, 0.98),
+              opacity 1s (cubic-bezier(0.5, 1, 0.89, 1)) scale 0.5s;
+            flex-basis: 20%;
             .year-btn {
               display: block;
               background-color: transparent;
@@ -140,12 +145,11 @@ body {
               height: 1.3vw;
               background-color: lightgray;
               border-radius: 20px;
-              transition: 0.5s;
-              // all: unset;
-              // display: none;
               cursor: pointer;
+              filter: drop-shadow(1px 1px 2px #000000);
               &.active {
                 height: 5vh;
+                transition: 0.75s;
                 background-color: #5e454b;
               }
             }
@@ -223,7 +227,7 @@ body {
       .indigator {
         position: absolute;
         top: 50vh;
-        right: 4.5vw;
+        right: 4.5%;
         translate: 150px -50%;
         font-size: 1.5vw;
         font-weight: 100;
@@ -233,6 +237,7 @@ body {
         padding: 10px;
         transition: translate 1s cubic-bezier(0.93, 0.01, 0.1, 0.98),
           opacity 1s (cubic-bezier(0.5, 1, 0.89, 1));
+        filter: drop-shadow(1px 1px 2px #000000);
         &.active {
           translate: 0 -50%;
         }
@@ -254,11 +259,6 @@ body {
           align-items: center;
           transform-origin: right bottom;
           div {
-            translate: 0 100%;
-            &.active {
-              translate: 0 0;
-              transition: 1s;
-            }
             width: 100%;
             height: 100%;
             video {
@@ -269,12 +269,10 @@ body {
               border-radius: 35px 35px 0 0;
               margin: 0 auto;
               filter: brightness(0.3);
+              translate: 0 120%;
               transition: 0.5s;
-              &:active {
-                width: 100vw;
-                height: 90vh;
-                translate: 0 -5vh;
-                filter: brightness(1);
+              &.active {
+                translate: 0 0;
               }
             }
           }
