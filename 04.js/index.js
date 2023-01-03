@@ -1,7 +1,13 @@
 window.addEventListener("load", function () {
-  const FIRSTIMG = document.querySelector(".img-wrapper-first");
-  const SECONDIMG = document.querySelector(".img-wrapper-second");
-  const SCROLLGIF = document.querySelector(".scroll-img");
+  setTimeout(() => {
+    INDEXLOAD();
+  }, 1500);
+});
+
+function INDEXLOAD() {
+  const SECONDIMG = document.querySelector(".img-wrapper-second img");
+  const SCROLL = document.querySelector(".scroll");
+  const TOUCH = document.querySelector(".touch");
 
   const CANDY01 = document.querySelector(".candy01");
   const CANDY02 = document.querySelector(".candy02");
@@ -12,76 +18,133 @@ window.addEventListener("load", function () {
   const CANDY07 = document.querySelector(".candy07");
   const CANDY08 = document.querySelector(".candy08");
 
-  const VIDEO = document.querySelector(".video-wrap");
-
-  let CANVAS = "";
+  // 첫번째 텍스트 불러오는 애니메이션
+  // 진행하는동안 body에 overflowY:none;을 선언해 스크롤을 못하게 막는다.
+  const ECLIPSETEXT = document.querySelector(".eclipse-text i");
+  ECLIPSETEXT.innerHTML = `
+    <span class="span-front">
+      <span>E</span>
+      <span>C</span>
+      <span>L</span>
+    </span>
+    <span class="span-end">
+      <span>I</span>
+      <span>P</span>
+      <span>S</span>
+      <span>E</span>
+    </span>`;
   setTimeout(() => {
-    CANVAS = document.querySelector("canvas");
-  }, 1);
-
+    const ECLIPSETEXTSPAN = document.querySelectorAll(".eclipse-text i >span >span");
+    ECLIPSETEXTSPAN.forEach((value, key) => {
+      setTimeout(() => {
+        document.body.classList.remove("first-text-ani");
+      }, 1050);
+      setTimeout(() => {
+        value.classList.add("up");
+      }, 150 * key);
+    });
+  }, 50);
+  const TEXTFRONT = document.querySelector(".span-front");
+  const TEXTEND = document.querySelector(".span-end");
+  let mouseX;
+  let mouseY;
+  let touchTrue = true;
   window.addEventListener("scroll", function () {
-    // 첫번째, 텍스트 이동 + 로고 생성 + 스크롤 아이콘
+    // 첫번째, 텍스트 이동
+    if (window.pageYOffset > 500) {
+      TEXTFRONT.style = `transform: rotate(${(window.pageYOffset - 500) / 45}deg)
+              translate(-${(window.pageYOffset - 500) / 10}%, -${(window.pageYOffset - 500) / 120}%)`;
+      TEXTEND.style = `transform: rotate(-${(window.pageYOffset - 500) / 45}deg)
+              translate(${(window.pageYOffset - 500) / 10}%, -${(window.pageYOffset - 500) / 120}%)`;
+    } else {
+      TEXTFRONT.style = `trasnform: rotate(0deg)`;
+      TEXTEND.style = `trasnform: rotate(0deg)`;
+    }
 
-    if (window.pageYOffset < 1000) {
-      FIRSTIMG.style.transform = `translateX(${window.pageYOffset * 0.2 - 200}%)`;
-      SCROLLGIF.classList.remove("invisible");
-    } else if (this.window.pageYOffset > 1000) {
-      FIRSTIMG.style.transform = `translateX(0%)`;
-      SCROLLGIF.classList.add("invisible");
-    }
+    // 마우스 이벤트
+
+    window.addEventListener("mousemove", (e) => {
+      mouseX = (e.clientX / window.innerWidth) * 100;
+      mouseY = (e.clientY / window.innerHeight) * 100;
+      TOUCH.style = `left: ${mouseX}%; top: ${mouseY}%;`;
+      if (touchTrue) {
+        TOUCH.classList.add("visible");
+        touchTrue = false;
+      }
+    });
+
+    // 로고 투명도
+    SECONDIMG.style = `opacity: ${(window.pageYOffset - 1000) * 0.001};`;
+
+    // 로고생성
     if (window.pageYOffset > 2000) {
-      FIRSTIMG.classList.add("invisible");
+      TEXTFRONT.classList.add("invisible");
+      TEXTEND.classList.add("invisible");
     } else {
-      FIRSTIMG.classList.remove("invisible");
-    }
-    if (window.pageYOffset > 3000) {
-      SECONDIMG.classList.add("visible");
-    } else {
-      SECONDIMG.classList.remove("visible");
+      TEXTFRONT.classList.remove("invisible");
+      TEXTEND.classList.remove("invisible");
     }
 
     // 두번째, 캔디 깡통 퍼뜨리기
-    if (window.pageYOffset > 6000) {
-      CANDY01.style.bottom = `${(window.pageYOffset - 6000) * 0.1 - 40}%`;
-      CANDY02.style.bottom = `${(window.pageYOffset - 6000) * 0.11 - 40}%`;
-      CANDY03.style.bottom = `${(window.pageYOffset - 6000) * 0.12 - 40}%`;
-      CANDY04.style.bottom = `${(window.pageYOffset - 6000) * 0.13 - 40}%`;
-      CANDY05.style.bottom = `${(window.pageYOffset - 6000) * 0.13 - 40}%`;
-      CANDY06.style.bottom = `${(window.pageYOffset - 6000) * 0.12 - 40}%`;
-      CANDY07.style.bottom = `${(window.pageYOffset - 6000) * 0.11 - 40}%`;
-      CANDY08.style.bottom = `${(window.pageYOffset - 6000) * 0.1 - 40}%`;
+    if (window.pageYOffset > 2000) {
+      CANDY01.style.bottom = `${(window.pageYOffset - 2000) * 0.05 - 20}%`;
+      CANDY02.style.bottom = `${(window.pageYOffset - 2000) * 0.06 - 20}%`;
+      CANDY03.style.bottom = `${(window.pageYOffset - 2000) * 0.07 - 20}%`;
+      CANDY04.style.bottom = `${(window.pageYOffset - 2000) * 0.08 - 20}%`;
+      CANDY05.style.bottom = `${(window.pageYOffset - 2000) * 0.08 - 20}%`;
+      CANDY06.style.bottom = `${(window.pageYOffset - 2000) * 0.07 - 20}%`;
+      CANDY07.style.bottom = `${(window.pageYOffset - 2000) * 0.06 - 20}%`;
+      CANDY08.style.bottom = `${(window.pageYOffset - 2000) * 0.05 - 20}%`;
 
-      CANDY01.style.left = `${(window.pageYOffset - 6000) * -0.05 + 40}%`;
-      CANDY02.style.left = `${(window.pageYOffset - 6000) * -0.04 + 40}%`;
-      CANDY03.style.left = `${(window.pageYOffset - 6000) * -0.03 + 40}%`;
-      CANDY04.style.left = `${(window.pageYOffset - 6000) * -0.01 + 40}%`;
-      CANDY05.style.left = `${(window.pageYOffset - 6000) * 0.01 + 40}%`;
-      CANDY06.style.left = `${(window.pageYOffset - 6000) * 0.03 + 40}%`;
-      CANDY07.style.left = `${(window.pageYOffset - 6000) * 0.04 + 40}%`;
-      CANDY08.style.left = `${(window.pageYOffset - 6000) * 0.05 + 40}%`;
+      CANDY01.style.left = `${(window.pageYOffset - 2000) * -0.025 + 40}%`;
+      CANDY02.style.left = `${(window.pageYOffset - 2000) * -0.02 + 40}%`;
+      CANDY03.style.left = `${(window.pageYOffset - 2000) * -0.015 + 40}%`;
+      CANDY04.style.left = `${(window.pageYOffset - 2000) * -0.005 + 40}%`;
+      CANDY05.style.left = `${(window.pageYOffset - 2000) * 0.005 + 40}%`;
+      CANDY06.style.left = `${(window.pageYOffset - 2000) * 0.015 + 40}%`;
+      CANDY07.style.left = `${(window.pageYOffset - 2000) * 0.02 + 40}%`;
+      CANDY08.style.left = `${(window.pageYOffset - 2000) * 0.025 + 40}%`;
 
-      CANDY01.style.transform = `rotate(-${(window.pageYOffset - 6000) * 0.2}deg)`;
-      CANDY02.style.transform = `rotate(-${(window.pageYOffset - 6000) * 0.3}deg)`;
-      CANDY03.style.transform = `rotate(-${(window.pageYOffset - 6000) * 0.4}deg)`;
-      CANDY04.style.transform = `rotate(-${(window.pageYOffset - 6000) * 0.5}deg)`;
-      CANDY05.style.transform = `rotate(${(window.pageYOffset - 6000) * 0.5}deg)`;
-      CANDY06.style.transform = `rotate(${(window.pageYOffset - 6000) * 0.4}deg)`;
-      CANDY07.style.transform = `rotate(${(window.pageYOffset - 6000) * 0.3}deg)`;
-      CANDY08.style.transform = `rotate(${(window.pageYOffset - 6000) * 0.2}deg)`;
-    }
-
-    // 세번째, 비디오 opacity
-    if (window.pageYOffset > 7500) {
-      VIDEO.classList.add("visible");
+      CANDY01.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.15}deg)
+        scale(${(window.pageYOffset - 2000) * 0.0008})`;
+      CANDY02.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.25}deg)
+        scale(${(window.pageYOffset - 2000) * 0.0008})`;
+      CANDY03.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.35}deg)
+        scale(${(window.pageYOffset - 2000) * 0.0008})`;
+      CANDY04.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.45}deg)
+        scale(${(window.pageYOffset - 2000) * 0.0008})`;
+      CANDY05.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.45}deg)
+        scale(${(window.pageYOffset - 2000) * 0.0008})`;
+      CANDY06.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.35}deg)
+        scale(${(window.pageYOffset - 2000) * 0.0008})`;
+      CANDY07.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.25}deg)
+        scale(${(window.pageYOffset - 2000) * 0.0008})`;
+      CANDY08.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.15}deg)
+        scale(${(window.pageYOffset - 2000) * 0.0008})`;
     } else {
-      VIDEO.classList.remove("visible");
+      CANDY01.style.bottom = `-100%`;
+      CANDY02.style.bottom = `-100%`;
+      CANDY03.style.bottom = `-100%`;
+      CANDY04.style.bottom = `-100%`;
+      CANDY05.style.bottom = `-100%`;
+      CANDY06.style.bottom = `-100%`;
+      CANDY07.style.bottom = `-100%`;
+      CANDY08.style.bottom = `-100%`;
     }
 
-    const LAST = document.querySelector(".last");
-    let canvasOffsetTop = LAST.offsetTop + LAST.offsetHeight;
-
-    if (window.pageYOffset > LAST.offsetTop && window.pageYOffset < canvasOffsetTop) {
-      scrollTo(0, canvasOffsetTop);
+    // 클릭이벤트로 변경해도 무방함
+    if (window.pageYOffset == 5000) {
+      SCROLL.classList.add("invisible");
+      window.addEventListener("click", onClickFunc);
+      touchTrue = true;
+    } else {
+      SCROLL.classList.remove("invisible");
+      TOUCH.classList.remove("visible");
+      window.removeEventListener("click", onClickFunc);
     }
   });
-});
+}
+
+function onClickFunc() {
+  location.href = "../canvas.html";
+}

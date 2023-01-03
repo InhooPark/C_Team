@@ -1,13 +1,93 @@
 @import url("./reset.css");
-
 body {
   &.stop-scroll {
     overflow: hidden !important;
   }
 }
+
+@keyframes screenani {
+  0% {
+    top: -110%;
+    border-radius: 0 0 50% 50%;
+  }
+  20% {
+    top: 0%;
+    border-radius: 0 0 0 0;
+  }
+  80% {
+    top: 0%;
+    border-radius: 0 0 0 0;
+  }
+  100% {
+    top: 110%;
+    border-radius: 50% 50% 0 0;
+  }
+}
+#load {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top:0; left:0;
+  z-index: 1000;
+  background-color: #eefdf7;
+  animation: background-ani 1500ms forwards linear;
+  transition: 1500ms;
+  &.display-off {
+    display: none;
+  }
+}
+#screen {
+  width: 100%;
+  height: 100%;
+  background-color: #b7ebd6;
+  position: fixed;
+  top:-110%;
+  animation: screenani 1500ms linear forwards ;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .load-text-wrap{
+    width: 30%;
+    text-align: center;
+    > span{
+      display: block;
+      font-size: 10rem;
+      font-weight: bold;
+      color: #00ab69;
+      animation: loadTextAni 1500ms ease forwards;
+    }
+  }
+}
+@keyframes loadTextAni {
+  0%{
+    transform: scaleY(0);
+  }
+  30%{
+    transform: scaleY(0);
+  }
+  70%{
+    transform: scaleY(1);
+  }
+  100%{
+    transform: scaleY(1);
+  }
+}
+@keyframes background-ani{
+  0%{
+    background-color: #eefdf7;
+  }
+  50%{
+    background-color: #eefdf7;
+  }
+  100%{
+    background-color: transparent;
+  }
+}
+
 header {
   position: relative;
-  z-index: 100;
+  z-index: 1000;
   .menu-container {
     position: fixed;
     width: 100%;
@@ -32,6 +112,10 @@ header {
         .logo-img {
           height: 40%;
           overflow: hidden;
+          transition: 300ms;
+          &.scale-up{
+            height: 44%;
+          }
           img {
             height: 100%;
             object-fit: cover;
@@ -64,6 +148,7 @@ header {
           height: 2px;
           background: black;
           transition: 300ms;
+          transform-origin: right;
           &:nth-child(1) {
             top: 20%;
           }
@@ -75,8 +160,18 @@ header {
           }
         }
       }
+      &.burger-hover .burger-icon span{
+        &:nth-child(1){
+          transform: scaleX(0.3);  
+        }
+        &:nth-child(3){
+          transform: scaleX(0.8);  
+        }
+      }
+
       &.burger-animation .burger-icon span {
         &:nth-child(1) {
+          transform-origin: center;
           transform: rotate(45deg);
           top: 50%;
         }
@@ -84,6 +179,7 @@ header {
           transform: scale(0);
         }
         &:nth-child(3) {
+          transform-origin: center;
           transform: rotate(-45deg);
           top: 50%;
         }
@@ -107,7 +203,7 @@ header {
         background-color: #b7ebd6;
         &:nth-child(1) {
           left: 0%;
-          background-color: #01ab69;
+          background-color: #37B987;
           z-index: 2;
         }
         &:nth-child(2) {
@@ -139,7 +235,7 @@ header {
             transform: translate(-50%, -50%);
             position: absolute;
             z-index: 10;
-            transition: linear 300ms;
+            transition: linear 200ms;
             img {
               width: 100%;
             }
@@ -149,7 +245,7 @@ header {
             transform: translate(-50%, -50%);
             position: absolute;
             z-index: 5;
-            transition: linear 300ms;
+            transition: linear 200ms;
             img {
               width: 100%;
             }
@@ -160,7 +256,7 @@ header {
             transform: translate(-50%, -50%) scale(0);
             position: absolute;
             z-index: 0;
-            transition: linear 300ms;
+            transition: linear 200ms;
             .sphere-content-wrap {
               width: 100%;
               overflow: hidden;
@@ -211,6 +307,9 @@ header {
                 color: #003082;
                 display: flex;
                 align-items: center;
+                &.this{
+                  color: #000352;
+                }
                 i {
                   padding-left: 20%;
                   &::after {
@@ -279,3 +378,5 @@ header {
     }
   }
 }
+
+
