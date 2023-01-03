@@ -20,7 +20,7 @@ body::-webkit-scrollbar {
   right: 0;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: 300ms;
+  transition: 500ms;
   text-align: center;
   z-index: 50;
   visibility: visible;
@@ -66,7 +66,7 @@ body::-webkit-scrollbar {
 }
 .touch .touch-wrap {
   opacity: 0;
-  transition: 300ms;
+  transition: 500ms;
   width: 50%;
   height: 50%;
   position: relative;
@@ -75,6 +75,7 @@ body::-webkit-scrollbar {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  z-index: 2;
 }
 .touch .touch-wrap .circle {
   width: 20%;
@@ -82,11 +83,12 @@ body::-webkit-scrollbar {
   position: absolute;
   top: 0;
   left: 25%;
-  border: 3px solid black;
+  border: 3px solid #00ab69;
   border-radius: 50%;
   box-sizing: border-box;
   -webkit-animation: touch-ani 1000ms infinite linear;
           animation: touch-ani 1000ms infinite linear;
+  z-index: 1;
 }
 .touch.visible {
   visibility: visible;
@@ -104,10 +106,11 @@ body::-webkit-scrollbar {
     opacity: 1;
   }
   90% {
+    scale: 2;
     opacity: 1;
   }
   100% {
-    scale: 2;
+    scale: 2.5;
     opacity: 0;
   }
 }
@@ -121,10 +124,11 @@ body::-webkit-scrollbar {
     opacity: 1;
   }
   90% {
+    scale: 2;
     opacity: 1;
   }
   100% {
-    scale: 2;
+    scale: 2.5;
     opacity: 0;
   }
 }
