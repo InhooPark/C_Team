@@ -18,16 +18,6 @@ function INDEXLOAD() {
   const CANDY07 = document.querySelector(".candy07");
   const CANDY08 = document.querySelector(".candy08");
 
-  function mouseFunc() {
-    let mouseX = 0;
-    let mouseY = 0;
-    window.addEventListener("mousemove", (e) => {
-      mouseX = (e.clientX / window.innerWidth) * 100;
-      mouseY = (e.clientY / window.innerHeight) * 100;
-      TOUCH.style = `left: ${mouseX}%; top: ${mouseY}%;`;
-    });
-  }
-
   // 첫번째 텍스트 불러오는 애니메이션
   // 진행하는동안 body에 overflowY:none;을 선언해 스크롤을 못하게 막는다.
   const ECLIPSETEXT = document.querySelector(".eclipse-text i");
@@ -56,7 +46,9 @@ function INDEXLOAD() {
   }, 50);
   const TEXTFRONT = document.querySelector(".span-front");
   const TEXTEND = document.querySelector(".span-end");
-
+  let mouseX;
+  let mouseY;
+  let touchTrue = true;
   window.addEventListener("scroll", function () {
     // 첫번째, 텍스트 이동
     if (window.pageYOffset > 500) {
@@ -68,6 +60,18 @@ function INDEXLOAD() {
       TEXTFRONT.style = `trasnform: rotate(0deg)`;
       TEXTEND.style = `trasnform: rotate(0deg)`;
     }
+
+    // 마우스 이벤트
+
+    window.addEventListener("mousemove", (e) => {
+      mouseX = (e.clientX / window.innerWidth) * 100;
+      mouseY = (e.clientY / window.innerHeight) * 100;
+      TOUCH.style = `left: ${mouseX}%; top: ${mouseY}%;`;
+      if (touchTrue) {
+        TOUCH.classList.add("visible");
+        touchTrue = false;
+      }
+    });
 
     // 로고 투명도
     SECONDIMG.style = `opacity: ${(window.pageYOffset - 1000) * 0.001};`;
@@ -101,21 +105,21 @@ function INDEXLOAD() {
       CANDY07.style.left = `${(window.pageYOffset - 2000) * 0.02 + 40}%`;
       CANDY08.style.left = `${(window.pageYOffset - 2000) * 0.025 + 40}%`;
 
-      CANDY01.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.2}deg)
+      CANDY01.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.15}deg)
         scale(${(window.pageYOffset - 2000) * 0.0008})`;
-      CANDY02.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.3}deg)
+      CANDY02.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.25}deg)
         scale(${(window.pageYOffset - 2000) * 0.0008})`;
-      CANDY03.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.4}deg)
+      CANDY03.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.35}deg)
         scale(${(window.pageYOffset - 2000) * 0.0008})`;
-      CANDY04.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.5}deg)
+      CANDY04.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.45}deg)
         scale(${(window.pageYOffset - 2000) * 0.0008})`;
-      CANDY05.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.5}deg)
+      CANDY05.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.45}deg)
         scale(${(window.pageYOffset - 2000) * 0.0008})`;
-      CANDY06.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.4}deg)
+      CANDY06.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.35}deg)
         scale(${(window.pageYOffset - 2000) * 0.0008})`;
-      CANDY07.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.3}deg)
+      CANDY07.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.25}deg)
         scale(${(window.pageYOffset - 2000) * 0.0008})`;
-      CANDY08.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.2}deg)
+      CANDY08.style.transform = `rotate(${(window.pageYOffset - 2000) * 0.15}deg)
         scale(${(window.pageYOffset - 2000) * 0.0008})`;
     } else {
       CANDY01.style.bottom = `-100%`;
@@ -128,19 +132,19 @@ function INDEXLOAD() {
       CANDY08.style.bottom = `-100%`;
     }
 
-    function onClickFunc() {
-      location.href = "../canvas.html";
-    }
     // 클릭이벤트로 변경해도 무방함
     if (window.pageYOffset == 5000) {
       SCROLL.classList.add("invisible");
-      TOUCH.classList.add("visible");
-      mouseFunc();
       window.addEventListener("click", onClickFunc);
+      touchTrue = true;
     } else {
       SCROLL.classList.remove("invisible");
       TOUCH.classList.remove("visible");
       window.removeEventListener("click", onClickFunc);
     }
   });
+}
+
+function onClickFunc() {
+  location.href = "../canvas.html";
 }
