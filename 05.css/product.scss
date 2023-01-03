@@ -23,48 +23,47 @@ body {
     position: fixed;
     top: 0;
     z-index: 10;
-    //display: flex;
 
-    .visual-candy {
+    .abc {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7%;
       width: 100%;
-      height: 100%;
-      position: absolute;
-      background-color: white;
-      z-index: 99;
-      display: none;
+      margin-top: 300px;
     }
-    .visual-chewy {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      background-color: white;
-      z-index: 99;
-      display: none;
-    }
+
     h2 {
       position: absolute;
       top: 25%;
       z-index: 22;
-      left: 10%;
+      left: 11%;
       font-size: 30px;
-      /*       margin-left: 150px;
-      margin-bottom: 100px;
-      margin-top: 150px; */
     }
 
     .item-img {
-      //border: 5px solid orange;
-      //position: sticky;
-      height: 40%;
+      /*       height: 40%;
       width: 35%;
-      //top: 195px;
       background-color: #003082;
       border: 5px solid black;
       border-radius: 50px;
       overflow: hidden;
-      margin-left: 100px;
-      margin-top: 340px;
       padding: 0 30px;
+      min-width: 330px;
+      position: absolute;
+      top: 35%;
+      left: 11%; */
+
+      height: 40%;
+      width: 35%;
+      background-color: #003082;
+      border: 5px solid black;
+      border-radius: 50px;
+      overflow: hidden;
+      padding: 0 30px;
+      min-width: 330px;
+      top: 35%;
+      left: 11%;
 
       > img {
         position: relative;
@@ -82,17 +81,27 @@ body {
         }
       }
     }
+
     .text {
-      position: absolute;
+      /*       position: absolute;
       top: 35%;
-      width: 40%;
-      height: 50%;
-      left: 48%;
-      margin: 0px 30px;
+      width: 35%;
+      height: 40%;
+      left: 52%;
+      animation: textani 1s ease-in;
+      min-width: 330px;
+ */
+      top: 35%;
+      width: 35%;
+      height: 40%;
+      left: 52%;
+      animation: textani 1s ease-in;
+      min-width: 330px;
 
       h3 {
         font-size: 40px;
         margin: 0;
+        margin-bottom: 45px;
       }
       p {
         font-size: 20px;
@@ -100,13 +109,22 @@ body {
         line-height: 177%;
       }
     }
+    @keyframes textani {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
   }
   .zoomWindow {
     border-radius: 50%;
     border: 5px solid black;
-    position: fixed;
-    right: 41%;
-    top: 22%;
+    //    position: fixed;
+    position: absolute;
+    right: 10%;
+    top: 27%;
     display: none;
     background-color: #003082;
     overflow: hidden;
@@ -228,7 +246,7 @@ body {
       }
     }
 
-    .aa {
+    .pc {
       text-align: center;
 
       h2 {
@@ -237,94 +255,95 @@ body {
         font-size: 50px;
         margin-bottom: 20px;
       }
-    }
 
-    .candy {
-      padding: 200px 0 100px 0;
+      .candy {
+        padding: 200px 0 100px 0;
 
-      .candycont {
-        width: 100%;
-        height: 100%;
-        background: #00ab69;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        margin-bottom: 250px;
+        .candycont {
+          width: 100%;
+          height: 100%;
+          background: #00ab69;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          margin-bottom: 250px;
 
-        .contdetail {
-          margin-top: 25px;
-          margin-bottom: 25px;
-          width: 40%;
-          height: 109px;
-          border: 3px solid black;
-          background-color: white;
-          border-radius: 13px;
-          cursor: pointer;
-          margin: 20px 20px;
-
-          img {
+          .contdetail {
+            margin-top: 25px;
+            margin-bottom: 25px;
             width: 40%;
+            height: 109px;
+            border: 3px solid black;
+            background-color: white;
+            border-radius: 13px;
+            cursor: pointer;
+            margin: 20px 20px;
+
+            img {
+              width: 40%;
+            }
+          }
+          .contdetail:hover {
+            transition: 0.5s;
+            background-color: #003082;
+          }
+          .contdetail:hover img {
+            scale: (1.1);
+            transition: 0.5s;
           }
         }
-        .contdetail:hover {
-          transition: 0.5s;
-          background-color: #003082;
-        }
-        .contdetail:hover img {
-          scale: (1.1);
-          transition: 0.5s;
+        .candydetail:nth-child(1) {
+          margin-bottom: 100px;
         }
       }
-      .candydetail:nth-child(1) {
-        margin-bottom: 100px;
-      }
-    }
 
-    .chewy {
-      padding: 235px 0;
+      .chewy {
+        padding: 235px 0;
 
-      .candycont {
-        width: 100%;
-        height: 100%;
-        background: #00ab69;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        margin-bottom: 250px;
+        .candycont {
+          width: 100%;
+          height: 100%;
+          background: #00ab69;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          margin-bottom: 250px;
 
-        .contdetail {
-          margin-top: 25px;
-          margin-bottom: 25px;
-          width: 40%;
-          height: 109px;
-          border: 3px solid black;
-          background-color: white;
-          border-radius: 13px;
-          cursor: pointer;
-          margin: 20px 20px;
-
-          img {
+          .contdetail {
+            margin-top: 25px;
+            margin-bottom: 25px;
             width: 40%;
+            height: 109px;
+            border: 3px solid black;
+            background-color: white;
+            border-radius: 13px;
+            cursor: pointer;
+            margin: 20px 20px;
+
+            img {
+              width: 40%;
+            }
+          }
+          .contdetail:hover {
+            transition: 0.5s;
+            background-color: #003082;
+          }
+          .contdetail:hover img {
+            scale: (1.1);
+            transition: 0.5s;
           }
         }
-        .contdetail:hover {
-          transition: 0.5s;
-          background-color: #003082;
+        .candydetail:nth-child(1) {
+          margin-bottom: 100px;
         }
-        .contdetail:hover img {
-          scale: (1.1);
-          transition: 0.5s;
-        }
-      }
-      .candydetail:nth-child(1) {
-        margin-bottom: 100px;
       }
     }
-    .text {
+
+    /*     .text {
       margin-top: 120px;
       width: 85%;
       position: relative;
-      h2 {
+      h3 {
         font-size: 40px;
         margin-bottom: 25px;
       }
@@ -332,6 +351,125 @@ body {
         font-size: 24px;
         line-height: 38px;
       }
+    } */
+
+    .mobile {
+      display: none;
+      position: absolute;
+      top: 0%;
+      height: 150px;
+      width: 100%;
+      //background: #00ab69;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        //background: #00ab69;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        border: 3px solid black;
+        border-radius: 45px;
+        background-color: #eefdf7;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 80%;
+        height: 60%;
+        object-fit: cover;
+      }
+      .swiper-slide:hover {
+
+        background-color: #003082;
+      }
+      .swiper-slide:hover img {
+        scale: (1.1);
+        transition: 0.5s;
+      }
     }
   }
 }
+
+@media screen and (max-width: 1500px) {
+  .main {
+    .zoomWindow {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .main {
+    .main-item {
+      width: 100%;
+      .abc {
+        flex-direction: column;
+
+        h3 {
+          margin-top: 40px;
+        }
+        p {
+          display: none;
+        }
+      }
+      h2 {
+        width: 100%;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+      }
+    }
+
+    .main-content {
+      //height: 5000px;
+      .pc {
+        .candy {
+          .candycont {
+            .contdetail {
+              width: 100%;
+              img {
+                width : 110px;
+                height : 110px;
+              }
+            }
+          }
+        }
+        .chewy {
+          .candycont {
+            .contdetail {
+              width: 100%;
+              img {
+                width : 110px;
+                height : 110px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+//분기점 잡고 분기점마다 어떻게해야할지
