@@ -3,42 +3,28 @@ fetch("./06.json/story.json")
     return res.json();
   })
   .then((eclipse) => {
-    allProject(eclipse.data);
+    story(eclipse.data);
   });
 
-function allProject(data) {
-  // window.addEventListener("load", () => {
-  //   data.forEach((value, key) => {
-  //     SWIPERSLIDE[
-  //       key
-  //     ].innerHTML += `<figure><img src="${data[key].url}"></figure>`;
-  //   });
-  // });
-
+function story(data) {
   const MAINCONT1 = document.querySelector(".main-container1");
-  // const MAINCONT2 = document.querySelector(".main-container2");
   const CONT2ITEM1 = document.querySelector(".container2-item01");
   const MAINCONT3 = document.querySelector(".main-container3");
   const INTROTEXT = document.querySelector(".intro-text-wrapper");
   const INTROPTAG = document.querySelectorAll(".intro-text-wrapper p");
-  // const INTROIMGWRAP = document.querySelector(".intro-skip-wrapper");
   const INTROSKIP = document.querySelector(".intro-skip-btn");
-  const WORDMAIN = document.querySelector(".main-text");
+  const WORDMAIN = document.querySelectorAll(".main-text");
   const WORDSUB = document.querySelectorAll(".sub-text");
-  const SWIPERMAIN = document.querySelector(".mySwiper");
-  const CARDBG = document.querySelector(".dynamic-bg");
-  // const CONT3TEXTBOX = document.querySelector(".container3-text-box");
-  const CONT3TEXTBOX2 = document.querySelectorAll(".container3-text-wrap h2");
-  let btnActive = "";
-  let imgPop = "";
+
+  const CONT3TEXTBOX = document.querySelector(".container3-text-box");
   let introInter = "";
   let innerWidth = window.innerWidth;
   let innerHeight = window.innerHeight;
-
+  let previousIndex = 0;
+  let introEffect;
   window.addEventListener("resize", (resize) => {
     innerWidth = window.innerWidth;
     innerHeight = window.innerHeight;
-    contentsResize();
   });
   // 인트로 텍스트
   function introTextFun(target, delay, repeat) {
@@ -104,7 +90,7 @@ function allProject(data) {
       //   }, 10000);
       // } else {
       // }
-      window.requestAnimationFrame(renderMintPetal);
+      introEffect = window.requestAnimationFrame(renderMintPetal);
       // 리퀘스트 애니메이션 프레임 선언으로 랜더 자동실행
     }
     // 클래스
@@ -148,24 +134,37 @@ function allProject(data) {
   introCanvasFun();
   // 텍스트 span 생성
   function wordSpanFun() {
-    // WORDMAIN.forEach((value, key) => {
-    let tag = "";
-    for (let i = 0; i < WORDMAIN.textContent.length; i++) {
-      tag += `<span>${WORDMAIN.textContent[i]}</span>`;
-    }
-    WORDMAIN.innerHTML = tag;
-    // });
+    WORDMAIN.forEach((el, key) => {
+      let tag = "";
+      for (let i = 0; i < el.textContent.length; i++) {
+        tag += `<span>${el.textContent[i]}</span>`;
+      }
+      el.innerHTML = tag;
+    });
   }
   wordSpanFun();
-  // span함수 실행 이후 const
-  const WORDSPANALL = document.querySelectorAll(".main-text span");
-  // 헤더 텍스트 fade in
-  function spanEffectFun(value) {
+  const SPAN1 = document.querySelectorAll(".main-text1 span");
+  const SPAN2 = document.querySelectorAll(".main-text2 span");
+  const SPAN3 = document.querySelectorAll(".main-text3 span");
+  const SPAN4 = document.querySelectorAll(".main-text4 span");
+  const SPAN5 = document.querySelectorAll(".main-text5 span");
+  const SPAN6 = document.querySelectorAll(".main-text6 span");
+  const SPANANI = document.querySelectorAll(".container3-text-wrap span");
+  const NAVIGATOR = document.querySelectorAll(".year-btn");
+  const SCROLLIMG = document.querySelector(".scroll-img");
+  let spanArray = [SPAN1, SPAN2, SPAN3, SPAN4, SPAN5, SPAN6];
+  function initFun() {
+    SPANANI.forEach((el) => {
+      el.style.animation = "";
+    });
+    WORDSUB.forEach((el) => {
+      el.style.animation = "";
+    });
+  }
+  function spanEffectFun(value, idxNum) {
     let fadeInEffect = `fadeInUp 400ms 0ms 1 both`;
-    // run init and clear previous effects
-    // init();
+    initFun();
     let num = -1;
-    // put delay on each word
     let fadeInInter = setInterval(() => {
       if (num < value.length - 1) {
         num++;
@@ -173,125 +172,167 @@ function allProject(data) {
         clearInterval(fadeInInter);
       }
       value[num].style.animation += fadeInEffect;
-    }, 50);
-    WORDSUB.forEach((el, key) => {
-      WORDSUB[key].style.animation = `revealOpacity 400ms ${
-        value.length * 70
-      }ms 1 both `;
-    });
+    }, 30);
+    // WORDSUB.forEach((el, key) => {
+    WORDSUB[idxNum].style.animation = `revealOpacity 400ms ${
+      value.length * 40
+    }ms 1 both `;
   }
-  // swiper
-  let swiper = new Swiper(".mySwiper", {
-    effect: "cards",
-    cardsEffect: {
-      perSlideoffset: 100,
-      perSlideRotate: 2,
-      rotate: false,
-      slideShadows: false,
-    },
-    direction: "vertical",
-    slidesPerView: "auto",
-    grabCursor: true,
-    mousewheel: true,
-    slideToClickedSlide: true,
-    freeMode: false,
-    spaceBetween: 10,
-    // centeredSlides: true,
-    // loop: "false",
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: "false",
-    },
-    observer: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    speed: 500,
-  });
+
   //////////////////////
   ///////클릭이벤트////////
   //////////////////////
   INTROSKIP.addEventListener("click", (e) => {
-    MAINCONT1.style = `opacity:0`;
+    window.cancelAnimationFrame(introEffect);
     main.classList.add("active");
-    SWIPERMAIN.classList.add("active");
-    CONT2ITEM1.classList.add("active");
+    MAINCONT1.style = `opacity:0`;
     MAINCONT3.classList.add("active");
-    CARDBG.classList.add("active");
-    aSideBarFun();
+    INDIGATOR.classList.add("active");
     setTimeout(() => {
-      spanEffectFun(WORDSPANALL);
-    }, 600);
+      swiperFun();
+    }, 300);
     setTimeout(() => {
       MAINCONT1.classList.add("active");
     }, 500);
-    // setTimeout(() => {
-    //   mainTextChangeColorFun();
-    // }, 50);
-    // ELCANVAS.style = `z-index: 1`;
-    console.log("백그라운드 효과");
+
+    console.log("클릭 트리거");
   });
-  // function mainTextChangeColorFun() {
-  //   CONT3TEXTBOX.style = `background: #eefdf7;`;
-  // }
+  window.addEventListener("mousemove", (e) => {
+    let mouseX = e.clientX,
+      mouseY = e.clientY;
+    INTROSKIP.style = `transform: translate3d(${mouseX}px, ${mouseY}px, 0px)`;
+  });
+  // swiper
+  const INDIGATOR = document.querySelector(".indigator");
+  function swiperFun() {
+    let swiper = new Swiper(".mySwiper", {
+      effect: "cards",
+      cardsEffect: {
+        perSlideoffset: 10,
+        perSlideRotate: 0,
+        rotate: false,
+        slideShadows: false,
+      },
+      mousewheel: {
+        invert: false,
+      },
+      on: {
+        init: function (e) {
+          INDIGATOR.style = `color:black`;
+          const SWIPERSLIDE = document.querySelectorAll(".swiper-slide div");
+          SWIPERSLIDE.forEach((el, key) => {
+            setInterval(() => {
+              console.log(SWIPERSLIDE);
+              el.classList.add("active");
+            }, 100);
+          });
+        },
+        click: function (e) {
+          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+          const VIDEO = document.querySelectorAll(".video");
+          function tabToZoomFun(value) {
+            SWIPERCONTENTS[
+              value
+            ].style = `width:90vw; height:80vh; translate: 0 -5vh; filter:brightness(1); border-radius: 35px 35px 35px 35px;`;
+          }
+          currentIndex = e.realIndex;
+          activeIndex = e.activeIndex;
+          clickedIndex = e.clickedIndex;
+          tabToZoomFun(activeIndex);
+          VIDEO[activeIndex].muted = false;
+          CONT3TEXTBOX.style = `opacity: 0;`;
+          SCROLLIMG.style = `opacity:0`;
+          CONT2ITEM1.style = `translate: -40% -50%; transition: translate 0.5s`;
+          INDIGATOR.style = `translate: 110% -50%; transition: translate 0.5s`;
+        },
+        doubleClick: function (e) {
+          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+          const VIDEO = document.querySelectorAll(".video");
+          function doubleTabFun(value) {
+            SWIPERCONTENTS[
+              value
+            ].style = `width: 78vw; height: 80vh; filter: brightness(0.5);`;
+            VIDEO[activeIndex].muted = true;
+          }
+          let currentIndex = e.realIndex;
+          activeIndex = e.activeIndex;
+          doubleTabFun(activeIndex);
+          CONT3TEXTBOX.style = `opacity: 1;`;
+          if (currentIndex == 0) {
+            SCROLLIMG.style = `opacity:1; translate: -50% -50%; `;
+          }
+          CONT2ITEM1.style = `translate: 0 -50%; transition: translate 0.5s`;
+          INDIGATOR.style = `translate: 0 -50%; transition: translate 0.5s`;
+        },
+        slideChangeTransitionStart: function (e) {
+          let currentIndex = e.realIndex;
+          INDIGATOR.style = `opacity:0`;
+          NAVIGATOR[previousIndex].classList.remove("active");
+          NAVIGATOR[currentIndex].classList.add("active");
+          previousIndex = currentIndex;
+        },
+        slideChangeTransitionEnd: function (e) {
+          const VIDEO = document.querySelectorAll(".video");
+          function videoPlayFun(value) {
+            VIDEO[value].muted = true;
+            VIDEO[value].loop = true;
+            VIDEO[value].play();
+          }
+          let currentIndex = e.realIndex;
+          let previousIndex = e.previousIndex;
+          let activeIndex = e.activeIndex;
+          INDIGATOR.innerHTML = "0" + (currentIndex + 1);
+          INDIGATOR.style = `opacity:1`;
+          videoPlayFun(activeIndex);
+          VIDEO[previousIndex].pause();
+        },
+        slideChange: function (e) {
+          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+          let currentIndex = e.realIndex;
+          let previousIndex = e.previousIndex;
+          setTimeout(() => {
+            spanEffectFun(spanArray[currentIndex], currentIndex);
+          }, 300);
+          if (currentIndex == 0) {
+            setTimeout(() => {
+              SCROLLIMG.style = `opacity:1; translate: -50% -50%;`;
+            }, 500);
+          } else {
+            SCROLLIMG.style = `opacity:0; translate: -50% 90%`;
+          }
+          SWIPERCONTENTS.forEach((el, key) => {
+            el.style = `width:78vw; height:80vh;`;
+          });
+          CONT3TEXTBOX.style = `opacity: 1`;
+          CONT2ITEM1.style = `translate: 0 -50%; transition: translate 0.5s`;
+          INDIGATOR.style = `translate: 0 -50%; transition: translate 0.5s`;
+          main.style.backgroundColor = data[currentIndex].color;
+        },
+      },
+      loop: true,
+      preloadImages: false,
+      direction: "vertical",
+      // slideToClickedSlide: true,
+      // centeredSlides: true,
+      slidesPerView: "auto",
+      grabCursor: true,
+      initialSlide: 0,
+      // cssMode: true,
+      // spaceBetween: 10,
+      observer: true,
+      speed: 500,
+    });
+    NAVIGATOR.forEach((el, key) => {
+      el.addEventListener("click", () => {
+        swiper.slideTo(key + 6, 700, true);
+      });
+    });
+  }
+
   // 편집 완료후 삭제 /////////////////////////////////////////////////////////////////////////////////////////
   // INTROSKIP.click();
   // clearTimeout(btnActive);
   // clearTimeout(imgPop);
   // clearInterval(introInter);
   // 편집 완료후 삭제 /////////////////////////////////////////////////////////////////////////////////////////
-  function aSideBarFun(e) {
-    window.addEventListener("mouseover", (e) => {
-      let mouseX = e.clientX,
-        mouseY = e.clientY;
-      if (mouseX < innerWidth / 20 && mouseY > innerHeight / 10) {
-        // CONT2ITEM1.classList.add("active");
-        CONT2ITEM1.style = `translate: 0 -50%;`;
-        MAINCONT3.classList.add("blur");
-        SWIPERMAIN.style = `filter: blur(5px)`;
-      } else {
-        CONT2ITEM1.style = `translate: -100% -50%;`;
-        MAINCONT3.classList.remove("blur");
-        SWIPERMAIN.style = `filter: blur(0)`;
-      }
-    });
-  }
-
-  window.addEventListener("mousemove", (e) => {
-    let mouseX = e.clientX,
-      mouseY = e.clientY;
-    INTROSKIP.style = `transform: translate3d(${mouseX}px, ${mouseY}px, 0px)`;
-  });
-  // 텍스트 span
-
-  const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
-  const PAGINATION = document.querySelectorAll(".swiper-pagination span");
-  const CONT3INNERH2 = document.querySelectorAll(".container3-text-wrap h2");
-  const CONT3INNERPTAG = document.querySelectorAll(".container3-text-wrap p");
-  const SWIPERSLIDEIMG = document.querySelectorAll(".swiper-slide img");
-  const NAVIGATOR = document.querySelectorAll(".year-btn");
-
-  CARDBG.style.fill = `#b7ebd6`;
-  NAVIGATOR.forEach((el, key) => {
-    el.addEventListener("click", () => {
-      PAGINATION[key].click();
-    });
-  });
-
-  swiper.on("slideChange", (e) => {
-    let currentIndex = e.realIndex;
-    let previousIndex = e.previousIndex;
-    CONT3TEXTBOX2[previousIndex].style = `opacity:0`;
-    CONT3TEXTBOX2[currentIndex].style = `opacity:1`;
-    CONT3INNERH2[previousIndex].style = `opacity:0`;
-    CONT3INNERH2[currentIndex].style = `opacity:1`;
-    CONT3INNERPTAG[previousIndex].style = `opacity:0`;
-    CONT3INNERPTAG[currentIndex].style = `opacity:1`;
-    CARDBG.style.fill = data[currentIndex].color;
-  });
-  swiper.on("afterInit", (e) => {
-    console.log("이벤트이벤트");
-  });
-  function contentsResize(e) {}
 }
