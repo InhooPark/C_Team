@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "id": "0",
+      "url": "./01.img/story01.jpg",
+      "color": "#eefdf7"
+    },
+    {
+      "id": "1",
+      "url": "./01.img/story02.jpg",
+      "color": "#E8F3D6"
+    },
+    {
+      "id": "2",
+      "url": "./01.img/story03.jpg",
+      "color": "#ECE5C7"
+    },
+    {
+      "id": "3",
+      "url": "./01.img/story04.jpg",
+      "color": "#D8B384"
+    },
+    {
+      "id": "4",
+      "url": "./01.img/story05.jpg",
+      "color": "#F7A4A4"
+    },
+    {
+      "id": "5",
+      "url": "./01.img/story06.jpg",
+      "color": "#E8F3D6"
+    }
+  ]
+}
