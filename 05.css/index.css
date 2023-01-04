@@ -222,9 +222,18 @@ body::-webkit-scrollbar {
 .second-explosion .candy-wrap .candy06,
 .second-explosion .candy-wrap .candy07,
 .second-explosion .candy-wrap .candy08 {
+<<<<<<< Updated upstream
+=======
+  left: 35%;
+  bottom: -100%;
+  transform: translateX(-50%);
+>>>>>>> Stashed changes
   position: absolute;
-  width: 20%;
+  width: 25%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .second-explosion .candy-wrap .candy01 img,
 .second-explosion .candy-wrap .candy02 img,
@@ -234,9 +243,10 @@ body::-webkit-scrollbar {
 .second-explosion .candy-wrap .candy06 img,
 .second-explosion .candy-wrap .candy07 img,
 .second-explosion .candy-wrap .candy08 img {
-  width: 100%;
+  width: 80%;
   -o-object-fit: cover;
      object-fit: cover;
+  filter: drop-shadow(3px 3px 2px black);
 }
 .second-explosion .candy-wrap .candy01 {
   left: 40%;
