@@ -5,9 +5,11 @@ window.addEventListener("load", function () {
 });
 
 function INDEXLOAD() {
-  const SECONDIMG = document.querySelector(".img-wrapper-second img");
+  const SECONDIMG = document.querySelector(".img-wrapper-second .origin");
+  const SECONDSHADOW = document.querySelector(".img-wrapper-second .shadow");
   const SCROLL = document.querySelector(".scroll");
   const TOUCH = document.querySelector(".touch");
+  const MTOUCH = document.querySelector(".mobile-touch");
 
   const CANDY01 = document.querySelector(".candy01");
   const CANDY02 = document.querySelector(".candy02");
@@ -48,9 +50,6 @@ function INDEXLOAD() {
   const TEXTEND = document.querySelector(".span-end");
   let mouseX;
   let mouseY;
-<<<<<<< Updated upstream
-  let touchTrue = true;
-=======
   let touchTrue = false;
 
   let contentX = 0;
@@ -86,8 +85,8 @@ function INDEXLOAD() {
     SECONDSHADOW.style.top = `${(-contentY / 40)+ 35}%`;
   });
 
->>>>>>> Stashed changes
   window.addEventListener("scroll", function () {
+    winpageY = window.pageYOffset;
     // 첫번째, 텍스트 이동
     if (window.pageYOffset > 500) {
       TEXTFRONT.style = `transform: rotate(${(window.pageYOffset - 500) / 45}deg)
@@ -101,26 +100,13 @@ function INDEXLOAD() {
 
     // 마우스 이벤트
 
-    window.addEventListener("mousemove", (e) => {
-      mouseX = (e.clientX / window.innerWidth) * 100;
-      mouseY = (e.clientY / window.innerHeight) * 100;
-      TOUCH.style = `left: ${mouseX}%; top: ${mouseY}%;`;
-      if (touchTrue) {
-        TOUCH.classList.add("visible");
-        touchTrue = false;
-      }
-    });
-
-    // 로고 투명도
+    // 로고
     SECONDIMG.style = `opacity: ${(window.pageYOffset - 1000) * 0.001};`;
-<<<<<<< Updated upstream
-=======
     SECONDSHADOW.style = `opacity: ${(window.pageYOffset - 1000) * 0.001};`;
     SECONDIMG.style.transform = `rotate3d(${-contentY / 100}, ${contentX / 100}, 0, ${d / 20}deg)`;
     SECONDSHADOW.style.transform = `rotate3d(${-contentY / 100}, ${contentX / 100}, 0, ${d / 20}deg)`;
     SECONDSHADOW.style.left = `${(contentX / -60) + 30 }%`;
     SECONDSHADOW.style.top = `${(-contentY / 40)+ 35}%`;
->>>>>>> Stashed changes
 
     // 로고생성
     if (window.pageYOffset > 2000) {
@@ -181,12 +167,15 @@ function INDEXLOAD() {
     // 클릭이벤트로 변경해도 무방함
     if (window.pageYOffset == 5000) {
       SCROLL.classList.add("invisible");
+      MTOUCH.classList.add("visible");
       window.addEventListener("click", onClickFunc);
       touchTrue = true;
     } else {
       SCROLL.classList.remove("invisible");
       TOUCH.classList.remove("visible");
+      MTOUCH.classList.remove("visible");
       window.removeEventListener("click", onClickFunc);
+      this.document.body.classList.remove("cursor-none");
     }
   });
 }
@@ -194,9 +183,6 @@ function INDEXLOAD() {
 let windowWidth = window.matchMedia("screen and (max-width: 1024px)");
 
 function onClickFunc() {
-<<<<<<< Updated upstream
-  location.href = "../canvas.html";
-=======
   if(windowWidth.matches){
     setTimeout(() => {
       location.href = "./canvas.html";
@@ -205,5 +191,4 @@ function onClickFunc() {
   else{
     location.href = "./canvas.html";
   }
->>>>>>> Stashed changes
 }
