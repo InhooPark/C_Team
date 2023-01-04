@@ -179,5 +179,5 @@ function INDEXLOAD() {
 }
 
 function onClickFunc() {
-  location.href = "../canvas.html";
+  location.href = "./canvas.html";
 }
