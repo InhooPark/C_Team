@@ -426,7 +426,7 @@ body {
       width: 100%;
       height: 0;
       background-color: rgba(0, 0, 0, 0.9);
-      
+
       position: absolute;
       bottom: 0;
       transition: 1s;
@@ -444,8 +444,11 @@ body {
           opacity: 1;
         }
         .popupText {
-          margin-top: 55px;
           color: white;
+          
+          h3 {
+            margin-bottom: 15px;
+          }
         }
       }
     }

@@ -229,11 +229,11 @@ MOIMG.forEach(function (v, k) {
 
     POPUPCONT.innerHTML = `
     <div class="popupImg">
-    <img src="01.img/mints_grape.png" alt="">
+    <img src="${data[k].url}" alt="">
     </div>
     <div class="popupText">
-    <h3>ECLIPSE GRAPE<br> Flavoured Sugarfree Mints 40 g</h3>
-    <p>먹는순간 강력한 상쾌함!<br> 언제 어디서나 상쾌함을 즐기세요!</p>
+    <h3>${data[k].ditailTitle}</h3>
+    <p>${data[k].ditail}</p>
     </div>
     `;
   });
