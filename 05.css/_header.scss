@@ -136,8 +136,8 @@ $tablet: 768px;
         top: 50%;
         right: 2%;
         transform: translateY(-50%);
-        width: 20px;
-        height: 20px;
+        width: 40px;
+        height: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -146,14 +146,14 @@ $tablet: 768px;
         z-index: 50;
 
         .burger-icon {
-          width: 40px;
-          height: 40px;
+          width: 50%;
+          height: 50%;
           display: flex;
           justify-content: center;
           position: relative;
           span {
             position: absolute;
-            width: 30px;
+            width: 80%;
             height: 2px;
             background: black;
             transition: 300ms;
@@ -540,14 +540,14 @@ $tablet: 768px;
         z-index: 50;
 
         .burger-icon {
-          width: 40px;
-          height: 40px;
+          width: 50%;
+          height: 50%;
           display: flex;
           justify-content: center;
           position: relative;
           span {
             position: absolute;
-            width: 30px;
+            width: 80%;
             height: 2px;
             background: black;
             transition: 300ms;

@@ -75,12 +75,14 @@ function INDEXLOAD() {
     contentY = e.clientY - (SECONDIMG.getBoundingClientRect().y + SECONDIMG.offsetHeight / 2);
     d = Math.sqrt(contentX * contentX + contentY * contentY);
 
+    console.log(contentX, contentY)
+
     SECONDIMG.style = `opacity : ${(winpageY - 1000) * 0.001};`;
     SECONDSHADOW.style = `opacity : ${(winpageY - 1000) * 0.001};`;
-    SECONDIMG.style.transform = `rotate3d(${-contentX / 100}, ${contentY / 100}, 0, ${d / 20}deg)`;
-    SECONDSHADOW.style.transform = `rotate3d(${-contentX / 100}, ${contentY / 100}, 0, ${d / 20}deg)`;
-    SECONDSHADOW.style.left = `${contentX * -0.01 + 10}%`;
-    SECONDSHADOW.style.top = `${-contentY * 0.01 + 40}%`;
+    SECONDIMG.style.transform = `rotate3d(${-contentY / 100}, ${contentX / 100}, 0, ${d / 20}deg)`;
+    SECONDSHADOW.style.transform = `rotate3d(${-contentY / 100}, ${contentX / 100}, 0, ${d / 20}deg)`;
+    SECONDSHADOW.style.left = `${(contentX / -60) + 30 }%`;
+    SECONDSHADOW.style.top = `${(-contentY / 40)+ 35}%`;
   });
 
   window.addEventListener("scroll", function () {
@@ -101,10 +103,10 @@ function INDEXLOAD() {
     // 로고
     SECONDIMG.style = `opacity: ${(window.pageYOffset - 1000) * 0.001};`;
     SECONDSHADOW.style = `opacity: ${(window.pageYOffset - 1000) * 0.001};`;
-    SECONDIMG.style.transform = `rotate3d(${-contentX / 100}, ${contentY / 100}, 0, ${d / 20}deg)`;
-    SECONDSHADOW.style.transform = `rotate3d(${-contentX / 100}, ${contentY / 100}, 0, ${d / 20}deg)`;
-    SECONDSHADOW.style.left = `${contentX * -0.01 + 10}%`;
-    SECONDSHADOW.style.top = `${-contentY * 0.01 + 40}%`;
+    SECONDIMG.style.transform = `rotate3d(${-contentY / 100}, ${contentX / 100}, 0, ${d / 20}deg)`;
+    SECONDSHADOW.style.transform = `rotate3d(${-contentY / 100}, ${contentX / 100}, 0, ${d / 20}deg)`;
+    SECONDSHADOW.style.left = `${(contentX / -60) + 30 }%`;
+    SECONDSHADOW.style.top = `${(-contentY / 40)+ 35}%`;
 
     // 로고생성
     if (window.pageYOffset > 2000) {
@@ -126,14 +128,14 @@ function INDEXLOAD() {
       CANDY07.style.bottom = `${(window.pageYOffset - 2000) * 0.06 - 20}%`;
       CANDY08.style.bottom = `${(window.pageYOffset - 2000) * 0.05 - 20}%`;
 
-      CANDY01.style.left = `${(window.pageYOffset - 2000) * -0.025 + 40}%`;
-      CANDY02.style.left = `${(window.pageYOffset - 2000) * -0.02 + 40}%`;
-      CANDY03.style.left = `${(window.pageYOffset - 2000) * -0.015 + 40}%`;
-      CANDY04.style.left = `${(window.pageYOffset - 2000) * -0.005 + 40}%`;
-      CANDY05.style.left = `${(window.pageYOffset - 2000) * 0.005 + 40}%`;
-      CANDY06.style.left = `${(window.pageYOffset - 2000) * 0.015 + 40}%`;
-      CANDY07.style.left = `${(window.pageYOffset - 2000) * 0.02 + 40}%`;
-      CANDY08.style.left = `${(window.pageYOffset - 2000) * 0.025 + 40}%`;
+      CANDY01.style.left = `${(window.pageYOffset - 2000) * -0.025 + 35}%`;
+      CANDY02.style.left = `${(window.pageYOffset - 2000) * -0.02 + 35}%`;
+      CANDY03.style.left = `${(window.pageYOffset - 2000) * -0.015 + 35}%`;
+      CANDY04.style.left = `${(window.pageYOffset - 2000) * -0.005 + 35}%`;
+      CANDY05.style.left = `${(window.pageYOffset - 2000) * 0.005 + 35}%`;
+      CANDY06.style.left = `${(window.pageYOffset - 2000) * 0.015 + 35}%`;
+      CANDY07.style.left = `${(window.pageYOffset - 2000) * 0.02 + 35}%`;
+      CANDY08.style.left = `${(window.pageYOffset - 2000) * 0.025 + 35}%`;
 
       CANDY01.style.transform = `rotate(-${(window.pageYOffset - 2000) * 0.15}deg)
         scale(${(window.pageYOffset - 2000) * 0.0008})`;
@@ -178,6 +180,15 @@ function INDEXLOAD() {
   });
 }
 
+let windowWidth = window.matchMedia("screen and (max-width: 1024px)");
+
 function onClickFunc() {
-  location.href = "./canvas.html";
+  if(windowWidth.matches){
+    setTimeout(() => {
+      location.href = "./canvas.html";
+    }, 1000);
+  }
+  else{
+    location.href = "./canvas.html";
+  }
 }
