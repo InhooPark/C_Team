@@ -4,6 +4,8 @@ window.addEventListener("load", () => {
   }, 1500);
 });
 
+let windowWidth = window.matchMedia("screen and (max-width: 1024px)");
+
 function CANVASLOAD() {
   const WAVEBTN = document.querySelector(".canvas-button");
   WAVEBTN.addEventListener("mouseover", () => {
@@ -55,65 +57,112 @@ function CANVASLOAD() {
   Matter.Render.run(render);
   const runner = Matter.Runner.create();
   Matter.Runner.run(runner, engine);
-  let mouseX = window.innerWidth/2;
+  let mouseX = window.innerWidth / 2;
   let mouseY = 200;
   window.addEventListener("mousemove", function (e) {
     mouseX = e.clientX;
     mouseY = e.clientY;
   });
 
-  fetch("./01.img/svg/lol.svg")
-    .then((response) => {
-      return response.text();
-    })
-    .then((raw) => {
-      return new window.DOMParser().parseFromString(raw, "image/svg+xml");
-    })
-    .then(function (root) {
-      const paths = Array.prototype.slice.call(root.querySelectorAll("path"));
+  if (windowWidth.matches) {
+    var bottomStatic = Matter.Bodies.rectangle(window.innerWidth / 2, window.innerHeight + 50, window.innerWidth, 100, {
+      isStatic: true,
+    });
+    var topStatic = Matter.Bodies.rectangle(window.innerWidth / 2, -50, window.innerWidth, 100, { isStatic: true });
+    var leftStatic = Matter.Bodies.rectangle(-50, window.innerHeight / 2, 100, window.innerHeight, {
+      isStatic: true,
+    });
+    var rightStatic = Matter.Bodies.rectangle(window.innerWidth + 50, window.innerHeight / 2, 100, window.innerHeight, {
+      isStatic: true,
+    });
 
-      const vertices = paths.map((path) => {
-        return Matter.Svg.pathToVertices(path, 20);
-      });
-      const terrain = Matter.Bodies.fromVertices(
-        window.innerWidth / 2,
-        window.innerHeight / 2,
-        vertices,
-        {
-          isStatic: true,
+    Matter.World.add(world, [bottomStatic, topStatic, leftStatic, rightStatic]);
+
+    var bodyOptions = {
+      frictionAir: 0.1,
+      friction: 0.2,
+      restitution: 0.5,
+    };
+    var mouse = Matter.Mouse.create(render.canvas),
+      mouseConstraint = Matter.MouseConstraint.create(engine, {
+        mouse: mouse,
+        constraint: {
+          stiffness: 0.2,
           render: {
-            fillStyle: "#00AB69",
-            strokeStyle: "#00AB69",
-            lineWidth: 1,
+            visible: false,
           },
         },
-        true
-      );
+      });
 
-      var bottomStatic = Matter.Bodies.rectangle(window.innerWidth / 2, window.innerHeight + 50, window.innerWidth, 100, { isStatic: true });
-      var topStatic = Matter.Bodies.rectangle(window.innerWidth / 2, -50, window.innerWidth, 100, { isStatic: true });
-      var leftStatic = Matter.Bodies.rectangle(-50, window.innerHeight / 2, 100, window.innerHeight, { isStatic: true });
-      var rightStatic = Matter.Bodies.rectangle(window.innerWidth + 50, window.innerHeight / 2, 100, window.innerHeight, { isStatic: true });
+    Matter.World.add(world, mouseConstraint);
+  } else {
+    fetch("./01.img/svg/lol.svg")
+      .then((response) => {
+        return response.text();
+      })
+      .then((raw) => {
+        return new window.DOMParser().parseFromString(raw, "image/svg+xml");
+      })
+      .then(function (root) {
+        const paths = Array.prototype.slice.call(root.querySelectorAll("path"));
 
-      Matter.World.add(world, [terrain, bottomStatic, topStatic, leftStatic, rightStatic]);
+        const vertices = paths.map((path) => {
+          return Matter.Svg.pathToVertices(path, 20);
+        });
+        const terrain = Matter.Bodies.fromVertices(
+          window.innerWidth / 2,
+          window.innerHeight / 2,
+          vertices,
+          {
+            isStatic: true,
+            render: {
+              fillStyle: "#00AB69",
+              strokeStyle: "#00AB69",
+              lineWidth: 1,
+            },
+          },
+          true
+        );
 
-      var bodyOptions = {
-        frictionAir: 0.1,
-        friction: 0.2,
-        restitution: 0.5,
-      };
-    });
+        var bottomStatic = Matter.Bodies.rectangle(
+          window.innerWidth / 2,
+          window.innerHeight + 50,
+          window.innerWidth,
+          100,
+          { isStatic: true }
+        );
+        var topStatic = Matter.Bodies.rectangle(window.innerWidth / 2, -50, window.innerWidth, 100, { isStatic: true });
+        var leftStatic = Matter.Bodies.rectangle(-50, window.innerHeight / 2, 100, window.innerHeight, {
+          isStatic: true,
+        });
+        var rightStatic = Matter.Bodies.rectangle(
+          window.innerWidth + 50,
+          window.innerHeight / 2,
+          100,
+          window.innerHeight,
+          { isStatic: true }
+        );
 
-  var mouse = Matter.Mouse.create(render.canvas),
-    mouseConstraint = Matter.MouseConstraint.create(engine, {
-      mouse: mouse,
-      constraint: {
-        stiffness: 0.2,
-        render: {
-          visible: false,
+        Matter.World.add(world, [terrain, bottomStatic, topStatic, leftStatic, rightStatic]);
+
+        var bodyOptions = {
+          frictionAir: 0.1,
+          friction: 0.2,
+          restitution: 0.5,
+        };
+      });
+
+    var mouse = Matter.Mouse.create(render.canvas),
+      mouseConstraint = Matter.MouseConstraint.create(engine, {
+        mouse: mouse,
+        constraint: {
+          stiffness: 0.2,
+          render: {
+            visible: false,
+          },
         },
-      },
-    });
+      });
 
-  Matter.World.add(world, mouseConstraint);
+    Matter.World.add(world, mouseConstraint);
+  }
 }
