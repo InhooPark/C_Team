@@ -12,6 +12,7 @@ function story(data) {
       storyLOAD();
     }, 1300);
   });
+
   function storyLOAD() {
     const MAINCONT1 = document.querySelector(".main-container1");
     const CONT2ITEM1 = document.querySelector(".container2-item01");
@@ -362,10 +363,8 @@ function story(data) {
         });
       });
     }
-
-    // 편집 완료후 삭제 /////////////////////////////////////////////////////////////////////////////////////////
+    // trigger skip button for editing
     // INTROSKIP.click();
     // clearInterval(introInter);
-    // 편집 완료후 삭제 /////////////////////////////////////////////////////////////////////////////////////////
   }
 }
