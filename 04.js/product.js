@@ -85,31 +85,10 @@ let data = [
 
 hover();
 
-const IMG = document.querySelectorAll(".candycont .contdetail");
+const PCIMG = document.querySelectorAll(".pc .candycont .contdetail");
 const MAINITEM = document.querySelector(".main-item");
 
-const MOBIMG = document.querySelectorAll(".swiper-slide");
-
-MOBIMG.forEach(function (v, key) {
-  v.addEventListener("click", function () {
-    MAINITEM.innerHTML = `
-    <h2>${data[key].title}</h2>
-    <div class="abc">
-      <div class="item-img">
-        <img src="${data[key].url}" alt="">
-      </div>
-      <div class="text">
-        <h3>${data[key].ditailTitle}</h3>
-        <p>${data[key].ditail}</p>
-      </div>
-    </duv>
-    <div class="zoomWindow">
-        <img src="${data[key].url}" alt="">
-    </div>`;
-  });
-});
-
-IMG.forEach(function (v, key) {
+PCIMG.forEach(function (v, key) {
   v.addEventListener("click", function () {
     MAINITEM.innerHTML = `
     <h2>${data[key].title}</h2>
@@ -167,12 +146,16 @@ const CANDY = document.querySelector(".candy");
 const CHEWY = document.querySelector(".chewy");
 const WDW = document.querySelector(".main-content");
 const aa = document.querySelectorAll(".aa");
+const MAIN = document.querySelector(".main");
 
 BTN.forEach(function (v, k) {
+  //pc
   if (!window.matchMedia("(max-width: 1024px)").matches) {
     v.addEventListener("click", function () {
       WDW.style.height = "3500px";
       WDW.style.width = "35%";
+      MAIN.style.zIndex = "1";
+
       if (k == 0) {
         //YCC.style.display="block";
         setTimeout(() => {
@@ -194,38 +177,70 @@ BTN.forEach(function (v, k) {
       }
     });
   } else {
+    //모바일
     v.addEventListener("click", function () {
-        const MOB = document.querySelector(".mobile");
-        MOB.style.display = "block";
-        WDW.style.width = "100%";
-        WDW.style.height = "150px";
-        WDW.style.top = "50px";
-        const HEADER = document.querySelector("header .menu-container");
-        HEADER.style.height = "50px";
-      });
+      const MOB = document.querySelector(".mobile");
+      const MAINBTN = document.querySelector(".main .main-content .choice");
+      const BTNFONT = document.querySelector(".main .main-content .choice h1");
+      const HEADER = document.querySelector("header .menu-container");
+      const MOCANDY = document.querySelector(".moCandy");
+      const MOCHEWY = document.querySelector(".moChewy");
+
+      MAIN.style.zIndex = "1";
+      MAINITEM.style.display = "none";
+      MOB.style.display = "block";
+      WDW.style.width = "100%";
+      WDW.style.height = "200px";
+      MAINBTN.style.marginTop = "50px";
+      BTNFONT.style.fontSize = "35px";
+      HEADER.style.height = "50px";
+
+      if (k == 0) {
+        MOCANDY.style.display = "block";
+        MOCHEWY.style.display = "none";
+        window.scrollTo({
+          left: 0,
+          top: MOCANDY.offsetTop,
+          behavior: "smooth",
+        });
+      }
+      if (k == 1) {
+        MOCHEWY.style.display = "block";
+        MOCANDY.style.display = "none";
+        window.scrollTo({
+          left: 0,
+          top: MOCHEWY.offsetTop,
+          behavior: "smooth",
+        });
+      }
+    });
   }
 });
 
-/* btn.forEach(function (v, k) {
+const MOIMG = document.querySelectorAll(".mobile img");
+const POPUP = document.querySelector(".popup");
+const POPUPBTN = document.querySelector(".popup button");
+const POPUPCONT = document.querySelector(".popupCont");
+MOIMG.forEach(function (v, k) {
   v.addEventListener("click", function () {
-    if (k == 0) {
-      window.scrollTo({
-        left: 0,
-        top: candy.offsetTop,
-        behavior: "smooth",
-      });
-    } else if (k == 1) {
-      window.scrollTo({
-        left: 0,
-        top: chewy.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  });
-}); */
-//반응형js
-// var windowWidth = window.matchMedia("screen and (max-width:1024px");
+    POPUP.style.height = "80%";
+    POPUPBTN.style.display = "block";
+    POPUPCONT.style.display = "block";
 
-// if (!windowWidth.matches) {
-// } else {
-// }
+    POPUPCONT.innerHTML = `
+    <div class="popupImg">
+    <img src="${data[k].url}" alt="">
+    </div>
+    <div class="popupText">
+    <h3>${data[k].ditailTitle}</h3>
+    <p>${data[k].ditail}</p>
+    </div>
+    `;
+  });
+});
+
+POPUPBTN.addEventListener("click", function () {
+  POPUP.style.height = "0";
+  POPUPBTN.style.display = "none";
+  POPUPCONT.style.display = "none";
+});
