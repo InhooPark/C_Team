@@ -10,7 +10,7 @@ function story(data) {
   window.addEventListener("load", function () {
     setTimeout(() => {
       storyLOAD();
-    }, 1500);
+    }, 1300);
   });
   function storyLOAD() {
     const MAINCONT1 = document.querySelector(".main-container1");
@@ -34,7 +34,6 @@ function story(data) {
       innerHeight = window.innerHeight;
     });
 
-    // 인트로 텍스트
     function introTextFun(target, delay, repeat) {
       let num = 1;
       let num2 = 0;
@@ -81,7 +80,6 @@ function story(data) {
       console.log("클릭 트리거");
     });
 
-    // 캔버스
     function introCanvasFun() {
       const ELCANVAS = document.querySelector(".canvas");
       const ctx = ELCANVAS.getContext("2d");
@@ -162,7 +160,6 @@ function story(data) {
       }
     }
     introCanvasFun();
-    // 텍스트 span 생성
     function wordSpanFun() {
       WORDMAIN.forEach((el, key) => {
         let tag = "";
@@ -208,11 +205,6 @@ function story(data) {
         value.length * 40
       }ms 1 both `;
     }
-
-    //////////////////////
-    ///////클릭이벤트////////
-    //////////////////////
-
     window.addEventListener("mousemove", (e) => {
       let mouseX = e.clientX,
         mouseY = e.clientY;
@@ -245,7 +237,6 @@ function story(data) {
                 clearInterval(inter);
               }
               SWIPERCONTENTS[idx].classList.add("active");
-              console.log(idx);
             }, 60);
           },
           click: function (e) {
@@ -263,18 +254,23 @@ function story(data) {
             tabToZoomFun(activeIndex);
             SWIPERCONTENTS[activeIndex].muted = false;
             CONT3TEXTBOX.style = `opacity: 0;`;
-            SCROLLIMG.style = `opacity:0`;
+            SCROLLIMG.style = `opacity:0; transition 0.5s`;
             CONT2ITEM1.style = `translate: -40% -50%; transition: translate 0.5s`;
             INDIGATOR.style = `translate: 110% -50%; transition: translate 0.5s`;
           },
           doubleClick: function (e) {
             const SWIPERCONTENTS =
               document.querySelectorAll(".swiper-contents");
-            // const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
             function doubleTabFun(value) {
-              SWIPERCONTENTS[
-                value
-              ].style = `width: 78vw; height: 80vh; filter: brightness(0.5);`;
+              if (window.innerWidth < 1024) {
+                SWIPERCONTENTS.forEach((el, key) => {
+                  el.style = `width:93vw; height:80vh;filter: brightness(0.5)`;
+                });
+              } else {
+                SWIPERCONTENTS.forEach((el, key) => {
+                  el.style = `width:78vw; height:80vh;filter: brightness(0.5)`;
+                });
+              }
             }
             SWIPERCONTENTS[activeIndex].muted = true;
             let currentIndex = e.realIndex;
@@ -282,7 +278,7 @@ function story(data) {
             doubleTabFun(activeIndex);
             CONT3TEXTBOX.style = `opacity: 1;`;
             if (currentIndex == 0) {
-              SCROLLIMG.style = `opacity:1; translate: -50% -50%; `;
+              SCROLLIMG.style = `opacity:1; transition 0.5s; translate: -50% -50%; `;
             }
             CONT2ITEM1.style = `translate: 0 -50%; transition: translate 0.5s`;
             INDIGATOR.style = `translate: 0 -50%; transition: translate 0.5s`;
@@ -318,33 +314,47 @@ function story(data) {
             spanEffectFun(spanArray[currentIndex], currentIndex);
             if (currentIndex == 0) {
               setTimeout(() => {
-                SCROLLIMG.style = `opacity:1; translate: -50% -50%;`;
+                SCROLLIMG.style = `opacity:1; transition 0.5s; translate: -50% -50%;`;
               }, 500);
             } else {
-              SCROLLIMG.style = `opacity:0; translate: -50% 90%`;
+              SCROLLIMG.style = `opacity:0; transition 0.5s; translate: -50% 90%`;
             }
-            SWIPERCONTENTS.forEach((el, key) => {
-              el.style = `width:78vw; height:80vh;`;
-            });
+            if (window.innerWidth < 1024) {
+              SWIPERCONTENTS.forEach((el, key) => {
+                el.style = `width:93vw; height:80vh;`;
+              });
+            } else {
+              SWIPERCONTENTS.forEach((el, key) => {
+                el.style = `width:78vw; height:80vh;`;
+              });
+            }
             CONT3TEXTBOX.style = `opacity: 1`;
             CONT2ITEM1.style = `translate: 0 -50%;`;
             INDIGATOR.style = `translate: 0 -50%;`;
             main.style.backgroundColor = data[currentIndex].color;
           },
+          resize: function (e) {
+            const SWIPERCONTENTS =
+              document.querySelectorAll(".swiper-contents");
+            if (window.innerWidth < 1024) {
+              SWIPERCONTENTS.forEach((el, key) => {
+                el.style = `width:93vw; height:80vh;`;
+              });
+            } else {
+              SWIPERCONTENTS.forEach((el, key) => {
+                el.style = `width:78vw; height:80vh;`;
+              });
+            }
+          },
         },
         loop: true,
         preloadImages: false,
         direction: "vertical",
-        // slideToClickedSlide: true,
-        // centeredSlides: true,
         slidesPerView: "auto",
         grabCursor: true,
         initialSlide: 0,
-        // cssMode: true,
-        // spaceBetween: 10,
-        observer: true,
+        resizeObserver: true,
         speed: 500,
-        // slidePerGroup: 6,
       });
       NAVIGATOR.forEach((el, key) => {
         el.addEventListener("click", () => {
@@ -354,8 +364,8 @@ function story(data) {
     }
 
     // 편집 완료후 삭제 /////////////////////////////////////////////////////////////////////////////////////////
-    INTROSKIP.click();
-    clearInterval(introInter);
+    // INTROSKIP.click();
+    // clearInterval(introInter);
     // 편집 완료후 삭제 /////////////////////////////////////////////////////////////////////////////////////////
   }
 }
