@@ -177,18 +177,20 @@ body::-webkit-scrollbar {
   opacity: 0;
 }
 #main .main-wrapper .main-container3 .container3-text-box .container3-text-wrap p {
+  margin-top: 25px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   text-align: center;
   position: absolute;
-  top: 75vh;
+  top: 73vh;
   left: 50%;
   translate: -50% 0;
   font-size: 5vw;
   z-index: 10;
   opacity: 0;
+  font-style: italic;
 }
 #main .main-wrapper .main-container3 .indigator {
   position: absolute;

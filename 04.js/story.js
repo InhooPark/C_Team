@@ -10,7 +10,7 @@ function story(data) {
   window.addEventListener("load", function () {
     setTimeout(() => {
       storyLOAD();
-    }, 1300);
+    }, 1600);
   });
 
   function storyLOAD() {
