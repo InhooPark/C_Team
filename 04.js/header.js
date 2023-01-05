@@ -5,10 +5,11 @@ setTimeout(() => {
   LOAD.classList.add("display-off");
 }, 1500);
 
-const LOADTEXT = document.querySelector('.load-text-wrap span');
-let locationURL = location.href.split('/').reverse()[0].split('.')[0];
-locationURL = locationURL.charAt(0).toUpperCase() + locationURL.slice(1);
+const LOADTEXT = document.querySelector(".load-text-wrap span");
+let locationURL = location.href.split("/").reverse()[0].split(".")[0];
+locationURL = locationURL.charAt(0).toUpperCase() + locationURL.slice(1) || "Index";
 
+console.log(locationURL);
 
 function headerCallback() {
   const SPHERE = document.querySelector(".sphere");
@@ -68,8 +69,6 @@ function headerCallback() {
     });
   }
 
-
-
   // 버거메뉴 내부 텍스트
   const THISMENU = document.querySelectorAll(".burger-menu a");
   const MENUOVER = document.querySelectorAll(".burger-menu a i");
@@ -79,14 +78,14 @@ function headerCallback() {
     value.classList.remove("this");
     if (locationURL.toLowerCase() == "index") {
       THISMENU[0].classList.add("this");
-      LOADTEXT.textContent = 'Index';
+      LOADTEXT.textContent = "Index";
     } else if (locationURL.toLowerCase() == "product") {
       THISMENU[1].classList.add("this");
-      LOADTEXT.textContent = 'Product';
+      LOADTEXT.textContent = "Product";
     } else if (locationURL.toLowerCase() == "story") {
       THISMENU[2].classList.add("this");
-      LOADTEXT.textContent = 'History';
-    } else if (locationURL.toLowerCase() == "canvas"){
+      LOADTEXT.textContent = "History";
+    } else if (locationURL.toLowerCase() == "canvas") {
       LOADTEXT.textContent = "Canvas";
     }
   });
