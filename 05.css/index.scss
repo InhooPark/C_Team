@@ -114,40 +114,38 @@ body::-webkit-scrollbar {
     box-sizing: border-box;
     opacity: 0;
     transition: 300ms;
-    > a {
-      > p {
-        position: absolute;
-        top: 60%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 2rem;
-        color: #00ab69;
+    > p {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: #00ab69;
+    }
+    > span {
+      width: 2px;
+      height: 20px;
+      background: #00ab69;
+      position: absolute;
+      transform-origin: bottom;
+      animation: touch-span-ani infinite ease-out 800ms;
+      &:nth-of-type(1) {
+        top: 10%;
+        left: 20%;
+        rotate: -55deg;
       }
-      > span {
-        width: 2px;
-        height: 20px;
-        background: #00ab69;
-        position: absolute;
-        transform-origin: bottom;
-        animation: touch-span-ani infinite ease-out 800ms;
-        &:nth-of-type(1) {
-          top: 10%;
-          left: 20%;
-          rotate: -55deg;
-        }
-        &:nth-of-type(2) {
-          left: 40%;
-          rotate: -15deg;
-        }
-        &:nth-of-type(3) {
-          left: 60%;
-          rotate: 15deg;
-        }
-        &:nth-of-type(4) {
-          top: 10%;
-          left: 80%;
-          rotate: 55deg;
-        }
+      &:nth-of-type(2) {
+        left: 40%;
+        rotate: -15deg;
+      }
+      &:nth-of-type(3) {
+        left: 60%;
+        rotate: 15deg;
+      }
+      &:nth-of-type(4) {
+        top: 10%;
+        left: 80%;
+        rotate: 55deg;
       }
     }
   }
