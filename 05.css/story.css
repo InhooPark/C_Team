@@ -13,6 +13,7 @@ body::-webkit-scrollbar {
 }
 #main.active {
   background: #eefdf7;
+  height: 100%;
 }
 #main .main-wrapper {
   width: 100vw;
@@ -225,6 +226,10 @@ body::-webkit-scrollbar {
   align-items: center;
   transform-origin: right bottom;
 }
+#main .main-wrapper .swiper .swiper-wrapper .swiper-slide.active {
+  transition: 0.75;
+  opacity: 0;
+}
 #main .main-wrapper .swiper .swiper-wrapper .swiper-slide div {
   width: 100%;
   height: 100%;
@@ -239,10 +244,10 @@ body::-webkit-scrollbar {
   margin: 0 auto;
   filter: brightness(0.3);
   translate: 0 120%;
-  transition: 0.5s;
 }
 #main .main-wrapper .swiper .swiper-wrapper .swiper-slide div video.active {
   translate: 0 0;
+  transition: 0.5s;
 }
 #main .main-wrapper .scroll-img {
   position: absolute;
@@ -392,7 +397,7 @@ body::-webkit-scrollbar {
     opacity: 1;
   }
 }
-@media (min-width: 480px) and (max-width: 1023px) {
+@media (min-width: 360px) and (max-width: 767px) {
   body {
     position: fixed;
   }

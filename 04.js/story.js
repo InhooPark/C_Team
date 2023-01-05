@@ -12,6 +12,7 @@ function story(data) {
   }, 1000);
 }
 function storyLOAD(data) {
+  const BODY = document.querySelector("#body");
   const MAINCONT1 = document.querySelector(".main-container1");
   const CONT2ITEM1 = document.querySelector(".container2-item01");
   const MAINCONT3 = document.querySelector(".main-container3");
@@ -73,9 +74,6 @@ function storyLOAD(data) {
     setTimeout(() => {
       MAINCONT1.classList.add("active");
     }, 500);
-    // setTimeout(() => {
-    //   spanEffectFun(spanArray[0], 0);
-    // }, 500);
     console.log("클릭 트리거");
   });
 
@@ -110,13 +108,6 @@ function storyLOAD(data) {
       mintArray.forEach((mint) => {
         mint.animate();
       });
-      // if (main.classList.contains("active")) {
-      //   ELCANVAS.classList.add("active");
-      //   setTimeout(() => {
-      //     ctx.clearRect(0, 0, ELCANVAS.width, ELCANVAS.height);
-      //   }, 10000);
-      // } else {
-      // }
       introEffect = window.requestAnimationFrame(renderMintPetal);
       // 리퀘스트 애니메이션 프레임 선언으로 랜더 자동실행
     }
@@ -211,6 +202,7 @@ function storyLOAD(data) {
   });
   // swiper
   const INDIGATOR = document.querySelector(".indigator");
+
   function swiperFun() {
     let swiper = new Swiper(".mySwiper", {
       effect: "cards",
@@ -219,12 +211,14 @@ function storyLOAD(data) {
         perSlideRotate: 0,
         rotate: false,
         slideShadows: false,
+        noSwiping: false,
       },
       mousewheel: {
         invert: false,
       },
       on: {
         init: function (e) {
+          let currentIndex = e.realIndex;
           let idx = 0;
           INDIGATOR.style = `color:black`;
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
@@ -236,27 +230,38 @@ function storyLOAD(data) {
             }
             SWIPERCONTENTS[idx].classList.add("active");
           }, 60);
+          setTimeout(() => {
+            spanEffectFun(spanArray[currentIndex], currentIndex);
+          }, 1000);
         },
         click: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+          const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
+          currentIndex = e.realIndex;
+          activeIndex = e.activeIndex;
+          clickedIndex = e.clickedIndex;
 
           function tabToZoomFun(value) {
             SWIPERCONTENTS[
               value
             ].style = `width:90vw; height:80vh; translate: 0 -5vh; filter:brightness(1); border-radius: 35px 35px 35px 35px;`;
           }
-          currentIndex = e.realIndex;
-          activeIndex = e.activeIndex;
-          clickedIndex = e.clickedIndex;
           tabToZoomFun(activeIndex);
           SWIPERCONTENTS[activeIndex].muted = false;
           CONT3TEXTBOX.style = `opacity: 0;`;
           SCROLLIMG.style = `opacity:0; transition 0.5s`;
           CONT2ITEM1.style = `translate: -40% -50%; transition: translate 0.5s`;
           INDIGATOR.style = `translate: 110% -50%; transition: translate 0.5s`;
+          // BODY.style = `position: static`;
+          SWIPERSLIDE.forEach((el, key) => {
+            if (!el.classList.contains("swiper-slide-active")) {
+              el.classList.add("active");
+            }
+          });
         },
         doubleClick: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+          const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
           function doubleTabFun(value) {
             if (window.innerWidth < 1024) {
               SWIPERCONTENTS.forEach((el, key) => {
@@ -267,6 +272,11 @@ function storyLOAD(data) {
                 el.style = `width:78vw; height:80vh;filter: brightness(0.5)`;
               });
             }
+            SWIPERSLIDE.forEach((el, key) => {
+              if (!el.classList.contains("swiper-slide-active")) {
+                el.classList.remove("active");
+              }
+            });
           }
           SWIPERCONTENTS[activeIndex].muted = true;
           let currentIndex = e.realIndex;
@@ -288,24 +298,28 @@ function storyLOAD(data) {
         },
         slideChangeTransitionEnd: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+          let currentIndex = e.realIndex;
           function videoPlayFun(value) {
             SWIPERCONTENTS[value].muted = true;
             SWIPERCONTENTS[value].loop = true;
             SWIPERCONTENTS[value].play();
           }
-          let currentIndex = e.realIndex;
+         
           let previousIndex = e.previousIndex;
           let activeIndex = e.activeIndex;
           INDIGATOR.innerHTML = "0" + (currentIndex + 1);
           INDIGATOR.style = `opacity:1`;
-          videoPlayFun(activeIndex);
+          if (window.innerWidth > 1023) {
+            videoPlayFun(activeIndex);
+          }
           SWIPERCONTENTS[previousIndex].pause();
+          spanEffectFun(spanArray[currentIndex], currentIndex);
         },
         slideChange: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+          const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
           let currentIndex = e.realIndex;
           let previousIndex = e.previousIndex;
-          spanEffectFun(spanArray[currentIndex], currentIndex);
           if (currentIndex == 0) {
             setTimeout(() => {
               SCROLLIMG.style = `opacity:1; transition 0.5s; translate: -50% -50%;`;
@@ -313,7 +327,7 @@ function storyLOAD(data) {
           } else {
             SCROLLIMG.style = `opacity:0; transition 0.5s; translate: -50% 90%`;
           }
-          if (window.innerWidth < 1024) {
+          if (window.innerWidth < 768) {
             SWIPERCONTENTS.forEach((el, key) => {
               el.style = `width:93vw; height:80vh;`;
             });
@@ -326,10 +340,15 @@ function storyLOAD(data) {
           CONT2ITEM1.style = `translate: 0 -50%;`;
           INDIGATOR.style = `translate: 0 -50%;`;
           main.style.backgroundColor = data[currentIndex].color;
+          SWIPERSLIDE.forEach((el, key) => {
+            if (!el.classList.contains("swiper-slide-active")) {
+              el.classList.remove("active");
+            }
+          });
         },
         resize: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
-          if (window.innerWidth < 1024) {
+          if (window.innerWidth < 768) {
             SWIPERCONTENTS.forEach((el, key) => {
               el.style = `width:93vw; height:80vh;`;
             });
@@ -345,7 +364,7 @@ function storyLOAD(data) {
       direction: "vertical",
       slidesPerView: "auto",
       grabCursor: true,
-      initialSlide: 0,
+      // initialSlide: 6,
       resizeObserver: true,
       speed: 500,
     });
