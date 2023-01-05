@@ -253,11 +253,11 @@ function storyLOAD(data) {
           CONT2ITEM1.style = `translate: -40% -50%; transition: translate 0.5s`;
           INDIGATOR.style = `translate: 110% -50%; transition: translate 0.5s`;
           // BODY.style = `position: static`;
-          // SWIPERSLIDE.forEach((el, key) => {
-          //   if (!el.classList.contains("swiper-slide-active")) {
-          //     el.classList.add("active");
-          //   }
-          // });
+          SWIPERSLIDE.forEach((el, key) => {
+            if (!el.classList.contains("swiper-slide-active")) {
+              el.classList.add("active");
+            }
+          });
           if (window.innerWidth < 768) {
             SWIPERCONTENTS[activeIndex].play();
           }
@@ -315,7 +315,7 @@ function storyLOAD(data) {
           let activeIndex = e.activeIndex;
           INDIGATOR.innerHTML = "0" + (currentIndex + 1);
           INDIGATOR.style = `opacity:1`;
-          if (window.innerWidth > 1023) {
+          if (window.innerWidth > 768) {
             videoPlayFun(activeIndex);
           }
           SWIPERCONTENTS[previousIndex].pause();
