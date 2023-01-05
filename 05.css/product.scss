@@ -157,7 +157,7 @@ body {
 
     .choice {
       margin-top: 265px;
-      margin-bottom: 245px;
+      margin-bottom: 145px;
       text-align: center;
       justify-content: center;
 
@@ -259,6 +259,7 @@ body {
 
       .candy {
         padding: 200px 0 100px 0;
+        position: relative;
 
         .candycont {
           width: 100%;
@@ -301,6 +302,7 @@ body {
 
       .chewy {
         padding: 235px 0;
+        position: relative;
 
         .candycont {
           width: 100%;
@@ -341,44 +343,76 @@ body {
         }
       }
     }
+    .upbtn1 {
+      position: absolute;
+      top: 200px;
+      right: 25%;
+      color: white;
+      border: 3px solid white;
+      border-radius: 13px;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      margin: 0 auto;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .upbtn2 {
+      position: absolute;
+      top: 235px;
+      right: 25%;
+      color: white;
+      border: 3px solid white;
+      border-radius: 13px;
+      width: 50px;
+      height: 50px;
+      display: none;
+      cursor: pointer;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .mobile {
     display: none;
     position: absolute;
     width: 100%;
+    overflow: hidden;
     h2 {
       font-size: 50px;
-      padding-bottom: 15px;
+      padding-top: 65px;
       color: #003082;
     }
     .moCandy {
       display: none;
       text-align: center;
-      margin-top: 200px;
-      padding-top: 65px;
-      height: 800px;
-      //margin-top: 1000px;
-      //padding-top: 100px;
+      height: 100vh;
+      overflow: hidden;
     }
     .moChewy {
       display: none;
       text-align: center;
-      margin-top: 200px;
-      padding-top: 65px;
-      height: 800px;
-      //margin-bottom: 500px;
-      //padding-top: 100px;
+      height: 100vh;
+      overflow: hidden;
+      .candycont {
+        margin-top: 35px;
+      }
+
       .contdetail:last-child {
-        margin-top: 50px;
+        margin-top: 90px;
       }
     }
     .candycont {
       display: flex;
       flex-wrap: wrap;
+      height: 100px;
+      margin-top: 10px;
       .contdetail {
         width: 50%;
-        margin-top: 15px;
+        margin-top: 35px;
+        height: 100%;
       }
       .contdetail:hover img {
         scale: (1.2);
@@ -390,66 +424,119 @@ body {
       height: 150px;
     }
 
-    .mobg {
-      position: absolute;
-      z-index: -1;
-      top: 40%;
-      height: 450px;
-      width: 100%;
-      overflow: hidden;
-
-      .mobgimg {
-        width: 10000px;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        animation: mobg 100s linear infinite;
-
-        img {
-          margin-left: 240px;
-          opacity: 0.2;
-          height: 100%;
-          width: 5%;
-        }
-      }
-      @keyframes mobg {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-    }
     .popup {
       z-index: 999;
       width: 100%;
-      height: 0;
       background-color: rgba(0, 0, 0, 0.9);
-
       position: absolute;
       bottom: 0;
-      transition: 1s;
+      transition: 0.3s;
 
-      button {
+      .close {
+        background-color: transparent;
+        position: absolute;
+        top: 12%;
+        left: 46%;
         display: none;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+      }
+
+      .close:before,
+      .close:after {
+        position: absolute;
+        left: 20px;
+        top: 4px;
+        content: " ";
+        height: 39px;
+        width: 4px;
+        background-color: #eefdf7;
+      }
+      .close:before {
+        transform: rotate(45deg);
+      }
+      .close:after {
+        transform: rotate(-45deg);
       }
 
       .popupCont {
         display: none;
         text-align: center;
+        position: absolute;
+        top: 20%;
+        width: 100%;
 
         .popupImg {
           margin-top: 55px;
           opacity: 1;
         }
         .popupText {
+          margin-top: 20px;
           color: white;
-          
+
           h3 {
-            margin-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 30px;
+          }
+          p {
+            font-size: 19px;
+            line-height: 35px;
           }
         }
+      }
+    }
+    .slide {
+      position: absolute;
+      top: 16%;
+      left: 0;
+      width: 100%;
+      height: 45px;
+      color: white;
+      z-index: 777;
+
+      .slide-btn {
+        width: 20%;
+        min-width: 85px;
+        height: 100%;
+        margin: 0 auto;
+        background-color: rgba(0, 48, 130, 0.8);
+        border-radius: 13px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  .mobg {
+    position: absolute;
+    z-index: -1;
+    top: 40%;
+    height: 450px;
+    width: 100%;
+    overflow: hidden;
+
+    .mobgimg {
+      width: 10000px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      animation: mobg 100s linear infinite;
+
+      img {
+        margin-left: 240px;
+        opacity: 0.2;
+        height: 100%;
+        width: 5%;
+      }
+    }
+    @keyframes mobg {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
       }
     }
   }
@@ -463,9 +550,15 @@ body {
   }
 }
 @media screen and (max-width: 1024px) {
+  header {
+    .menu-container {
+      height: 80px;
+    }
+  }
   .main {
+    position: relative;
     .main-item {
-      width: 100%;
+      width: 75%;
       .abc {
         flex-direction: column;
 
@@ -486,9 +579,15 @@ body {
     }
 
     .main-content {
-      //height: 5000px;
+      //position: fixed;
+      top: 0;
+      transition: 0.5s;
       .choice {
-        margin-top: 100px;
+        margin-top: 225px;
+        margin-bottom: 85px;
+        h1 {
+          font-size: 35px;
+        }
         .w-btn {
           padding: 20px 30px;
         }
@@ -520,7 +619,38 @@ body {
           }
         }
       }
+      .upbtn1 {
+        position: absolute;
+        top: 145px;
+        right: 38%;
+        color: white;
+        border: 3px solid white;
+        border-radius: 13px;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        margin: 0 auto;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      .upbtn2 {
+        position: absolute;
+        top: 185px;
+        right: 37%;
+        color: white;
+        border: 3px solid white;
+        border-radius: 13px;
+        width: 50px;
+        height: 50px;
+        display: none;
+        cursor: pointer;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }
+
 //분기점 잡고 분기점마다 어떻게해야할지
