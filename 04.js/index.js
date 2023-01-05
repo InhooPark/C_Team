@@ -185,7 +185,8 @@ function onClickFunc(e) {
   if (e.target.classList.contains("click-cover")) {
     if (windowWidth.matches) {
       setTimeout(() => {
-        window.location.href = "./canvas.html";
+        /* window.location.href = "./canvas.html"; */
+        document.getElementById("myURL").click();
       }, 1000);
     } else {
       window.location.href = "./canvas.html";
