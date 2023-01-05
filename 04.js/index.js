@@ -65,6 +65,9 @@ function INDEXLOAD() {
     TOUCH.style = `left: ${mouseX}%; top: ${mouseY}%;`;
     if (touchTrue) {
       TOUCH.classList.add("visible");
+      if (window.innerWidth > 1024) {
+        this.document.body.classList.add("cursor-none");
+      }
       touchTrue = false;
     }
 
@@ -72,12 +75,14 @@ function INDEXLOAD() {
     contentY = e.clientY - (SECONDIMG.getBoundingClientRect().y + SECONDIMG.offsetHeight / 2);
     d = Math.sqrt(contentX * contentX + contentY * contentY);
 
+    console.log(contentX, contentY)
+
     SECONDIMG.style = `opacity : ${(winpageY - 1000) * 0.001};`;
     SECONDSHADOW.style = `opacity : ${(winpageY - 1000) * 0.001};`;
     SECONDIMG.style.transform = `rotate3d(${-contentY / 100}, ${contentX / 100}, 0, ${d / 20}deg)`;
     SECONDSHADOW.style.transform = `rotate3d(${-contentY / 100}, ${contentX / 100}, 0, ${d / 20}deg)`;
-    SECONDSHADOW.style.left = `${contentX / -60 + 30}%`;
-    SECONDSHADOW.style.top = `${-contentY / 40 + 35}%`;
+    SECONDSHADOW.style.left = `${(contentX / -60) + 30 }%`;
+    SECONDSHADOW.style.top = `${(-contentY / 40)+ 35}%`;
   });
 
   window.addEventListener("scroll", function () {
@@ -100,8 +105,8 @@ function INDEXLOAD() {
     SECONDSHADOW.style = `opacity: ${(window.pageYOffset - 1000) * 0.001};`;
     SECONDIMG.style.transform = `rotate3d(${-contentY / 100}, ${contentX / 100}, 0, ${d / 20}deg)`;
     SECONDSHADOW.style.transform = `rotate3d(${-contentY / 100}, ${contentX / 100}, 0, ${d / 20}deg)`;
-    SECONDSHADOW.style.left = `${contentX / -60 + 30}%`;
-    SECONDSHADOW.style.top = `${-contentY / 40 + 35}%`;
+    SECONDSHADOW.style.left = `${(contentX / -60) + 30 }%`;
+    SECONDSHADOW.style.top = `${(-contentY / 40)+ 35}%`;
 
     // 로고생성
     if (window.pageYOffset > 2000) {
@@ -177,18 +182,13 @@ function INDEXLOAD() {
 
 let windowWidth = window.matchMedia("screen and (max-width: 1024px)");
 
-function onClickFunc(e) {
-  if (
-    e.target.classList == "touch-img" ||
-    e.target.classList == "menu-container" ||
-    e.target.classList == "candy-wrap"
-  ) {
-    if (windowWidth.matches) {
-      setTimeout(() => {
-        location.href = "./canvas.html";
-      }, 1000);
-    } else {
+function onClickFunc() {
+  if(windowWidth.matches){
+    setTimeout(() => {
       location.href = "./canvas.html";
-    }
+    }, 1000);
+  }
+  else{
+    location.href = "./canvas.html";
   }
 }
