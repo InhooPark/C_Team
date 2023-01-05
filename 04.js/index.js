@@ -182,11 +182,7 @@ function INDEXLOAD() {
 let windowWidth = window.matchMedia("screen and (max-width: 1024px)");
 
 function onClickFunc(e) {
-<<<<<<< Updated upstream
-  if (e.target.classList == "touch-img" || e.target.classList == "menu-container" || e.target.classList == "candy-wrap") {
-=======
   if (e.target.classList.contains("click-cover")) {
->>>>>>> Stashed changes
     if (windowWidth.matches) {
       setTimeout(() => {
         document.getElementById("form11").submit();
