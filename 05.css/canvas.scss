@@ -13,13 +13,13 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-
 .fourth-canvas {
   width: 100%;
   margin: 0;
   padding: 0;
   position: relative;
-  canvas{
+  overflow: hidden;
+  canvas {
     width: 100%;
     top: 0;
     left: 0;
@@ -27,7 +27,7 @@ body::-webkit-scrollbar {
   .canvas-button {
     width: 200px;
     height: 200px;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 50%;
     transform: translate(75%, -50%);
