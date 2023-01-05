@@ -230,9 +230,9 @@ function storyLOAD(data) {
             }
             SWIPERCONTENTS[idx].classList.add("active");
           }, 60);
-          setTimeout(() => {
-            spanEffectFun(spanArray[currentIndex], currentIndex);
-          }, 1000);
+          // setTimeout(() => {
+          //   spanEffectFun(spanArray[currentIndex], currentIndex);
+          // }, 1000);
         },
         click: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
@@ -258,6 +258,9 @@ function storyLOAD(data) {
               el.classList.add("active");
             }
           });
+          if (window.innerWidth < 768) {
+            SWIPERCONTENTS[activeIndex].play();
+          }
         },
         doubleClick: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
@@ -295,6 +298,9 @@ function storyLOAD(data) {
           NAVIGATOR[previousIndex].classList.remove("active");
           NAVIGATOR[currentIndex].classList.add("active");
           previousIndex = currentIndex;
+          setTimeout(() => {
+            spanEffectFun(spanArray[currentIndex], currentIndex);
+          }, 500);
         },
         slideChangeTransitionEnd: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
@@ -304,7 +310,7 @@ function storyLOAD(data) {
             SWIPERCONTENTS[value].loop = true;
             SWIPERCONTENTS[value].play();
           }
-         
+
           let previousIndex = e.previousIndex;
           let activeIndex = e.activeIndex;
           INDIGATOR.innerHTML = "0" + (currentIndex + 1);
@@ -313,7 +319,6 @@ function storyLOAD(data) {
             videoPlayFun(activeIndex);
           }
           SWIPERCONTENTS[previousIndex].pause();
-          spanEffectFun(spanArray[currentIndex], currentIndex);
         },
         slideChange: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
