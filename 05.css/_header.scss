@@ -13,7 +13,7 @@ $tablet: 768px;
       .burger-open {
         width: 100vw;
         height: 100vh;
-        position: relative;
+        position: absolute;
         display: none;
         &.display-on {
           display: block;
@@ -401,7 +401,7 @@ $tablet: 768px;
       .burger-open {
         width: 100vw;
         height: 100vh;
-        position: relative;
+        position: absolute;
         display: none;
 
         &.display-on {
@@ -785,7 +785,7 @@ $tablet: 768px;
       .burger-open {
         width: 100vw;
         height: 100vh;
-        position: relative;
+        position: absolute;
         display: none;
 
         &.display-on {

@@ -159,18 +159,22 @@ function INDEXLOAD() {
       CANDY08.style.bottom = `-100%`;
     }
 
+    const CLICKCOVER = document.querySelector(".click-cover");
+    console.log(CLICKCOVER);
     // 클릭이벤트로 변경해도 무방함
     if (window.pageYOffset == 5000) {
       SCROLL.classList.add("invisible");
       MTOUCH.classList.add("visible");
       window.addEventListener("click", onClickFunc);
       touchTrue = true;
+      CLICKCOVER.style.display = "block";
     } else {
       SCROLL.classList.remove("invisible");
       TOUCH.classList.remove("visible");
       MTOUCH.classList.remove("visible");
       window.removeEventListener("click", onClickFunc);
       this.document.body.classList.remove("cursor-none");
+      CLICKCOVER.style.display = "none";
     }
   });
 }
@@ -178,14 +182,14 @@ function INDEXLOAD() {
 let windowWidth = window.matchMedia("screen and (max-width: 1024px)");
 
 function onClickFunc(e) {
-  if (
-    e.target.classList == "touch-img" ||
-    e.target.classList == "menu-container" ||
-    e.target.classList == "candy-wrap"
-  ) {
+<<<<<<< Updated upstream
+  if (e.target.classList == "touch-img" || e.target.classList == "menu-container" || e.target.classList == "candy-wrap") {
+=======
+  if (e.target.classList.contains("click-cover")) {
+>>>>>>> Stashed changes
     if (windowWidth.matches) {
       setTimeout(() => {
-        location.href = "./canvas.html";
+        document.getElementById("form11").submit();
       }, 1000);
     } else {
       location.href = "./canvas.html";
