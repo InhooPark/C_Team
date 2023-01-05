@@ -1,12 +1,12 @@
-$mobile: 480px;
-$tablet: 1024px;
+$mobile: 360px;
+$tablet: 768px;
 @mixin device($min, $max) {
   @media (min-width: $min) and (max-width: $max) {
     @content;
   }
 }
 
-@include device($mobile, 1023px) {
+@include device($mobile, 767px) {
   body {
     position: fixed;
     // transition: 2s;
@@ -259,5 +259,5 @@ $tablet: 1024px;
   }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-@include device($tablet, 1920px) {
+@include device($tablet, 1023px) {
 }

@@ -1,174 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Story</title>
     <link rel="icon" href="./01.img/svg/Eclipse_favicon_1.svg" />
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./05.css/story.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./05.css/story.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script defer src="./04.js/header.js"></script>
     <script defer src="./04.js/story.js"></script>
-</head>
+  </head>
 
-<body>
+  <body id="body">
     <!-- header -->
     <div id="load">
-        <div id="screen">
-            <div class="load-text-wrap">
-                <span></span>
-            </div>
+      <div id="screen">
+        <div class="load-text-wrap">
+          <span></span>
         </div>
+      </div>
     </div>
     <div id="main">
-        <div class="main-wrapper">
-            <div class="main-container1">
-                <div class="container1-item-wrapper">
-                    <div class="container1-intro-text">
-                        <div class="intro-text-wrapper">
-                            <p class="intro-text1">이클립스</p>
-                            <!-- <p class="intro-text2">1999년부터 이어진</p> -->
-                            <p class="intro-text3">작지만 놀라운 상쾌함</p>
-                            <p class="intro-text4">민트속 숨겨진 이야기들</p>
-                            <!-- <p class="intro-text5">This is our story.</p> -->
-                        </div>
-                    </div>
-                    <div class="intro-skip-wrapper">
-                        <button class="intro-skip-btn">
-                            See our stories
-                        </button>
-                    </div>
-                    <canvas class="canvas"></canvas>
-                </div>
+      <div class="main-wrapper">
+        <div class="main-container1">
+          <div class="container1-item-wrapper">
+            <div class="container1-intro-text">
+              <div class="intro-text-wrapper">
+                <p class="intro-text1">이클립스</p>
+                <!-- <p class="intro-text2">1999년부터 이어진</p> -->
+                <p class="intro-text3">작지만 놀라운 상쾌함</p>
+                <p class="intro-text4">민트속 숨겨진 이야기들</p>
+                <!-- <p class="intro-text5">This is our story.</p> -->
+              </div>
             </div>
-            <div class="main-container2">
-                <div class="container2-item01">
-                    <nav>
-                        <div>
-                            <button class="year-btn">
-                                <!-- 1999 -->
-                            </button>
-                        </div>
-                        <div>
-                            <button class="year-btn">
-                                <!-- 2009 -->
-                            </button>
-                        </div>
-                        <div>
-                            <button class="year-btn">
-                                <!-- 2010 -->
-                            </button>
-                        </div>
-                        <div>
-                            <button class="year-btn">
-                                <!-- 2013 -->
-                            </button>
-                        </div>
-                        <div>
-                            <button class="year-btn">
-                                <!-- 2019 -->
-                            </button>
-                        </div>
-                        <div>
-                            <button class="year-btn">
-                                <!-- 2022 -->
-                            </button>
-                        </div>
-                    </nav>
-                </div>
+            <div class="intro-skip-wrapper">
+              <button class="intro-skip-btn">See our stories</button>
             </div>
-            <div class="main-container3">
-                <div class="container3-text-box">
-                    <div class="container3-text-wrap">
-                        <h2 class="main-text main-text1">inside&nbsp;the&nbsp;tin</h2>
-                        <p class="sub-text">
-                            Lorem, ipsum.
-                        </p>
-                    </div>
-                    <div class="container3-text-wrap">
-                        <h2 class="main-text main-text2">inside&nbsp;the&nbsp;tin</h2>
-                        <p class="sub-text">
-                            Lorem, ipsum.
-                        </p>
-                    </div>
-                    <div class="container3-text-wrap">
-                        <h2 class="main-text main-text3">inside&nbsp;the&nbsp;tin</h2>
-                        <p class="sub-text">
-                            Lorem, ipsum.
-                        </p>
-                    </div>
-                    <div class="container3-text-wrap">
-                        <h2 class="main-text main-text4">inside&nbsp;the&nbsp;tin</h2>
-                        <p class="sub-text">
-                            Lorem, ipsum.
-                        </p>
-                    </div>
-                    <div class="container3-text-wrap">
-                        <h2 class="main-text main-text5">inside&nbsp;the&nbsp;tin</h2>
-                        <p class="sub-text">
-                            Lorem, ipsum.
-                        </p>
-                    </div>
-                    <div class="container3-text-wrap">
-                        <h2 class="main-text main-text6">inside&nbsp;the&nbsp;tin</h2>
-                        <p class="sub-text">
-                            Lorem, ipsum.
-                        </p>
-                    </div>
-                </div>
-                <div class="indigator">
-                    <span>01</span>
-                </div>
-            </div>
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="swiper-zoom-container">
-                            <video class="video1 swiper-contents" src="./02.video/video_01.mp4" muted
-                                preload="metadata"></video>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-zoom-container">
-                            <video class="video2 swiper-contents" src="./02.video/video_02.mp4" muted
-                                preload="metadata"></video>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-zoom-container">
-                            <video class="video3 swiper-contents" src="./02.video/video_03.mp4" muted
-                                preload="metadata"></video>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-zoom-container">
-                            <video class="video4 swiper-contents" src="./02.video/video_04.mp4" muted
-                                preload="metadata"></video>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-zoom-container">
-                            <video class="video5 swiper-contents" src="./02.video/video_05.mp4" muted
-                                preload="metadata"></video>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-zoom-container">
-                            <video class="video6 swiper-contents" src="./02.video/video_06.mp4" muted
-                                preload="metadata"></video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="scroll-img">
-                <img src="./01.img/index/scroll.gif" alt="#">
-            </div>
+            <canvas class="canvas"></canvas>
+          </div>
         </div>
+        <div class="main-container2">
+          <div class="container2-item01">
+            <nav>
+              <div>
+                <button class="year-btn">
+                  <!-- 1999 -->
+                </button>
+              </div>
+              <div>
+                <button class="year-btn">
+                  <!-- 2009 -->
+                </button>
+              </div>
+              <div>
+                <button class="year-btn">
+                  <!-- 2010 -->
+                </button>
+              </div>
+              <div>
+                <button class="year-btn">
+                  <!-- 2013 -->
+                </button>
+              </div>
+              <div>
+                <button class="year-btn">
+                  <!-- 2019 -->
+                </button>
+              </div>
+              <div>
+                <button class="year-btn">
+                  <!-- 2022 -->
+                </button>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <div class="main-container3">
+          <div class="container3-text-box">
+            <div class="container3-text-wrap">
+              <h2 class="main-text main-text1">inside&nbsp;the&nbsp;tin</h2>
+              <p class="sub-text">Lorem, ipsum.</p>
+            </div>
+            <div class="container3-text-wrap">
+              <h2 class="main-text main-text2">inside&nbsp;the&nbsp;tin</h2>
+              <p class="sub-text">Lorem, ipsum.</p>
+            </div>
+            <div class="container3-text-wrap">
+              <h2 class="main-text main-text3">inside&nbsp;the&nbsp;tin</h2>
+              <p class="sub-text">Lorem, ipsum.</p>
+            </div>
+            <div class="container3-text-wrap">
+              <h2 class="main-text main-text4">inside&nbsp;the&nbsp;tin</h2>
+              <p class="sub-text">Lorem, ipsum.</p>
+            </div>
+            <div class="container3-text-wrap">
+              <h2 class="main-text main-text5">inside&nbsp;the&nbsp;tin</h2>
+              <p class="sub-text">Lorem, ipsum.</p>
+            </div>
+            <div class="container3-text-wrap">
+              <h2 class="main-text main-text6">inside&nbsp;the&nbsp;tin</h2>
+              <p class="sub-text">Lorem, ipsum.</p>
+            </div>
+          </div>
+          <div class="indigator">
+            <span>01</span>
+          </div>
+        </div>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <video
+                  class="video1 swiper-contents"
+                  src="./02.video/video_01.mp4"
+                  muted
+                  preload="metadata"
+                ></video>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <video
+                  class="video2 swiper-contents"
+                  src="./02.video/video_02.mp4"
+                  muted
+                  preload="metadata"
+                ></video>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <video
+                  class="video3 swiper-contents"
+                  src="./02.video/video_03.mp4"
+                  muted
+                  preload="metadata"
+                ></video>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <video
+                  class="video4 swiper-contents"
+                  src="./02.video/video_04.mp4"
+                  muted
+                  preload="metadata"
+                ></video>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <video
+                  class="video5 swiper-contents"
+                  src="./02.video/video_05.mp4"
+                  muted
+                  preload="metadata"
+                ></video>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <video
+                  class="video6 swiper-contents"
+                  src="./02.video/video_06.mp4"
+                  muted
+                  preload="metadata"
+                ></video>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-img">
+          <img src="./01.img/index/scroll.gif" alt="#" />
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
