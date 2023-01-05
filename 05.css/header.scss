@@ -44,7 +44,7 @@ body {
   position: fixed;
   top: -110%;
   top: 0;
-  animation: screenani 1500ms linear forwards ;
+  animation: screenani 1500ms linear forwards;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -317,6 +317,7 @@ header {
                     content: "";
                     display: block;
                     border-bottom: 5px solid #003082;
+                    transform-origin: left;
                     transform: scaleX(0);
                     transition: 200ms;
                   }
