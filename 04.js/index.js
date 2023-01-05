@@ -178,11 +178,7 @@ function INDEXLOAD() {
 let windowWidth = window.matchMedia("screen and (max-width: 1024px)");
 
 function onClickFunc(e) {
-  if (
-    e.target.classList == "touch-img" ||
-    e.target.classList == "menu-container" ||
-    e.target.classList == "candy-wrap"
-  ) {
+  if (e.target.classList == "touch-img" || e.target.classList == "menu-container" || e.target.classList == "candy-wrap") {
     if (windowWidth.matches) {
       setTimeout(() => {
         location.href = "./canvas.html";
