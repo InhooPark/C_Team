@@ -107,7 +107,7 @@ body::-webkit-scrollbar {
 }
 #main .main-wrapper .main-container2 .container2-item01 nav {
   position: relative;
-  height: 30vh;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
