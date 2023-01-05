@@ -17,6 +17,7 @@ body::-webkit-scrollbar {
   margin: 0;
   padding: 0;
   position: relative;
+  overflow: hidden;
 }
 .fourth-canvas canvas {
   width: 100%;
@@ -26,7 +27,7 @@ body::-webkit-scrollbar {
 .fourth-canvas .canvas-button {
   width: 200px;
   height: 200px;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 50%;
   transform: translate(75%, -50%);

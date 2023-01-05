@@ -5,8 +5,13 @@ fetch("./06.json/story.json")
   .then((eclipse) => {
     story(eclipse.data);
   });
-
+// 수정 확인 //
 function story(data) {
+  setTimeout(() => {
+    storyLOAD(data);
+  }, 1000);
+}
+function storyLOAD(data) {
   const MAINCONT1 = document.querySelector(".main-container1");
   const CONT2ITEM1 = document.querySelector(".container2-item01");
   const MAINCONT3 = document.querySelector(".main-container3");
@@ -15,18 +20,19 @@ function story(data) {
   const INTROSKIP = document.querySelector(".intro-skip-btn");
   const WORDMAIN = document.querySelectorAll(".main-text");
   const WORDSUB = document.querySelectorAll(".sub-text");
-
   const CONT3TEXTBOX = document.querySelector(".container3-text-box");
   let introInter = "";
   let innerWidth = window.innerWidth;
   let innerHeight = window.innerHeight;
   let previousIndex = 0;
   let introEffect;
+  let inter;
+  let interSkip;
   window.addEventListener("resize", (resize) => {
     innerWidth = window.innerWidth;
     innerHeight = window.innerHeight;
   });
-  // 인트로 텍스트
+
   function introTextFun(target, delay, repeat) {
     let num = 1;
     let num2 = 0;
@@ -46,12 +52,33 @@ function story(data) {
       num++;
       console.log("텍스트 효과 실행중");
     }, delay);
-    setTimeout(() => {
+
+    interSkip = setTimeout(() => {
       INTROSKIP.click();
     }, delay * INTROPTAG.length + 3000);
   }
+
   introTextFun(INTROTEXT, 1500, INTROPTAG.length);
-  // 캔버스
+
+  INTROSKIP.addEventListener("click", (e) => {
+    window.cancelAnimationFrame(introEffect);
+    clearTimeout(interSkip);
+    main.classList.add("active");
+    MAINCONT1.style = `opacity:0`;
+    MAINCONT3.classList.add("active");
+    INDIGATOR.classList.add("active");
+    setTimeout(() => {
+      swiperFun();
+    }, 300);
+    setTimeout(() => {
+      MAINCONT1.classList.add("active");
+    }, 500);
+    // setTimeout(() => {
+    //   spanEffectFun(spanArray[0], 0);
+    // }, 500);
+    console.log("클릭 트리거");
+  });
+
   function introCanvasFun() {
     const ELCANVAS = document.querySelector(".canvas");
     const ctx = ELCANVAS.getContext("2d");
@@ -132,7 +159,6 @@ function story(data) {
     }
   }
   introCanvasFun();
-  // 텍스트 span 생성
   function wordSpanFun() {
     WORDMAIN.forEach((el, key) => {
       let tag = "";
@@ -178,25 +204,6 @@ function story(data) {
       value.length * 40
     }ms 1 both `;
   }
-
-  //////////////////////
-  ///////클릭이벤트////////
-  //////////////////////
-  INTROSKIP.addEventListener("click", (e) => {
-    window.cancelAnimationFrame(introEffect);
-    main.classList.add("active");
-    MAINCONT1.style = `opacity:0`;
-    MAINCONT3.classList.add("active");
-    INDIGATOR.classList.add("active");
-    setTimeout(() => {
-      swiperFun();
-    }, 300);
-    setTimeout(() => {
-      MAINCONT1.classList.add("active");
-    }, 500);
-
-    console.log("클릭 트리거");
-  });
   window.addEventListener("mousemove", (e) => {
     let mouseX = e.clientX,
       mouseY = e.clientY;
@@ -218,18 +225,21 @@ function story(data) {
       },
       on: {
         init: function (e) {
+          let idx = 0;
           INDIGATOR.style = `color:black`;
-          const SWIPERSLIDE = document.querySelectorAll(".swiper-slide div");
-          SWIPERSLIDE.forEach((el, key) => {
-            setInterval(() => {
-              console.log(SWIPERSLIDE);
-              el.classList.add("active");
-            }, 100);
-          });
+          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+          inter = setInterval(() => {
+            if (idx >= 0 && idx < 15) {
+              idx++;
+            } else {
+              clearInterval(inter);
+            }
+            SWIPERCONTENTS[idx].classList.add("active");
+          }, 60);
         },
         click: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
-          const VIDEO = document.querySelectorAll(".video");
+
           function tabToZoomFun(value) {
             SWIPERCONTENTS[
               value
@@ -239,27 +249,32 @@ function story(data) {
           activeIndex = e.activeIndex;
           clickedIndex = e.clickedIndex;
           tabToZoomFun(activeIndex);
-          VIDEO[activeIndex].muted = false;
+          SWIPERCONTENTS[activeIndex].muted = false;
           CONT3TEXTBOX.style = `opacity: 0;`;
-          SCROLLIMG.style = `opacity:0`;
+          SCROLLIMG.style = `opacity:0; transition 0.5s`;
           CONT2ITEM1.style = `translate: -40% -50%; transition: translate 0.5s`;
           INDIGATOR.style = `translate: 110% -50%; transition: translate 0.5s`;
         },
         doubleClick: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
-          const VIDEO = document.querySelectorAll(".video");
           function doubleTabFun(value) {
-            SWIPERCONTENTS[
-              value
-            ].style = `width: 78vw; height: 80vh; filter: brightness(0.5);`;
-            VIDEO[activeIndex].muted = true;
+            if (window.innerWidth < 1024) {
+              SWIPERCONTENTS.forEach((el, key) => {
+                el.style = `width:93vw; height:80vh;filter: brightness(0.5)`;
+              });
+            } else {
+              SWIPERCONTENTS.forEach((el, key) => {
+                el.style = `width:78vw; height:80vh;filter: brightness(0.5)`;
+              });
+            }
           }
+          SWIPERCONTENTS[activeIndex].muted = true;
           let currentIndex = e.realIndex;
           activeIndex = e.activeIndex;
           doubleTabFun(activeIndex);
           CONT3TEXTBOX.style = `opacity: 1;`;
           if (currentIndex == 0) {
-            SCROLLIMG.style = `opacity:1; translate: -50% -50%; `;
+            SCROLLIMG.style = `opacity:1; transition 0.5s; translate: -50% -50%; `;
           }
           CONT2ITEM1.style = `translate: 0 -50%; transition: translate 0.5s`;
           INDIGATOR.style = `translate: 0 -50%; transition: translate 0.5s`;
@@ -272,11 +287,11 @@ function story(data) {
           previousIndex = currentIndex;
         },
         slideChangeTransitionEnd: function (e) {
-          const VIDEO = document.querySelectorAll(".video");
+          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           function videoPlayFun(value) {
-            VIDEO[value].muted = true;
-            VIDEO[value].loop = true;
-            VIDEO[value].play();
+            SWIPERCONTENTS[value].muted = true;
+            SWIPERCONTENTS[value].loop = true;
+            SWIPERCONTENTS[value].play();
           }
           let currentIndex = e.realIndex;
           let previousIndex = e.previousIndex;
@@ -284,42 +299,54 @@ function story(data) {
           INDIGATOR.innerHTML = "0" + (currentIndex + 1);
           INDIGATOR.style = `opacity:1`;
           videoPlayFun(activeIndex);
-          VIDEO[previousIndex].pause();
+          SWIPERCONTENTS[previousIndex].pause();
         },
         slideChange: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           let currentIndex = e.realIndex;
           let previousIndex = e.previousIndex;
-          setTimeout(() => {
-            spanEffectFun(spanArray[currentIndex], currentIndex);
-          }, 300);
+          spanEffectFun(spanArray[currentIndex], currentIndex);
           if (currentIndex == 0) {
             setTimeout(() => {
-              SCROLLIMG.style = `opacity:1; translate: -50% -50%;`;
+              SCROLLIMG.style = `opacity:1; transition 0.5s; translate: -50% -50%;`;
             }, 500);
           } else {
-            SCROLLIMG.style = `opacity:0; translate: -50% 90%`;
+            SCROLLIMG.style = `opacity:0; transition 0.5s; translate: -50% 90%`;
           }
-          SWIPERCONTENTS.forEach((el, key) => {
-            el.style = `width:78vw; height:80vh;`;
-          });
+          if (window.innerWidth < 1024) {
+            SWIPERCONTENTS.forEach((el, key) => {
+              el.style = `width:93vw; height:80vh;`;
+            });
+          } else {
+            SWIPERCONTENTS.forEach((el, key) => {
+              el.style = `width:78vw; height:80vh;`;
+            });
+          }
           CONT3TEXTBOX.style = `opacity: 1`;
-          CONT2ITEM1.style = `translate: 0 -50%; transition: translate 0.5s`;
-          INDIGATOR.style = `translate: 0 -50%; transition: translate 0.5s`;
+          CONT2ITEM1.style = `translate: 0 -50%;`;
+          INDIGATOR.style = `translate: 0 -50%;`;
           main.style.backgroundColor = data[currentIndex].color;
+        },
+        resize: function (e) {
+          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+          if (window.innerWidth < 1024) {
+            SWIPERCONTENTS.forEach((el, key) => {
+              el.style = `width:93vw; height:80vh;`;
+            });
+          } else {
+            SWIPERCONTENTS.forEach((el, key) => {
+              el.style = `width:78vw; height:80vh;`;
+            });
+          }
         },
       },
       loop: true,
       preloadImages: false,
       direction: "vertical",
-      // slideToClickedSlide: true,
-      // centeredSlides: true,
       slidesPerView: "auto",
       grabCursor: true,
       initialSlide: 0,
-      // cssMode: true,
-      // spaceBetween: 10,
-      observer: true,
+      resizeObserver: true,
       speed: 500,
     });
     NAVIGATOR.forEach((el, key) => {
@@ -328,11 +355,7 @@ function story(data) {
       });
     });
   }
-
-  // 편집 완료후 삭제 /////////////////////////////////////////////////////////////////////////////////////////
+  // trigger skip button for editing
   // INTROSKIP.click();
-  // clearTimeout(btnActive);
-  // clearTimeout(imgPop);
   // clearInterval(introInter);
-  // 편집 완료후 삭제 /////////////////////////////////////////////////////////////////////////////////////////
 }

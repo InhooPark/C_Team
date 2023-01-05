@@ -155,19 +155,6 @@ body {
   height: 100vh;
   overflow: hidden;
   transition: 1s;
-  /*     .text {
-    margin-top: 120px;
-    width: 85%;
-    position: relative;
-    h3 {
-      font-size: 40px;
-      margin-bottom: 25px;
-    }
-    p {
-      font-size: 24px;
-      line-height: 38px;
-    }
-  } */
 }
 .main .main-content .choice {
   margin-top: 265px;
@@ -314,6 +301,7 @@ body {
 }
 .main .main-content .pc .candy .candycont .contdetail img {
   width: 40%;
+  min-width: 100px;
 }
 .main .main-content .pc .candy .candycont .contdetail:hover {
   transition: 0.5s;
@@ -350,6 +338,7 @@ body {
   margin: 20px 20px;
 }
 .main .main-content .pc .chewy .candycont .contdetail img {
+  min-width: 100px;
   width: 40%;
 }
 .main .main-content .pc .chewy .candycont .contdetail:hover {
@@ -363,48 +352,112 @@ body {
 .main .main-content .pc .chewy .candydetail:nth-child(1) {
   margin-bottom: 100px;
 }
-.main .main-content .mobile {
+.main .mobile {
   display: none;
   position: absolute;
-  top: 0%;
-  height: 150px;
   width: 100%;
-  background: #00ab69;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
 }
-.main .main-content .mobile .swiper {
-  width: 100%;
-  height: 100%;
+.main .mobile h2 {
+  font-size: 50px;
+  padding-bottom: 15px;
+  color: #003082;
 }
-.main .main-content .mobile .swiper-slide {
+.main .mobile .moCandy {
+  display: none;
   text-align: center;
-  font-size: 18px;
-  background: #00ab69;
-  /* Center slide text vertically */
+  margin-top: 200px;
+  padding-top: 65px;
+  height: 800px;
+}
+.main .mobile .moChewy {
+  display: none;
+  text-align: center;
+  margin-top: 200px;
+  padding-top: 65px;
+  height: 800px;
+}
+.main .mobile .moChewy .contdetail:last-child {
+  margin-top: 50px;
+}
+.main .mobile .candycont {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 3px solid black;
-  border-radius: 45px;
-  background-color: #eefdf7;
+  flex-wrap: wrap;
 }
-.main .main-content .mobile .swiper-slide img {
-  display: block;
-  width: 80%;
-  height: 60%;
-  -o-object-fit: cover;
-     object-fit: cover;
+.main .mobile .candycont .contdetail {
+  width: 50%;
+  margin-top: 15px;
 }
-.main .main-content .mobile .swiper-slide:hover {
-  background-color: #003082;
-}
-.main .main-content .mobile .swiper-slide:hover img {
-  scale: 1.1;
+.main .mobile .candycont .contdetail:hover img {
+  scale: 1.2;
   transition: 0.5s;
+}
+.main .mobile img {
+  width: 150px;
+  height: 150px;
+}
+.main .mobile .mobg {
+  position: absolute;
+  z-index: -1;
+  top: 40%;
+  height: 450px;
+  width: 100%;
+  overflow: hidden;
+}
+.main .mobile .mobg .mobgimg {
+  width: 10000px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  -webkit-animation: mobg 100s linear infinite;
+          animation: mobg 100s linear infinite;
+}
+.main .mobile .mobg .mobgimg img {
+  margin-left: 240px;
+  opacity: 0.2;
+  height: 100%;
+  width: 5%;
+}
+@-webkit-keyframes mobg {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes mobg {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.main .mobile .popup {
+  z-index: 999;
+  width: 100%;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  bottom: 0;
+  transition: 1s;
+}
+.main .mobile .popup button {
+  display: none;
+}
+.main .mobile .popup .popupCont {
+  display: none;
+  text-align: center;
+}
+.main .mobile .popup .popupCont .popupImg {
+  margin-top: 55px;
+  opacity: 1;
+}
+.main .mobile .popup .popupCont .popupText {
+  color: white;
+}
+.main .mobile .popup .popupCont .popupText h3 {
+  margin-bottom: 15px;
 }
 
 @media screen and (max-width: 1500px) {
@@ -431,6 +484,15 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 15px;
+  }
+  .main .main-content .choice {
+    margin-top: 100px;
+  }
+  .main .main-content .choice .w-btn {
+    padding: 20px 30px;
+  }
+  .main .main-content .choice button {
+    margin: 26px 20px 0 20px;
   }
   .main .main-content .pc .candy .candycont .contdetail {
     width: 100%;
