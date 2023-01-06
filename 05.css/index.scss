@@ -233,6 +233,7 @@ body::-webkit-scrollbar {
             transition: 300ms;
             transform: translateY(100%);
             color: #00ab69;
+            background-color: transparent;
             &.up {
               transform: translateY(20%);
             }
