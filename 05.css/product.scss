@@ -8,6 +8,7 @@ body {
   margin: 0;
   height: 100vh;
   background: #eefdf7;
+  
 }
 
 .main {
@@ -24,6 +25,8 @@ body {
     position: fixed;
     top: 0;
     z-index: 10;
+    display: block;
+    
 
     .abc {
       display: flex;
@@ -249,6 +252,7 @@ body {
 
     .pc {
       text-align: center;
+      display: none;
 
       h2 {
         color: white;
@@ -280,18 +284,37 @@ body {
             border-radius: 13px;
             cursor: pointer;
             margin: 20px 20px;
+            position: relative;
+            overflow: hidden;
+            .wave{
+              width: 200%;
+              height: 200%;
+              transform-origin: bottom;
+              background-color: #003082;
+              border-radius: 100%;
+              transition: 0.4s ease-out;
+              position: absolute;
+              transform: translateX(-25%) scale(0.5);
+              opacity: 0.7;
+            }
 
             img {
               width: 40%;
               min-width: 100px;
             }
           }
-          .contdetail:hover {
+          .contdetail:hover{
             transition: 0.5s;
-            background-color: #003082;
+            //background-color: #003082;
+            & .wave{
+              transform: translateX(-25%) scale(1.5);
+              border-radius: 100%;
+              background-color: #003082;
+              opacity: 1;
+            }
           }
           .contdetail:hover img {
-            scale: (1.1);
+            scale: (1.4);
             transition: 0.5s;
           }
         }
@@ -323,7 +346,19 @@ body {
             border-radius: 13px;
             cursor: pointer;
             margin: 20px 20px;
-
+            overflow: hidden;
+            position: relative;
+            .wave{
+              width: 200%;
+              height: 200%;
+              transform-origin: bottom;
+              background-color: #003082;
+              border-radius: 100%;
+              transition: 0.4s ease-out;
+              position: absolute;
+              transform: translateX(-25%) scale(0.5);
+              opacity: 0.7;
+            }
             img {
               min-width: 100px;
               width: 40%;
@@ -332,9 +367,15 @@ body {
           .contdetail:hover {
             transition: 0.5s;
             background-color: #003082;
+            & .wave{
+              transform: translateX(-25%) scale(1.5);
+              border-radius: 100%;
+              background-color: #003082;
+              opacity: 1;
+            }
           }
           .contdetail:hover img {
-            scale: (1.1);
+            scale: (1.4);
             transition: 0.5s;
           }
         }
@@ -561,6 +602,7 @@ body {
     position: relative;
     .main-item {
       width: 75%;
+      display: none;
       .abc {
         flex-direction: column;
 

@@ -20,6 +20,7 @@ body {
   position: fixed;
   top: 0;
   z-index: 10;
+  display: block;
 }
 .main .main-item .abc {
   display: flex;
@@ -269,6 +270,7 @@ body {
 }
 .main .main-content .pc {
   text-align: center;
+  display: none;
 }
 .main .main-content .pc h2 {
   color: white;
@@ -299,6 +301,19 @@ body {
   border-radius: 13px;
   cursor: pointer;
   margin: 20px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.main .main-content .pc .candy .candycont .contdetail .wave {
+  width: 200%;
+  height: 200%;
+  transform-origin: bottom;
+  background-color: #003082;
+  border-radius: 100%;
+  transition: 0.4s ease-out;
+  position: absolute;
+  transform: translateX(-25%) scale(0.5);
+  opacity: 0.7;
 }
 .main .main-content .pc .candy .candycont .contdetail img {
   width: 40%;
@@ -306,10 +321,15 @@ body {
 }
 .main .main-content .pc .candy .candycont .contdetail:hover {
   transition: 0.5s;
+}
+.main .main-content .pc .candy .candycont .contdetail:hover .wave {
+  transform: translateX(-25%) scale(1.5);
+  border-radius: 100%;
   background-color: #003082;
+  opacity: 1;
 }
 .main .main-content .pc .candy .candycont .contdetail:hover img {
-  scale: 1.1;
+  scale: 1.4;
   transition: 0.5s;
 }
 .main .main-content .pc .candy .candydetail:nth-child(1) {
@@ -338,6 +358,19 @@ body {
   border-radius: 13px;
   cursor: pointer;
   margin: 20px 20px;
+  overflow: hidden;
+  position: relative;
+}
+.main .main-content .pc .chewy .candycont .contdetail .wave {
+  width: 200%;
+  height: 200%;
+  transform-origin: bottom;
+  background-color: #003082;
+  border-radius: 100%;
+  transition: 0.4s ease-out;
+  position: absolute;
+  transform: translateX(-25%) scale(0.5);
+  opacity: 0.7;
 }
 .main .main-content .pc .chewy .candycont .contdetail img {
   min-width: 100px;
@@ -347,8 +380,14 @@ body {
   transition: 0.5s;
   background-color: #003082;
 }
+.main .main-content .pc .chewy .candycont .contdetail:hover .wave {
+  transform: translateX(-25%) scale(1.5);
+  border-radius: 100%;
+  background-color: #003082;
+  opacity: 1;
+}
 .main .main-content .pc .chewy .candycont .contdetail:hover img {
-  scale: 1.1;
+  scale: 1.4;
   transition: 0.5s;
 }
 .main .main-content .pc .chewy .candydetail:nth-child(1) {
@@ -563,6 +602,7 @@ body {
   }
   .main .main-item {
     width: 75%;
+    display: none;
   }
   .main .main-item .abc {
     flex-direction: column;
