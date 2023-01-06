@@ -169,7 +169,6 @@ function PRODUCTLOAD() {
     //pc
     num = 0;
     if (!window.matchMedia("(max-width: 768px)").matches) {
-      window.addEventListener("resize", resize);
       v.addEventListener("click", function () {
         if (window.innerWidth > 1024) {
           num++;
@@ -243,6 +242,7 @@ function PRODUCTLOAD() {
           UPBTN1.style.display = "flex";
           UPBTN2.style.display = "flex";
         }
+        window.addEventListener("resize", resize);
       });
     } else {
       //모바일
