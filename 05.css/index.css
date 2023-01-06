@@ -268,6 +268,7 @@ body::-webkit-scrollbar {
   transition: 300ms;
   transform: translateY(100%);
   color: #00ab69;
+  background-color: transparent;
 }
 .first-title .first-sticky .eclipse-text i > span > span.up {
   transform: translateY(20%);
