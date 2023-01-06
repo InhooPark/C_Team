@@ -153,12 +153,14 @@ function PRODUCTLOAD() {
   const MAIN = document.querySelector(".main");
   const UPBTN2 = document.querySelector(".upbtn2");
   const UPBTN1 = document.querySelector(".upbtn1");
+  const PCNONE = document.querySelector('.pc');
 
   function resize() {
     var WI = window.innerWidth;
     if (WI < 1024) {
       WDW.style.width = "25%";
       WDW.style.height = "4200px";
+
     } else {
       WDW.style.width = "35%";
       WDW.style.height = "3500px";
@@ -169,7 +171,11 @@ function PRODUCTLOAD() {
     //pc
     num = 0;
     if (!window.matchMedia("(max-width: 768px)").matches) {
+      
       v.addEventListener("click", function () {
+        resize();
+        PCNONE.style.display = "block";
+        MAINITEM.style.display = "block";
         if (window.innerWidth > 1024) {
           num++;
           WDW.style.height = "3500px";
@@ -242,7 +248,6 @@ function PRODUCTLOAD() {
           UPBTN1.style.display = "flex";
           UPBTN2.style.display = "flex";
         }
-        window.addEventListener("resize", resize);
       });
     } else {
       //모바일
