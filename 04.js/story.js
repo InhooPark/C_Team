@@ -251,9 +251,9 @@ function storyLOAD(data) {
               el.classList.add("active");
             }
           });
-          if (window.innerWidth < 768) {
-            SWIPERCONTENTS[activeIndex].play();
-          }
+          // if (window.innerWidth < 768) {
+          //   SWIPERCONTENTS[activeIndex].play();
+          // }
         },
         doubleClick: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
