@@ -242,7 +242,7 @@ function storyLOAD(data) {
           tabToZoomFun(activeIndex);
           SWIPERCONTENTS[activeIndex].muted = false;
           CONT3TEXTBOX.style = `opacity: 0;`;
-          SCROLLIMG.style = `opacity:0; transition 0.5s`;
+          SCROLLIMG.style = `opacity:0; transition 0.5s; translate: -50% 90%;`;
           CONT2ITEM1.style = `translate: -40% -50%; transition: translate 0.5s`;
           INDIGATOR.style = `translate: 110% -50%; transition: translate 0.5s`;
           // BODY.style = `position: static`;
@@ -366,7 +366,8 @@ function storyLOAD(data) {
       // initialSlide: 6,
       // resizeObserver: true,
       speed: 500,
-      // observer: true,
+      observer: true,
+      longSwipes: false,
     });
     NAVIGATOR.forEach((el, key) => {
       el.addEventListener("click", () => {
@@ -375,6 +376,6 @@ function storyLOAD(data) {
     });
   }
   // trigger skip button for editing
-  // INTROSKIP.click();
-  // clearInterval(introInter);
+  INTROSKIP.click();
+  clearInterval(introInter);
 }

@@ -187,8 +187,8 @@ body::-webkit-scrollbar {
           user-select: none;
   text-align: center;
   position: absolute;
-  top: 67vh;
-  line-height: 9vh;
+  top: 70vh;
+  line-height: 8vh;
   left: 50%;
   translate: -50% 0;
   font-size: 5vw;
@@ -236,11 +236,9 @@ body::-webkit-scrollbar {
   transition: 0.75;
   opacity: 0;
 }
-#main .main-wrapper .swiper .swiper-wrapper .swiper-slide div {
+#main .main-wrapper .swiper .swiper-wrapper .swiper-slide video {
   width: 100%;
   height: 100%;
-}
-#main .main-wrapper .swiper .swiper-wrapper .swiper-slide div video {
   display: block;
   width: 78vw;
   height: 80vh;
@@ -251,7 +249,7 @@ body::-webkit-scrollbar {
   filter: brightness(0.3);
   translate: 0 120%;
 }
-#main .main-wrapper .swiper .swiper-wrapper .swiper-slide div video.active {
+#main .main-wrapper .swiper .swiper-wrapper .swiper-slide video.active {
   translate: 0 0;
   transition: 0.5s;
 }
@@ -261,9 +259,10 @@ body::-webkit-scrollbar {
   left: 50vw;
   translate: -50% 90%;
   z-index: 10;
+  transition: translate 0.35s;
 }
 #main .main-wrapper .scroll-img img {
-  width: 6vw;
+  width: 5vw;
 }
 
 @-webkit-keyframes opacityBlurAni {
@@ -562,7 +561,7 @@ body::-webkit-scrollbar {
   #main .main-wrapper .main-container3 .container3-text-box .container3-text-wrap h2 {
     width: 80%;
     position: absolute;
-    top: 70vh;
+    top: 50vh;
     left: 50%;
     letter-spacing: 0.2rem;
     translate: -50% 0;
@@ -589,7 +588,7 @@ body::-webkit-scrollbar {
     text-align: center;
     position: absolute;
     line-height: 5vh;
-    top: 75vh;
+    top: 55vh;
     left: 50%;
     translate: -50% 0;
     font-size: 7vw;
@@ -651,10 +650,12 @@ body::-webkit-scrollbar {
   }
   #main .main-wrapper .scroll-img {
     position: absolute;
-    top: 90vh;
+    top: 70vh;
     left: 50vw;
     translate: -50% 90%;
     z-index: 10;
+    transition: translate 0.35s;
+    opacity: 0;
   }
   #main .main-wrapper .scroll-img img {
     width: 6vw;
