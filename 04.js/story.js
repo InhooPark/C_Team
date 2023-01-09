@@ -364,9 +364,9 @@ function storyLOAD(data) {
       slidesPerView: "auto",
       grabCursor: true,
       // initialSlide: 6,
-      resizeObserver: true,
+      // resizeObserver: true,
       speed: 500,
-      observer: true,
+      // observer: true,
     });
     NAVIGATOR.forEach((el, key) => {
       el.addEventListener("click", () => {
