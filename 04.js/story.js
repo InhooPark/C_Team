@@ -23,7 +23,7 @@ function storyLOAD(data) {
   let introInter = "";
   let innerWidth = window.innerWidth;
   let innerHeight = window.innerHeight;
-  let previousIndex = 0;
+  let preIndex = 0;
   let introEffect;
   let inter;
   let interSkip;
@@ -31,7 +31,6 @@ function storyLOAD(data) {
     innerWidth = window.innerWidth;
     innerHeight = window.innerHeight;
   });
-
   function introTextFun(target, delay, repeat) {
     let num = 1;
     let num2 = 0;
@@ -286,25 +285,6 @@ function storyLOAD(data) {
           INDIGATOR.style = `translate: 0 -50%; transition: translate 0.5s`;
         },
         slideChangeTransitionStart: function (e) {
-          let currentIndex = e.realIndex;
-          // let previousIndex = e.previousIndex;
-          INDIGATOR.style = `opacity:0`;
-          NAVIGATOR[previousIndex].classList.remove("active");
-          NAVIGATOR[currentIndex].classList.add("active");
-          previousIndex = currentIndex;
-          setTimeout(() => {
-            spanEffectFun(spanArray[currentIndex], currentIndex);
-          }, 500);
-        },
-        slideChangeTransitionEnd: function (e) {
-          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
-          let currentIndex = e.realIndex;
-          let previousIndex = e.previousIndex;
-          let activeIndex = e.activeIndex;
-          INDIGATOR.innerHTML = "0" + (currentIndex + 1);
-          INDIGATOR.style = `opacity:1`;
-        },
-        slideChange: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
           let currentIndex = e.realIndex;
@@ -344,6 +324,22 @@ function storyLOAD(data) {
               el.classList.remove("active");
             }
           });
+
+          INDIGATOR.style = `opacity:0`;
+          NAVIGATOR[preIndex].classList.remove("active");
+          NAVIGATOR[currentIndex].classList.add("active");
+          preIndex = currentIndex;
+          setTimeout(() => {
+            spanEffectFun(spanArray[currentIndex], currentIndex);
+          }, 500);
+        },
+        slideChangeTransitionEnd: function (e) {
+          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+          let currentIndex = e.realIndex;
+          let previousIndex = e.previousIndex;
+          let activeIndex = e.activeIndex;
+          INDIGATOR.innerHTML = "0" + (currentIndex + 1);
+          INDIGATOR.style = `opacity:1`;
         },
         resize: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
@@ -359,11 +355,12 @@ function storyLOAD(data) {
         },
       },
       loop: true,
+      loopFillGroupWithBlank: true,
       preloadImages: true,
       direction: "vertical",
       slidesPerView: "auto",
       grabCursor: true,
-      // initialSlide: 6,
+      // initialSlide: 0,
       // resizeObserver: true,
       speed: 500,
       observer: true,
@@ -374,6 +371,8 @@ function storyLOAD(data) {
         swiper.slideTo(key + 6, 700, true);
       });
     });
+    // swiper.loopDestroy();
+    // swiper.loopCreate();
   }
   // trigger skip button for editing
   INTROSKIP.click();

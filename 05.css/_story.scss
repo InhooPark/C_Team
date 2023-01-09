@@ -222,22 +222,20 @@ $tablet: 768px;
             justify-content: flex-start;
             align-items: center;
             transform-origin: right bottom;
-            div {
-              width: 100%;
+            .video-pc {
               height: 100%;
-              .video-pc {
-                display: block;
-                width: 90vw;
-                height: 80vh;
-                object-fit: cover;
-                border-radius: 35px 35px 0 0;
-                margin: 0 auto;
-                filter: brightness(0.3);
-                translate: 0 120%;
-                &.active {
-                  translate: 0 0;
-                  transition: translate 0.5s;
-                }
+              width: 100%;
+              display: block;
+              width: 90vw;
+              height: 80vh;
+              object-fit: cover;
+              border-radius: 35px 35px 0 0;
+              margin: 0 auto;
+              filter: brightness(0.3);
+              translate: 0 120%;
+              &.active {
+                translate: 0 0;
+                transition: 0.5s;
               }
             }
           }
