@@ -187,10 +187,12 @@ function storyLOAD(data) {
   }
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerWidth / 2;
+  if (innerWidth < 768) {
+    introFun();
+  }
   function introFun() {
     INTROSKIP.style = `transform: translate3d(${mouseX}px, ${mouseY}px, 0px)`;
   }
-  introFun();
   window.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
@@ -356,7 +358,7 @@ function storyLOAD(data) {
         },
       },
       loop: true,
-      preloadImages: false,
+      // preloadImages: false,
       direction: "vertical",
       slidesPerView: "auto",
       grabCursor: true,
@@ -372,6 +374,6 @@ function storyLOAD(data) {
     });
   }
   // trigger skip button for editing
-  // INTROSKIP.click();
-  // clearInterval(introInter);
+  INTROSKIP.click();
+  clearInterval(introInter);
 }
