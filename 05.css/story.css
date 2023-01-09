@@ -250,6 +250,7 @@ body::-webkit-scrollbar {
   margin: 0 auto;
   filter: brightness(0.3);
   translate: 0 120%;
+  transition: 0.5s;
 }
 #main .main-wrapper .swiper .swiper-wrapper .swiper-slide video.active {
   translate: 0 0;

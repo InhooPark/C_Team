@@ -236,11 +236,11 @@ function storyLOAD(data) {
           clickedIndex = e.clickedIndex;
 
           function tabToZoomFun(value) {
-            SWIPERCONTENTS[value].style = `width:90vw; height:80vh; translate: 0 -5vh; filter:brightness(1); border-radius: 35px 35px 35px 35px; transition: translate 0.5s`;
+            SWIPERCONTENTS[value].style = `width:90vw; height:80vh; translate: 0 -5vh; filter:brightness(1); border-radius: 35px 35px 35px 35px;`;
           }
           tabToZoomFun(activeIndex);
           SWIPERCONTENTS[activeIndex].muted = false;
-          CONT3TEXTBOX.style = `opacity: 0;`
+          CONT3TEXTBOX.style = `opacity: 0;`;
           SCROLLIMG.style = `opacity:0; transition 0.5s; translate: -50% 90%;`;
           CONT2ITEM1.style = `translate: -40% -50%; transition: translate 0.5s`;
           INDIGATOR.style = `translate: 110% -50%; transition: translate 0.5s`;
@@ -355,11 +355,12 @@ function storyLOAD(data) {
         },
       },
       loop: true,
+      loopFillGroupWithBlank: true,
       preloadImages: true,
       direction: "vertical",
       slidesPerView: "auto",
       grabCursor: true,
-      // initialSlide: 6,
+      // initialSlide: 0,
       // resizeObserver: true,
       speed: 500,
       observer: true,
@@ -370,6 +371,8 @@ function storyLOAD(data) {
         swiper.slideTo(key + 6, 700, true);
       });
     });
+    // swiper.loopDestroy();
+    // swiper.loopCreate();
   }
   // trigger skip button for editing
   INTROSKIP.click();
