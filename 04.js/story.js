@@ -132,13 +132,7 @@ function storyLOAD(data) {
           this.flip = Math.random();
         }
         ctx.globalAlpha = this.opacity;
-        ctx.drawImage(
-          mintImg,
-          this.x,
-          this.y,
-          this.w * (0.6 + Math.abs(Math.cos(this.flip)) / 3),
-          this.h * (0.8 + Math.abs(Math.sin(this.flip)) / 2)
-        );
+        ctx.drawImage(mintImg, this.x, this.y, this.w * (0.6 + Math.abs(Math.cos(this.flip)) / 3), this.h * (0.8 + Math.abs(Math.sin(this.flip)) / 2));
       }
       animate() {
         this.x += this.xSpeed;
@@ -190,14 +184,18 @@ function storyLOAD(data) {
       value[num].style.animation += fadeInEffect;
     }, 30);
     // WORDSUB.forEach((el, key) => {
-    WORDSUB[idxNum].style.animation = `revealOpacity 400ms ${
-      value.length * 40
-    }ms 1 both `;
+    WORDSUB[idxNum].style.animation = `revealOpacity 400ms ${value.length * 40}ms 1 both `;
   }
-  window.addEventListener("mousemove", (e) => {
-    let mouseX = e.clientX,
-      mouseY = e.clientY;
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerWidth / 2;
+  function introFun() {
     INTROSKIP.style = `transform: translate3d(${mouseX}px, ${mouseY}px, 0px)`;
+  }
+  introFun()
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    introFun();
   });
   // swiper
   const INDIGATOR = document.querySelector(".indigator");
@@ -238,9 +236,7 @@ function storyLOAD(data) {
           clickedIndex = e.clickedIndex;
 
           function tabToZoomFun(value) {
-            SWIPERCONTENTS[
-              value
-            ].style = `width:90vw; height:80vh; translate: 0 -5vh; filter:brightness(1); border-radius: 35px 35px 35px 35px;`;
+            SWIPERCONTENTS[value].style = `width:90vw; height:80vh; translate: 0 -5vh; filter:brightness(1); border-radius: 35px 35px 35px 35px;`;
           }
           tabToZoomFun(activeIndex);
           SWIPERCONTENTS[activeIndex].muted = false;
@@ -255,7 +251,7 @@ function storyLOAD(data) {
             }
           });
           // if (window.innerWidth < 768) {
-            // SWIPERCONTENTS[activeIndex].play();
+          // SWIPERCONTENTS[activeIndex].play();
           // }
         },
         doubleClick: function (e) {
@@ -312,7 +308,7 @@ function storyLOAD(data) {
           INDIGATOR.innerHTML = "0" + (currentIndex + 1);
           INDIGATOR.style = `opacity:1`;
           // if (window.innerWidth > 768) {
-            videoPlayFun(activeIndex);
+          videoPlayFun(activeIndex);
           // }
           SWIPERCONTENTS[previousIndex].pause();
         },
