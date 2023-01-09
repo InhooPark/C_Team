@@ -307,9 +307,7 @@ function storyLOAD(data) {
           }, 500);
         },
         slideChangeTransitionEnd: function (e) {
-          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           let currentIndex = e.realIndex;
-
           let previousIndex = e.previousIndex;
           let activeIndex = e.activeIndex;
           INDIGATOR.innerHTML = "0" + (currentIndex + 1);
