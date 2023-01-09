@@ -249,15 +249,15 @@ function storyLOAD(data) {
               el.classList.add("active");
             }
           });
-          // if (window.innerWidth < 768) {
-          // SWIPERCONTENTS[activeIndex].play();
-          // }
+          if (window.innerWidth < 768) {
+            SWIPERCONTENTS[activeIndex].play();
+          }
         },
         doubleClick: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
           function doubleTabFun(value) {
-            if (window.innerWidth < 1024) {
+            if (window.innerWidth < 768) {
               SWIPERCONTENTS.forEach((el, key) => {
                 el.style = `width:93vw; height:80vh;filter: brightness(0.5)`;
               });
@@ -306,9 +306,9 @@ function storyLOAD(data) {
           let activeIndex = e.activeIndex;
           INDIGATOR.innerHTML = "0" + (currentIndex + 1);
           INDIGATOR.style = `opacity:1`;
-          // if (window.innerWidth > 768) {
-          videoPlayFun(activeIndex);
-          // }
+          if (window.innerWidth > 768) {
+            videoPlayFun(activeIndex);
+          }
           SWIPERCONTENTS[previousIndex].pause();
         },
         slideChange: function (e) {
