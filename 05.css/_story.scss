@@ -236,6 +236,7 @@ $tablet: 768px;
                 translate: 0 120%;
                 &.active {
                   translate: 0 0;
+                  transition: 0.5s;
                 }
               }
             }
