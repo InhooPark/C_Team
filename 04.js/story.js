@@ -286,28 +286,19 @@ function storyLOAD(data) {
           INDIGATOR.style = `translate: 0 -50%; transition: translate 0.5s`;
         },
         slideChangeTransitionStart: function (e) {
-          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           let currentIndex = e.realIndex;
-          let activeIndex = e.activeIndex;
-          let previousIndex = e.previousIndex;
-          function videoPlayFun(value) {
-            SWIPERCONTENTS[value].muted = true;
-            SWIPERCONTENTS[value].loop = true;
-            SWIPERCONTENTS[value].play();
-          }
-          if (window.innerWidth > 768) {
-            videoPlayFun(activeIndex);
-          }
-          SWIPERCONTENTS[previousIndex].pause();
           INDIGATOR.style = `opacity:0`;
           NAVIGATOR[previousIndex].classList.remove("active");
           NAVIGATOR[currentIndex].classList.add("active");
+          previousIndex = currentIndex;
           setTimeout(() => {
             spanEffectFun(spanArray[currentIndex], currentIndex);
           }, 500);
         },
         slideChangeTransitionEnd: function (e) {
+          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           let currentIndex = e.realIndex;
+
           let previousIndex = e.previousIndex;
           let activeIndex = e.activeIndex;
           INDIGATOR.innerHTML = "0" + (currentIndex + 1);
@@ -318,6 +309,7 @@ function storyLOAD(data) {
           const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
           let currentIndex = e.realIndex;
           let previousIndex = e.previousIndex;
+          let activeIndex = e.activeIndex;
           if (currentIndex == 0) {
             setTimeout(() => {
               SCROLLIMG.style = `opacity:1; transition 0.5s; translate: -50% -50%;`;
@@ -334,6 +326,15 @@ function storyLOAD(data) {
               el.style = `width:78vw; height:80vh;`;
             });
           }
+          function videoPlayFun(value) {
+            SWIPERCONTENTS[value].muted = true;
+            SWIPERCONTENTS[value].loop = true;
+            SWIPERCONTENTS[value].play();
+          }
+          if (window.innerWidth > 768) {
+            videoPlayFun(activeIndex);
+          }
+          SWIPERCONTENTS[previousIndex].pause();
           CONT3TEXTBOX.style = `opacity: 1`;
           CONT2ITEM1.style = `translate: 0 -50%;`;
           INDIGATOR.style = `translate: 0 -50%;`;
