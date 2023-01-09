@@ -227,7 +227,7 @@ $tablet: 768px;
             div {
               width: 100%;
               height: 100%;
-              video {
+              .video-pc {
                 display: block;
                 width: 90vw;
                 height: 80vh;
@@ -240,6 +240,19 @@ $tablet: 768px;
                   translate: 0 0;
                 }
               }
+              // .video-mobile {
+              //   display: block;
+              //   width: 90vw;
+              //   height: 80vh;
+              //   object-fit: cover;
+              //   border-radius: 35px 35px 0 0;
+              //   margin: 0 auto;
+              //   filter: brightness(0.3);
+              //   translate: 0 120%;
+              //   &.active {
+              //     translate: 0 0;
+              //   }
+              // }
             }
           }
         }
