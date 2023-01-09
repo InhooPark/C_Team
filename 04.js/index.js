@@ -160,7 +160,6 @@ function INDEXLOAD() {
     }
 
     const CLICKCOVER = document.querySelector(".click-cover");
-    console.log(CLICKCOVER);
     // 클릭이벤트로 변경해도 무방함
     if (window.pageYOffset == 5000) {
       SCROLL.classList.add("invisible");

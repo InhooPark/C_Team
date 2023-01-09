@@ -405,4 +405,18 @@ body::-webkit-scrollbar {
   .first-title .first-sticky .img-wrapper-second img.shadow {
     display: none;
   }
+}
+@media screen and (max-width: 480px) {
+  .first-title .first-sticky .eclipse-text i > span > span {
+    font-size: 3rem;
+  }
+  .first-title .first-sticky .eclipse-text i > span > span.up {
+    transform: translateY(35%);
+  }
+  .first-title .first-sticky .img-wrapper-second img {
+    width: 70%;
+  }
+  .first-title .first-sticky .img-wrapper-second img.shadow {
+    display: none;
+  }
 }/*# sourceMappingURL=index.css.map */
