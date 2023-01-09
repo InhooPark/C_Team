@@ -228,6 +228,9 @@ body::-webkit-scrollbar {
   justify-content: flex-start;
   align-items: center;
   transform-origin: right bottom;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 #main .main-wrapper .swiper .swiper-wrapper .swiper-slide.active {
   transition: 0.75;
