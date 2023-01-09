@@ -11,6 +11,7 @@ function story(data) {
   }, 1000);
 }
 function storyLOAD(data) {
+  const BODY = document.querySelector("body");
   const MAINCONT1 = document.querySelector(".main-container1");
   const CONT2ITEM1 = document.querySelector(".container2-item01");
   const MAINCONT3 = document.querySelector(".main-container3");
@@ -23,7 +24,7 @@ function storyLOAD(data) {
   let introInter = "";
   let innerWidth = window.innerWidth;
   let innerHeight = window.innerHeight;
-  let preIndex = 0;
+  let previousIndex = 0;
   let introEffect;
   let inter;
   let interSkip;
@@ -31,6 +32,7 @@ function storyLOAD(data) {
     innerWidth = window.innerWidth;
     innerHeight = window.innerHeight;
   });
+
   function introTextFun(target, delay, repeat) {
     let num = 1;
     let num2 = 0;
@@ -160,6 +162,7 @@ function storyLOAD(data) {
   const SPANANI = document.querySelectorAll(".container3-text-wrap span");
   const NAVIGATOR = document.querySelectorAll(".year-btn");
   const SCROLLIMG = document.querySelector(".scroll-img");
+  const CONT4ITEMS = document.querySelectorAll(".container4-item");
   let spanArray = [SPAN1, SPAN2, SPAN3, SPAN4, SPAN5, SPAN6];
   function initFun() {
     SPANANI.forEach((el) => {
@@ -231,6 +234,8 @@ function storyLOAD(data) {
         click: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
+          const BTVBTN = document.querySelector(".btv");
+          const CONT4ITEMS = document.querySelectorAll(".container4-item");
           currentIndex = e.realIndex;
           activeIndex = e.activeIndex;
           clickedIndex = e.clickedIndex;
@@ -239,52 +244,80 @@ function storyLOAD(data) {
             SWIPERCONTENTS[value].style = `width:90vw; height:80vh; translate: 0 -5vh; filter:brightness(1); border-radius: 35px 35px 35px 35px;`;
           }
           tabToZoomFun(activeIndex);
-          SWIPERCONTENTS[activeIndex].muted = false;
+          SWIPERCONTENTS[activeIndex].muted = true;
+          // SWIPERCONTENTS[activeIndex].controls = true;
           CONT3TEXTBOX.style = `opacity: 0;`;
           SCROLLIMG.style = `opacity:0; transition 0.5s; translate: -50% 90%;`;
           CONT2ITEM1.style = `translate: -40% -50%; transition: translate 0.5s`;
           INDIGATOR.style = `translate: 110% -50%; transition: translate 0.5s`;
-          // BODY.style = `position: static`;
+          BTVBTN.style = `opacity: 1; user-select: auto;`;
           SWIPERSLIDE.forEach((el, key) => {
             if (!el.classList.contains("swiper-slide-active")) {
               el.classList.add("active");
             }
           });
+          BODY.style = `position: static`;
+          NAVIGATOR.style = `user-select: none`;
+          // swiper.destroy(true, true)
+          console.log(currentIndex);
+          swiper.disable();
+          CONT4ITEMS.forEach((el, key) => {
+            CONT4ITEMS[currentIndex].classList.add("active");
+          });
           // if (window.innerWidth < 768) {
           //   SWIPERCONTENTS[activeIndex].play();
           // }
         },
-        doubleClick: function (e) {
-          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
-          const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
-          function doubleTabFun(value) {
-            if (window.innerWidth < 768) {
-              SWIPERCONTENTS.forEach((el, key) => {
-                el.style = `width:93vw; height:80vh;filter: brightness(0.5)`;
-              });
-            } else {
-              SWIPERCONTENTS.forEach((el, key) => {
-                el.style = `width:78vw; height:80vh;filter: brightness(0.5)`;
-              });
-            }
-            SWIPERSLIDE.forEach((el, key) => {
-              if (!el.classList.contains("swiper-slide-active")) {
-                el.classList.remove("active");
-              }
-            });
-          }
-          SWIPERCONTENTS[activeIndex].muted = true;
-          let currentIndex = e.realIndex;
-          activeIndex = e.activeIndex;
-          doubleTabFun(activeIndex);
-          CONT3TEXTBOX.style = `opacity: 1;`;
-          if (currentIndex == 0) {
-            SCROLLIMG.style = `opacity:1; transition 0.5s; translate: -50% -50%; `;
-          }
-          CONT2ITEM1.style = `translate: 0 -50%; transition: translate 0.5s`;
-          INDIGATOR.style = `translate: 0 -50%; transition: translate 0.5s`;
-        },
+        // doubleClick: function (e) {
+        //   const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+        //   const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
+        //   function doubleTabFun(value) {
+        //     if (window.innerWidth < 768) {
+        //       SWIPERCONTENTS.forEach((el, key) => {
+        //         el.style = `width:93vw; height:80vh;filter: brightness(0.5)`;
+        //       });
+        //     } else {
+        //       SWIPERCONTENTS.forEach((el, key) => {
+        //         el.style = `width:78vw; height:80vh;filter: brightness(0.5)`;
+        //       });
+        //     }
+        //     SWIPERSLIDE.forEach((el, key) => {
+        //       if (!el.classList.contains("swiper-slide-active")) {
+        //         el.classList.remove("active");
+        //       }
+        //     });
+        //   }
+        //   SWIPERCONTENTS[activeIndex].muted = true;
+        //   let currentIndex = e.realIndex;
+        //   activeIndex = e.activeIndex;
+        //   doubleTabFun(activeIndex);
+        //   CONT3TEXTBOX.style = `opacity: 1;`;
+        //   if (currentIndex == 0) {
+        //     SCROLLIMG.style = `opacity:1; transition 0.5s; translate: -50% -50%; `;
+        //   }
+        //   CONT2ITEM1.style = `translate: 0 -50%; transition: translate 0.5s`;
+        //   INDIGATOR.style = `translate: 0 -50%; transition: translate 0.5s`;
+        // },
         slideChangeTransitionStart: function (e) {
+          let currentIndex = e.realIndex;
+          // let previousIndex = e.previousIndex;
+          INDIGATOR.style = `opacity:0`;
+          NAVIGATOR[previousIndex].classList.remove("active");
+          NAVIGATOR[currentIndex].classList.add("active");
+          previousIndex = currentIndex;
+          setTimeout(() => {
+            spanEffectFun(spanArray[currentIndex], currentIndex);
+          }, 500);
+        },
+        slideChangeTransitionEnd: function (e) {
+          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+          let currentIndex = e.realIndex;
+          let previousIndex = e.previousIndex;
+          let activeIndex = e.activeIndex;
+          INDIGATOR.innerHTML = "0" + (currentIndex + 1);
+          INDIGATOR.style = `opacity:1`;
+        },
+        slideChange: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
           let currentIndex = e.realIndex;
@@ -311,9 +344,9 @@ function storyLOAD(data) {
             SWIPERCONTENTS[value].loop = true;
             SWIPERCONTENTS[value].play();
           }
-          if (window.innerWidth > 768) {
-            videoPlayFun(activeIndex);
-          }
+          // if (window.innerWidth > 768) {
+          videoPlayFun(activeIndex);
+          // }
           SWIPERCONTENTS[previousIndex].pause();
           CONT3TEXTBOX.style = `opacity: 1`;
           CONT2ITEM1.style = `translate: 0 -50%;`;
@@ -324,22 +357,6 @@ function storyLOAD(data) {
               el.classList.remove("active");
             }
           });
-
-          INDIGATOR.style = `opacity:0`;
-          NAVIGATOR[preIndex].classList.remove("active");
-          NAVIGATOR[currentIndex].classList.add("active");
-          preIndex = currentIndex;
-          setTimeout(() => {
-            spanEffectFun(spanArray[currentIndex], currentIndex);
-          }, 500);
-        },
-        slideChangeTransitionEnd: function (e) {
-          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
-          let currentIndex = e.realIndex;
-          let previousIndex = e.previousIndex;
-          let activeIndex = e.activeIndex;
-          INDIGATOR.innerHTML = "0" + (currentIndex + 1);
-          INDIGATOR.style = `opacity:1`;
         },
         resize: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
@@ -355,12 +372,11 @@ function storyLOAD(data) {
         },
       },
       loop: true,
-      loopFillGroupWithBlank: true,
       preloadImages: true,
       direction: "vertical",
       slidesPerView: "auto",
       grabCursor: true,
-      // initialSlide: 0,
+      // initialSlide: 6,
       // resizeObserver: true,
       speed: 500,
       observer: true,
@@ -369,11 +385,66 @@ function storyLOAD(data) {
     NAVIGATOR.forEach((el, key) => {
       el.addEventListener("click", () => {
         swiper.slideTo(key + 6, 700, true);
+        swiper.enable();
       });
     });
-    // swiper.loopDestroy();
-    // swiper.loopCreate();
+    const BTVBTN = document.querySelector(".btv");
+    BTVBTN.addEventListener("click", () => {
+      swiper.enable();
+      setTimeout(() => {
+        BODY.style = `position: fixed`;
+        CONT4ITEMS.forEach((el, key) => {
+          el.classList.remove("active");
+        });
+      }, 600);
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      BTVBTN.style = ` user-select: none; opacity: 0;`;
+    });
   }
+
+  // function canvasFun2() {
+  // const canvas = document.querySelector(".canvas2");
+  // const ctx = canvas.getContext("2d");
+  // canvas.width = innerWidth;
+  // canvas.height = innerHeight;
+
+  // let image = new Image();
+  // image.src = "./01.img/mints_peppermint.png";
+
+  // // Wait for the image to load before drawing it
+  // image.onload = function () {
+  //   // Draw the image at the initial position
+  //   ctx.drawImage(image, -image.width / 2, -image.height / 2, 100, 100);
+  // };
+
+  // // Set up a function to be called whenever the mouse moves
+  // canvas.addEventListener("mousemove", function (event) {
+  //   // Get the mouse position relative to the canvas element
+  //   let mouseX = event.offsetX;
+  //   let mouseY = event.offsetY;
+
+  //   // Clear the canvas
+  //   ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  //   // Save the context state
+  //   ctx.save();
+
+  //   // Translate the context to the center of the image
+  //   ctx.translate(canvas.width / 2, canvas.height / 2);
+
+  //   // Rotate the context to face towards the mouse position
+  //   let angle = Math.atan2(mouseY - 400, mouseX - 400);
+  //   ctx.rotate(angle);
+
+  //   // Draw the image
+  //   // ctx.drawImage(image, -image.width / 2, -image.height / 2);
+  //   ctx.drawImage(image, -image.width / 2, -image.height / 2, 100, 100);
+
+  //   // Restore the context state
+  //   ctx.restore();
+  // });
+  // }
+
   // trigger skip button for editing
   INTROSKIP.click();
   clearInterval(introInter);
