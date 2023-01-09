@@ -286,11 +286,22 @@ function storyLOAD(data) {
           INDIGATOR.style = `translate: 0 -50%; transition: translate 0.5s`;
         },
         slideChangeTransitionStart: function (e) {
+          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           let currentIndex = e.realIndex;
+          let activeIndex = e.activeIndex;
+          let previousIndex = e.previousIndex;
+          function videoPlayFun(value) {
+            SWIPERCONTENTS[value].muted = true;
+            SWIPERCONTENTS[value].loop = true;
+            SWIPERCONTENTS[value].play();
+          }
+          if (window.innerWidth > 768) {
+            videoPlayFun(activeIndex);
+          }
+          SWIPERCONTENTS[previousIndex].pause();
           INDIGATOR.style = `opacity:0`;
           NAVIGATOR[previousIndex].classList.remove("active");
           NAVIGATOR[currentIndex].classList.add("active");
-          previousIndex = currentIndex;
           setTimeout(() => {
             spanEffectFun(spanArray[currentIndex], currentIndex);
           }, 500);
@@ -298,20 +309,11 @@ function storyLOAD(data) {
         slideChangeTransitionEnd: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           let currentIndex = e.realIndex;
-          function videoPlayFun(value) {
-            SWIPERCONTENTS[value].muted = true;
-            SWIPERCONTENTS[value].loop = true;
-            SWIPERCONTENTS[value].play();
-          }
 
           let previousIndex = e.previousIndex;
           let activeIndex = e.activeIndex;
           INDIGATOR.innerHTML = "0" + (currentIndex + 1);
           INDIGATOR.style = `opacity:1`;
-          if (window.innerWidth > 768) {
-            videoPlayFun(activeIndex);
-          }
-          SWIPERCONTENTS[previousIndex].pause();
         },
         slideChange: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
