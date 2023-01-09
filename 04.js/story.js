@@ -229,73 +229,73 @@ function storyLOAD(data) {
             SWIPERCONTENTS[idx].classList.add("active");
           }, 60);
         },
-        click: function (e) {
-          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
-          const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
-          currentIndex = e.realIndex;
-          activeIndex = e.activeIndex;
-          clickedIndex = e.clickedIndex;
+        // click: function (e) {
+        //   const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+        //   const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
+        //   currentIndex = e.realIndex;
+        //   activeIndex = e.activeIndex;
+        //   clickedIndex = e.clickedIndex;
 
-          function tabToZoomFun(value) {
-            SWIPERCONTENTS[value].style = `width:90vw; height:80vh; translate: 0 -5vh; filter:brightness(1); border-radius: 35px 35px 35px 35px;`;
-          }
-          tabToZoomFun(activeIndex);
-          SWIPERCONTENTS[activeIndex].muted = false;
-          CONT3TEXTBOX.style = `opacity: 0;`;
-          SCROLLIMG.style = `opacity:0; transition 0.5s; translate: -50% 90%;`;
-          CONT2ITEM1.style = `translate: -40% -50%; transition: translate 0.5s`;
-          INDIGATOR.style = `translate: 110% -50%; transition: translate 0.5s`;
-          // BODY.style = `position: static`;
-          SWIPERSLIDE.forEach((el, key) => {
-            if (!el.classList.contains("swiper-slide-active")) {
-              el.classList.add("active");
-            }
-          });
-          // if (window.innerWidth < 768) {
-          //   SWIPERCONTENTS[activeIndex].play();
-          // }
-        },
-        doubleClick: function (e) {
-          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
-          const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
-          function doubleTabFun(value) {
-            if (window.innerWidth < 768) {
-              SWIPERCONTENTS.forEach((el, key) => {
-                el.style = `width:93vw; height:80vh;filter: brightness(0.5)`;
-              });
-            } else {
-              SWIPERCONTENTS.forEach((el, key) => {
-                el.style = `width:78vw; height:80vh;filter: brightness(0.5)`;
-              });
-            }
-            SWIPERSLIDE.forEach((el, key) => {
-              if (!el.classList.contains("swiper-slide-active")) {
-                el.classList.remove("active");
-              }
-            });
-          }
-          SWIPERCONTENTS[activeIndex].muted = true;
-          let currentIndex = e.realIndex;
-          activeIndex = e.activeIndex;
-          doubleTabFun(activeIndex);
-          CONT3TEXTBOX.style = `opacity: 1;`;
-          if (currentIndex == 0) {
-            SCROLLIMG.style = `opacity:1; transition 0.5s; translate: -50% -50%; `;
-          }
-          CONT2ITEM1.style = `translate: 0 -50%; transition: translate 0.5s`;
-          INDIGATOR.style = `translate: 0 -50%; transition: translate 0.5s`;
-        },
-        slideChangeTransitionStart: function (e) {
-          let currentIndex = e.realIndex;
-          // let previousIndex = e.previousIndex;
-          INDIGATOR.style = `opacity:0`;
-          NAVIGATOR[previousIndex].classList.remove("active");
-          NAVIGATOR[currentIndex].classList.add("active");
-          previousIndex = currentIndex;
-          setTimeout(() => {
-            spanEffectFun(spanArray[currentIndex], currentIndex);
-          }, 500);
-        },
+        //   function tabToZoomFun(value) {
+        //     SWIPERCONTENTS[value].style = `width:90vw; height:80vh; translate: 0 -5vh; filter:brightness(1); border-radius: 35px 35px 35px 35px;`;
+        //   }
+        //   tabToZoomFun(activeIndex);
+        //   SWIPERCONTENTS[activeIndex].muted = false;
+        //   CONT3TEXTBOX.style = `opacity: 0;`;
+        //   SCROLLIMG.style = `opacity:0; transition 0.5s; translate: -50% 90%;`;
+        //   CONT2ITEM1.style = `translate: -40% -50%; transition: translate 0.5s`;
+        //   INDIGATOR.style = `translate: 110% -50%; transition: translate 0.5s`;
+        //   // BODY.style = `position: static`;
+        //   SWIPERSLIDE.forEach((el, key) => {
+        //     if (!el.classList.contains("swiper-slide-active")) {
+        //       el.classList.add("active");
+        //     }
+        //   });
+        //   // if (window.innerWidth < 768) {
+        //   //   SWIPERCONTENTS[activeIndex].play();
+        //   // }
+        // },
+        // doubleClick: function (e) {
+        //   const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+        //   const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
+        //   function doubleTabFun(value) {
+        //     if (window.innerWidth < 768) {
+        //       SWIPERCONTENTS.forEach((el, key) => {
+        //         el.style = `width:93vw; height:80vh;filter: brightness(0.5)`;
+        //       });
+        //     } else {
+        //       SWIPERCONTENTS.forEach((el, key) => {
+        //         el.style = `width:78vw; height:80vh;filter: brightness(0.5)`;
+        //       });
+        //     }
+        //     SWIPERSLIDE.forEach((el, key) => {
+        //       if (!el.classList.contains("swiper-slide-active")) {
+        //         el.classList.remove("active");
+        //       }
+        //     });
+        //   }
+        //   SWIPERCONTENTS[activeIndex].muted = true;
+        //   let currentIndex = e.realIndex;
+        //   activeIndex = e.activeIndex;
+        //   doubleTabFun(activeIndex);
+        //   CONT3TEXTBOX.style = `opacity: 1;`;
+        //   if (currentIndex == 0) {
+        //     SCROLLIMG.style = `opacity:1; transition 0.5s; translate: -50% -50%; `;
+        //   }
+        //   CONT2ITEM1.style = `translate: 0 -50%; transition: translate 0.5s`;
+        //   INDIGATOR.style = `translate: 0 -50%; transition: translate 0.5s`;
+        // },
+        // slideChangeTransitionStart: function (e) {
+        //   let currentIndex = e.realIndex;
+        //   // let previousIndex = e.previousIndex;
+        //   INDIGATOR.style = `opacity:0`;
+        //   NAVIGATOR[previousIndex].classList.remove("active");
+        //   NAVIGATOR[currentIndex].classList.add("active");
+        //   previousIndex = currentIndex;
+        //   setTimeout(() => {
+        //     spanEffectFun(spanArray[currentIndex], currentIndex);
+        //   }, 500);
+        // },
         // slideChangeTransitionEnd: function (e) {
         //   const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
         //   let currentIndex = e.realIndex;
