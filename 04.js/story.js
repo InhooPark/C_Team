@@ -254,9 +254,9 @@ function storyLOAD(data) {
               el.classList.add("active");
             }
           });
-          if (window.innerWidth < 768) {
-            SWIPERCONTENTS[activeIndex].play();
-          }
+          // if (window.innerWidth < 768) {
+            // SWIPERCONTENTS[activeIndex].play();
+          // }
         },
         doubleClick: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
@@ -311,9 +311,9 @@ function storyLOAD(data) {
           let activeIndex = e.activeIndex;
           INDIGATOR.innerHTML = "0" + (currentIndex + 1);
           INDIGATOR.style = `opacity:1`;
-          if (window.innerWidth > 768) {
+          // if (window.innerWidth > 768) {
             videoPlayFun(activeIndex);
-          }
+          // }
           SWIPERCONTENTS[previousIndex].pause();
         },
         slideChange: function (e) {
