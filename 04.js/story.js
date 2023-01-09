@@ -12,7 +12,6 @@ function story(data) {
   }, 1000);
 }
 function storyLOAD(data) {
-  const BODY = document.querySelector("#body");
   const MAINCONT1 = document.querySelector(".main-container1");
   const CONT2ITEM1 = document.querySelector(".container2-item01");
   const MAINCONT3 = document.querySelector(".main-container3");
@@ -230,9 +229,6 @@ function storyLOAD(data) {
             }
             SWIPERCONTENTS[idx].classList.add("active");
           }, 60);
-          // setTimeout(() => {
-          //   spanEffectFun(spanArray[currentIndex], currentIndex);
-          // }, 1000);
         },
         click: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
