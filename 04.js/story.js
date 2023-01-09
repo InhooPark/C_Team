@@ -190,7 +190,7 @@ function storyLOAD(data) {
   function introFun() {
     INTROSKIP.style = `transform: translate3d(${mouseX}px, ${mouseY}px, 0px)`;
   }
-  introFun()
+  introFun();
   window.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
@@ -363,6 +363,7 @@ function storyLOAD(data) {
       // initialSlide: 6,
       resizeObserver: true,
       speed: 500,
+      observer: true,
     });
     NAVIGATOR.forEach((el, key) => {
       el.addEventListener("click", () => {
