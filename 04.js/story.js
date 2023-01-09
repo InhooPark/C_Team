@@ -5,7 +5,6 @@ fetch("./06.json/story.json")
   .then((eclipse) => {
     story(eclipse.data);
   });
-// 수정 확인 //
 function story(data) {
   setTimeout(() => {
     storyLOAD(data);
@@ -215,10 +214,10 @@ function storyLOAD(data) {
       },
       on: {
         init: function (e) {
+          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           let currentIndex = e.realIndex;
           let idx = 0;
           INDIGATOR.style = `color:black`;
-          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           inter = setInterval(() => {
             if (idx >= 0 && idx < 15) {
               idx++;
