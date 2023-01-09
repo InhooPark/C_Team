@@ -241,7 +241,7 @@ body {
             // transition: 0.5s;
             &.active {
               translate: 0 0;
-              transition: 0.5s;
+              transition: translate 0.5s;
             }
           }
           // }
