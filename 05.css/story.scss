@@ -218,6 +218,8 @@ body {
           justify-content: flex-start;
           align-items: center;
           transform-origin: right bottom;
+          backface-visibility: hidden;
+          transform: translate3d(0, 0, 0);
           &.active {
             transition: 0.75;
             opacity: 0;
