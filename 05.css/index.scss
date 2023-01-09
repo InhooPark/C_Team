@@ -397,3 +397,30 @@ body::-webkit-scrollbar {
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .first-title {
+    .first-sticky {
+      .eclipse-text {
+        i {
+          > span {
+            > span {
+              font-size: 3rem;
+              &.up {
+                transform: translateY(35%);
+              }
+            }
+          }
+        }
+      }
+      .img-wrapper-second {
+        img {
+          width: 70%;
+          &.shadow {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

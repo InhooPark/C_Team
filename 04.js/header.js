@@ -9,8 +9,6 @@ const LOADTEXT = document.querySelector(".load-text-wrap span");
 let locationURL = location.href.split("/").reverse()[0].split(".")[0];
 locationURL = locationURL.charAt(0).toUpperCase() + locationURL.slice(1) || "Index";
 
-console.log(locationURL);
-
 function headerCallback() {
   const SPHERE = document.querySelector(".sphere");
   const SPHERECON = document.querySelector(".sphere-content-wrap");
