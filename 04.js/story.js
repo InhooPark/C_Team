@@ -23,7 +23,7 @@ function storyLOAD(data) {
   let introInter = "";
   let innerWidth = window.innerWidth;
   let innerHeight = window.innerHeight;
-  let previousIndex = 0;
+  let preIndex = 0;
   let introEffect;
   let inter;
   let interSkip;
@@ -31,7 +31,6 @@ function storyLOAD(data) {
     innerWidth = window.innerWidth;
     innerHeight = window.innerHeight;
   });
-
   function introTextFun(target, delay, repeat) {
     let num = 1;
     let num2 = 0;
@@ -237,11 +236,11 @@ function storyLOAD(data) {
           clickedIndex = e.clickedIndex;
 
           function tabToZoomFun(value) {
-            SWIPERCONTENTS[value].style = `width:90vw; height:80vh; translate: 0 -5vh; filter:brightness(1); border-radius: 35px 35px 35px 35px;`;
+            SWIPERCONTENTS[value].style = `width:90vw; height:80vh; translate: 0 -5vh; filter:brightness(1); border-radius: 35px 35px 35px 35px; transition: translate 0.5s`;
           }
           tabToZoomFun(activeIndex);
           SWIPERCONTENTS[activeIndex].muted = false;
-          CONT3TEXTBOX.style = `opacity: 0;`;
+          CONT3TEXTBOX.style = `opacity: 0;`
           SCROLLIMG.style = `opacity:0; transition 0.5s; translate: -50% 90%;`;
           CONT2ITEM1.style = `translate: -40% -50%; transition: translate 0.5s`;
           INDIGATOR.style = `translate: 110% -50%; transition: translate 0.5s`;
@@ -286,25 +285,6 @@ function storyLOAD(data) {
           INDIGATOR.style = `translate: 0 -50%; transition: translate 0.5s`;
         },
         slideChangeTransitionStart: function (e) {
-          let currentIndex = e.realIndex;
-          // let previousIndex = e.previousIndex;
-          INDIGATOR.style = `opacity:0`;
-          NAVIGATOR[previousIndex].classList.remove("active");
-          NAVIGATOR[currentIndex].classList.add("active");
-          previousIndex = currentIndex;
-          setTimeout(() => {
-            spanEffectFun(spanArray[currentIndex], currentIndex);
-          }, 500);
-        },
-        slideChangeTransitionEnd: function (e) {
-          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
-          let currentIndex = e.realIndex;
-          let previousIndex = e.previousIndex;
-          let activeIndex = e.activeIndex;
-          INDIGATOR.innerHTML = "0" + (currentIndex + 1);
-          INDIGATOR.style = `opacity:1`;
-        },
-        slideChange: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
           let currentIndex = e.realIndex;
@@ -344,6 +324,22 @@ function storyLOAD(data) {
               el.classList.remove("active");
             }
           });
+
+          INDIGATOR.style = `opacity:0`;
+          NAVIGATOR[preIndex].classList.remove("active");
+          NAVIGATOR[currentIndex].classList.add("active");
+          preIndex = currentIndex;
+          setTimeout(() => {
+            spanEffectFun(spanArray[currentIndex], currentIndex);
+          }, 500);
+        },
+        slideChangeTransitionEnd: function (e) {
+          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
+          let currentIndex = e.realIndex;
+          let previousIndex = e.previousIndex;
+          let activeIndex = e.activeIndex;
+          INDIGATOR.innerHTML = "0" + (currentIndex + 1);
+          INDIGATOR.style = `opacity:1`;
         },
         resize: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");

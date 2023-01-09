@@ -253,7 +253,7 @@ body::-webkit-scrollbar {
 }
 #main .main-wrapper .swiper .swiper-wrapper .swiper-slide video.active {
   translate: 0 0;
-  transition: translate 0.5s;
+  transition: 0.5s;
 }
 #main .main-wrapper .scroll-img {
   position: absolute;
@@ -631,11 +631,9 @@ body::-webkit-scrollbar {
     align-items: center;
     transform-origin: right bottom;
   }
-  #main .main-wrapper .swiper .swiper-wrapper .swiper-slide div {
-    width: 100%;
+  #main .main-wrapper .swiper .swiper-wrapper .swiper-slide .video-pc {
     height: 100%;
-  }
-  #main .main-wrapper .swiper .swiper-wrapper .swiper-slide div .video-pc {
+    width: 100%;
     display: block;
     width: 90vw;
     height: 80vh;
@@ -646,9 +644,9 @@ body::-webkit-scrollbar {
     filter: brightness(0.3);
     translate: 0 120%;
   }
-  #main .main-wrapper .swiper .swiper-wrapper .swiper-slide div .video-pc.active {
+  #main .main-wrapper .swiper .swiper-wrapper .swiper-slide .video-pc.active {
     translate: 0 0;
-    transition: translate 0.5s;
+    transition: 0.5s;
   }
   #main .main-wrapper .scroll-img {
     position: absolute;
