@@ -644,6 +644,7 @@ body::-webkit-scrollbar {
   }
   #main .main-wrapper .swiper .swiper-wrapper .swiper-slide div .video-pc.active {
     translate: 0 0;
+    transition: 0.5s;
   }
   #main .main-wrapper .scroll-img {
     position: absolute;

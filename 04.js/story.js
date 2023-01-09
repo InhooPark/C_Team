@@ -358,7 +358,7 @@ function storyLOAD(data) {
         },
       },
       loop: true,
-      // preloadImages: false,
+      preloadImages: true,
       direction: "vertical",
       slidesPerView: "auto",
       grabCursor: true,
@@ -374,6 +374,6 @@ function storyLOAD(data) {
     });
   }
   // trigger skip button for editing
-  INTROSKIP.click();
-  clearInterval(introInter);
+  // INTROSKIP.click();
+  // clearInterval(introInter);
 }
