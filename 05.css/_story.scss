@@ -168,7 +168,7 @@ $tablet: 768px;
               letter-spacing: 0.2rem;
               translate: -50% 0;
               font-weight: normal;
-              font-size: 2vw;
+              font-size: 4vw;
               z-index: 10;
               transition: opacity 0.5s (cubic-bezier(0.5, 1, 0.89, 1));
               translate: 1s;
@@ -185,7 +185,7 @@ $tablet: 768px;
               top: 75vh;
               left: 50%;
               translate: -50% 0;
-              font-size: 5vw;
+              font-size: 7vw;
               z-index: 10;
               opacity: 0;
             }
@@ -240,19 +240,6 @@ $tablet: 768px;
                   translate: 0 0;
                 }
               }
-              // .video-mobile {
-              //   display: block;
-              //   width: 90vw;
-              //   height: 80vh;
-              //   object-fit: cover;
-              //   border-radius: 35px 35px 0 0;
-              //   margin: 0 auto;
-              //   filter: brightness(0.3);
-              //   translate: 0 120%;
-              //   &.active {
-              //     translate: 0 0;
-              //   }
-              // }
             }
           }
         }
