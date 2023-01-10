@@ -471,9 +471,4 @@ function storyLOAD(data) {
   // MAINTEXTDIV.forEach((el) => {
   //   observer.observe(el);
   // });
-  // observer.observe(SUBTEXTWRAPPER[1]);
-  // observer.observe(SUBTEXTWRAPPER[2]);
-  // observer.observe(SUBTEXTWRAPPER[3]);
-  // observer.observe(SUBTEXTWRAPPER[4]);
-  // observer.observe(SUBTEXTWRAPPER[5]);
 }

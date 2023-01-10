@@ -294,9 +294,10 @@ $tablet: 768px;
             .container4-item {
               text-align: center;
               position: absolute;
+              overflow-x: hidden;
               .container4-content1 {
                 max-width: 1600px;
-                padding: 120px 5px 0;
+                padding: 120px 25px 0;
                 display: flex;
                 flex-direction: column;
                 // justify-content: space-evenly;
