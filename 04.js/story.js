@@ -184,7 +184,6 @@ function storyLOAD(data) {
       }
       value[num].style.animation += fadeInEffect;
     }, 30);
-    // WORDSUB.forEach((el, key) => {
     WORDSUB[idxNum].style.animation = `revealOpacity 400ms ${value.length * 40}ms 1 both `;
   }
   let mouseX = window.innerWidth / 2;
@@ -200,7 +199,6 @@ function storyLOAD(data) {
     mouseY = e.clientY;
     introFun();
   });
-  // swiper
   const INDIGATOR = document.querySelector(".indigator");
 
   function swiperFun() {
@@ -245,7 +243,6 @@ function storyLOAD(data) {
           }
           tabToZoomFun(activeIndex);
           SWIPERCONTENTS[activeIndex].muted = true;
-          // SWIPERCONTENTS[activeIndex].controls = true;
           CONT3TEXTBOX.style = `opacity: 0;`;
           SCROLLIMG.style = `opacity:0; transition 0.5s; translate: -50% 90%;`;
           CONT2ITEM1.style = `opacity: 0; translate: -40% -50%;`;
@@ -258,7 +255,6 @@ function storyLOAD(data) {
           });
           BODY.style = `position: static`;
           NAVIGATOR.style = `user-select: none`;
-          // swiper.destroy(true, true)
           console.log(currentIndex);
           swiper.disable();
           CONT4ITEMS.forEach((el, key) => {
@@ -267,7 +263,6 @@ function storyLOAD(data) {
         },
         slideChangeTransitionStart: function (e) {
           let currentIndex = e.realIndex;
-          // let previousIndex = e.previousIndex;
           INDIGATOR.style = `opacity:0`;
           NAVIGATOR[previousIndex].classList.remove("active");
           NAVIGATOR[currentIndex].classList.add("active");
@@ -284,8 +279,6 @@ function storyLOAD(data) {
         slideChange: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
-          // const SWIPERWRAPPER = document.querySelector(".swiper-wrapper");
-          // SWIPERWRAPPER.style = `transition-delay: 1s`;
           let currentIndex = e.realIndex;
           let previousIndex = e.previousIndex;
           let activeIndex = e.activeIndex;
@@ -380,12 +373,12 @@ function storyLOAD(data) {
   const pTag5 = document.querySelector(".item5-text-wrapper p");
   const pTag6 = document.querySelector(".item6-text-wrapper p");
 
-  let textArr1 = "Inside the tin ECLIPSE original mint Inside the tin ECLIPSE original mint".split(" ");
-  let textArr2 = "Chew your way to fresh ECLIPSE chewy Chew your way to fresh ECLIPSE chewy".split(" ");
-  let textArr3 = "Say hello to fresh ECLIPSE fruit trio Say hello to fresh ECLIPSE fruit trio".split(" ");
-  let textArr4 = "Freshen up behind the mask ECLIPSE strawberry Freshen up behind the mask ECLIPSE strawberry".split(" ");
-  let textArr5 = "Let there be fresh ECLIPSE intense mint Let there be fresh ECLIPSE intense mint".split(" ");
-  let textArr6 = "Feel your way back to fresh honey lemon and ginger Feel your way back to fresh honey lemon and ginger".split(" ");
+  let textArr1 = "Inside the tin ECLIPSE original mint".split(" ");
+  let textArr2 = "Chew your way to fresh ECLIPSE chewy".split(" ");
+  let textArr3 = "Say hello to fresh ECLIPSE fruit trio".split(" ");
+  let textArr4 = "Freshen up behind the mask ECLIPSE strawberry".split(" ");
+  let textArr5 = "Let there be fresh ECLIPSE intense mint".split(" ");
+  let textArr6 = "Feel your way back to fresh honey lemon and ginger".split(" ");
 
   let count1 = 0;
   let count2 = 0;
@@ -449,42 +442,12 @@ function storyLOAD(data) {
 
   animate();
 
-  // 수정중
-  const ELMAINFIG = document.querySelectorAll(".container4-content1 figure");
   const ELMAINIMG = document.querySelectorAll(".container4-content1 img");
   document.addEventListener("scroll", () => {
     let currentScrollValue = document.documentElement.scrollTop;
-    // value = window.pageYOffset / ELMAINFIG[0].offsetTop - 3.35;
 
     ELMAINIMG.forEach((el, key) => {
-      el.style.transform = `scale(${window.pageYOffset / ELMAINFIG[key].offsetTop - 3.35})`;
+      el.style.transform = `scale(${220 - +window.pageYOffset / 12 + "%"})`;
     });
-    // function scrollEvent(target, target2, effect) {
-    //   if (target2.offsetTop - window.innerHeight * 0.8 < window.pageYOffset) {
-    //     target.style.animation = effect;
-    //   }
-    // }
-
-    // function scrollEvents(target, target2, effect, num) {
-    //   target.forEach((value, key) => {
-    //     if (target2[key].offsetTop - window.innerHeight * 0.8 < window.pageYOffset) {
-    //       setInterval(() => {
-    //         target[key].style.animation = effect;
-    //       }, key * num);
-    //     }
-    //   });
-    // }
-    // function scrollEvents2(target, target2, effect, num) {
-    //   target.forEach((value, key) => {
-    //     if (target2.offsetTop - window.innerHeight * 0.8 < window.pageYOffset) {
-    //       setInterval(() => {
-    //         target[key].style.animation = effect;
-    //       }, key * num);
-    //     }
-    //   });
-    // }
   });
-  // trigger skip button for editing
-  // INTROSKIP.click();
-  // clearInterval(introInter);
 }

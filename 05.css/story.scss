@@ -299,6 +299,7 @@ body {
           }
           .container4-item {
             text-align: center;
+            position: absolute;
             .container4-content1 {
               max-width: 1600px;
               padding: 120px 120px 0;
@@ -306,18 +307,17 @@ body {
               // justify-content: space-evenly;
               figure {
                 position: relative;
-                width: 600px;
-                height: 350px;
+                width: 50%;
                 overflow: hidden;
                 flex-shrink: 0;
                 img {
-                  rotate: 180deg;
                   scale: 1;
                   flex-basis: fit-content;
                   width: 100%;
                 }
               }
               .main-text-wrapper {
+                width: 50%;
                 display: flex;
                 flex-direction: column;
                 margin-left: 40px;
