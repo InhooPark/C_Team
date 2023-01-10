@@ -10,26 +10,26 @@ function PRODUCTLOAD() {
     {
       url: "01.img/mints_grape.png",
       title: "MINTS GRAPE",
-      ditailTitle: "ECLIPSE GRAPE<br> Flavoured Sugarfree Mints 40 g",
+      ditailTitle: "ECLIPSE GRAPE<br> Flavoured Sugarfree Mints 40g",
       ditail: "먹는순간 강력한 상쾌함!<br> 언제 어디서나  상쾌함을 즐기세요!",
     },
     {
       url: "01.img/mints_intense.png",
       title: "MINTS INTENSE",
-      ditailTitle: "ECLIPSE INTENSE MINT<br> Sugarfree Mints Tin 40 g",
+      ditailTitle: "ECLIPSE INTENSE MINT<br> Sugarfree Mints Tin 40g",
       ditail: "먹는순간 강력한 상쾌함!<br> 언제 어디서나  상쾌함을 즐기세요!",
     },
     {
       url: "01.img/mints_orange.png",
       title: "MINTS ORANGE",
       ditailTitle:
-        "ECLIPSE TANGY ORANGE<br> Flavoured Sugarfree Mints Tin 40 g",
+        "ECLIPSE TANGY ORANGE<br> Flavoured Sugarfree Mints Tin 40g",
       ditail: "먹는순간 강력한 상쾌함!<br> 언제 어디서나  상쾌함을 즐기세요!",
     },
     {
       url: "01.img/mints_peppermint.png",
       title: "MINTS PEPPERMINT",
-      ditailTitle: "ECLIPSE PEPPERMINT<br> Sugarfree Mints Tin 40 g",
+      ditailTitle: "ECLIPSE PEPPERMINT<br> Sugarfree Mints Tin 40g",
       ditail: "먹는순간 강력한 상쾌함!<br> 언제 어디서나  상쾌함을 즐기세요!",
     },
     {
@@ -41,51 +41,51 @@ function PRODUCTLOAD() {
     {
       url: "01.img/mints_strawberry.png",
       title: "MINTS STRAWBERRY",
-      ditailTitle: "ECLIPSE STRAWBERRY<br> Flavoured Sugarfree Mints Tin 40 g",
+      ditailTitle: "ECLIPSE STRAWBERRY<br> Flavoured Sugarfree Mints Tin 40g",
       ditail: "먹는순간 강력한 상쾌함!<br> 언제 어디서나  상쾌함을 즐기세요!",
     },
     {
       url: "01.img/plus_comfort.png",
       title: "MINTS COMFORT",
       ditailTitle:
-        "ECLIPSE Plus Comfort Honey Lemon & Ginger Flavoured Sugarfree Mints Tin 40 g",
+        "ECLIPSE Plus Comfort Honey Lemon & Ginger Flavoured Sugarfree Mints Tin 40g",
       ditail: "먹는순간 강력한 상쾌함!<br> 언제 어디서나  상쾌함을 즐기세요!",
     },
     {
       url: "01.img/plus_release.png",
       title: "MINTS RELEASE",
       ditailTitle:
-        "ECLIPSE Plus Release Lemon, Menthol & Mint Flavoured Sugarfree Mints Tin 40 g",
+        "ECLIPSE Plus Release Lemon, Menthol & Mint Flavoured Sugarfree Mints Tin 40g",
       ditail: "먹는순간 강력한 상쾌함!<br> 언제 어디서나  상쾌함을 즐기세요!",
     },
     {
       url: "01.img/chewy_1.png",
       title: "ECLIPSE PINK LEMONADE",
-      ditailTitle: "ECLIPSE PINK LEMONADE<br> Flavoured Chewy Mints Tin 27 g",
+      ditailTitle: "ECLIPSE PINK LEMONADE<br> Flavoured Chewy Mints Tin 27g",
       ditail: "먹는순간 강력한 상쾌함!<br> 언제 어디서나  상쾌함을 즐기세요!",
     },
     {
       url: "01.img/chewy_2_1.png",
       title: "ECLIPSE PEPPERMINT",
-      ditailTitle: "ECLIPSE PEPPERMINT<br> Flavoured Chewy Mints Tin 27 g",
+      ditailTitle: "ECLIPSE PEPPERMINT<br> Flavoured Chewy Mints Tin 27g",
       ditail: "먹는순간 강력한 상쾌함!<br> 언제 어디서나  상쾌함을 즐기세요!",
     },
     {
       url: "01.img/chewy_3.png",
       title: "ECLIPSE PEPPERMINT",
-      ditailTitle: "ECLIPSE PEPPERMINT<br> Flavoured Chewy Mints Bottle 93 g",
+      ditailTitle: "ECLIPSE PEPPERMINT<br> Flavoured Chewy Mints Bottle 93g",
       ditail: "먹는순간 강력한 상쾌함!<br> 언제 어디서나  상쾌함을 즐기세요!",
     },
     {
       url: "01.img/chewy_4_1.png",
       title: "ECLIPSE SPEARMINT",
-      ditailTitle: "ECLIPSE SPEARMINT<br> Flavoured Chewy Mints Tin 27 g",
+      ditailTitle: "ECLIPSE SPEARMINT<br> Flavoured Chewy Mints Tin 27g",
       ditail: "먹는순간 강력한 상쾌함!<br> 언제 어디서나  상쾌함을 즐기세요!",
     },
     {
       url: "01.img/chewy_5.png",
       title: "ECLIPSE SPEARMINT",
-      ditailTitle: "ECLIPSE SPEARMINT<br> Flavoured Chewy Mints Bottle 93 g",
+      ditailTitle: "ECLIPSE SPEARMINT<br> Flavoured Chewy Mints Bottle 93g",
       ditail: "먹는순간 강력한 상쾌함!<br> 언제 어디서나  상쾌함을 즐기세요!",
     },
   ];
@@ -133,9 +133,6 @@ function PRODUCTLOAD() {
         const y =
           e.clientY - (container.offsetHeight / 2 + 10) - container.offsetTop;
 
-        const xscale = container.offsetWidth / ZOOMWINDOW.offsetWidth;
-        const yscale = container.offsetHeight / ZOOMWINDOW.offsetHeight;
-
         ZOOMWINDOW.style.display = "block";
         img.style.transform = ` translate(${-x * 2}px, ${-y * 2}px) scale(2) `;
       }
@@ -153,33 +150,42 @@ function PRODUCTLOAD() {
   const MAIN = document.querySelector(".main");
   const UPBTN2 = document.querySelector(".upbtn2");
   const UPBTN1 = document.querySelector(".upbtn1");
-  const PCNONE = document.querySelector('.pc');
+  const PCNONE = document.querySelector(".pc");
 
   function resize() {
     var WI = window.innerWidth;
-    if (WI < 1024) {
+    if (WI < 1025) {
       WDW.style.width = "25%";
       WDW.style.height = "4200px";
-
     } else {
       WDW.style.width = "35%";
       WDW.style.height = "3500px";
     }
   }
 
+
+
+
+  num = 0;
+
+  window.addEventListener("resize", () => {
+    if (!num == 0) {
+      resize();
+    }
+  });
+
   BTN.forEach(function (v, k) {
     //pc
-    num = 0;
     if (!window.matchMedia("(max-width: 768px)").matches) {
-      
       v.addEventListener("click", function () {
         resize();
         PCNONE.style.display = "block";
         MAINITEM.style.display = "block";
         if (window.innerWidth > 1024) {
           num++;
-          WDW.style.height = "3500px";
-          WDW.style.width = "35%";
+          console.log(num)
+          /*           WDW.style.height = "3500px";
+          WDW.style.width = "35%"; */
           MAIN.style.zIndex = "1";
           if (k == 0 && num == 1) {
             setTimeout(() => {

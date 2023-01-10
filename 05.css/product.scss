@@ -8,7 +8,6 @@ body {
   margin: 0;
   height: 100vh;
   background: #eefdf7;
-  
 }
 
 .main {
@@ -26,14 +25,13 @@ body {
     top: 0;
     z-index: 10;
     display: block;
-    
 
     .abc {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 7%;
-      width: 100%;
+      gap: 3%;
+      width: 104%;
       margin-top: 300px;
     }
 
@@ -46,18 +44,6 @@ body {
     }
 
     .item-img {
-      /*       height: 40%;
-      width: 35%;
-      background-color: #003082;
-      border: 5px solid black;
-      border-radius: 50px;
-      overflow: hidden;
-      padding: 0 30px;
-      min-width: 330px;
-      position: absolute;
-      top: 35%;
-      left: 11%; */
-
       height: 40%;
       width: 35%;
       background-color: #003082;
@@ -87,20 +73,13 @@ body {
     }
 
     .text {
-      /*       position: absolute;
       top: 35%;
       width: 35%;
       height: 40%;
       left: 52%;
       animation: textani 1s ease-in;
       min-width: 330px;
- */
-      top: 35%;
-      width: 35%;
-      height: 40%;
-      left: 52%;
-      animation: textani 1s ease-in;
-      min-width: 330px;
+      word-break: keep-all;
 
       h3 {
         font-size: 40px;
@@ -135,6 +114,7 @@ body {
     height: 500px;
     width: 500px;
     padding: 0 30px;
+    
 
     img {
       position: relative;
@@ -275,9 +255,7 @@ body {
           margin-bottom: 250px;
 
           .contdetail {
-            margin-top: 25px;
-            margin-bottom: 25px;
-            width: 40%;
+            width: 35%;
             height: 109px;
             border: 3px solid black;
             background-color: white;
@@ -286,7 +264,7 @@ body {
             margin: 20px 20px;
             position: relative;
             overflow: hidden;
-            .wave{
+            .wave {
               width: 200%;
               height: 200%;
               transform-origin: bottom;
@@ -303,10 +281,10 @@ body {
               min-width: 100px;
             }
           }
-          .contdetail:hover{
+          .contdetail:hover {
             transition: 0.5s;
             //background-color: #003082;
-            & .wave{
+            & .wave {
               transform: translateX(-25%) scale(1.5);
               border-radius: 100%;
               background-color: #003082;
@@ -337,9 +315,7 @@ body {
           margin-bottom: 250px;
 
           .contdetail {
-            margin-top: 25px;
-            margin-bottom: 25px;
-            width: 40%;
+            width: 35%;
             height: 109px;
             border: 3px solid black;
             background-color: white;
@@ -348,7 +324,7 @@ body {
             margin: 20px 20px;
             overflow: hidden;
             position: relative;
-            .wave{
+            .wave {
               width: 200%;
               height: 200%;
               transform-origin: bottom;
@@ -367,7 +343,7 @@ body {
           .contdetail:hover {
             transition: 0.5s;
             background-color: #003082;
-            & .wave{
+            & .wave {
               transform: translateX(-25%) scale(1.5);
               border-radius: 100%;
               background-color: #003082;
@@ -385,36 +361,48 @@ body {
       }
     }
 
-    .upbtn1 {
+    .btnBox1 {
       position: absolute;
+      height: 53px;
+      width: 100%;
       top: 200px;
-      right: 25%;
-      color: white;
-      border: 3px solid white;
-      border-radius: 13px;
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-      margin: 0 auto;
-      display: none;
-      align-items: center;
-      justify-content: center;
+      .upbtn1 {
+        position: absolute;
+        top: 0;
+        right: 35px;
+        color: white;
+        border: 3px solid white;
+        border-radius: 13px;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        margin: 0 auto;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
     }
 
-    .upbtn2 {
+    .btnBox2 {
       position: absolute;
-      top: 235px;
-      right: 25%;
-      color: white;
-      border: 3px solid white;
-      border-radius: 13px;
-      width: 50px;
-      height: 50px;
-      display: none;
-      cursor: pointer;
-      margin: 0 auto;
-      align-items: center;
-      justify-content: center;
+      height: 53px;
+      width: 100%;
+      top: 0;
+      .upbtn2 {
+        position: absolute;
+        top: 235px;
+        right: 38px;
+        color: white;
+        border: 3px solid white;
+        border-radius: 13px;
+        width: 50px;
+        height: 50px;
+        display: none;
+        cursor: pointer;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 
@@ -623,7 +611,6 @@ body {
     }
 
     .main-content {
-      //position: fixed;
       top: 0;
       transition: 0.5s;
       .choice {
@@ -663,35 +650,42 @@ body {
           }
         }
       }
-      .upbtn1 {
-        position: absolute;
-        top: 145px;
-        right: 38%;
-        color: white;
-        border: 3px solid white;
-        border-radius: 13px;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-        margin: 0 auto;
-        display: none;
-        align-items: center;
-        justify-content: center;
+      .btnBox1 {
+        top: 0;
+        .upbtn1 {
+          position: absolute;
+          top: 145px;
+          right: 38%;
+          color: white;
+          border: 3px solid white;
+          border-radius: 13px;
+          width: 50px;
+          height: 50px;
+          cursor: pointer;
+          margin: 0 auto;
+          display: none;
+          align-items: center;
+          justify-content: center;
+        }
       }
-      .upbtn2 {
-        position: absolute;
-        top: 185px;
-        right: 37%;
-        color: white;
-        border: 3px solid white;
-        border-radius: 13px;
-        width: 50px;
-        height: 50px;
-        display: none;
-        cursor: pointer;
-        margin: 0 auto;
-        align-items: center;
-        justify-content: center;
+
+      .btnBox2 {
+        top: 0;
+        .upbtn2 {
+          position: absolute;
+          top: 185px;
+          right: 37%;
+          color: white;
+          border: 3px solid white;
+          border-radius: 13px;
+          width: 50px;
+          height: 50px;
+          display: none;
+          cursor: pointer;
+          margin: 0 auto;
+          align-items: center;
+          justify-content: center;
+        }
       }
     }
   }
