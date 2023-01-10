@@ -50,7 +50,6 @@ function storyLOAD(data) {
       num2++;
       INTROPTAG[num2].style.animation = opacityBlurAni;
       num++;
-      console.log("텍스트 효과 실행중");
     }, delay);
 
     interSkip = setTimeout(() => {
@@ -73,7 +72,6 @@ function storyLOAD(data) {
     setTimeout(() => {
       MAINCONT1.classList.add("active");
     }, 500);
-    console.log("클릭 트리거");
   });
 
   function introCanvasFun() {
@@ -443,8 +441,8 @@ function storyLOAD(data) {
   animate();
 
   const ELMAINIMG = document.querySelectorAll(".container4-content1 img");
-  const SUBTEXTWRAPPER = document.querySelectorAll(".main-text-wrapper");
-  console.log(SUBTEXTWRAPPER);
+  const MAINTEXTH3 = document.querySelectorAll(".main-text-wrapper");
+  // const MAINTEXTDIV = document.querySelectorAll(".main-text-wrapper div");
   let fadeInEffect2 = `fadeInUp 1000ms 0ms 1 both`;
   document.addEventListener("scroll", () => {
     let currentScrollValue = document.documentElement.scrollTop;
@@ -455,23 +453,22 @@ function storyLOAD(data) {
   });
   const option = {
     // root: document.querySelector(".root"),
-    // rootMargin: "100px 0px 0px 0px",
-    threshold: 0.75,
+    rootMargin: "100px 0px 0px 0px",
+    threshold: 0.5,
   };
   let observer = new IntersectionObserver((e) => {
-    console.log(e);
     e.forEach((el, key) => {
       if (el.isIntersecting) {
         el.target.style.animation = fadeInEffect2;
       } else {
-        el.target.style = `opacity: 0`;
+        el.target.style = `opacity: 0; transition: 0.5s`;
       }
     });
   }, option);
-  observer.observe(SUBTEXTWRAPPER[0]);
-  observer.observe(SUBTEXTWRAPPER[1]);
-  observer.observe(SUBTEXTWRAPPER[2]);
-  observer.observe(SUBTEXTWRAPPER[3]);
-  observer.observe(SUBTEXTWRAPPER[4]);
-  observer.observe(SUBTEXTWRAPPER[5]);
+  MAINTEXTH3.forEach((el) => {
+    observer.observe(el);
+  });
+  // MAINTEXTDIV.forEach((el) => {
+  //   observer.observe(el);
+  // });
 }
