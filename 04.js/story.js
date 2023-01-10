@@ -248,8 +248,8 @@ function storyLOAD(data) {
           // SWIPERCONTENTS[activeIndex].controls = true;
           CONT3TEXTBOX.style = `opacity: 0;`;
           SCROLLIMG.style = `opacity:0; transition 0.5s; translate: -50% 90%;`;
-          CONT2ITEM1.style = `translate: -40% -50%; transition: translate 0.5s`;
-          INDIGATOR.style = `translate: 110% -50%; transition: translate 0.5s`;
+          CONT2ITEM1.style = `opacity: 0; translate: -40% -50%;`;
+          INDIGATOR.style = `opacity: 0; translate: 110% -50%;`;
           BTVBTN.style = `opacity: 1; user-select: auto;`;
           SWIPERSLIDE.forEach((el, key) => {
             if (!el.classList.contains("swiper-slide-active")) {
@@ -264,40 +264,7 @@ function storyLOAD(data) {
           CONT4ITEMS.forEach((el, key) => {
             CONT4ITEMS[currentIndex].classList.add("active");
           });
-          // if (window.innerWidth < 768) {
-          //   SWIPERCONTENTS[activeIndex].play();
-          // }
         },
-        // doubleClick: function (e) {
-        //   const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
-        //   const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
-        //   function doubleTabFun(value) {
-        //     if (window.innerWidth < 768) {
-        //       SWIPERCONTENTS.forEach((el, key) => {
-        //         el.style = `width:93vw; height:80vh;filter: brightness(0.5)`;
-        //       });
-        //     } else {
-        //       SWIPERCONTENTS.forEach((el, key) => {
-        //         el.style = `width:78vw; height:80vh;filter: brightness(0.5)`;
-        //       });
-        //     }
-        //     SWIPERSLIDE.forEach((el, key) => {
-        //       if (!el.classList.contains("swiper-slide-active")) {
-        //         el.classList.remove("active");
-        //       }
-        //     });
-        //   }
-        //   SWIPERCONTENTS[activeIndex].muted = true;
-        //   let currentIndex = e.realIndex;
-        //   activeIndex = e.activeIndex;
-        //   doubleTabFun(activeIndex);
-        //   CONT3TEXTBOX.style = `opacity: 1;`;
-        //   if (currentIndex == 0) {
-        //     SCROLLIMG.style = `opacity:1; transition 0.5s; translate: -50% -50%; `;
-        //   }
-        //   CONT2ITEM1.style = `translate: 0 -50%; transition: translate 0.5s`;
-        //   INDIGATOR.style = `translate: 0 -50%; transition: translate 0.5s`;
-        // },
         slideChangeTransitionStart: function (e) {
           let currentIndex = e.realIndex;
           // let previousIndex = e.previousIndex;
@@ -310,19 +277,20 @@ function storyLOAD(data) {
           }, 500);
         },
         slideChangeTransitionEnd: function (e) {
-          const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           let currentIndex = e.realIndex;
-          let previousIndex = e.previousIndex;
-          let activeIndex = e.activeIndex;
           INDIGATOR.innerHTML = "0" + (currentIndex + 1);
           INDIGATOR.style = `opacity:1`;
         },
         slideChange: function (e) {
           const SWIPERCONTENTS = document.querySelectorAll(".swiper-contents");
           const SWIPERSLIDE = document.querySelectorAll(".swiper-slide");
+          // const SWIPERWRAPPER = document.querySelector(".swiper-wrapper");
+          // SWIPERWRAPPER.style = `transition-delay: 1s`;
           let currentIndex = e.realIndex;
           let previousIndex = e.previousIndex;
           let activeIndex = e.activeIndex;
+          INDIGATOR.innerHTML = "0" + (currentIndex + 1);
+          INDIGATOR.style = `opacity:1`;
           if (currentIndex == 0) {
             setTimeout(() => {
               SCROLLIMG.style = `opacity:1; transition 0.5s; translate: -50% -50%;`;
@@ -381,6 +349,7 @@ function storyLOAD(data) {
       speed: 500,
       observer: true,
       longSwipes: false,
+      preventInteractionOnTransition: true,
     });
     NAVIGATOR.forEach((el, key) => {
       el.addEventListener("click", () => {
@@ -390,6 +359,8 @@ function storyLOAD(data) {
     });
     const BTVBTN = document.querySelector(".btv");
     BTVBTN.addEventListener("click", () => {
+      CONT2ITEM1.style = `translate: -40% -50%; transition: 0.5s`;
+      INDIGATOR.style = `translate: 110% -50%; transition: 0.5s`;
       swiper.enable();
       setTimeout(() => {
         BODY.style = `position: fixed`;
@@ -402,49 +373,117 @@ function storyLOAD(data) {
     });
   }
 
-  // function canvasFun2() {
-  // const canvas = document.querySelector(".canvas2");
-  // const ctx = canvas.getContext("2d");
-  // canvas.width = innerWidth;
-  // canvas.height = innerHeight;
+  const pTag1 = document.querySelector(".item1-text-wrapper p");
+  const pTag2 = document.querySelector(".item2-text-wrapper p");
+  const pTag3 = document.querySelector(".item3-text-wrapper p");
+  const pTag4 = document.querySelector(".item4-text-wrapper p");
+  const pTag5 = document.querySelector(".item5-text-wrapper p");
+  const pTag6 = document.querySelector(".item6-text-wrapper p");
 
-  // let image = new Image();
-  // image.src = "./01.img/mints_peppermint.png";
+  let textArr1 = "Inside the tin ECLIPSE original mint Inside the tin ECLIPSE original mint".split(" ");
+  let textArr2 = "Chew your way to fresh ECLIPSE chewy Chew your way to fresh ECLIPSE chewy".split(" ");
+  let textArr3 = "Say hello to fresh ECLIPSE fruit trio Say hello to fresh ECLIPSE fruit trio".split(" ");
+  let textArr4 = "Freshen up behind the mask ECLIPSE strawberry Freshen up behind the mask ECLIPSE strawberry".split(" ");
+  let textArr5 = "Let there be fresh ECLIPSE intense mint Let there be fresh ECLIPSE intense mint".split(" ");
+  let textArr6 = "Feel your way back to fresh honey lemon and ginger Feel your way back to fresh honey lemon and ginger".split(" ");
 
-  // // Wait for the image to load before drawing it
-  // image.onload = function () {
-  //   // Draw the image at the initial position
-  //   ctx.drawImage(image, -image.width / 2, -image.height / 2, 100, 100);
-  // };
+  let count1 = 0;
+  let count2 = 0;
+  let count3 = 0;
+  let count4 = 0;
+  let count5 = 0;
+  let count6 = 0;
 
-  // // Set up a function to be called whenever the mouse moves
-  // canvas.addEventListener("mousemove", function (event) {
-  //   // Get the mouse position relative to the canvas element
-  //   let mouseX = event.offsetX;
-  //   let mouseY = event.offsetY;
+  initTexts(pTag1, textArr1);
+  initTexts(pTag2, textArr2);
+  initTexts(pTag3, textArr3);
+  initTexts(pTag4, textArr4);
+  initTexts(pTag5, textArr5);
+  initTexts(pTag6, textArr6);
 
-  //   // Clear the canvas
-  //   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  function initTexts(element, textArray) {
+    textArray.push(...textArray);
+    for (let i = 0; i < textArray.length; i++) {
+      element.innerText += `${textArray[i]}\u00A0\u00A0`;
+    }
+  }
 
-  //   // Save the context state
-  //   ctx.save();
+  function marqueeText(count, element, direction) {
+    if (count > element.scrollWidth / 2) {
+      element.style.transform = `translate3d(0, 0, 0)`;
+      count = 0;
+    }
+    element.style.transform = `translate3d(${direction * count}px, 0, 0)`;
 
-  //   // Translate the context to the center of the image
-  //   ctx.translate(canvas.width / 2, canvas.height / 2);
+    return count;
+  }
 
-  //   // Rotate the context to face towards the mouse position
-  //   let angle = Math.atan2(mouseY - 400, mouseX - 400);
-  //   ctx.rotate(angle);
+  function animate() {
+    count1++;
+    count2++;
+    count3++;
+    count4++;
+    count5++;
+    count6++;
 
-  //   // Draw the image
-  //   // ctx.drawImage(image, -image.width / 2, -image.height / 2);
-  //   ctx.drawImage(image, -image.width / 2, -image.height / 2, 100, 100);
+    count1 = marqueeText(count1, pTag1, -1);
+    count2 = marqueeText(count2, pTag2, -1);
+    count3 = marqueeText(count3, pTag3, -1);
+    count4 = marqueeText(count4, pTag4, -1);
+    count5 = marqueeText(count5, pTag5, -1);
+    count6 = marqueeText(count6, pTag6, -1);
 
-  //   // Restore the context state
-  //   ctx.restore();
-  // });
-  // }
+    window.requestAnimationFrame(animate);
+  }
 
+  function scrollHandler() {
+    count1 += 8;
+    count2 += 8;
+    count3 += 8;
+    count4 += 8;
+    count5 += 8;
+    count6 += 8;
+  }
+
+  window.addEventListener("scroll", scrollHandler);
+
+  animate();
+
+  // 수정중
+  const ELMAINFIG = document.querySelectorAll(".container4-content1 figure");
+  const ELMAINIMG = document.querySelectorAll(".container4-content1 img");
+  document.addEventListener("scroll", () => {
+    let currentScrollValue = document.documentElement.scrollTop;
+    // value = window.pageYOffset / ELMAINFIG[0].offsetTop - 3.35;
+
+    ELMAINIMG.forEach((el, key) => {
+      el.style.transform = `scale(${window.pageYOffset / ELMAINFIG[key].offsetTop - 3.35})`;
+    });
+    // function scrollEvent(target, target2, effect) {
+    //   if (target2.offsetTop - window.innerHeight * 0.8 < window.pageYOffset) {
+    //     target.style.animation = effect;
+    //   }
+    // }
+
+    // function scrollEvents(target, target2, effect, num) {
+    //   target.forEach((value, key) => {
+    //     if (target2[key].offsetTop - window.innerHeight * 0.8 < window.pageYOffset) {
+    //       setInterval(() => {
+    //         target[key].style.animation = effect;
+    //       }, key * num);
+    //     }
+    //   });
+    // }
+    // function scrollEvents2(target, target2, effect, num) {
+    //   target.forEach((value, key) => {
+    //     if (target2.offsetTop - window.innerHeight * 0.8 < window.pageYOffset) {
+    //       setInterval(() => {
+    //         target[key].style.animation = effect;
+    //       }, key * num);
+    //     }
+    //   });
+    // }
+  });
   // trigger skip button for editing
   INTROSKIP.click();
   clearInterval(introInter);
