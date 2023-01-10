@@ -485,6 +485,6 @@ function storyLOAD(data) {
     // }
   });
   // trigger skip button for editing
-  INTROSKIP.click();
-  clearInterval(introInter);
+  // INTROSKIP.click();
+  // clearInterval(introInter);
 }
