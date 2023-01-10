@@ -184,8 +184,6 @@ function PRODUCTLOAD() {
         if (window.innerWidth > 1024) {
           num++;
           console.log(num)
-          /*           WDW.style.height = "3500px";
-          WDW.style.width = "35%"; */
           MAIN.style.zIndex = "1";
           if (k == 0 && num == 1) {
             setTimeout(() => {
@@ -220,8 +218,6 @@ function PRODUCTLOAD() {
           UPBTN2.style.display = "flex";
         } else {
           num++;
-          WDW.style.height = "4200px";
-          WDW.style.width = "25%";
           if (k == 0 && num == 1) {
             setTimeout(() => {
               window.scrollTo({
