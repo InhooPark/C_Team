@@ -114,7 +114,6 @@ body {
     height: 500px;
     width: 500px;
     padding: 0 30px;
-    
 
     img {
       position: relative;
@@ -364,7 +363,8 @@ body {
     .btnBox1 {
       position: absolute;
       height: 53px;
-      width: 100%;
+      width: 50%;
+      left: 180px;
       top: 200px;
       .upbtn1 {
         position: absolute;
@@ -376,7 +376,6 @@ body {
         width: 50px;
         height: 50px;
         cursor: pointer;
-        margin: 0 auto;
         display: none;
         align-items: center;
         justify-content: center;
@@ -386,7 +385,8 @@ body {
     .btnBox2 {
       position: absolute;
       height: 53px;
-      width: 100%;
+      width: 50%;
+      left: 190px;
       top: 0;
       .upbtn2 {
         position: absolute;
@@ -399,7 +399,6 @@ body {
         height: 50px;
         display: none;
         cursor: pointer;
-        margin: 0 auto;
         align-items: center;
         justify-content: center;
       }
@@ -651,40 +650,24 @@ body {
         }
       }
       .btnBox1 {
-        top: 0;
+        top: 140px;
+        left: 50%;
+        width: 50%;
+
         .upbtn1 {
-          position: absolute;
-          top: 145px;
-          right: 38%;
-          color: white;
-          border: 3px solid white;
-          border-radius: 13px;
-          width: 50px;
-          height: 50px;
-          cursor: pointer;
-          margin: 0 auto;
-          display: none;
-          align-items: center;
-          justify-content: center;
+          top: 0;
+          left: -22px;
         }
       }
 
       .btnBox2 {
-        top: 0;
+        top: 170px;
+        left: 50%;
+        width: 50%;
+
         .upbtn2 {
-          position: absolute;
-          top: 185px;
-          right: 37%;
-          color: white;
-          border: 3px solid white;
-          border-radius: 13px;
-          width: 50px;
-          height: 50px;
-          display: none;
-          cursor: pointer;
-          margin: 0 auto;
-          align-items: center;
-          justify-content: center;
+          top: 0;
+          left: -22px;
         }
       }
     }
