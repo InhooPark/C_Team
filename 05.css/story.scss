@@ -1,8 +1,9 @@
 @import url(./reset.css);
 @import url(./header.css);
 
-html{
-  scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body {
   //수정 끝나면 스티키
@@ -10,7 +11,7 @@ body {
   // position: static;
   width: 100%;
   height: 100%;
- 
+
   // transition: 2s;
   &::-webkit-scrollbar {
     -ms-overflow-style: none;
@@ -293,53 +294,158 @@ body {
         .container4-wrapper {
           max-width: 1600px;
           margin: 0 auto;
-          padding: 120px 80px;
           .canvas2 {
             position: absolute;
           }
-          .container4-text-wrapper {
-            .container4-item {
-              text-align: center;
-              .item4-text {
-                p {
+          .container4-item {
+            text-align: center;
+            .container4-content1 {
+              max-width: 1600px;
+              padding: 120px 120px 0;
+              display: flex;
+              // justify-content: space-evenly;
+              figure {
+                position: relative;
+                width: 600px;
+                height: 350px;
+                overflow: hidden;
+                flex-shrink: 0;
+                img {
+                  rotate: 180deg;
+                  scale: 1;
+                  flex-basis: fit-content;
+                  width: 100%;
+                }
+              }
+              .main-text-wrapper {
+                display: flex;
+                flex-direction: column;
+                margin-left: 40px;
+                justify-content: center;
+                h3 {
+                  font-size: 3vw;
+                  flex-basis: 1;
+                  text-align: left;
+                  margin-bottom: 25px;
+                }
+                div {
+                  text-align: left;
+                  font-size: 1.25vw;
+                  line-height: 2.5rem;
                 }
               }
             }
-            .item1 {
-              display: none;
-              &.active {
-                display: block;
+            .item4-text {
+              width: 100vw;
+              margin-bottom: 12vw;
+              display: flex;
+              p {
+                margin: 0px 0 0 0;
+                padding: 10px 0;
+                font-size: 8vw;
               }
             }
-            .item2 {
-              display: none;
-              &.active {
-                display: block;
-              }
+          }
+          .item1 {
+            display: none;
+            &.active {
+              display: block;
             }
-            .item3 {
-              display: none;
-              &.active {
-                display: block;
-              }
+            P {
+              rotate: -2deg;
+              color: #59ebb1;
+              background-color: #fdf7ee;
+              font-weight: 900;
+              text-transform: uppercase;
+              font-size: clamp(3rem, 10vw, 6rem);
+              line-height: 0.75em;
+              text-shadow: 3px 1px 1px #4af7ff, 2px 2px 1px #165bfb, 4px 2px 1px #4af7ff, 3px 3px 1px #165bfb, 5px 3px 1px #4af7ff, 4px 4px 1px #165bfb, 6px 4px 1px #4af7ff, 5px 5px 1px #165bfb,
+                7px 5px 1px #4af7ff, 6px 6px 1px #165bfb, 8px 6px 1px #4af7ff, 7px 7px 1px #165bfb, 9px 7px 1px #4af7ff;
             }
-            .item4 {
-              display: none;
-              &.active {
-                display: block;
-              }
+          }
+          .item2 {
+            display: none;
+            &.active {
+              display: block;
             }
-            .item5 {
-              display: none;
-              &.active {
-                display: block;
-              }
+            P {
+              rotate: -2deg;
+              color: #ffce6c;
+              background-color: #fdf7ee;
+              font-weight: 900;
+              text-transform: uppercase;
+              font-size: clamp(3rem, 10vw, 6rem);
+              line-height: 0.75em;
+              text-shadow: 3px 1px 1px #4af7ff, 2px 2px 1px #165bfb, 4px 2px 1px #4af7ff, 3px 3px 1px #165bfb, 5px 3px 1px #4af7ff, 4px 4px 1px #165bfb, 6px 4px 1px #4af7ff, 5px 5px 1px #165bfb,
+                7px 5px 1px #4af7ff, 6px 6px 1px #165bfb, 8px 6px 1px #4af7ff, 7px 7px 1px #165bfb, 9px 7px 1px #4af7ff;
             }
-            .item6 {
-              display: none;
-              &.active {
-                display: block;
-              }
+          }
+          .item3 {
+            display: none;
+            &.active {
+              display: block;
+            }
+            P {
+              rotate: -2deg;
+              color: #c7b25a;
+              background-color: #fdf7ee;
+              font-weight: 900;
+              text-transform: uppercase;
+              font-size: clamp(3rem, 10vw, 6rem);
+              line-height: 0.75em;
+              text-shadow: 3px 1px 1px #4af7ff, 2px 2px 1px #165bfb, 4px 2px 1px #4af7ff, 3px 3px 1px #165bfb, 5px 3px 1px #4af7ff, 4px 4px 1px #165bfb, 6px 4px 1px #4af7ff, 5px 5px 1px #165bfb,
+                7px 5px 1px #4af7ff, 6px 6px 1px #165bfb, 8px 6px 1px #4af7ff, 7px 7px 1px #165bfb, 9px 7px 1px #4af7ff;
+            }
+          }
+          .item4 {
+            display: none;
+            &.active {
+              display: block;
+            }
+            P {
+              rotate: -2deg;
+              color: #ca7676;
+              background-color: #fdf7ee;
+              font-weight: 900;
+              text-transform: uppercase;
+              font-size: clamp(3rem, 10vw, 6rem);
+              line-height: 0.75em;
+              text-shadow: 3px 1px 1px #4af7ff, 2px 2px 1px #165bfb, 4px 2px 1px #4af7ff, 3px 3px 1px #165bfb, 5px 3px 1px #4af7ff, 4px 4px 1px #165bfb, 6px 4px 1px #4af7ff, 5px 5px 1px #165bfb,
+                7px 5px 1px #4af7ff, 6px 6px 1px #165bfb, 8px 6px 1px #4af7ff, 7px 7px 1px #165bfb, 9px 7px 1px #4af7ff;
+            }
+          }
+          .item5 {
+            display: none;
+            &.active {
+              display: block;
+            }
+            P {
+              rotate: -2deg;
+              color: #ffe52f;
+              background-color: #fdf7ee;
+              font-weight: 900;
+              text-transform: uppercase;
+              font-size: clamp(3rem, 10vw, 6rem);
+              line-height: 0.75em;
+              text-shadow: 3px 1px 1px #4af7ff, 2px 2px 1px #165bfb, 4px 2px 1px #4af7ff, 3px 3px 1px #165bfb, 5px 3px 1px #4af7ff, 4px 4px 1px #165bfb, 6px 4px 1px #4af7ff, 5px 5px 1px #165bfb,
+                7px 5px 1px #4af7ff, 6px 6px 1px #165bfb, 8px 6px 1px #4af7ff, 7px 7px 1px #165bfb, 9px 7px 1px #4af7ff;
+            }
+          }
+          .item6 {
+            display: none;
+            &.active {
+              display: block;
+            }
+            P {
+              rotate: -2deg;
+              color: #9fcd54;
+              background-color: #fdf7ee;
+              font-weight: 900;
+              text-transform: uppercase;
+              font-size: clamp(3rem, 10vw, 6rem);
+              line-height: 0.75em;
+              text-shadow: 3px 1px 1px #4af7ff, 2px 2px 1px #165bfb, 4px 2px 1px #4af7ff, 3px 3px 1px #165bfb, 5px 3px 1px #4af7ff, 4px 4px 1px #165bfb, 6px 4px 1px #4af7ff, 5px 5px 1px #165bfb,
+                7px 5px 1px #4af7ff, 6px 6px 1px #165bfb, 8px 6px 1px #4af7ff, 7px 7px 1px #165bfb, 9px 7px 1px #4af7ff;
             }
           }
         }
