@@ -302,7 +302,7 @@ body {
             position: absolute;
             .container4-content1 {
               max-width: 1600px;
-              padding: 120px 120px 0;
+              padding: 120px 15px 0;
               display: flex;
               // justify-content: space-evenly;
               figure {
@@ -322,6 +322,7 @@ body {
                 flex-direction: column;
                 margin-left: 40px;
                 justify-content: center;
+                opacity: 0;
                 h3 {
                   font-size: 3vw;
                   flex-basis: 1;

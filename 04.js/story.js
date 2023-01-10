@@ -443,6 +443,9 @@ function storyLOAD(data) {
   animate();
 
   const ELMAINIMG = document.querySelectorAll(".container4-content1 img");
+  const SUBTEXTWRAPPER = document.querySelectorAll(".main-text-wrapper");
+  console.log(SUBTEXTWRAPPER);
+  let fadeInEffect2 = `fadeInUp 1000ms 0ms 1 both`;
   document.addEventListener("scroll", () => {
     let currentScrollValue = document.documentElement.scrollTop;
 
@@ -450,4 +453,25 @@ function storyLOAD(data) {
       el.style.transform = `scale(${220 - +window.pageYOffset / 12 + "%"})`;
     });
   });
+  const option = {
+    // root: document.querySelector(".root"),
+    // rootMargin: "100px 0px 0px 0px",
+    threshold: 0.75,
+  };
+  let observer = new IntersectionObserver((e) => {
+    console.log(e);
+    e.forEach((el, key) => {
+      if (el.isIntersecting) {
+        el.target.style.animation = fadeInEffect2;
+      } else {
+        el.target.style = `opacity: 0`;
+      }
+    });
+  }, option);
+  observer.observe(SUBTEXTWRAPPER[0]);
+  observer.observe(SUBTEXTWRAPPER[1]);
+  observer.observe(SUBTEXTWRAPPER[2]);
+  observer.observe(SUBTEXTWRAPPER[3]);
+  observer.observe(SUBTEXTWRAPPER[4]);
+  observer.observe(SUBTEXTWRAPPER[5]);
 }
