@@ -2,7 +2,7 @@
 @import url(./header.css);
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
@@ -332,6 +332,7 @@ body #main .main-wrapper .main-container4 .container4-wrapper .container4-item .
   margin-left: 40px;
   justify-content: center;
   opacity: 0;
+  transition: 0.5s;
 }
 body #main .main-wrapper .main-container4 .container4-wrapper .container4-item .container4-content1 .main-text-wrapper h3 {
   font-size: 3vw;

@@ -3,7 +3,7 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 body {
   //수정 끝나면 스티키
@@ -323,6 +323,7 @@ body {
                 margin-left: 40px;
                 justify-content: center;
                 opacity: 0;
+                transition: 0.5s;
                 h3 {
                   font-size: 3vw;
                   flex-basis: 1;
