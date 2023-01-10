@@ -26,8 +26,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 7%;
-  width: 100%;
+  gap: 3%;
+  width: 104%;
   margin-top: 300px;
 }
 .main .main-item h2 {
@@ -38,17 +38,6 @@ body {
   font-size: 30px;
 }
 .main .main-item .item-img {
-  /*       height: 40%;
-  width: 35%;
-  background-color: #003082;
-  border: 5px solid black;
-  border-radius: 50px;
-  overflow: hidden;
-  padding: 0 30px;
-  min-width: 330px;
-  position: absolute;
-  top: 35%;
-  left: 11%; */
   height: 40%;
   width: 35%;
   background-color: #003082;
@@ -84,14 +73,6 @@ body {
   }
 }
 .main .main-item .text {
-  /*       position: absolute;
-       top: 35%;
-       width: 35%;
-       height: 40%;
-       left: 52%;
-       animation: textani 1s ease-in;
-       min-width: 330px;
-  */
   top: 35%;
   width: 35%;
   height: 40%;
@@ -99,6 +80,7 @@ body {
   -webkit-animation: textani 1s ease-in;
           animation: textani 1s ease-in;
   min-width: 330px;
+  word-break: keep-all;
 }
 .main .main-item .text h3 {
   font-size: 40px;
@@ -292,9 +274,7 @@ body {
   margin-bottom: 250px;
 }
 .main .main-content .pc .candy .candycont .contdetail {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  width: 40%;
+  width: 35%;
   height: 109px;
   border: 3px solid black;
   background-color: white;
@@ -349,9 +329,7 @@ body {
   margin-bottom: 250px;
 }
 .main .main-content .pc .chewy .candycont .contdetail {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  width: 40%;
+  width: 35%;
   height: 109px;
   border: 3px solid black;
   background-color: white;
@@ -393,10 +371,16 @@ body {
 .main .main-content .pc .chewy .candydetail:nth-child(1) {
   margin-bottom: 100px;
 }
-.main .main-content .upbtn1 {
+.main .main-content .btnBox1 {
   position: absolute;
+  height: 53px;
+  width: 100%;
   top: 200px;
-  right: 25%;
+}
+.main .main-content .btnBox1 .upbtn1 {
+  position: absolute;
+  top: 0;
+  right: 35px;
   color: white;
   border: 3px solid white;
   border-radius: 13px;
@@ -408,10 +392,16 @@ body {
   align-items: center;
   justify-content: center;
 }
-.main .main-content .upbtn2 {
+.main .main-content .btnBox2 {
+  position: absolute;
+  height: 53px;
+  width: 100%;
+  top: 0;
+}
+.main .main-content .btnBox2 .upbtn2 {
   position: absolute;
   top: 235px;
-  right: 25%;
+  right: 38px;
   color: white;
   border: 3px solid white;
   border-radius: 13px;
@@ -651,7 +641,10 @@ body {
     width: 110px;
     height: 110px;
   }
-  .main .main-content .upbtn1 {
+  .main .main-content .btnBox1 {
+    top: 0;
+  }
+  .main .main-content .btnBox1 .upbtn1 {
     position: absolute;
     top: 145px;
     right: 38%;
@@ -666,7 +659,10 @@ body {
     align-items: center;
     justify-content: center;
   }
-  .main .main-content .upbtn2 {
+  .main .main-content .btnBox2 {
+    top: 0;
+  }
+  .main .main-content .btnBox2 .upbtn2 {
     position: absolute;
     top: 185px;
     right: 37%;
