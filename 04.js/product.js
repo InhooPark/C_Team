@@ -22,8 +22,7 @@ function PRODUCTLOAD() {
     {
       url: "01.img/mints_orange.png",
       title: "MINTS ORANGE",
-      ditailTitle:
-        "ECLIPSE TANGY ORANGE<br> Flavoured Sugarfree Mints Tin 40g",
+      ditailTitle: "ECLIPSE TANGY ORANGE<br> Flavoured Sugarfree Mints Tin 40g",
       ditail: "먹는순간 강력한 상쾌함!<br> 언제 어디서나  상쾌함을 즐기세요!",
     },
     {
@@ -110,36 +109,61 @@ function PRODUCTLOAD() {
       </duv>
       <div class="zoomWindow">
           <img src="${data[key].url}" alt="">
-      </div>`;
+      </div>
+      <div class="bgImg">
+      <img src="${data[key].url}">
+    </div>`;
       hover();
     });
   });
 
-  function hover() {
-    if (!window.matchMedia("(max-width: 1500px)").matches) {
-      const container = document.querySelector(".item-img");
-      const img = document.querySelector(".zoomWindow img");
-      const ZOOMWINDOW = document.querySelector(".zoomWindow");
+  //확대하기
 
+  function hover() {
+    const container = document.querySelector(".item-img");
+    const img = document.querySelector(".zoomWindow img");
+    const ZOOMWINDOW = document.querySelector(".zoomWindow");
+    const AA = window.innerWidth;
+
+    container.addEventListener("mousemove", onZoom);
+    container.addEventListener("mouseover", onZoom);
+    container.addEventListener("mouseleave", offZoom);
+    window.addEventListener("resize", resizeZoom);
+
+    if (AA > 1599) {
+      console.log("aaa");
       container.addEventListener("mousemove", onZoom);
       container.addEventListener("mouseover", onZoom);
       container.addEventListener("mouseleave", offZoom);
+    } else {
+      console.log("bbb");
+      ZOOMWINDOW.style.opacity = "0";
+    }
 
-      function onZoom(e) {
-        /* const x = e.clientX - e.target.offsetLeft;
-      const y = e.clientY - e.target.offsetTop; */
-        const x =
-          e.clientX - (container.offsetWidth / 2 - 30) - container.offsetLeft;
-        const y =
-          e.clientY - (container.offsetHeight / 2 + 10) - container.offsetTop;
+    function resizeZoom() {
+      var WI = window.innerWidth;
+      if (WI > 1599) {
+        console.log("aa");
+        ZOOMWINDOW.style.opacity = "1";
+        ZOOMWINDOW.style.right = "3%";
+      } else if (WI < 1599) {
+        console.log("bb");
+        ZOOMWINDOW.style.opacity = "0";
+      }
+    }
 
-        ZOOMWINDOW.style.display = "block";
+    function onZoom(e) {
+      const x =
+        e.clientX - (container.offsetWidth / 2 - 30) - container.offsetLeft;
+      const y =
+        e.clientY - (container.offsetHeight / 2 + 10) - container.offsetTop;
+        ZOOMWINDOW.style.display = "block";        
         img.style.transform = ` translate(${-x * 2}px, ${-y * 2}px) scale(2) `;
-      }
+      
+    }
 
-      function offZoom(e) {
-        ZOOMWINDOW.style.display = "none";
-      }
+    function offZoom() {
+      ZOOMWINDOW.style.display = "none";
     }
   }
 
@@ -163,8 +187,18 @@ function PRODUCTLOAD() {
     }
   }
 
-
-
+  /*   function resize() {
+    var WI = window.innerWidth;
+    if (WI < 1025) {
+      WDW.style.width = "25%";
+      WDW.style.height = "4200px";
+    } else if(WI < 1700) {
+      WDW.style.width = "35%";
+      WDW.style.height = "3500px";
+    }else{
+      ZOOMWINDOW.style.display = 'none';
+    }
+  } */
 
   num = 0;
 
@@ -183,7 +217,6 @@ function PRODUCTLOAD() {
         MAINITEM.style.display = "block";
         if (window.innerWidth > 1024) {
           num++;
-          console.log(num)
           MAIN.style.zIndex = "1";
           if (k == 0 && num == 1) {
             setTimeout(() => {
