@@ -443,7 +443,7 @@ function storyLOAD(data) {
   const ELMAINIMG = document.querySelectorAll(".container4-content1 img");
   const MAINTEXTH3 = document.querySelectorAll(".main-text-wrapper");
   // const MAINTEXTDIV = document.querySelectorAll(".main-text-wrapper div");
-  let fadeInEffect2 = `fadeInUp 1000ms 0ms 1 both`;
+  let fadeInEffect2 = `fadeInUp 1000ms 100ms 1 both`;
   document.addEventListener("scroll", () => {
     let currentScrollValue = document.documentElement.scrollTop;
 
@@ -454,7 +454,7 @@ function storyLOAD(data) {
   const option = {
     // root: document.querySelector(".root"),
     rootMargin: "100px 0px 0px 0px",
-    threshold: 0.5,
+    threshold: 0.3,
   };
   let observer = new IntersectionObserver((e) => {
     e.forEach((el, key) => {
