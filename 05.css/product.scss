@@ -30,16 +30,16 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 3%;
-      width: 104%;
-      margin-top: 300px;
+      gap: 6%;
+      width: 105%;
+      margin-top: 340px;
     }
 
     h2 {
       position: absolute;
-      top: 25%;
+      top: 26%;
       z-index: 22;
-      left: 11%;
+      left: 15%;
       font-size: 30px;
     }
 
@@ -100,21 +100,47 @@ body {
         opacity: 1;
       }
     }
+    .bgImg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0.3;
+      z-index: -1;
+
+      img {
+        width: 1000px;
+        margin-top: 5px;
+        margin-left: 5%;
+        transform: rotate(-12deg);
+        //animation: bb 1s forwards ease-out;
+      }
+      /*       @keyframes bb {
+        0% {
+          transform: scale(0.9) rotate(-0);
+
+        }
+        100% {
+          transform: scale(1) rotate(-12deg);
+
+        }
+      } */
+    }
   }
   .zoomWindow {
-    border-radius: 50%;
+    border-radius: 50px;
     border: 5px solid black;
     //    position: fixed;
     position: absolute;
-    right: 10%;
-    top: 27%;
+    right: 4%;
+    top: 265px;
     display: none;
     background-color: #003082;
     overflow: hidden;
     height: 500px;
     width: 500px;
     padding: 0 30px;
-
     img {
       position: relative;
       object-fit: contain;
@@ -247,8 +273,7 @@ body {
         .candycont {
           width: 100%;
           height: 100%;
-          background: #37b987
-    ;
+          background: #37b987;
           display: flex;
           flex-wrap: wrap;
           justify-content: space-evenly;
@@ -308,8 +333,7 @@ body {
         .candycont {
           width: 100%;
           height: 100%;
-          background: #37b987
-    ;
+          background: #37b987;
           display: flex;
           flex-wrap: wrap;
           justify-content: space-evenly;
@@ -574,13 +598,6 @@ body {
   }
 }
 
-@media screen and (max-width: 1500px) {
-  .main {
-    .zoomWindow {
-      display: none;
-    }
-  }
-}
 @media screen and (max-width: 1024px) {
   header {
     .menu-container {
@@ -677,3 +694,11 @@ body {
 }
 
 //분기점 잡고 분기점마다 어떻게해야할지
+
+//이슈
+// 독보기 위치잡기 잘 안됨.
+
+//반응형ㅇ할때 우선순우 js >>>>
+// 순서 중요
+
+//
