@@ -27,7 +27,7 @@ body #main .main-wrapper {
   height: 200vh;
 }
 body #main .main-wrapper .main-container1 {
-  transition: opacity 0.5s cubic-bezier(0.5, 1, 0.89, 1);
+  transition: translate 1s cubic-bezier(0.5, 1, 0.89, 1), opacity 0.5s cubic-bezier(0.5, 1, 0.89, 1);
 }
 body #main .main-wrapper .main-container1.active {
   display: none;
@@ -44,7 +44,7 @@ body #main .main-wrapper .main-container1 .container1-item-wrapper .container1-i
   width: 100%;
   line-height: 1.25;
   font-size: 5vw;
-  transition: translate 1s cubic-bezier(0.5, 1, 0.89, 1), opacity cubic-bezier(0.5, 1, 0.89, 1);
+  transition: translate 1s cubic-bezier(0.5, 1, 0.89, 1), opacity 0.5s cubic-bezier(0.5, 1, 0.89, 1);
   color: #b7ebd6;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -365,12 +365,12 @@ body #main .main-wrapper .main-container4 .container4-wrapper .item1.active {
 }
 body #main .main-wrapper .main-container4 .container4-wrapper .item1 P {
   rotate: -2deg;
-  color: #59ebb1;
-  background-color: #fdf7ee;
   font-weight: 900;
   text-transform: uppercase;
   font-size: clamp(3rem, 10vw, 6rem);
   line-height: 0.75em;
+  color: #59ebb1;
+  background-color: fdf7ee;
   text-shadow: 3px 1px 1px #ddd, 2px 2px 1px #000, 4px 2px 1px #ddd, 3px 3px 1px #000, 5px 3px 1px #ddd, 4px 4px 1px #000, 6px 4px 1px #ddd, 5px 5px 1px #000, 7px 5px 1px #ddd, 6px 6px 1px #000, 8px 6px 1px #ddd, 7px 7px 1px #000, 9px 7px 1px #ddd;
 }
 body #main .main-wrapper .main-container4 .container4-wrapper .item2 {
@@ -381,12 +381,12 @@ body #main .main-wrapper .main-container4 .container4-wrapper .item2.active {
 }
 body #main .main-wrapper .main-container4 .container4-wrapper .item2 P {
   rotate: -2deg;
-  color: #ffce6c;
-  background-color: #fdf7ee;
   font-weight: 900;
   text-transform: uppercase;
   font-size: clamp(3rem, 10vw, 6rem);
   line-height: 0.75em;
+  color: #ffce6c;
+  background-color: #fdf7ee;
   text-shadow: 3px 1px 1px #ddd, 2px 2px 1px #000, 4px 2px 1px #ddd, 3px 3px 1px #000, 5px 3px 1px #ddd, 4px 4px 1px #000, 6px 4px 1px #ddd, 5px 5px 1px #000, 7px 5px 1px #ddd, 6px 6px 1px #000, 8px 6px 1px #ddd, 7px 7px 1px #000, 9px 7px 1px #ddd;
 }
 body #main .main-wrapper .main-container4 .container4-wrapper .item3 {
@@ -397,12 +397,12 @@ body #main .main-wrapper .main-container4 .container4-wrapper .item3.active {
 }
 body #main .main-wrapper .main-container4 .container4-wrapper .item3 P {
   rotate: -2deg;
-  color: #c7b25a;
-  background-color: #fdf7ee;
   font-weight: 900;
   text-transform: uppercase;
   font-size: clamp(3rem, 10vw, 6rem);
   line-height: 0.75em;
+  color: #c7b25a;
+  background-color: #fdf7ee;
   text-shadow: 3px 1px 1px #ddd, 2px 2px 1px #000, 4px 2px 1px #ddd, 3px 3px 1px #000, 5px 3px 1px #ddd, 4px 4px 1px #000, 6px 4px 1px #ddd, 5px 5px 1px #000, 7px 5px 1px #ddd, 6px 6px 1px #000, 8px 6px 1px #ddd, 7px 7px 1px #000, 9px 7px 1px #ddd;
 }
 body #main .main-wrapper .main-container4 .container4-wrapper .item4 {
@@ -413,12 +413,12 @@ body #main .main-wrapper .main-container4 .container4-wrapper .item4.active {
 }
 body #main .main-wrapper .main-container4 .container4-wrapper .item4 P {
   rotate: -2deg;
-  color: #ca7676;
-  background-color: #fdf7ee;
   font-weight: 900;
   text-transform: uppercase;
   font-size: clamp(3rem, 10vw, 6rem);
   line-height: 0.75em;
+  color: #ca7676;
+  background-color: #fdf7ee;
   text-shadow: 3px 1px 1px #ddd, 2px 2px 1px #000, 4px 2px 1px #ddd, 3px 3px 1px #000, 5px 3px 1px #ddd, 4px 4px 1px #000, 6px 4px 1px #ddd, 5px 5px 1px #000, 7px 5px 1px #ddd, 6px 6px 1px #000, 8px 6px 1px #ddd, 7px 7px 1px #000, 9px 7px 1px #ddd;
 }
 body #main .main-wrapper .main-container4 .container4-wrapper .item5 {
@@ -429,12 +429,12 @@ body #main .main-wrapper .main-container4 .container4-wrapper .item5.active {
 }
 body #main .main-wrapper .main-container4 .container4-wrapper .item5 P {
   rotate: -2deg;
-  color: #ffe52f;
-  background-color: #fdf7ee;
   font-weight: 900;
   text-transform: uppercase;
   font-size: clamp(3rem, 10vw, 6rem);
   line-height: 0.75em;
+  color: #ffe52f;
+  background-color: #fdf7ee;
   text-shadow: 3px 1px 1px #ddd, 2px 2px 1px #000, 4px 2px 1px #ddd, 3px 3px 1px #000, 5px 3px 1px #ddd, 4px 4px 1px #000, 6px 4px 1px #ddd, 5px 5px 1px #000, 7px 5px 1px #ddd, 6px 6px 1px #000, 8px 6px 1px #ddd, 7px 7px 1px #000, 9px 7px 1px #ddd;
 }
 body #main .main-wrapper .main-container4 .container4-wrapper .item6 {
@@ -445,12 +445,12 @@ body #main .main-wrapper .main-container4 .container4-wrapper .item6.active {
 }
 body #main .main-wrapper .main-container4 .container4-wrapper .item6 P {
   rotate: -2deg;
-  color: #9fcd54;
-  background-color: #fdf7ee;
   font-weight: 900;
   text-transform: uppercase;
   font-size: clamp(3rem, 10vw, 6rem);
   line-height: 0.75em;
+  color: #9fcd54;
+  background-color: #fdf7ee;
   text-shadow: 3px 1px 1px #ddd, 2px 2px 1px #000, 4px 2px 1px #ddd, 3px 3px 1px #000, 5px 3px 1px #ddd, 4px 4px 1px #000, 6px 4px 1px #ddd, 5px 5px 1px #000, 7px 5px 1px #ddd, 6px 6px 1px #000, 8px 6px 1px #ddd, 7px 7px 1px #000, 9px 7px 1px #ddd;
 }
 

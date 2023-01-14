@@ -1,5 +1,20 @@
 @import url(./reset.css);
 @import url(./header.css);
+@mixin flow-text-values($color, $bgC) {
+  rotate: -2deg;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 10vw, 6rem);
+  line-height: 0.75em;
+  color: $color;
+  background-color: $bgC;
+  text-shadow: 3px 1px 1px #ddd, 2px 2px 1px #000, 4px 2px 1px #ddd, 3px 3px 1px #000, 5px 3px 1px #ddd, 4px 4px 1px #000, 6px 4px 1px #ddd, 5px 5px 1px #000, 7px 5px 1px #ddd, 6px 6px 1px #000,
+    8px 6px 1px #ddd, 7px 7px 1px #000, 9px 7px 1px #ddd;
+  @content;
+}
+$flowFontColor: ("#59ebb1", "#ffce6c", "#c7b25a", "#ca7676", "#ffe52f", "#9fcd54");
+$flowBgColor: ("fdf7ee", "#fdf7ee", "#fdf7ee", "#fdf7ee", "#fdf7ee", "#fdf7ee");
+$transition: translate 1s cubic-bezier(0.5, 1, 0.89, 1), opacity 0.5s (cubic-bezier(0.5, 1, 0.89, 1));
 
 html {
   scroll-behavior: smooth;
@@ -29,7 +44,7 @@ body {
       width: 100vw;
       height: 200vh;
       .main-container1 {
-        transition: opacity 0.5s (cubic-bezier(0.5, 1, 0.89, 1));
+        transition: $transition;
         &.active {
           display: none;
         }
@@ -43,7 +58,7 @@ body {
               width: 100%;
               line-height: 1.25;
               font-size: 5vw;
-              transition: translate 1s cubic-bezier(0.5, 1, 0.89, 1), opacity (cubic-bezier(0.5, 1, 0.89, 1));
+              transition: $transition;
               color: #b7ebd6;
               user-select: none;
               .intro-text1 {
@@ -349,106 +364,15 @@ body {
               }
             }
           }
-          .item1 {
-            display: none;
-            &.active {
-              display: block;
-            }
-            P {
-              rotate: -2deg;
-              color: #59ebb1;
-              background-color: #fdf7ee;
-              font-weight: 900;
-              text-transform: uppercase;
-              font-size: clamp(3rem, 10vw, 6rem);
-              line-height: 0.75em;
-              text-shadow: 3px 1px 1px #ddd, 2px 2px 1px #000, 4px 2px 1px #ddd, 3px 3px 1px #000, 5px 3px 1px #ddd, 4px 4px 1px #000, 6px 4px 1px #ddd, 5px 5px 1px #000, 7px 5px 1px #ddd,
-                6px 6px 1px #000, 8px 6px 1px #ddd, 7px 7px 1px #000, 9px 7px 1px #ddd;
-            }
-          }
-          .item2 {
-            display: none;
-            &.active {
-              display: block;
-            }
-            P {
-              rotate: -2deg;
-              color: #ffce6c;
-              background-color: #fdf7ee;
-              font-weight: 900;
-              text-transform: uppercase;
-              font-size: clamp(3rem, 10vw, 6rem);
-              line-height: 0.75em;
-              text-shadow: 3px 1px 1px #ddd, 2px 2px 1px #000, 4px 2px 1px #ddd, 3px 3px 1px #000, 5px 3px 1px #ddd, 4px 4px 1px #000, 6px 4px 1px #ddd, 5px 5px 1px #000, 7px 5px 1px #ddd,
-                6px 6px 1px #000, 8px 6px 1px #ddd, 7px 7px 1px #000, 9px 7px 1px #ddd;
-            }
-          }
-          .item3 {
-            display: none;
-            &.active {
-              display: block;
-            }
-            P {
-              rotate: -2deg;
-              color: #c7b25a;
-              background-color: #fdf7ee;
-              font-weight: 900;
-              text-transform: uppercase;
-              font-size: clamp(3rem, 10vw, 6rem);
-              line-height: 0.75em;
-              text-shadow: 3px 1px 1px #ddd, 2px 2px 1px #000, 4px 2px 1px #ddd, 3px 3px 1px #000, 5px 3px 1px #ddd, 4px 4px 1px #000, 6px 4px 1px #ddd, 5px 5px 1px #000, 7px 5px 1px #ddd,
-                6px 6px 1px #000, 8px 6px 1px #ddd, 7px 7px 1px #000, 9px 7px 1px #ddd;
-            }
-          }
-          .item4 {
-            display: none;
-            &.active {
-              display: block;
-            }
-            P {
-              rotate: -2deg;
-              color: #ca7676;
-              background-color: #fdf7ee;
-              font-weight: 900;
-              text-transform: uppercase;
-              font-size: clamp(3rem, 10vw, 6rem);
-              line-height: 0.75em;
-              text-shadow: 3px 1px 1px #ddd, 2px 2px 1px #000, 4px 2px 1px #ddd, 3px 3px 1px #000, 5px 3px 1px #ddd, 4px 4px 1px #000, 6px 4px 1px #ddd, 5px 5px 1px #000, 7px 5px 1px #ddd,
-                6px 6px 1px #000, 8px 6px 1px #ddd, 7px 7px 1px #000, 9px 7px 1px #ddd;
-            }
-          }
-          .item5 {
-            display: none;
-            &.active {
-              display: block;
-            }
-            P {
-              rotate: -2deg;
-              color: #ffe52f;
-              background-color: #fdf7ee;
-              font-weight: 900;
-              text-transform: uppercase;
-              font-size: clamp(3rem, 10vw, 6rem);
-              line-height: 0.75em;
-              text-shadow: 3px 1px 1px #ddd, 2px 2px 1px #000, 4px 2px 1px #ddd, 3px 3px 1px #000, 5px 3px 1px #ddd, 4px 4px 1px #000, 6px 4px 1px #ddd, 5px 5px 1px #000, 7px 5px 1px #ddd,
-                6px 6px 1px #000, 8px 6px 1px #ddd, 7px 7px 1px #000, 9px 7px 1px #ddd;
-            }
-          }
-          .item6 {
-            display: none;
-            &.active {
-              display: block;
-            }
-            P {
-              rotate: -2deg;
-              color: #9fcd54;
-              background-color: #fdf7ee;
-              font-weight: 900;
-              text-transform: uppercase;
-              font-size: clamp(3rem, 10vw, 6rem);
-              line-height: 0.75em;
-              text-shadow: 3px 1px 1px #ddd, 2px 2px 1px #000, 4px 2px 1px #ddd, 3px 3px 1px #000, 5px 3px 1px #ddd, 4px 4px 1px #000, 6px 4px 1px #ddd, 5px 5px 1px #000, 7px 5px 1px #ddd,
-                6px 6px 1px #000, 8px 6px 1px #ddd, 7px 7px 1px #000, 9px 7px 1px #ddd;
+          @for $i from 1 to 7 {
+            .item#{$i} {
+              display: none;
+              &.active {
+                display: block;
+              }
+              P {
+                @include flow-text-values(#{nth($flowFontColor, $i)}, #{nth($flowBgColor, $i)});
+              }
             }
           }
         }
