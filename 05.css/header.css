@@ -3,25 +3,6 @@ body.stop-scroll {
   overflow: hidden !important;
 }
 
-@-webkit-keyframes screenani {
-  0% {
-    top: -110%;
-    border-radius: 0 0 50% 50%;
-  }
-  20% {
-    top: 0%;
-    border-radius: 0 0 0 0;
-  }
-  80% {
-    top: 0%;
-    border-radius: 0 0 0 0;
-  }
-  100% {
-    top: 110%;
-    border-radius: 50% 50% 0 0;
-  }
-}
-
 @keyframes screenani {
   0% {
     top: -110%;
@@ -48,8 +29,7 @@ body.stop-scroll {
   left: 0;
   z-index: 1000;
   background-color: #eefdf7;
-  -webkit-animation: background-ani 1500ms forwards linear;
-          animation: background-ani 1500ms forwards linear;
+  animation: background-ani 1500ms forwards linear;
   transition: 1500ms;
 }
 #load.display-off {
@@ -63,8 +43,7 @@ body.stop-scroll {
   position: fixed;
   top: -110%;
   top: 0;
-  -webkit-animation: screenani 1500ms linear forwards;
-          animation: screenani 1500ms linear forwards;
+  animation: screenani 1500ms linear forwards;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,23 +57,7 @@ body.stop-scroll {
   font-size: 12vw;
   font-weight: bold;
   color: #00ab69;
-  -webkit-animation: loadTextAni 1500ms ease forwards;
-          animation: loadTextAni 1500ms ease forwards;
-}
-
-@-webkit-keyframes loadTextAni {
-  0% {
-    transform: scaleY(0);
-  }
-  30% {
-    transform: scaleY(0);
-  }
-  70% {
-    transform: scaleY(1);
-  }
-  100% {
-    transform: scaleY(1);
-  }
+  animation: loadTextAni 1500ms ease forwards;
 }
 
 @keyframes loadTextAni {
@@ -109,17 +72,6 @@ body.stop-scroll {
   }
   100% {
     transform: scaleY(1);
-  }
-}
-@-webkit-keyframes background-ani {
-  0% {
-    background-color: #eefdf7;
-  }
-  50% {
-    background-color: #eefdf7;
-  }
-  100% {
-    background-color: transparent;
   }
 }
 @keyframes background-ani {
@@ -587,24 +539,6 @@ header .menu-container .click-cover {
   body.stop-scroll {
     overflow: hidden !important;
   }
-  @-webkit-keyframes screenani {
-    0% {
-      top: -110%;
-      border-radius: 0 0 25% 25%;
-    }
-    20% {
-      top: 0%;
-      border-radius: 0 0 0 0;
-    }
-    80% {
-      top: 0%;
-      border-radius: 0 0 0 0;
-    }
-    100% {
-      top: 110%;
-      border-radius: 25% 25% 0 0;
-    }
-  }
   @keyframes screenani {
     0% {
       top: -110%;
@@ -631,8 +565,7 @@ header .menu-container .click-cover {
     left: 0;
     z-index: 1000;
     background-color: #eefdf7;
-    -webkit-animation: background-ani 1500ms forwards linear;
-            animation: background-ani 1500ms forwards linear;
+    animation: background-ani 1500ms forwards linear;
     transition: 1500ms;
   }
   #load.display-off {
@@ -645,8 +578,7 @@ header .menu-container .click-cover {
     position: fixed;
     top: -110%;
     top: 0;
-    -webkit-animation: screenani 1500ms linear forwards;
-            animation: screenani 1500ms linear forwards;
+    animation: screenani 1500ms linear forwards;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -660,22 +592,7 @@ header .menu-container .click-cover {
     font-size: 20vw;
     font-weight: bold;
     color: #00ab69;
-    -webkit-animation: loadTextAni 1500ms ease forwards;
-            animation: loadTextAni 1500ms ease forwards;
-  }
-  @-webkit-keyframes loadTextAni {
-    0% {
-      transform: scaleY(0);
-    }
-    30% {
-      transform: scaleY(0);
-    }
-    70% {
-      transform: scaleY(1);
-    }
-    100% {
-      transform: scaleY(1);
-    }
+    animation: loadTextAni 1500ms ease forwards;
   }
   @keyframes loadTextAni {
     0% {
@@ -689,17 +606,6 @@ header .menu-container .click-cover {
     }
     100% {
       transform: scaleY(1);
-    }
-  }
-  @-webkit-keyframes background-ani {
-    0% {
-      background-color: #eefdf7;
-    }
-    50% {
-      background-color: #eefdf7;
-    }
-    100% {
-      background-color: transparent;
     }
   }
   @keyframes background-ani {
@@ -980,24 +886,6 @@ header .menu-container .click-cover {
   body.stop-scroll {
     overflow: hidden !important;
   }
-  @-webkit-keyframes screenani {
-    0% {
-      top: -110%;
-      border-radius: 0 0 25% 25%;
-    }
-    20% {
-      top: 0%;
-      border-radius: 0 0 0 0;
-    }
-    80% {
-      top: 0%;
-      border-radius: 0 0 0 0;
-    }
-    100% {
-      top: 110%;
-      border-radius: 25% 25% 0 0;
-    }
-  }
   @keyframes screenani {
     0% {
       top: -110%;
@@ -1024,8 +912,7 @@ header .menu-container .click-cover {
     left: 0;
     z-index: 1000;
     background-color: #eefdf7;
-    -webkit-animation: background-ani 1500ms forwards linear;
-            animation: background-ani 1500ms forwards linear;
+    animation: background-ani 1500ms forwards linear;
     transition: 1500ms;
   }
   #load.display-off {
@@ -1038,8 +925,7 @@ header .menu-container .click-cover {
     position: fixed;
     top: -110%;
     top: 0;
-    -webkit-animation: screenani 1500ms linear forwards;
-            animation: screenani 1500ms linear forwards;
+    animation: screenani 1500ms linear forwards;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1053,22 +939,7 @@ header .menu-container .click-cover {
     font-size: 20vw;
     font-weight: bold;
     color: #00ab69;
-    -webkit-animation: loadTextAni 1500ms ease forwards;
-            animation: loadTextAni 1500ms ease forwards;
-  }
-  @-webkit-keyframes loadTextAni {
-    0% {
-      transform: scaleY(0);
-    }
-    30% {
-      transform: scaleY(0);
-    }
-    70% {
-      transform: scaleY(1);
-    }
-    100% {
-      transform: scaleY(1);
-    }
+    animation: loadTextAni 1500ms ease forwards;
   }
   @keyframes loadTextAni {
     0% {
@@ -1082,17 +953,6 @@ header .menu-container .click-cover {
     }
     100% {
       transform: scaleY(1);
-    }
-  }
-  @-webkit-keyframes background-ani {
-    0% {
-      background-color: #eefdf7;
-    }
-    50% {
-      background-color: #eefdf7;
-    }
-    100% {
-      background-color: transparent;
     }
   }
   @keyframes background-ani {

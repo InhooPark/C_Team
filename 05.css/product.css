@@ -53,16 +53,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  -webkit-animation: ani 1s ease-in-out;
-          animation: ani 1s ease-in-out;
-}
-@-webkit-keyframes ani {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  animation: ani 1s ease-in-out;
 }
 @keyframes ani {
   0% {
@@ -77,8 +68,7 @@ body {
   width: 35%;
   height: 40%;
   left: 52%;
-  -webkit-animation: textani 1s ease-in;
-          animation: textani 1s ease-in;
+  animation: textani 1s ease-in;
   min-width: 330px;
   word-break: keep-all;
 }
@@ -91,14 +81,6 @@ body {
   font-size: 20px;
   margin-top: 12%;
   line-height: 177%;
-}
-@-webkit-keyframes textani {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 @keyframes textani {
   0% {
@@ -208,32 +190,21 @@ body {
   height: 300px;
   display: flex;
   white-space: nowrap;
-  -webkit-animation: bg 120s linear infinite;
-          animation: bg 120s linear infinite;
+  animation: bg 120s linear infinite;
 }
 .main .main-content .ani img:nth-child(2n) {
   width: 200px;
   height: 200px;
-  -webkit-animation: aa 5s linear infinite;
-          animation: aa 5s linear infinite;
+  animation: aa 5s linear infinite;
   margin: 30px;
   margin-left: 100px;
 }
 .main .main-content .ani img:nth-child(2n+1) {
   width: 200px;
   height: 200px;
-  -webkit-animation: aa1 10s linear infinite;
-          animation: aa1 10s linear infinite;
+  animation: aa1 10s linear infinite;
   margin: 30px;
   margin-left: 100px;
-}
-@-webkit-keyframes aa {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(1080deg);
-  }
 }
 @keyframes aa {
   0% {
@@ -243,28 +214,12 @@ body {
     transform: rotate(1080deg);
   }
 }
-@-webkit-keyframes aa1 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-730deg);
-  }
-}
 @keyframes aa1 {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(-730deg);
-  }
-}
-@-webkit-keyframes bg {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
   }
 }
 @keyframes bg {
@@ -577,22 +532,13 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
-  -webkit-animation: mobg 100s linear infinite;
-          animation: mobg 100s linear infinite;
+  animation: mobg 100s linear infinite;
 }
 .main .mobg .mobgimg img {
   margin-left: 240px;
   opacity: 0.2;
   height: 100%;
   width: 5%;
-}
-@-webkit-keyframes mobg {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
 }
 @keyframes mobg {
   0% {

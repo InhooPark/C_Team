@@ -47,8 +47,7 @@ body::-webkit-scrollbar {
   display: block;
   left: 0;
   background: #00ab69;
-  -webkit-animation: scroll-ani infinite 2000ms linear;
-          animation: scroll-ani infinite 2000ms linear;
+  animation: scroll-ani infinite 2000ms linear;
 }
 .scroll.invisible {
   opacity: 0;
@@ -88,8 +87,7 @@ body::-webkit-scrollbar {
   border: 3px solid #00ab69;
   border-radius: 50%;
   box-sizing: border-box;
-  -webkit-animation: touch-ani 1000ms infinite linear;
-          animation: touch-ani 1000ms infinite linear;
+  animation: touch-ani 1000ms infinite linear;
   z-index: 1;
 }
 .touch.visible {
@@ -132,8 +130,7 @@ body::-webkit-scrollbar {
   background: #00ab69;
   position: absolute;
   transform-origin: bottom;
-  -webkit-animation: touch-span-ani infinite ease-out 800ms;
-          animation: touch-span-ani infinite ease-out 800ms;
+  animation: touch-span-ani infinite ease-out 800ms;
 }
 .mobile-touch .mobile-touch-wrap > span:nth-of-type(1) {
   top: 10%;
@@ -160,18 +157,6 @@ body::-webkit-scrollbar {
   opacity: 1;
 }
 
-@-webkit-keyframes touch-span-ani {
-  0% {
-    transform: scaleY(0);
-  }
-  30% {
-    transform: scaleY(0);
-  }
-  100% {
-    transform: scaleY(1);
-  }
-}
-
 @keyframes touch-span-ani {
   0% {
     transform: scaleY(0);
@@ -181,23 +166,6 @@ body::-webkit-scrollbar {
   }
   100% {
     transform: scaleY(1);
-  }
-}
-@-webkit-keyframes touch-ani {
-  0% {
-    scale: 0;
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  90% {
-    scale: 2;
-    opacity: 1;
-  }
-  100% {
-    scale: 2.5;
-    opacity: 0;
   }
 }
 @keyframes touch-ani {
@@ -231,7 +199,6 @@ body::-webkit-scrollbar {
   position: relative;
 }
 .first-title .first-sticky {
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   width: 100%;
@@ -339,15 +306,6 @@ body::-webkit-scrollbar {
   -o-object-fit: cover;
      object-fit: cover;
   filter: drop-shadow(3px 3px 2px black);
-}
-
-@-webkit-keyframes scroll-ani {
-  from {
-    top: -110%;
-  }
-  to {
-    top: 110%;
-  }
 }
 
 @keyframes scroll-ani {

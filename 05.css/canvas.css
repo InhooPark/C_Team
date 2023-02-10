@@ -47,27 +47,15 @@ body::-webkit-scrollbar {
 }
 .fourth-canvas .canvas-button .wave.one {
   background: linear-gradient(0deg, #b7ebd6, #00ab69);
-  -webkit-animation: whirl 3000ms infinite linear;
-          animation: whirl 3000ms infinite linear;
+  animation: whirl 3000ms infinite linear;
 }
 .fourth-canvas .canvas-button .wave.two {
   background: linear-gradient(0deg, #b7ebd6, #003082);
-  -webkit-animation: whirl 5000ms infinite linear;
-          animation: whirl 5000ms infinite linear;
+  animation: whirl 5000ms infinite linear;
 }
 .fourth-canvas .canvas-button .wave.three {
   background: linear-gradient(0deg, #b7ebd6, yellow);
-  -webkit-animation: whirl 7000ms infinite linear;
-          animation: whirl 7000ms infinite linear;
-}
-
-@-webkit-keyframes whirl {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  animation: whirl 7000ms infinite linear;
 }
 
 @keyframes whirl {
